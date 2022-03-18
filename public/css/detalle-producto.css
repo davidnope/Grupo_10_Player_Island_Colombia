@@ -1,0 +1,376 @@
+:root{
+    --na1: #FF6D00;
+    --na2: #FF7900;
+    --na3: #FF8500;
+    --na4: #FF9100;
+    --na5: #FF9E00;
+    --mo1: #240046;
+    --mo2: #3C096C;
+    --mo3: #5A189A;
+    --mo4: #7B2CBF;
+    --mo5: #9D4EDD;
+ }
+body{
+    background-image: url(/img/Fondo.jpg);
+}
+/* detalle del producto */
+/* imagenes  */
+main{
+    display: flex;
+    flex-direction: column;
+    /* position: absolute; */
+
+}
+
+#imagenes-producto{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#imagenes-producto h4{
+    display: flex;
+    align-self: center;
+    color: white;
+    margin-top: 30px;
+}
+#imagenPrincipal{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    border: solid 1px black;
+    margin-bottom: 20px;
+}
+#imagenPrincipal img{
+    display: flex;
+    width: 100%;
+}
+#carrusel{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+
+}
+
+.flechas{
+    display: flex;
+    height: 80%;
+    border-radius: 15px;
+    align-items: center;
+  }
+.divFlechas{
+    display: flex;
+    align-items: center;
+}
+#siguientes-imagenes{
+    display: flex;
+    align-self: center;
+    width: 70%;
+    justify-content: space-around;
+}
+#imagenscroll1{
+display: flex;
+}
+#imagenscroll2{
+display: flex;
+}
+#imagenscroll3{
+display: flex;
+}
+#imagenscroll4{
+display: none;
+}
+
+.imagenes-pequeñas{
+    width: 50px;
+    height: 50px;
+    border: solid 1px black;
+} 
+.imagenes-pequeñas img{
+    width: 50px;
+    height: 50px;
+}
+
+/* descripcion */
+
+#descripcion-producto{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    border-top: solid grey 1px ;
+    border-bottom: solid grey 1px ;
+    padding: 10px;
+    margin-top: 20px;
+}
+#descripcion-producto h2{
+    display: flex;
+    /* align-self: center; */
+    color: var(--na1);
+    margin-top: 5px;
+    margin-bottom: 5px ;
+}
+#descripcion-producto p{
+    color: white;
+}
+/* compra producto */
+
+#compra-producto{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    border-bottom: solid grey 1px ;
+    padding: 10px;
+}
+#compra-producto h2{
+    display: flex;
+    /* align-self: center; */
+    color: var(--na1);
+    margin-top: 5px;
+    margin-bottom: 5px ;
+}
+#divForm{
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+#formCompra{
+    display: flex;
+    flex-direction: column;
+}
+#selectorColor{
+    display: flex;
+    margin-left: 10px;
+    color: white;
+    background-color: var(--mo1);
+    
+}
+#selectorCantidad{
+    display:flex;
+    margin-left: 10px;
+    color:white;
+    background-color:var(--mo1);
+    
+}
+#selectorMetodo{
+    display: flex;
+    margin-left: 10px;
+    color: white;
+    background-color: var(--mo1);
+    
+}
+#boton-agregar-carrito{
+    display: flex;
+    align-self: center;
+    width: 180px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    border-radius: 15px;
+    color: black;
+    font-weight: bolder;
+    background-color: var(--na1);
+    border: 0px;
+    margin-top: 10px;
+}
+
+/* OPCIONES DE PRODUCTO */
+
+#opciones-producto{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    border-bottom: solid grey 1px ;
+    padding: 10px;
+}
+#navOpciones{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 25px;
+}
+.botonOpc{
+    display: flex;
+    margin: auto;
+    width: 80%;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2px;
+    color: white;
+    background-color: rgba(67, 67, 67, 0.3) ;
+    border:solid 1px white;
+    
+}
+#parrafo-opciones{
+    color: rgba(255,255,255, 0.8);
+    padding:  0px 10px;
+    background-color: #170F1F;
+    margin-top: 25px;
+}
+
+
+
+
+/* Nuestros productos */
+
+#pruductosLinea{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: rgba(119, 119, 119, 0.727);
+    margin-top: 72px;
+    margin-bottom: 0px;
+    padding-bottom: 50px;
+}
+
+#pruductosLinea h2{
+
+    width: 100%;
+    text-align: center;
+}
+
+.productoDesc{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 60%;
+    text-decoration: none;
+    color: black;
+}
+.producto2{
+    display: none;
+}
+.producto3{
+    display: none;
+}
+/* imgNuProductos - Img */
+.imgNuProductos{
+    width: 100%;
+}
+#pruductosLinea img{
+    width: 100%;
+    display: block;
+}
+
+
+/* Descripcion -texto */
+
+.descripcion{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(200, 200, 200);
+}
+.estrellas{
+    font-size: 12px;
+    width: 100%;
+}
+
+.descripcion h4{
+    margin: 5px 0px;
+    width: 100%;
+}
+.descripcion p{
+    width: 100%;
+    margin: 0px;
+}
+.iconosAbajo{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: end;
+}
+
+.iconosAbajo i{
+    padding-left: 10px;
+}
+
+@media (min-width: 430px) {
+    main{
+        width: 90%;
+        margin: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #imagenes-producto{
+        width: 45%;
+        
+        
+        
+    }
+    #descripcion-producto{
+        width: 40%;
+        margin-top: 70px;
+        
+    }
+    #compra-producto{
+        width: 40%;
+        position: relative;
+        left: 22%;
+    }
+    #pruductosLinea{
+        width:100%;
+    }
+    #navOpciones{
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        /* width: 100%; */
+        margin-top: 25px;
+        justify-content: center;
+    }
+    .productoDesc{
+        width: 25%;
+    }
+    .botonOpc{
+        display: flex;
+        margin: auto;
+        width: 100%;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        /* margin-bottom: 2px;
+        color: white;
+        background-color: rgba(67, 67, 67, 0.3) ;
+        border:solid 1px white; */
+        
+    }
+    .producto2{
+        display: flex;
+    }
+    .producto3{
+        display: flex;
+    }
+    
+    
+}
+@media (min-width: 770px) {
+    #compra-producto{
+        
+        bottom: 150px;
+    }
+    #imagenscroll4{
+        display: flex;
+        }
+}
+@media (min-width: 1030px) {
+    #compra-producto{
+        bottom: 280px;
+    }
+    #opciones-producto{
+        position: absolute;
+        top: 700px;
+        left: 9%;
+    }
+   
+}
+
+
+
+

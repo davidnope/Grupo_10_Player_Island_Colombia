@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/detalle-producto.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del producto</title>
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <nav>
+                <a href="/">
+                    <div id="logo">
+                        <img src="/img/logoProvisional.png" alt="">
+                    </div>
+                </a>
+                <div id="barraBusqueda">
+                    <i class="fa-solid fa-magnifying-glass navButton"></i>
+                    <input type="search" placeholder="Busca aquí...">
+
+                </div>
+                <div id="navegacion">
+                    <div id="barraBusqueda1">
+                        <i class="fa-solid fa-magnifying-glass navButton"></i>
+                        <input type="search" placeholder="Busca aquí...">
+
+                    </div>
+                    <div id="listaNavegacion">
+                        <ul>
+                            <li><a href="/">Inicio </a></li>
+                            <li><a href="/ListaProductos">Productos </a></li>
+                            <li><a href="/">Servicios </a></li>
+                            <li><a href="">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="navButton barras">
+                    <a href="#"><i class="fa-solid fa-bars"></i></a>
+                </div>
+                <div class="navButton login">
+                    <a href="/login"><i class="fa-solid fa-user"></i></a>
+                </div>
+                <div class="navButton carrito">
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <!-- detalle del producto -->
+        <!-- imagenes  -->
+        <!-- <div id="main"> -->
+        <section id="imagenes-producto">
+            <h4>Productos > Xbox One > Control SE</h4>
+            <div id="imagenPrincipal">
+                <img src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg" alt="">
+            </div>
+            <div id="carrusel">
+
+                <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-left"></i></button></div>
+                <div id="siguientes-imagenes">
+                    <div id="imagenscroll1" class="imagenes-pequeñas"><img
+                            src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg"
+                            alt=""></div>
+                    <div id="imagenscroll2" class="imagenes-pequeñas"> <img
+                            src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/6/76-large_default.jpg"
+                            alt=""></div>
+                    <div id="imagenscroll3" class="imagenes-pequeñas"> <img src="/img/control.png" alt=""></div>
+                    <div id="imagenscroll4" class="imagenes-pequeñas"> <img src="/img/control.png" alt=""></div>
+                </div>
+                <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-right"></i></button></div>
+
+            </div>
+
+
+        </section>
+        <!-- descripcion -->
+
+        <section id="descripcion-producto">
+            <h2>Nombre del producto</h2>
+            <div class="estrellas" style="color: gold;">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <h4 style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0px;">reviews (1)</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi animi quasi eum ducimus eos. Alias
+                vel impedit doloremque veritatis, eius, aperiam quod expedita qui tenetur nihil quos laboriosam
+                similique at.</p>
+
+        </section>
+
+
+        <!-- compra producto  -->
+
+
+        <section id="compra-producto">
+            <h2>Stock disponible</h2>
+            <div id="divColor">
+
+                <form action="/carrito-compra" method="get" id="formCompra">
+                    <div style="display: flex; align-items: center;">
+                        <h3 style="color: white; display: flex;">Color: </h3>
+                        <select name="escoje-color" id="selectorColor">
+                            <option value="porDefecto" selected>Elige un Color</option>
+                            <option value="negro" style="background-color: black;">Negro</option>
+                            <option value="blanco" style="background-color: rgb(255, 255, 255); color: black;">Blanco
+                            </option>
+                            <option value="rojo" style="background-color: rgb(255, 0, 0);">Rojo</option>
+                            <option value="azul" style="background-color: rgb(8, 4, 252);">Azul</option>
+                        </select>
+                    </div>
+                    <h2 style="font-weight:normal; opacity: 0.8;">$50.000</h2>
+                    <div style="display: flex; align-items: center;">
+                        <h3 style="color: white;">cantidad:</h3>
+                        <select name="escoje-cantidad" id="selectorCantidad">
+                            <option value="1" selected>1 unidad</option>
+                            <option value="2">2 unidades</option>
+                            <option value="3">3 unidades</option>
+                            <option value="4">4 unidades</option>
+                            <option value="5">5 unidades</option>
+                            <option value="6">Mas de 5 unidades</option>
+
+                        </select>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <h3 style="color: white;">Metodo de pago: </h3>
+                        <select name="escoje-metodo" id="selectorMetodo">
+                            <option value="pse" selected>PSE</option>
+                            <option value="visa">VISA</option>
+                            <option value="masterCard">MASTER CARD</option>
+                            <option value="americanExpress">AMERICAN EXPRESS</option>
+                        </select>
+                    </div>
+                    <button id="boton-agregar-carrito" type="submit" value="comprar"> Agregar al carrito</button>
+                </form>
+
+            </div>
+
+
+
+        </section>
+
+
+        <!-- OPCIONES DE PRODUCTO -->
+
+        <section id="opciones-producto">
+
+            <div id="navOpciones">
+                <div>
+                    <button class="botonOpc">Descripcion</button>
+                </div>
+                <div>
+                    <button class="botonOpc">Caracteristicas del producto</button>
+                </div>
+                <div>
+                    <button class="botonOpc">Comentarios</button>
+                </div>
+            </div>
+            <div id="parrafo-opciones">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi vero
+                    sint perferendis unde? Similique beatae veniam, sint deserunt, debitis
+                    quis perspiciatis
+                    et doloribus sed enim sapiente. Perferendis atque ipsa magnam!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis,
+                    maxime rem. Odio provident iusto unde facilis voluptatibus similique
+                    deserunt dolore voluptates quis quasi voluptate rerum nisi, molestiae
+                    tempora pariatur harum!</p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </section>
+
+
+
+        <!-- Nuestros productos -->
+
+        <section id="pruductosLinea">
+
+            <h2>Nuestros productos</h2>
+            <div style="display: flex; width: 80%; margin: auto;">
+                <div class="productoDesc">
+                    <div class="imgNuProductos">
+                        <a href="/detalle-producto">
+                            <img src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg"
+                                alt="" href="/">
+                        </a>
+                    </div>
+                    <div class="descripcion">
+                        <div class="estrellas">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h4>Producto</h4>
+                        <p>$50.000</p>
+                        <div class="iconosAbajo">
+                            <a href="#">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="productoDesc producto2">
+                    <div class="imgNuProductos">
+                        <a href="/detalle-producto">
+                            <img src="/img/control.png" alt="" href="/">
+                        </a>
+                    </div>
+                    <div class="descripcion">
+                        <div class="estrellas">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h4>Producto</h4>
+                        <p>$50.000</p>
+                        <div class="iconosAbajo">
+                            <a href="#">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="productoDesc producto3">
+                    <div class="imgNuProductos">
+                        <a href="/detalle-producto">
+                            <img src="/img/control.png" alt="" href="/">
+                        </a>
+                    </div>
+                    <div class="descripcion">
+                        <div class="estrellas">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <h4>Producto</h4>
+                        <p>$50.000</p>
+                        <div class="iconosAbajo">
+                            <a href="#">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- </div>  -->
+    </main>
+    <footer>
+        <div id="footer">
+            <div id="divFooter">
+                <section>
+                    <h2>Contactenos</h2>
+                    <p><i class="fa-solid fa-envelope"></i> playerisland@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> 000-000-0000</p>
+                </section>
+                <section>
+                    <div> <button class="red"><a href="https://www.instagram.com "><i
+                                    class="fa-brands fa-instagram "></i></a></button>
+                        <button class="red"><a href="https://www.facebook.com"><i
+                                    class="fa-brands fa-facebook-f"></i></a></button>
+                        <button class="red"><a href="https://www.tiktok.com"><i
+                                    class="fa-brands fa-tiktok"></i></a></button>
+                        <button class="red"><a href="https://www.youtube.com"><i
+                                    class="fa-brands fa-youtube"></i></a></button>
+                    </div>
+                </section>
+            </div>
+            <section class="divFooter">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a> lorem ipsum</a></li>
+                    <li><a> lorem ipsum</a></li>
+                    <li><a> lorem ipsum</a></li>
+                    <li><a> lorem ipsum</a></li>
+                </ul>
+            </section>
+            <section class="divFooter">
+                <form action="/" method="post">
+                    <h3>Escribenos</h3>
+                    <input id="formEmail" type="email" name="email" placeholder="ejemplo@correo.com">
+                    <textarea name="comentarios" rows="10" cols="40"
+                        placeholder="Escribe aquí tus comentarios"></textarea>
+                    <div id="botones">
+                        <button id="enviarForm" type="submit" value="ENVIAR">ENVIAR</button>
+                        <button id="resetForm" type="reset">BORRAR</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+    </footer>
+</body>
+
+</html>
