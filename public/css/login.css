@@ -1,0 +1,104 @@
+:root{
+    --morado-oscuro: #150722;
+    --morado-intermedio: #230B39;
+    --morado-claro: #352347;
+    --naranja: #FCA311;
+    --gris: #D6D6D6;
+    --blanco: #FFFFFF;
+}
+
+
+/* caja padre- principal */
+
+.caja_principal{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 350px;
+    height: 650px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+/* Caja izq */
+.caja_izq{
+    background-color: var(--blanco);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Caja izq - componentes */
+.caja_izq h2{
+    font-weight: lighter;
+}
+
+.logo{
+    margin-top: 30px;
+    width: 48px;
+    height: 48px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.formulario-email-contrasena{
+    width: 80%;
+}
+
+.email-contrasena{
+    margin: 45px 0;
+}
+
+.email-contrasena label{
+    color: var(--gris);
+}
+
+.email-contrasena input{
+    margin: 20px 0;
+    width: 97%;
+    border: none;
+    border-bottom: 1px solid var(--gris);
+}
+
+
+.boton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+.boton button{
+    font-size: 20px;
+    font-weight: lighter;
+    height: 41px;
+    width: 170px;
+    margin: 30px 0;
+    border-radius: 12px;
+    border: 0px;
+    color: var(--blanco);
+    font-weight: 600;
+    background-color: var(--morado-claro);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.parrafo-cambio-registro{
+    margin-bottom: 30px;
+}
+
+/* caja der */
+.caja_der{
+    display: none;
+}
+@media(min-width:768px){
+    
+}
+@media(min-width:1279px){
+
+}

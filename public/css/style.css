@@ -12,7 +12,7 @@
    --mo5: #9D4EDD;
 }
 body{
-   
+    background: url(/img/Fondo.jpg);
     font-family: 'Titillium Web', sans-serif;
 }
 header{

@@ -14,4 +14,8 @@ app.get('/detalle-producto', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/detalle-producto.html'))
 })
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/login.html'))
+})
+
 app.listen(port, () => console.log('Corriendo servidor'))

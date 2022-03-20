@@ -8,10 +8,6 @@
 }
 
 
-body{
-    background: url(/img/Fondo.jpg);
-}
-
 main{
     display: flex;
     flex-wrap: wrap;

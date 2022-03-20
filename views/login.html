@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Island</title>
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <nav>
+                <a href="/">
+                    <div id="logo">
+                        <img src="/img/logoProvisional.png" alt="">
+                    </div>
+                </a>
+                <div id="barraBusqueda">
+                    <i class="fa-solid fa-magnifying-glass navButton"></i>
+                    <input type="search" placeholder="Busca aquí...">
+
+                </div>
+                <div id="navegacion">
+                    <div id="barraBusqueda1">
+                        <i class="fa-solid fa-magnifying-glass navButton"></i>
+                        <input type="search" placeholder="Busca aquí...">
+
+                    </div>
+                    <div id="listaNavegacion">
+                        <ul>
+                            <li><a href="/">Inicio </a></li>
+                            <li><a href="/ListaProductos">Productos </a></li>
+                            <li><a href="/">Servicios </a></li>
+                            <li><a href="">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="navButton barras">
+                    <a href="#"><i class="fa-solid fa-bars"></i></a>
+                </div>
+                <div class="navButton login">
+                    <a href="/login"><i class="fa-solid fa-user"></i></a>
+                </div>
+                <div class="navButton carrito">
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="caja_principal">
+            <div class="caja_izq">
+                <div class="logo">
+                    <img src="/img/logoProvisional.png" alt="">
+                </div>
+                <h2>Iniciar seción</h2>
+                <form action="/" class="formulario-email-contrasena">
+
+                    <div class="email-contrasena">
+                        <label for="Email">Email</label> <br>
+                        <input type="email" name="email" id="Email"> <br>
+                    </div>
+
+                    <div class="email-contrasena">
+                        <label for="Contrasena">Contraseña</label><br>
+                        <input type="password" name="contrasena" id="Contrasena"> <br>
+                    </div>
+
+                    <a href="/" class="boton">
+                        <button type="submit">Iniciar</button>
+                    </a>
+
+                </form>
+                <div class = "parrafo-cambio-registro">
+                    <p>¿Aún no te has registrado? <a href="/">Registrate</a></p>
+                </div>
+            </div>
+            <div class="caja_der">
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
