@@ -63,7 +63,7 @@
     <main>
         <div class="caja_principal">
             <div class="caja_izq">
-                <a href="/" style="margin: -12px;">
+                <a href="/">
                     <button type="submit" class="boton-atras">
                         <i class="fa-solid fa-arrow-left"></i>
                     </button>
@@ -71,8 +71,13 @@
                 <div class="logo">
                     <img src="/img/logoProvisional.png" alt="">
                 </div>
-                <h2>Iniciar seción</h2>
+                <h2>Registrarse</h2>
                 <form action="/" class="formulario-email-contrasena">
+
+                    <div class="email-contrasena">
+                        <label for="Usuario">Nombre de usuario</label> <br>
+                        <input type="text" name="usuario" id="Usuario"> <br>
+                    </div>
 
                     <div class="email-contrasena">
                         <label for="Email">Email</label> <br>
@@ -85,12 +90,12 @@
                     </div>
 
                     <a href="/" class="boton">
-                        <button type="submit">Iniciar</button>
+                        <button type="submit">Registrar</button>
                     </a>
 
                 </form>
                 <div class="parrafo-cambio-registro">
-                    <p>¿Aún no te has registrado? <a href="/register">Registrate</a></p>
+                    <p>¿Ya estas registrado? <a href="/login">Iniciar Sesión</a></p>
                 </div>
             </div>
             <div class="caja_der">
