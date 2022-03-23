@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node app.js"
   },
   "repository": {
     "type": "git",
@@ -14,8 +15,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/davidnope/proyecto_privado/issues",
-    "start" : "node app.js"
+    "url": "https://github.com/davidnope/proyecto_privado/issues"
   },
   "homepage": "https://github.com/davidnope/proyecto_privado#readme",
   "dependencies": {
