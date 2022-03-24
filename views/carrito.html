@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/carrito.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Island</title>
+</head>
+
+<body>
+    <header>
+        <div id="header">
+
+            <nav>
+                <a href="/">
+                    <div id="logo">
+                        <img src="/img/logoProvisional.png" alt="">
+                    </div>
+                </a>
+                <div id="barraBusqueda">
+                    <i class="fa-solid fa-magnifying-glass navButton"></i>
+                    <input type="search" placeholder="Busca aquí...">
+
+                </div>
+                <div id="navegacion">
+                    <div id="barraBusqueda1">
+                        <i class="fa-solid fa-magnifying-glass navButton"></i>
+                        <input type="search" placeholder="Busca aquí...">
+
+                    </div>
+                    <div id="listaNavegacion">
+                        <ul>
+                            <li><a href="/">Inicio </a></li>
+                            <li><a href="/ListaProductos">Productos </a></li>
+                            <li><a href="/">Servicios </a></li>
+                            <li><a href="">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="navButton barras">
+                    <a href="#"><i class="fa-solid fa-bars"></i></a>
+                </div>
+                <div class="navButton login">
+                    <a href="/login"><i class="fa-solid fa-user"></i></a>
+                </div>
+                <div class="navButton carrito">
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="titulo-carrito">
+            <h2>Carrito</h2>
+        </div>
+        <section class="contenedor-articulos">
+            <div class="articulo">
+                <div class = "contenedor-articulo">
+                    <div class="img-descripcion">
+                        <div class="img-completa">
+                            <div class="img-articulo">
+                                <img class="js-modal-product-cover product-cover-modal" width="800" src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg" alt="" title="" itemprop="image">
+                            </div>
+                        </div>
+                        <div class="info-articulo">
+                            <h2>Sección 1.10.33</h2>
+                            <p>Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición
+                                tipográfica.</p>
+                        </div>
+                    </div>
+                    <div class="precio-botones">
+                        <div class="botones-articulo">
+                            <input type="number" name="cantidad" min="1" value="1">
+    
+                            <div class="suma-resta">
+                                <button type="submit"><i class="fa-solid fa-angle-up"></i></button>
+    
+                                <button type="submit"><i class="fa-solid fa-angle-down"></i></button>
+                            </div>
+    
+                            <button type="reset" class="delete">Eliminar</button>
+                        </div>
+                        <div class="precio">
+                            <p>$000.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-pago">
+                <div class="contenedor-dir-total">
+                    <div class="direccion-total">
+                        <p>Direccion</p>
+                    </div>
+                    <div class="total-pago">
+                        <p>Total a pagar</p>
+                        <p>$000.000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
