@@ -44,7 +44,6 @@ main{
     flex-wrap: wrap;
     align-items: center;
     width: 90%;
-    border-bottom: 1px solid var(--gris);
 }
 
 /* imagen y descripcion */
@@ -170,19 +169,30 @@ main{
 .contenedor-dir-total{
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    align-items: flex-end;
     width: 90%;
 }
+
+
 .direccion-total{
     display: flex;
     flex-wrap: wrap;
+    width: 300px;
 }
 
 .total-pago{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    width: 300px;
 }
 
+.total-pago div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
 
 
 
