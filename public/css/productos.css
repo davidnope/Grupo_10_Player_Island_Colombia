@@ -1,0 +1,151 @@
+:root{
+    --morado-oscuro: #150722;
+    --morado-intermedio: #230B39;
+    --morado-claro: #352347;
+    --naranja: #FCA311;
+    --gris: #D6D6D6;
+    --blanco: #FFFFFF;
+    --na1: #FF6D00;
+}
+
+main{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+
+
+
+/* escoje la marca */
+
+#escojeMarca{
+    display: flex ;
+    flex-direction: column;
+    width: 100%;
+}
+#labelEscoge{
+    color: var(--na1) ;
+    align-self: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    height: 85px;
+}
+#labelEscoge h5,h2{
+    margin-top: 0px;
+    text-align: center;
+}
+#marcas{
+    display: flex;
+    padding: 1rem 1rem;
+    height: 3.5rem;
+    background-color: var(--gris);
+    justify-content: space-around;
+    align-items: center;
+
+}
+.porLogo{
+    display: flex;
+    color: black;
+    height: 100%;
+    width: 32%;
+
+}
+.iconMarca{
+    height: 100%;
+    width: 100%;
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+
+/* matriz */
+
+#matriz{
+    display: flex;
+    width: 90%;
+}
+
+/* lista */
+
+#lista{
+    display: flex;
+
+}
+
+/* Nuestros productos */
+
+#pruductosLinea{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: rgba(119, 119, 119, 0.727);
+    margin-top: 72px;
+    margin-bottom: 0px;
+    padding-bottom: 50px;
+}
+
+#pruductosLinea h2{
+
+    width: 100%;
+    text-align: center;
+}
+
+.productoDesc{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 60%;
+    text-decoration: none;
+    color: black;
+}
+.producto2{
+    display: none;
+}
+.producto3{
+    display: none;
+}
+/* imgNuProductos - Img */
+.imgNuProductos{
+    width: 100%;
+}
+#pruductosLinea img{
+    width: 100%;
+    display: block;
+}
+
+
+/* Descripcion -texto */
+
+.descripcion{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(200, 200, 200);
+}
+.estrellas{
+    font-size: 12px;
+    width: 100%;
+}
+
+.descripcion h4{
+    margin: 5px 0px;
+    width: 100%;
+}
+.descripcion p{
+    width: 100%;
+    margin: 0px;
+}
+.iconosAbajo{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: end;
+}
+
+.iconosAbajo i{
+    padding-left: 10px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/productos.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+</head>
+<body>
+    <%- include('./partials/header') %>
+    
+    
+    <main>
+        <!-- escoje la marca -->
+        <section id="escogeMarca">
+            <div id="labelEscoge">
+                <h2>Escoge la marca</h2>
+                <h5>¡Encuentra el producto!</h5>
+            </div>
+            <div id="marcas">
+                 <!-- Primero play -->
+            <a href="/" class="porLogo">
+                <div class="iconMarca">
+                    <i class="fa-brands fa-playstation"></i>
+                </div>
+            </a>
+            <!-- Segundo xbox -->
+
+            <a href="/" class="porLogo">
+                <div class="iconMarca">
+                    <i class="fa-brands fa-xbox"></i>
+                </div>
+            </a>
+
+            <!-- Tercero nintendo -->
+
+            <a href="/" class="porLogo">
+                <div class="iconMarca">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+            </a>
+            </div>
+        </section>
+
+        <!-- matriz -->
+        <section id="matriz">
+
+            <!-- lista -->
+            <div id="lista">
+                
+                <!-- nuestros productos -->
+                <%- include('./partials/cuadroDeProducto') %>
+
+                
+            </div>
+        </section>
+
+
+    </main>
+    
+    
+    
+    
+    
+    
+    
+    <%- include('./partials/footer') %>
+
+    
+</body>
+
+</html>
