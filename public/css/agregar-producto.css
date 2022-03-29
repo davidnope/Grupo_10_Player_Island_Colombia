@@ -1,0 +1,36 @@
+:root{
+    --morado-oscuro: #150722;
+    --morado-intermedio: #230B39;
+    --morado-claro: #352347;
+    --naranja: #FCA311;
+    --gris: #D6D6D6;
+    --blanco: #FFFFFF;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titulo-carrito{
+    background-color: var(--gris);
+    width: 97%;
+    margin-bottom: 5px;
+}
+.titulo-carrito h2{
+    color: var(--morado-claro);
+    width: 90%;
+    margin: 20px auto;
+}
+
+
+
+@media (min-width: 768px){
+
+
+}
+
+@media (min-width: 1279px){
+
+}
