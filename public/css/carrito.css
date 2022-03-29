@@ -217,8 +217,8 @@ main{
     margin: 30px 0;
     border-radius: 12px;
     border: 0px;
-    color: var(--blanco);
-    background-color: var(--morado-claro);
+    color: var(--morado-claro);
+    background-color: var(--gris);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
