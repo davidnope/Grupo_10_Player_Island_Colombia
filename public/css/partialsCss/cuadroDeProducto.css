@@ -4,10 +4,10 @@
     width: 100%;
     justify-content: center;
     background-color: var(--morado-oscuro);
-    margin-top: 72px;
-    margin-bottom: 100px;
-    padding: 65px 0px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    margin-top: 10px;
+    margin-bottom: 10px;
+   /*  padding: 65px 0px */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.097);
   }
   
   .pruductosLinea h2{

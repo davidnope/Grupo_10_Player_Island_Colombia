@@ -65,25 +65,71 @@ main{
 #matriz{
     display: flex;
     width: 90%;
+    align-self: center;
+    padding: 40px 0px;
+    align-items: center;
+    flex-direction: column;
 }
+
+/* filtros */
+
+#filtros{
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+#filtros .check{
+    
+    list-style: none;
+    text-decoration: none;
+    width: 80%;
+    align-self: center;
+    
+}
+#filtros h3{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.contenedorFiltros{
+    display: flex;
+    background-color: var(--gris);
+    padding: 30px 0px;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
 
 /* lista */
 
 #lista{
     display: flex;
+    width: 80%;
+    flex-direction: column;
+    
 
+}
+#lista img{
+    width: 100%;
 }
 
 /* Nuestros productos */
 
-#pruductosLinea{
+/* .pruductosLinea{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     background-color: rgba(119, 119, 119, 0.727);
     margin-top: 72px;
     margin-bottom: 0px;
-    padding-bottom: 50px;
+    
 }
 
 #pruductosLinea h2{
@@ -105,16 +151,20 @@ main{
 }
 .producto3{
     display: none;
-}
+} */
+
+
 /* imgNuProductos - Img */
-.imgNuProductos{
+
+
+/* .imgNuProductos{
     width: 100%;
 }
 #pruductosLinea img{
     width: 100%;
     display: block;
 }
-
+ */
 
 /* Descripcion -texto */
 

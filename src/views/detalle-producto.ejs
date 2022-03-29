@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/detalle-producto.css">
+    <link rel="stylesheet" href="/css/partialsCss/cuadroDeProducto.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,7 +93,20 @@
                     <h2 style="font-weight:normal; opacity: 0.8;">$50.000</h2>
                     <div style="display: flex; align-items: center;">
                         <h3 style="color: white;">cantidad:</h3>
-                        <select name="escoje-cantidad" id="selectorCantidad">
+                        <div class="botones-articulo">
+                            <input type="number" name="cantidadcompra" min="1" value="1">
+    
+                            <!-- <div class="suma-resta">
+                                <button><i class="fa-solid fa-angle-up"></i></button>
+    
+                                <button><i class="fa-solid fa-angle-down"></i></button>
+                            </div> -->
+    
+                            <button type="reset" class="delete">Eliminar</button>
+                        </div>
+                       
+                       
+                        <!--  <select name="escoje-cantidad" id="selectorCantidad">
                             <option value="1" selected>1 unidad</option>
                             <option value="2">2 unidades</option>
                             <option value="3">3 unidades</option>
@@ -100,7 +114,7 @@
                             <option value="5">5 unidades</option>
                             <option value="6">Mas de 5 unidades</option>
 
-                        </select>
+                        </select> -->
                     </div>
                     <div style="display: flex; align-items: center;">
                         <h3 style="color: white;">Metodo de pago: </h3>

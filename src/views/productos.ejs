@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/productos.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/partialsCss/cuadroDeProducto.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,14 +57,54 @@
 
         <!-- matriz -->
         <section id="matriz">
+                    
+                <!-- filtros -->
 
+            <form action="/productos" method="get" id="filtros"><!-- <div id="filtros"> -->
+                    <div id="filtroModelo" class="contenedorFiltros">
+                        <h3>Categoria</h3>
+                        <div class="check">
+                            <input type="checkbox"> Ediciones especiales <br>
+                            <input type="checkbox"> Consolas #   <br>
+                            <input type="checkbox"> Controles <br>
+                        </div>                        
+                    </div>
+                    
+                    <div id="filtroModelo" class="contenedorFiltros">
+                        <h3>Color</h3>
+                        <div class="check">
+                            <input type="checkbox"> Color 1<br>
+                            <input type="checkbox"> Color 2   <br>
+                            <input type="checkbox"> Color 3 <br>
+                            <input type="checkbox"> Color 4 <br>
+                            <input type="checkbox"> Color 5 <br>
+                        </div>                        
+                    </div>
+                    
+                    <div id="filtroModelo" class="contenedorFiltros">
+                        <h3>Precio</h3>
+                        <div class="check">
+                            <input type="checkbox"> < $200.000 <br>
+                            <input type="checkbox"> $201.000 - 800.000  <br>
+                            <input type="checkbox"> $801.000 - $1.500.000 <br>
+                            <input type="checkbox"> < $1.500.000 <br>
+                        </div>                        
+                    </div>
+            <!-- </div> --></form>
+            
+            
             <!-- lista -->
             <div id="lista">
-                
-                <!-- nuestros productos -->
+                 <!-- nuestros productos -->
+                <%- include('./partials/cuadroDeProducto') %>
+                <%- include('./partials/cuadroDeProducto') %>
+                <%- include('./partials/cuadroDeProducto') %>
+                <%- include('./partials/cuadroDeProducto') %>
+                <%- include('./partials/cuadroDeProducto') %>
+                <%- include('./partials/cuadroDeProducto') %>
+                <%- include('./partials/cuadroDeProducto') %>
                 <%- include('./partials/cuadroDeProducto') %>
 
-                
             </div>
         </section>
 

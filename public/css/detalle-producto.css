@@ -153,6 +153,53 @@ display: none;
     background-color:var(--mo1);
     
 }
+.botones-articulo{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.botones-articulo input{
+    width: 25%;
+    max-width: 40px;
+    height: 50px;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    text-align: center;
+}
+
+
+/* botones sumar o resta */
+.suma-resta{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 5px;
+    height: 50px;
+}
+.suma-resta button{
+    width: 20px;
+    padding: 0;
+    height: 45%;
+    background-color: grey;
+    color: var(--gris);
+    border: none;
+}
+
+/* boton delete */
+
+
+.delete{
+    width: 50%;
+    height: 52px;
+    max-width: 100px;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    text-align: center;
+    border-left: #FF6D00 solid 2px;
+}
 #selectorMetodo{
     display: flex;
     margin-left: 10px;
