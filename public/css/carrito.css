@@ -16,6 +16,7 @@ main{
 .titulo-carrito{
     background-color: var(--gris);
     width: 97%;
+    margin-bottom: 5px;
 }
 .titulo-carrito h2{
     color: var(--morado-claro);
@@ -34,6 +35,7 @@ main{
     background-color: var(--morado-claro);
     width: 100%;  
     padding: 22px 0;
+    margin: 5px 0;
 }
 
 
@@ -164,12 +166,12 @@ main{
     background-color: var(--morado-claro);
     color : var(--blanco);
     width: 100%; 
+    margin: 5px 0;
 }
 
 .contenedor-dir-total{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     width: 90%;
 }
 
@@ -184,7 +186,6 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 300px;
 }
 
 .total-pago div{
@@ -194,7 +195,33 @@ main{
     width: 100%;
 }
 
+/* boton */
 
+.contenedor-boton{
+    display: flex;
+    justify-content: center;
+}
+
+.style-boton{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    cursor: default;
+}
+
+.style-boton button{
+    font-weight: lighter;
+    font-size: 20px;
+    height: 41px;
+    width: 170px;
+    margin: 30px 0;
+    border-radius: 12px;
+    border: 0px;
+    color: var(--blanco);
+    background-color: var(--morado-claro);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
 
 @media (min-width: 768px){
 
@@ -204,6 +231,13 @@ main{
     .contenedor-articulos {
         width: 80%;
     }
+    .contenedor-dir-total{
+        align-items: flex-end;
+    }
+    .total-pago{
+        width: 300px;
+    }
+    
 
 }
 
