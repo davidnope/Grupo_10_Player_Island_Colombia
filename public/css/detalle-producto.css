@@ -22,6 +22,13 @@ main{
 
 }
 
+#divArriba{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    position: relative;
+}
+
 #imagenes-producto{
     display: flex;
     flex-direction: column;
@@ -91,6 +98,10 @@ display: none;
     height: 50px;
 }
 
+#textoProducto{
+    display: flex;
+    flex-direction: column;
+}
 /* descripcion */
 
 #descripcion-producto{
@@ -105,7 +116,7 @@ display: none;
 }
 #descripcion-producto h2{
     display: flex;
-    /* align-self: center; */
+   /*  ----- align-self: center; */
     color: var(--na1);
     margin-top: 5px;
     margin-bottom: 5px ;
@@ -125,8 +136,8 @@ display: none;
 }
 #compra-producto h2{
     display: flex;
-    /* align-self: center; */
-    color: var(--na1);
+    /* ---- align-self: center; */ 
+     color: var(--na1);
     margin-top: 5px;
     margin-bottom: 5px ;
 }
@@ -170,7 +181,7 @@ display: none;
 
 
 /* botones sumar o resta */
-.suma-resta{
+/* .suma-resta{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -186,7 +197,7 @@ display: none;
     background-color: grey;
     color: var(--gris);
     border: none;
-}
+} */
 
 /* boton delete */
 
@@ -342,24 +353,33 @@ display: none;
     main{
         width: 90%;
         margin: auto;
-        flex-direction: row;
-        flex-wrap: wrap;
+       /*  flex-direction: row;
+        flex-wrap: wrap; */
+        position: relative;
     }
     #imagenes-producto{
         width: 45%;
+        margin: 0px;
         
         
+        
+    }
+    #textoProducto{
+        width: 45%;
+        position:relative;
+        top: 30px;
         
     }
     #descripcion-producto{
-        width: 40%;
-        margin-top: 70px;
+        width: 100%;
+       margin: 0px;
         
     }
     #compra-producto{
-        width: 40%;
-        position: relative;
-        left: 22%;
+        width: 100%;
+        margin: 0px;
+        
+        
     }
     #pruductosLinea{
         width:100%;
@@ -408,14 +428,36 @@ display: none;
 }
 @media (min-width: 1030px) {
     #compra-producto{
-        bottom: 280px;
+        bottom: 160px;
     }
-    #opciones-producto{
+    /* #opciones-producto{
         position: absolute;
         top: 700px;
         left: 9%;
-    }
+    } */
+    
    
+}
+@media (min-width: 1440px) {
+    main{
+        width: 60%;
+    }
+    #compra-producto{
+        
+        bottom: 260px;
+    }
+    
+}
+@media (min-width: 2100px) {
+    /* #opciones-producto{
+        position: absolute;
+        top: 800px;
+        left: 9%;
+    } */
+    #compra-producto{
+        
+        bottom: 360px;
+    }
 }
 
 

@@ -61,13 +61,16 @@
 
 @media (min-width: 768px){
 
-    .productoEnFila{
+  .pruductosLinea{
+    width: 30%;
+  }  
+  .productoEnFila{
         width: 75%;
     }
 
-    .productoDescPrimera{
+    /* .productoDescPrimera{
         width: 32%;
-    }
+    } */
     .productoDescSegunda{
         display: flex;
         width: 32%;

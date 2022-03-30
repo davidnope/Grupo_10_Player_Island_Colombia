@@ -119,6 +119,10 @@ main{
 #lista img{
     width: 100%;
 }
+.separador{
+    display: flex;
+    flex-direction: column;
+}
 
 /* Nuestros productos */
 
@@ -198,4 +202,32 @@ main{
 
 .iconosAbajo i{
     padding-left: 10px;
+}
+
+@media (min-width: 600px) {
+    .separador{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    #filtros{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .contenedorFiltros{
+        width: 30%;
+    }
+}
+@media (min-width: 1024px) {
+    #matriz{
+        flex-direction: row;
+    }
+    #filtros{
+        flex-direction: column;
+        width: 25%;
+        align-self: flex-start;
+    }
+    .contenedorFiltros{
+        width: 100%;
+    }
 }
