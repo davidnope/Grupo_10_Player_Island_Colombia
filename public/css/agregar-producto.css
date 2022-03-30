@@ -13,24 +13,96 @@ main{
     justify-content: center;
 }
 
-.titulo-carrito{
+.titulo-producto{
     background-color: var(--gris);
     width: 97%;
     margin-bottom: 5px;
 }
-.titulo-carrito h2{
+.titulo-producto h2{
     color: var(--morado-claro);
     width: 90%;
     margin: 20px auto;
 }
 
+/* contenedor formulario */
+.content-form{
+    width: 97%;
+    background-color: var(--morado-claro);
+    padding: 10px 50px;
+}
 
+.content-form form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
+/* Img */
+.imagenes{
+    color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+/* Marcas */
+
+.marca{
+    display: flex;
+    flex-direction: column;
+    color: var(--blanco);
+}
+
+/* descripcion-caracteristicas */
+
+.descripcion-caracteristicas{
+    display: flex;
+    flex-direction: column;
+    color: var(--blanco);
+    width: 50%;
+}
+
+/* Categoria */
+
+.categoria{
+    display: flex;
+    flex-direction: column;
+    color: var(--blanco);
+}
+
+/* MetodosPago */
+
+.metodosPago{
+    display: flex;
+    flex-direction: column;
+    color: var(--blanco);
+}
+
+/* colores */
+
+.colores{
+    display: flex;
+    flex-direction: column;
+    color: var(--blanco);
+}
+
+/* precio */
+
+.precio{
+    display: flex;
+    flex-direction: column;
+    color: var(--blanco);
+    width: 50%;
+}
 @media (min-width: 768px){
 
-
+    .titulo-producto{
+        width: 80%;
+    }
 }
 
 @media (min-width: 1279px){
-
+    .titulo-producto{
+        width: 80%;
+    }
 }

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/agregar-producto.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Island</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <main>
+            <div class="titulo-producto">
+                <h2>Tu producto</h2>
+            </div>
+            <section class="content-form">
+                <form action="/" method="get">
+
+                    <!-- IMAGENES -->
+                    <div class="imagenes">
+                        <label for="imageProducto">Imagenes</label>
+                        <input type="file" name="imgProducto" accept=".jpg">
+                    </div>
+
+                    <!-- MARCA -->
+                    <div class="marca">
+                        <label for="marca">Marca</label>
+                        <div>
+                            <input type="radio" name="marcas" value="playStation">
+                            <label for="playStation">PlayStation</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="marcas" value="xbox">
+                            <label for="playStation">Xbox</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="marcas" value="nintendo">
+                            <label for="playStation">Nintendo</label>
+                        </div>
+                    </div>
+
+                    <!-- DESCRIPCION -->
+                    <div class="descripcion-caracteristicas">
+                        <label for="descripcion">Descripción</label>
+                        <textarea name="descripcionText" id="descripcion"></textarea>
+                    </div>
+
+                    <!-- CARACTERISTICAS -->
+                    <div class="descripcion-caracteristicas">
+                        <label for="caracteristicas">Caracteristicas</label>
+                        <textarea name="caracteristicasText" id="caracteristicas"></textarea>
+                    </div>
+
+                    <!-- CATEGORIA -->
+                    <div class="categoria">
+                        <label for="categoria">Marca</label>
+                        <div>
+                            <input type="radio" name="categorias" value="controles">
+                            <label for="controles">Controles</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="categorias" value="consolas">
+                            <label for="consolas">Consolas</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="categorias" value="accesorios">
+                            <label for="accesorios">Accesorios</label>
+                        </div>
+                    </div>
+
+                    <!-- METODOS DE PAGO -->
+
+                    <div class="metodosPago">
+                        <label for="metodosPago">Metodos de pago</label>
+                        <div>
+                            <input type="checkbox" name="metodosPago" value="pse">
+                            <label for="pse">PSE</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="metodosPago" value="visa">
+                            <label for="visa">VISA</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="metodosPago" value="masterCard">
+                            <label for="masterCard">MASTERCARD</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="metodosPago" value="americanExpress">
+                            <label for="americanExpress">AMERICANEXPRESS</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="metodosPago" value="davivienda">
+                            <label for="davivienda">DAVIVIENDA</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="categorias" value="bancolombia">
+                            <label for="bancolombia">BANCOLOMBIA</label>
+                        </div>
+                    </div>
+
+                    <!-- COLERES -->
+
+                    <div class="colores">
+                        <label for="colores">Color</label>
+                        <div>
+                            <input type="checkbox" name="color" value="negro">
+                            <label for="negro">Negro</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="color" value="blanco">
+                            <label for="blanco">Blanco</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="color" value="rojo">
+                            <label for="rojo">Rojo</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="color" value="azul">
+                            <label for="azul">Azul</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="color" value="gris">
+                            <label for="gris">Gris</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="color" value="otro">
+                            <label for="otro">Otro</label>
+                        </div>
+                    </div> 
+                    <div class="precio">
+                        <label for="precio">Precio</label>
+                        <input type="number" name="precio">
+                    </div>
+                </form>
+            </section>
+        </main>
+        <%- include('./partials/footer') %>
+</body>
+
+</html>

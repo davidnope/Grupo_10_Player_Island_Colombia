@@ -16,6 +16,7 @@ const loginRouter = require(path.join(__dirname, 'routers/login'))
 const registerRouter = require(path.join(__dirname, 'routers/register'))
 const productosRouter = require(path.join(__dirname, 'routers/productos'))
 
+const agregarProductoRouter = require(path.join(__dirname, 'routers/agregar-producto'));
 
 
 
@@ -26,4 +27,5 @@ app.use('/carrito-compras', carritoRouter)
 app.use('/login', loginRouter)
 app.use('/register' , registerRouter)
 app.use('/productos' , productosRouter)
+app.use('/agregar-producto' , agregarProductoRouter)
 
