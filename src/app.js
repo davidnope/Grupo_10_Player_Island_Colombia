@@ -9,6 +9,7 @@ app.listen(port, () => console.log('Corriendo servidor'))
 app.set('view engine', 'ejs');
 
 
+
 const homeRouter = require(path.join(__dirname, 'routers/home'))
 const detalleRouter = require(path.join(__dirname, 'routers/detalle-producto'))
 const carritoRouter = require(path.join(__dirname, 'routers/carrito-compras'))

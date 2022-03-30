@@ -1,4 +1,3 @@
-
 :root{
    --na1: #FF6D00;
    --na2: #FF7900;
@@ -10,6 +9,12 @@
    --mo3: #5A189A;
    --mo4: #7B2CBF;
    --mo5: #9D4EDD;
+   --morado-oscuro: #150722;
+   --morado-intermedio: #230B39;
+   --morado-claro: #352347;
+   --naranja: #FCA311;
+   --gris: #D6D6D6;
+   --blanco: #FFFFFF;
 }
 body{
     background: url(/img/Fondo.jpg);
@@ -19,6 +24,7 @@ header{
       width: 100%;
       height: 48px;
       display: flex;
+      background-color: var(--morado-intermedio);
 }
 #header{
     display: flex;
