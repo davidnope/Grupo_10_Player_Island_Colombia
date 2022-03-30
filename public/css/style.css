@@ -270,7 +270,7 @@ header a{
         right: 0px;
         width: 300px;
         justify-content: space-between;
-        
+        color:  white;
     }
     #listaNavegacion ul{
         display: flex;

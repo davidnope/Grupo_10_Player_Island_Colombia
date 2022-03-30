@@ -6,8 +6,16 @@
     background-color: var(--morado-oscuro);
     margin-top: 10px;
     margin-bottom: 10px;
-   /*  padding: 65px 0px */
+    padding: 65px 0px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.097);
+  }
+
+  .imgNuProductos{
+    width: 100%;
+  }
+  .pruductosLinea img{
+    width: 100%;
+    display: block;
   }
   
   .pruductosLinea h2{

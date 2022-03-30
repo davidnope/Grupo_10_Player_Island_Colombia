@@ -19,6 +19,7 @@
     position: absolute;
     color: var(--blanco);
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    cursor: pointer;
 }
 
 
@@ -88,6 +89,7 @@
     display: flex;
     justify-content: center;
     text-decoration: none;
+    cursor: default;
 }
 .boton button{
     font-weight: lighter;
@@ -100,6 +102,7 @@
     color: var(--blanco);
     background-color: var(--morado-claro);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .parrafo-cambio-registro{

@@ -22,7 +22,6 @@ main{
 
 #imgPrincipal{
   width: 100%;
-  margin-bottom: 72px;
 }
 
 #imgPrincipal img{
@@ -33,7 +32,7 @@ main{
 
 /* seccion logos de marca */
 #seccionLogosMarca{
-  margin: auto;
+  margin: 72px auto;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -65,19 +64,6 @@ main{
   width: 60%;
   margin: 6px 0px;
   font-size: 12px;
-}
-
-
-/* Nuestros productos */
-
-
-/* imgNuProductos - Img */
-.imgNuProductos{
-  width: 100%;
-}
-.pruductosLinea img{
-  width: 100%;
-  display: block;
 }
 
 
@@ -215,6 +201,11 @@ main{
   font-weight: 600;
   background-color: var(--gris);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.botonVermas {
+  cursor:default;
 }
 
 /* Img-final */
@@ -227,16 +218,14 @@ main{
   align-items: center;
   position: relative;
   margin-bottom: 140px; 
-  margin-top: 20px;
+  margin-top: 120px;
 }
 
 .item-img-final{
   width: 100%;
   display: block;
-  opacity: 50%;
+  opacity: 45%;
 }
-
-
 
 .item-img-final img{
   width: 100%;
@@ -275,7 +264,7 @@ main{
           top: 30px;
       }
       .item-img-final{
-          max-height: 500px;
+          max-height: 600px;
       }
 }
 
@@ -367,6 +356,7 @@ main{
   }
   .item-img-final{
       height: 100%;
+      max-height: 650px;
   }
 }
 
