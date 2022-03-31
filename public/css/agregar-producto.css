@@ -7,15 +7,29 @@
     --blanco: #FFFFFF;
 }
 
+/* atributos Generales */
 main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+.titulos-seccion{
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.points{
+    margin: 10px;
+}
+
+/* TITULO */
+
 .titulo-producto{
     background-color: var(--gris);
-    width: 97%;
+    width: 85%;
     margin-bottom: 5px;
 }
 .titulo-producto h2{
@@ -26,9 +40,11 @@ main{
 
 /* contenedor formulario */
 .content-form{
-    width: 97%;
+    width: 85%;
     background-color: var(--morado-claro);
     padding: 10px 50px;
+    box-sizing: border-box;
+    margin-bottom: 120px;
 }
 
 .content-form form{
@@ -42,7 +58,7 @@ main{
     color: var(--blanco);
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
 }
 
 /* Marcas */
@@ -59,9 +75,14 @@ main{
     display: flex;
     flex-direction: column;
     color: var(--blanco);
-    width: 50%;
+    width: 100%;
 }
 
+.descripcion-caracteristicas textarea{
+    height: 100px;
+    max-height: 100px;
+    max-width: 100%;
+}
 /* Categoria */
 
 .categoria{
@@ -92,17 +113,108 @@ main{
     display: flex;
     flex-direction: column;
     color: var(--blanco);
-    width: 50%;
+    width: 100%;
 }
+
+.precio input{
+    max-width: 280px;
+}
+
+/* Boton */
+
+.style-boton{
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    cursor: default;
+    flex-wrap: wrap;
+}
+
+.style-boton button{
+    font-weight: lighter;
+    font-size: 20px;
+    height: 41px;
+    width: 45%;
+    max-width: 150px;
+    margin: 80px 0;
+    border-radius: 12px;
+    border: 0px;
+    color: var(--morado-claro);
+    background-color: var(--gris);
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+    cursor: pointer;
+}
+
 @media (min-width: 768px){
 
+    /* general */
+    .points{
+        width: 100%;
+    }
     .titulo-producto{
         width: 80%;
+    }
+    /* form */
+    .content-form{
+        width: 80%;
+    }
+    .content-form form{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    /* img */
+    .imagenes{
+        width: 48%;
+    }
+    /* marca */
+    .marca{
+        width: 48%;
+    }
+    /* descripcion-caracteristica*/
+    .descripcion-caracteristicas{
+        width: 48%;
+    }
+    /* categoria */
+    .categoria{
+        width: 48%;
+    }
+    /* metodos de pago */
+
+    .metodosPago{
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 48%;
+    }
+
+    /* colores */
+    .colores{
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 48%;
+    }
+
+    /* precio */
+    .precio{
+        width: 48%;
+    }
+
+    /* botones */
+
+    .style-boton{
+        width: 100%;
     }
 }
 
 @media (min-width: 1279px){
-    .titulo-producto{
-        width: 80%;
+    .points{
+        width: 45%;
+    }
+
+    .style-boton{
+        justify-content: center;
+    }
+    .style-boton button{
+        margin: 80px 20px;
     }
 }
