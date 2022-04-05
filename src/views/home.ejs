@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/partialsCss/cuadroDeProducto.css">
+    <link rel="stylesheet" href="/css/partialsCss/carrusel.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,259 +22,147 @@
 
 <body>
     <%- include('./partials/header') %>
-    <main>
-        <!-- /* ImgPrincipal */ -->
+        <main>
+            <!-- /* ImgPrincipal */ -->
 
-        <section id="imgPrincipal">
-            <img src="https://i.3djuegos.com/juegos/3405/_articulos_/fotos/articulos/_articulos_-5578362.webp" alt="">
-        </section>
-        <!-- /* seccion logos de marca */ -->
-        <section id="seccionLogosMarca">
+            <section id="imgPrincipal">
+                <img src="https://i.3djuegos.com/juegos/3405/_articulos_/fotos/articulos/_articulos_-5578362.webp"
+                    alt="">
+            </section>
+            <!-- /* seccion logos de marca */ -->
+            <section id="seccionLogosMarca">
 
-            <!-- Primero play -->
-            <a href="/" class="porLogo">
-                <div class="iconMarca">
-                    <i class="fa-brands fa-playstation"></i>
-                </div>
-                <h3>Lorem Ipsum</h3>
-                <p>Es simplemente un texto ficticio de la industria de la impresión.</p>
-            </a>
-            <!-- Segundo xbox -->
+                <!-- Primero play -->
+                <a href="/" class="porLogo">
+                    <div class="contenedor-por-logo">
+                        <div class="iconMarca">
+                            <i class="fa-brands fa-playstation"></i>
+                        </div>
+                        <h3>Lorem Ipsum</h3>
+                        <p>Es simplemente un texto ficticio de la industria de la impresión.</p>
+                    </div>
+                </a>
+                <!-- Segundo xbox -->
 
-            <a href="/" class="porLogo">
-                <div class="iconMarca">
-                    <i class="fa-brands fa-xbox"></i>
-                </div>
-                <h3>Lorem Ipsum</h3>
-                <p>Es simplemente un texto ficticio de la industria de la impresión.</p>
-            </a>
+                <a href="/" class="porLogo">
+                    <div class="contenedor-por-logo">
+                        <div class="iconMarca">
+                            <i class="fa-brands fa-xbox"></i>
+                        </div>
+                        <h3>Lorem Ipsum</h3>
+                        <p>Es simplemente un texto ficticio de la industria de la impresión.</p>
+                    </div>
+                </a>
 
-            <!-- Tercero nintendo -->
+                <!-- Tercero nintendo -->
 
-            <a href="/" class="porLogo">
-                <div class="iconMarca">
-                    <i class="fa-solid fa-gamepad"></i>
-                </div>
-                <h3>Lorem Ipsum</h3>
-                <p>Es simplemente un texto ficticio de la industria de la impresión.</p>
-            </a>
-        </section>
+                <a href="/" class="porLogo">
+                    <div class="contenedor-por-logo">
+                        <div class="iconMarca">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3>Lorem Ipsum</h3>
+                        <p>Es simplemente un texto ficticio de la industria de la impresión.</p>
+                    </div>
+                </a>
+            </section>
 
-        <!-- Nuestros productos -->
+            <!-- Nuestros productos -->
 
-        <section class="pruductosLinea">
+            <%- include('./partials/carrusel') %>
 
-            <h2>Nuestros productos</h2>
+            <!-- /* consolaPorSeccion */ -->
 
-            <div class="productoEnFila">
-                <div class="productoDescPrimera">
-                    <div class="imgNuProductos">
-                        <a href="/detalle-producto">
-                            <img class="js-modal-product-cover product-cover-modal" width="800" src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg" alt="" title="" itemprop="image">
+            <!-- Play -->
+            <section class="consolaPorSeccion">
+                <div class="caja-items-seccion">
+                    <div class="item-img-seccion">
+                        <div>
+                            <img src="/img/Img home/Play station 5.png" alt="">
+                        </div>
+                    </div>
+                    <div class="item-text-seccion">
+                        <h2>Play Station</h2>
+                        <p>Lorem Ipsum es simplemente un texto ficticio de la
+                            industria de la impresión y la composición tipográfica.
+                            Lorem Ipsum ha sido el texto ficticio estándar de la
+                            industria desde el año 1500, cuando un impresor
+                            desconocido tomó una galera de tipos y la codificó para
+                            hacer un libro de muestras tipográficas.</p>
+                        <a href="/productos" class="botonVermas">
+                            <button>Ver más</button>
                         </a>
                     </div>
-                    <div class="descripcion">
-                        <div class="estrellas">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h4>Producto</h4>
-                        <p>$50.000</p>
-                        <div class="iconosAbajo">
-                            <a href="#">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
+                </div>
+
+            </section>
+
+            <!-- Xbox -->
+            <section class="consolaPorSeccion">
+                <div class="caja-items-reverse">
+                    <div class="item-img-reverse">
+                        <div>
+                            <img src="/img/Img home/Xbox_Series_X (2).png" alt="">
                         </div>
                     </div>
-                </div>
-                <div class="productoDescSegunda">
-                    <div class="imgNuProductos">
-                        <a href="/detalle-producto">
-                            <img class="js-modal-product-cover product-cover-modal" width="800" src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/6/76-large_default.jpg" alt="" title="" itemprop="image">
+                    <div class="item-text-seccion">
+                        <h2>Xbox Series X</h2>
+                        <p>Lorem Ipsum es simplemente un texto ficticio de la
+                            industria de la impresión y la composición tipográfica.
+                            Lorem Ipsum ha sido el texto ficticio estándar de la
+                            industria desde el año 1500, cuando un impresor
+                            desconocido tomó una galera de tipos y la codificó para
+                            hacer un libro de muestras tipográficas.</p>
+                        <a href="/productos" class="botonVermas">
+                            <button type="submit">Ver más</button>
                         </a>
-                    </div>
-                    <div class="descripcion">
-                        <div class="estrellas">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h4>Producto</h4>
-                        <p>$50.000</p>
-                        <div class="iconosAbajo">
-                            <a href="#">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
-                        </div>
+
                     </div>
                 </div>
-                <div class="productoDescTercera">
-                    <div class="imgNuProductos">
-                        <a href="/detalle-producto">
-                            <img class="js-modal-product-cover product-cover-modal" width="800" src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg" alt="" title="" itemprop="image">
+
+            </section>
+            <!-- Nintendo -->
+
+            <section class="consolaPorSeccion">
+                <div class="caja-items-seccion">
+                    <div class="item-img-seccion">
+                        <div>
+                            <img src="/img/Img home/Xbox_Series_X (2).png" alt="">
+                        </div>
+                    </div>
+                    <div class="item-text-seccion">
+                        <h2>Nintendo Switch Oled</h2>
+                        <p>Lorem Ipsum es simplemente un texto ficticio de la
+                            industria de la impresión y la composición tipográfica.
+                            Lorem Ipsum ha sido el texto ficticio estándar de la
+                            industria desde el año 1500, cuando un impresor
+                            desconocido tomó una galera de tipos y la codificó para
+                            hacer un libro de muestras tipográficas.</p>
+                        <a href="/productos" class="botonVermas">
+                            <button type="submit">Ver más</button>
                         </a>
-                    </div>
-                    <div class="descripcion">
-                        <div class="estrellas">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h4>Producto</h4>
-                        <p>$50.000</p>
-                        <div class="iconosAbajo">
-                            <a href="#">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
-                        </div>
+
                     </div>
                 </div>
-                <div class="productoDescCuarta">
-                    <div class="imgNuProductos">
-                        <a href="/detalle-producto">
-                            <img class="js-modal-product-cover product-cover-modal" width="800" src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/6/76-large_default.jpg" alt="" title="" itemprop="image">
-                        </a>
-                    </div>
-                    <div class="descripcion">
-                        <div class="estrellas">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h4>Producto</h4>
-                        <p>$50.000</p>
-                        <div class="iconosAbajo">
-                            <a href="#">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
-                        </div>
-                    </div>
+
+            </section>
+
+            <!-- img final -->
+            <section id="imgFinal">
+                <div class="item-text-final">
+                    <h2>Disfruta de nuestras consolas</h2>
+                    <p>Disfruta de la mejor experiencia de juegos competitivos y cooperativos en las consolas
+                        PlayStation,
+                        Xbox y Nintendo.</p>
                 </div>
-            </div>
-
-        </section>
-
-        <!-- /* consolaPorSeccion */ -->
-
-        <!-- Play -->
-        <section class="consolaPorSeccion">
-            <div class="caja-items-seccion">
-                <div class="item-img-seccion">
-                    <div>
-                        <img src="/img/Img home/Play station 5.png" alt="">
-                    </div>
+                <div class="item-img-final">
+                    <img src="/img/Img home/group-of-teenage-friends-playing-video-games-together-at-home.jpg"
+                        alt="">
                 </div>
-                <div class="item-text-seccion">
-                    <h2>Play Station</h2>
-                    <p>Lorem Ipsum es simplemente un texto ficticio de la
-                        industria de la impresión y la composición tipográfica.
-                        Lorem Ipsum ha sido el texto ficticio estándar de la
-                        industria desde el año 1500, cuando un impresor
-                        desconocido tomó una galera de tipos y la codificó para
-                        hacer un libro de muestras tipográficas.</p>
-                    <a href="/productos" class="botonVermas">
-                        <button>Ver más</button>
-                    </a>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- Xbox -->
-        <section class="consolaPorSeccion">
-            <div class="caja-items-reverse">
-                <div class="item-img-reverse">
-                    <div>
-                        <img src="/img/Img home/Xbox_Series_X (2).png" alt="">
-                    </div>
-                </div>
-                <div class="item-text-seccion">
-                    <h2>Xbox Series X</h2>
-                    <p>Lorem Ipsum es simplemente un texto ficticio de la
-                        industria de la impresión y la composición tipográfica.
-                        Lorem Ipsum ha sido el texto ficticio estándar de la
-                        industria desde el año 1500, cuando un impresor
-                        desconocido tomó una galera de tipos y la codificó para
-                        hacer un libro de muestras tipográficas.</p>
-                    <a href="/productos" class="botonVermas">
-                        <button type="submit">Ver más</button>
-                    </a>
-
-                </div>
-            </div>
-
-        </section>
-        <!-- Nintendo -->
-
-        <section class="consolaPorSeccion">
-            <div class="caja-items-seccion">
-                <div class="item-img-seccion">
-                    <div>
-                        <img src="/img/Img home/Xbox_Series_X (2).png" alt="">
-                    </div>
-                </div>
-                <div class="item-text-seccion">
-                    <h2>Nintendo Switch Oled</h2>
-                    <p>Lorem Ipsum es simplemente un texto ficticio de la
-                        industria de la impresión y la composición tipográfica.
-                        Lorem Ipsum ha sido el texto ficticio estándar de la
-                        industria desde el año 1500, cuando un impresor
-                        desconocido tomó una galera de tipos y la codificó para
-                        hacer un libro de muestras tipográficas.</p>
-                    <a href="/productos" class="botonVermas">
-                        <button type="submit">Ver más</button>
-                    </a>
-
-                </div>
-            </div>
-
-        </section>
-        <!-- img final -->
-        <section id="imgFinal">
-            <div class="item-text-final">
-                <h2>Disfruta de nuestras consolas</h2>
-                <p>Disfruta de la mejor experiencia de juegos competitivos y cooperativos en las consolas PlayStation,
-                    Xbox y Nintendo.</p>
-            </div>
-            <div class="item-img-final">
-                <img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/05/dos-personas-jugando-fifa-ps4-2327909.jpg" alt="">
-            </div>
-        </section>
-    </main>
-    <%- include('./partials/footer') %>
+            </section>
+        </main>
+        
+        <%- include('./partials/footer') %>
 </body>
 
 </html>

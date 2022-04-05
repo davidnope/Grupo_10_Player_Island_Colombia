@@ -11,8 +11,9 @@ const controller={
     productos: (req, res) => {
         res.render(path.resolve(__dirname, '../views/productos.ejs'))
     },
+
     detalle: (req, res) =>{
-        res.render(path.resolve(__dirname, '../views/detalle-productos.ejs'))
+        res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'))
     },
     agregar: (req, res) =>{   
         res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), {partesFormulario})
