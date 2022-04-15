@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <!--   <%- include('./partials/header') %> -->
+    <%- include('./partials/header') %>
 
 
     <main>
@@ -30,22 +30,22 @@
         <!-- <div id="main"> -->
         <div id="divArriba">    
         <section id="imagenes-producto">
-            <h4>Productos > Xbox One > Control SE</h4>
+            <h4>Productos > <%= producto.name %></h4>
             <div id="imagenPrincipal">
-                <img src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg" alt="">
+                <img src="/img/productos/<%= producto.image %>" alt="">
             </div>
             <div id="carrusel">
 
                 <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-left"></i></button></div>
                 <div id="siguientes-imagenes">
                     <div id="imagenscroll1" class="imagenes-pequeñas"><img
-                            src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg"
+                            src="/img/productos/<%= producto.image %>"
                             alt=""></div>
                     <div id="imagenscroll2" class="imagenes-pequeñas"> <img
-                            src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/6/76-large_default.jpg"
+                            src="/img/productos/<%= producto.image %>"
                             alt=""></div>
-                    <div id="imagenscroll3" class="imagenes-pequeñas"> <img src="/img/control.png" alt=""></div>
-                    <div id="imagenscroll4" class="imagenes-pequeñas"> <img src="/img/control.png" alt=""></div>
+                    <div id="imagenscroll3" class="imagenes-pequeñas"> <img src="/img/productos/<%= producto.image %>" alt=""></div>
+                    <div id="imagenscroll4" class="imagenes-pequeñas"> <img src="/img/productos/<%= producto.image %>" alt=""></div>
                 </div>
                 <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-right"></i></button></div>
 
@@ -56,7 +56,7 @@
         <!-- descripcion -->
         <div id="textoProducto">
         <section id="descripcion-producto">
-            <h2>Nombre del producto</h2>
+            <h2><%= producto.name %></h2>
             <div class="estrellas" style="color: gold;">
                 <i class="fa-regular fa-star"></i>
                 <i class="fa-regular fa-star"></i>
@@ -65,9 +65,7 @@
                 <i class="fa-regular fa-star"></i>
             </div>
             <h4 style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0px;">reviews (1)</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi animi quasi eum ducimus eos. Alias
-                vel impedit doloremque veritatis, eius, aperiam quod expedita qui tenetur nihil quos laboriosam
-                similique at.</p>
+            <p><%= producto.description %></p>
 
         </section>
 
@@ -91,7 +89,7 @@
                             <option value="azul" style="background-color: rgb(8, 4, 252);">Azul</option>
                         </select>
                     </div>
-                    <h2 style="font-weight:normal; opacity: 0.8;">$50.000</h2>
+                    <h2 style="font-weight:normal; opacity: 0.8;">$<%= toThousand(producto.price) %></h2>
                     <div style="display: flex; align-items: center;">
                         <h3 style="color: white;">cantidad:</h3>
                         <div class="botones-articulo">

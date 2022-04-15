@@ -118,6 +118,7 @@ main{
 }
 #lista img{
     width: 100%;
+    height: 100%;
 }
 .separador{
     display: flex;
@@ -216,6 +217,10 @@ main{
     }
     .contenedorFiltros{
         width: 30%;
+    }
+    #lista img{
+        width: 175px;
+        height: 175px;
     }
 }
 @media (min-width: 1024px) {

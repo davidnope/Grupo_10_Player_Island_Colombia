@@ -1,0 +1,138 @@
+[
+    {
+     "id": 1,
+     "name": "Xbox Series X",
+     "price": 2000000,
+     "discount": 15,
+     "category": "oferta",
+     "description": "Consola Xbox Series X, cuarta generacion de la compañia de Microsoft®, es la consola mas rapida hasta la fecha de esta compañia. ",
+     "image": "xboxSeriesX.jpg"
+    },
+    {
+     "id": 2,
+     "name": "PlayStation 5",
+     "price": 3800000,
+     "discount": 10,
+     "category": "oferta",
+     "description": "Consola PlayStation 5, quinta generacion de la compañia de Sony®, es la consola mas rapida hasta la fecha de esta compañia.",
+     "image": "PlayStation-5-DualShock.webp"
+    },
+    {
+     "id": 3,
+     "name": "Nintendo Switch",
+     "description": "Consola Nintendo Switch, una nueva generacion de la compañia de NINTENDO®, es la consola mas rapida hasta la fecha de esta compañia. Lleva los mejores titulos de NINTENDO® a cualquier lado. ",
+     "price": 1500000,
+     "discount": 5,
+     "image": "nintendoSwitch.jpg",
+     "category": "oferta"
+    },
+    {
+     "id": 4,
+     "name": "Control Xbox SE",
+     "description": "Disfruta jugar con el confiable control de xbox pero rediseñado con un estilo guerrero, Xbox trae su control inalambrico, funciona con baterias, con una distancia de mas de 9m, y una rapida lectura en la consola",
+     "price": 300000,
+     "discount": 10,
+     "image": "controlSE.jpg",
+     "category": "oferta"
+    },
+    {
+     "id": 5,
+     "name": "Control Xbox",
+     "price": 250000,
+     "discount": 10,
+     "category": "oferta",
+     "description": "Disfruta jugar con este control ergonomico, Xbox trae su control inalambrico, funciona con baterias, con una distancia de mas de 9m, y una rapida lectura en la consola",
+     "image": "control.png"
+     
+    },
+    {
+     "id": 6,
+     "name": "Control Dualsense",
+     "description": "El Control favorito de los gamers hasta el momento, PlayStation llega con un innovador control el cual mejora al dualshock por muchos motivos, este control no usa baterias y usa una nueva tecnologia de vibracion resistiva y gatillos sensitivos",
+     "price": 350000,
+     "discount": 5,
+     "image": "dualSense.jpg",
+     "category": "oferta"
+    },
+    {
+     "id": 7,
+     "name": "Control Nintendo Switch PRO",
+     "description": "Control para Nintendo Switch Pro Juega en los ambientes más competitivos o supera las situaciones más difíciles, Aduiérelo y disfrutalo ya !! ",
+     "price": 380000,
+     "discount": 2,
+     "image": "controlNintendoSwitchPro.jpg",
+     "category": "oferta"
+    },
+    {
+     "id": 8,
+     "name": "Estacion de carga dual control PS5",
+     "description": "Estacion de carga dual control PS5",
+     "price": 129990,
+     "discount": 0,
+     "image": "cargadorDualsenseDual.jpg",
+     "category": "oferta"
+    },
+    {
+     "id": 9,
+     "name": "Estacion de carga Xbox series",
+     "description": "Estacion de carga para controles de la Xbox Series X/S, incluye baterias recargables e intercambiables",
+     "price": 164990,
+     "discount": 5,
+     "image": "estacionDeCargaXbox.webp",
+     "category": "oferta"
+    },
+    {
+     "id": 10,
+     "name": "Xbox Series S",
+     "description": "La Xbox Series S es la version digital y compacta de la ultima generacion de consolas de Microsoft®. Esta consola es una version mas sencilla, con un precio mas asequible, y con especificaciones mas sencillas, con la mitad de memoria que contiene la series X",
+     "price": 1729990,
+     "discount": 10,
+     "image": "xboxSeriesS.jpg",
+     "category": "oferta"
+    },
+    {
+     "id": 11,
+     "name": "Nintendo Switch Lite",
+     "description": "Consola Nintendo Switch, una nueva generacion de la compañia de NINTENDO®, es la consola mas rapida hasta la fecha de esta compañia. Lleva los mejores titulos de NINTENDO® a cualquier lado. ",
+     "price": 999990,
+     "discount": 0,
+     "image": "nintendoSwitchLite.jpg",
+     "category": "oferta"
+    },
+    {
+     "id": 12,
+     "name": "Audifonos Pulse 3D",
+     "description": "Uno de los accesorios que llegaron con la nueva consola PS5, son los audifonos inalambricos con diadema flexible y sonido estereo 3D ",
+     "price": 519990,
+     "discount": 5,
+     "image": "pulse3D.jpg",
+     "category": "oferta"
+    },
+    {
+     "id": 13,
+     "name": "Cámara HD para PS5",
+     "description": "Disfruta al maximo las experiencias que brinda la PlayStation 5 con su camara HD creada especialmente con un diseñor en juego con la consola de la industria de Sony",
+     "price": 290000,
+     "discount": 10,
+     "image": "camaraHdPS5.webp",
+     "category": "visited"
+    },
+    {
+     "id": 14,
+     "name": "Teclado control Xbox Series",
+     "description": "Disfruta de tus películas favoritas con hasta cuatro veces más detalles que Full HD, gracias a la conversión de señales 4K. Cuando se conecta a un televisor compatible,un procesador de video avanzado convierte el video estándar en una señal cercana a la resolución 4K (3840 x 2160). Con ocho millones de píxeles, obtendrás imágenes más nítidas y detalladas, y la mayor calidad de la image te permite sentarte más cerca de la pantalla para que te sientas como en el cine.",
+     "price": 89990,
+     "discount": 2,
+     "image": "tecladoXboxSeries.jpg",
+     "category": "oferta"
+    },
+    {
+     "id": 15,
+     "name": "Fifa 22 Xbox series X FISICO",
+     "description": "Disfruta de una autenticidad sin igual en FIFA 22 con la experiencia más realista del deporte rey, queincluye las estrellas y los equipos de futbol más importantes del mundo.",
+     "price": 250000,
+     "discount": 10,
+     "image": "fifa22SeriesX.jfif",
+     "category": "visited"
+    }
+   ]

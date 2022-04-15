@@ -10,6 +10,6 @@ router.get('/agregar', productosController.agregar);
 
 router.get('/editar', productosController.editar);
 
-router.get('/detalle-producto', productosController.detalle);
+router.get('/detalle-producto/:id', productosController.detalle);
 
 module.exports = router;
