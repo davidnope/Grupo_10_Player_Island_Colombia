@@ -30,7 +30,7 @@
         <!-- <div id="main"> -->
         <div id="divArriba">    
         <section id="imagenes-producto">
-            <h4>Productos > <%= producto.name %></h4>
+            <h4> <a href="/productos" style="text-decoration: none; color: white; margin-right: 5px;">Productos </a> > <%= producto.name %></h4>
             <div id="imagenPrincipal">
                 <img src="/img/productos/<%= producto.image %>" alt="">
             </div>
@@ -75,9 +75,24 @@
 
         <section id="compra-producto">
             <h2>Stock disponible</h2>
-            <div id="divColor">
+            <div  >
 
                 <form action="/carrito-compras" method="get" id="formCompra">
+                 <div style="display: flex; flex-direction: column;">   
+                    
+                    <% if(producto.discount>0){ %>
+                        <h2 style="font-weight:normal; opacity: 0.9; color: white;">$<%= toThousand(precioReal) %></h2>
+                        <div style="display: flex;">
+                        <h3 style="font-weight:normal; opacity: 0.7; align-self:flex-end;">-<%=producto.discount %>% off </h3>
+                        <h3 style="font-weight:normal; opacity: 0.7; align-self:flex-end; text-decoration: line-through;">$<%=toThousand(producto.price) %> </h3>
+                    </div>
+                        <% }else{ %>
+                        <h2 style="font-weight:normal; opacity: 0.9;">$<%= toThousand(producto.price) %></h2>
+                    <% } %>
+
+                  <!--   toThousand(producto.price-(producto.price*(producto.discount/100))) -->
+                
+                </div>   
                     <div style="display: flex; align-items: center;">
                         <h3 style="color: white; display: flex;">Color: </h3>
                         <select name="escoje-color" id="selectorColor">
@@ -89,31 +104,18 @@
                             <option value="azul" style="background-color: rgb(8, 4, 252);">Azul</option>
                         </select>
                     </div>
-                    <h2 style="font-weight:normal; opacity: 0.8;">$<%= toThousand(producto.price) %></h2>
-                    <div style="display: flex; align-items: center;">
-                        <h3 style="color: white;">cantidad:</h3>
+                    <div style="display: flex; align-items: center; ">
+                        <h3 style="color: white;">Cantidad: </h3>
                         <div class="botones-articulo">
-                            <input type="number" name="cantidadcompra" min="1" value="1">
+                            <input type="number" name="cantidadcompra" min="1" value="1" >
     
-                            <!-- <div class="suma-resta">
-                                <button><i class="fa-solid fa-angle-up"></i></button>
-    
-                                <button><i class="fa-solid fa-angle-down"></i></button>
-                            </div> -->
+                            
     
                             <button type="reset" class="delete">Eliminar</button>
                         </div>
                        
                        
-                        <!--  <select name="escoje-cantidad" id="selectorCantidad">
-                            <option value="1" selected>1 unidad</option>
-                            <option value="2">2 unidades</option>
-                            <option value="3">3 unidades</option>
-                            <option value="4">4 unidades</option>
-                            <option value="5">5 unidades</option>
-                            <option value="6">Mas de 5 unidades</option>
-
-                        </select> -->
+                       
                     </div>
                     <div style="display: flex; align-items: center;">
                         <h3 style="color: white;">Metodo de pago: </h3>
@@ -124,7 +126,10 @@
                             <option value="americanExpress">AMERICAN EXPRESS</option>
                         </select>
                     </div>
-                    <button id="boton-agregar-carrito" type="submit" value="comprar"> Agregar al carrito</button>
+                    <div id="moduloBotones">
+                        <a href="/productos/editar/<%= producto.id%>" class="action-button edit">EDITAR PRODUCTO</a>
+                        <button id="boton-agregar-carrito" type="submit" value="comprar">AGREGA AL CARRITO</button>
+                    </div>
                 </form>
 
             </div>
@@ -181,7 +186,7 @@
 
             <h2>Nuestros productos</h2>
             <div style="display: flex; width: 80%; margin: auto;">
-                <div class="productoDesc">
+                <div class="productoDesc bloque">
                     <div class="imgNuProductos">
                         <a href="/detalle-producto">
                             <img src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg"
@@ -211,7 +216,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="productoDesc producto2">
+                <div class="productoDesc producto2 bloque">
                     <div class="imgNuProductos">
                         <a href="/detalle-producto">
                             <img src="/img/control.png" alt="" href="/">
@@ -240,7 +245,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="productoDesc producto3">
+                <div class="productoDesc producto3 bloque">
                     <div class="imgNuProductos">
                         <a href="/detalle-producto">
                             <img src="/img/control.png" alt="" href="/">

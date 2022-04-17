@@ -26,10 +26,15 @@ header{
       display: flex;
       background-color: var(--morado-intermedio);
 }
+
 #header{
     display: flex;
     width: 100%;
     position: relative;
+}
+#listaNavegacion a:hover{
+    color: #FF7900;
+    text-decoration: underline;
 }
 #navegacion{
     display: none;
@@ -161,6 +166,10 @@ footer form textarea{
     align-self: center;
     
     
+}
+.navButton a:hover{
+    color: #FF7900;
+
 }
 header a{
     text-decoration:none;

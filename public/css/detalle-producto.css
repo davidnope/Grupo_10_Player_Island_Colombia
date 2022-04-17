@@ -134,22 +134,27 @@ display: none;
     border-bottom: solid grey 1px ;
     padding: 10px;
 }
-#compra-producto h2{
+#compra-producto h2,#compra-producto h3{
     display: flex;
     /* ---- align-self: center; */ 
      color: var(--na1);
     margin-top: 5px;
     margin-bottom: 5px ;
+    margin-right: 10px;
 }
 #divForm{
     display: flex;
-    align-items: center;
     margin: auto;
 }
 #formCompra{
     display: flex;
     flex-direction: column;
+
 }
+#formCompra div{
+    margin-bottom: .5rem;
+}
+
 #selectorColor{
     display: flex;
     margin-left: 10px;
@@ -173,10 +178,11 @@ display: none;
 .botones-articulo input{
     width: 25%;
     max-width: 40px;
-    height: 50px;
+    height: 40px;
     border-radius: 10px 0 0 10px;
     border: none;
     text-align: center;
+    padding: 0 2px;
 }
 
 
@@ -204,7 +210,7 @@ display: none;
 
 .delete{
     width: 50%;
-    height: 52px;
+    height: 40px;
     max-width: 100px;
     border-radius: 0 10px 10px 0;
     border: none;
@@ -218,6 +224,30 @@ display: none;
     background-color: var(--mo1);
     
 }
+#moduloBotones{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.action-button{
+    display: flex;
+    align-self: center;
+    width: 180px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    border-radius: 15px;
+    color: black;
+    font-weight: bolder;
+    background-color: gray;
+    border: 0px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+.action-button:hover{
+    background-color: var(--na3);
+}
 #boton-agregar-carrito{
     display: flex;
     align-self: center;
@@ -229,9 +259,12 @@ display: none;
     border-radius: 15px;
     color: black;
     font-weight: bolder;
-    background-color: var(--na1);
+    background-color: gray;
     border: 0px;
     margin-top: 10px;
+}
+#boton-agregar-carrito:hover{
+    background-color: var(--na3);
 }
 
 /* OPCIONES DE PRODUCTO */
@@ -348,6 +381,10 @@ display: none;
 .iconosAbajo i{
     padding-left: 10px;
 }
+.bloque:hover{
+    
+ transform: scale(1.05,1.05);
+}
 
 @media (min-width: 430px) {
     main{
@@ -426,9 +463,13 @@ display: none;
         display: flex;
         }
 }
-@media (min-width: 1030px) {
+@media (min-width: 1020px) {
     #compra-producto{
         bottom: 160px;
+    }
+    #moduloBotones{
+       
+        flex-direction: row;
     }
     /* #opciones-producto{
         position: absolute;
@@ -459,6 +500,8 @@ display: none;
         bottom: 360px;
     }
 }
+
+
 
 
 

@@ -101,7 +101,7 @@
                 <div class="separador">
                     <% for(let i=0; i < 3; i++){%>
                        
-                        <div class="productoDescPrimera">
+                        <div class="productoDescPrimera" id="bloque">
                             <div class="imgNuProductos">
                                 <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
                                     <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
@@ -115,7 +115,7 @@
                                     <i class="fa-regular fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
-                                <a href="/productos/detalle-producto" class="nombre-producto">
+                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
                                     <h4><%= productosJSON[i].name  %></h4>
                                 </a> 
                                 <p>$ <%= toThousand(productosJSON[i].price) %></p>
@@ -138,7 +138,7 @@
                 <div class="separador">
                     <% for(let i=3; i < 6; i++){%>
                        
-                        <div class="productoDescPrimera">
+                        <div class="productoDescPrimera" id="bloque">
                             <div class="imgNuProductos">
                                 <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
                                     <img class="js-modal-product-cover product-cover-modal" width="800" src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
@@ -152,7 +152,7 @@
                                     <i class="fa-regular fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
-                                <a href="/productos/detalle-producto" class="nombre-producto">
+                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
                                     <h4><%= productosJSON[i].name  %></h4>
                                 </a> 
                                 <p>$ <%= toThousand(productosJSON[i].price) %></p>
@@ -175,7 +175,7 @@
                 <div class="separador">
                     <% for(let i=6; i < 9; i++){%>
                        
-                        <div class="productoDescPrimera">
+                        <div class="productoDescPrimera" id="bloque">
                             <div class="imgNuProductos">
                                 <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
                                     <img class="js-modal-product-cover product-cover-modal" width="800" src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
@@ -189,7 +189,7 @@
                                     <i class="fa-regular fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
-                                <a href="/productos/detalle-producto" class="nombre-producto">
+                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
                                     <h4><%= productosJSON[i].name  %></h4>
                                 </a> 
                                 <p>$ <%= toThousand(productosJSON[i].price) %></p>
@@ -212,7 +212,7 @@
                 <div class="separador">
                     <% for(let i=9; i < 12; i++){%>
                        
-                        <div class="productoDescPrimera">
+                        <div class="productoDescPrimera" id="bloque">
                             <div class="imgNuProductos">
                                 <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
                                     <img class="js-modal-product-cover product-cover-modal" width="800" src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
@@ -226,7 +226,7 @@
                                     <i class="fa-regular fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
-                                <a href="/productos/detalle-producto" class="nombre-producto">
+                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
                                     <h4><%= productosJSON[i].name  %></h4>
                                 </a> 
                                 <p>$ <%= toThousand(productosJSON[i].price) %></p>
@@ -249,7 +249,7 @@
                 <div class="separador">
                     <% for(let i=12; i < 15; i++){%>
                        
-                        <div class="productoDescPrimera">
+                        <div class="productoDescPrimera" id="bloque">
                             <div class="imgNuProductos">
                                 <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
                                     <img class="js-modal-product-cover product-cover-modal" width="800" src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
@@ -263,7 +263,7 @@
                                     <i class="fa-regular fa-star"></i>
                                     <i class="fa-regular fa-star"></i>
                                 </div>
-                                <a href="/productos/detalle-producto" class="nombre-producto">
+                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
                                     <h4><%= productosJSON[i].name  %></h4>
                                 </a> 
                                 <p>$ <%= toThousand(productosJSON[i].price) %></p>

@@ -123,53 +123,24 @@ main{
 .separador{
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 /* Nuestros productos */
-
-/* .pruductosLinea{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    background-color: rgba(119, 119, 119, 0.727);
-    margin-top: 72px;
-    margin-bottom: 0px;
+ #bloque:hover{
+     /* box-sizing: border-box; */
+  /* animation-name: seleccion;
+  animation-duration: 100ms; */
+  transform: scale(1.05,1.05);
+ }
+ @keyframes seleccion{
     
-}
-
-#pruductosLinea h2{
-
-    width: 100%;
-    text-align: center;
-}
-
-.productoDesc{
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    width: 60%;
-    text-decoration: none;
-    color: black;
-}
-.producto2{
-    display: none;
-}
-.producto3{
-    display: none;
-} */
-
-
-/* imgNuProductos - Img */
-
-
-/* .imgNuProductos{
-    width: 100%;
-}
-#pruductosLinea img{
-    width: 100%;
-    display: block;
-}
- */
+    
+    100%{
+        transform: scale(1.1,1.1);
+    }
+    
+ }
 
 /* Descripcion -texto */
 

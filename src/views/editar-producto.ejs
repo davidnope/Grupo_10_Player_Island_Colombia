@@ -12,6 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/agregar-producto.css">
+    <link rel="stylesheet" href="/css/editar-producto.css">
     <link rel="stylesheet" href="/css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,19 +23,62 @@
 <body>
     <%- include('./partials/header') %>
         <main>
-            <div class="titulo-producto">
+            <div class="container products-wrapper">
+                <div class="row">
+                    <div class="titulo">
+                        <h2 class="products-title">Estás editando: <br> <i><%= producto.name %></i></h2>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <form action="/productos/editar/<%= producto.id %>?_method=put" method="POST">
+                        <div class="row product-detail">
+                            <div class="bloque-edicion">
+                                <label for="name" class="form-label">Nombre del producto:   </label>
+                                <input type="text" id="name" name="name" placeholder="Ej: consola X" class="form-input" value="<%= producto.name %>">
+                            </div>
+                            <div class="bloque-edicion">
+                                <label for="price" class="form-label">Precio del producto:</label>
+                                <input type="text" id="price" name="price" placeholder="Ej: $50.000" class="form-input" value="<%= producto.price %>" >
+                            </div>
+                            <div class="bloque-edicion">
+                                <label for="discount" class="form-label">Descuento:</label>
+                                <input type="text" id="discount" name="discount" placeholder="Ej: 20" class="form-input" value="<%= producto.discount %>">
+                            </div>
+                            <div class="bloque-edicion">
+                                <label for="category" class="form-label">Categoría:</label>
+                                <select name="category" id="category" class="form-input">
+                                    
+                                    <option value="otros" >Otros</option> <option value="consola" >Consolas</option>    							
+                                    <option value="control" >Controles</option>
+                                              <option value="edicion-especial" >Ediciones especiales</option>
+                                    <option value="accesorios" >Accesorios</option>         
+                                </select>
+                            </div>
+                            <div class="bloque-edicion">
+                                <label for="description" class="form-label">Descripción:</label>
+                                <textarea name="description" id="description" placeholder="Ej: breve descripcion de su producto (max: " class="form-textarea"><%= producto.description %></textarea>
+                            </div>
+                            <div class="bloque-edicion">
+                                <button type="submit" class="botonGuardar">Guardar producto</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        
+            </div>
+            <!-- <div class="titulo-producto">
                 <h2>Editar producto</h2>
             </div>
             <section class="content-form">
                 <form action="/" method="get">
 
-                    <!-- IMAGENES -->
+                    IMAGENES
                     <div class="imagenes">
                         <label for="imageProducto" class="titulos-seccion">Imagenes</label>
                         <input type="file" name="imgProducto" accept=".jpg" required>
                     </div>
 
-                    <!-- MARCA -->
+                    MARCA
                     <div class="marca">
                         <label for="marca" class="titulos-seccion">Marca</label>
                         <% for(let i=0; i < partesFormulario.marca.length; i ++) {%>
@@ -47,19 +91,19 @@
                             <% } %>
                     </div>
 
-                    <!-- DESCRIPCION -->
+                    DESCRIPCION
                     <div class="descripcion-caracteristicas">
                         <label for="descripcion" class="titulos-seccion">Descripción</label>
                         <textarea name="descripcionText" id="descripcion" required></textarea>
                     </div>
 
-                    <!-- CARACTERISTICAS -->
+                    CARACTERISTICAS
                     <div class="descripcion-caracteristicas">
                         <label for="caracteristicas" class="titulos-seccion">Caracteristicas</label>
                         <textarea name="caracteristicasText" id="caracteristicas" required></textarea>
                     </div>
 
-                    <!-- CATEGORIA -->
+                    CATEGORIA
                     <div class="categoria">
                         <label for="categoria" class="titulos-seccion">Categorias</label>
                         <% for(let i=0; i < partesFormulario.categoria.length; i ++) {%>
@@ -72,7 +116,7 @@
                             <% } %>
                     </div>
 
-                    <!-- METODOS DE PAGO -->
+                    METODOS DE PAGO
 
                     <div class="metodosPago">
                         <label for="metodosPago" class="titulos-seccion">Metodos de pago</label>
@@ -87,7 +131,7 @@
                             <% } %>
                     </div>
 
-                    <!-- COLERES -->
+                    COLERES
 
                     <div class="colores">
                         <label for="colores" class="titulos-seccion">Color</label>
@@ -101,20 +145,20 @@
                             <% } %>
                     </div>
 
-                    <!-- PRECIO -->
+                    PRECIO
 
                     <div class="precio">
                         <label for="precio" class="titulos-seccion">Precio</label>
                         <input type="tel" name="precio" min="0" required>
                     </div>
 
-                    <!-- Boton -->
+                    Boton
                     <div class="style-boton">
                         <button type="submit">Guardar</button>
                         <button type="reset">Borrar</button>
                     </div>
                 </form>
-            </section>
+            </section> -->
         </main>
         <%- include('./partials/footer') %>
 </body>
