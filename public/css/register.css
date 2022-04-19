@@ -90,7 +90,12 @@
     text-decoration: none;
     cursor: default;
 }
+
+
 .boton button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: lighter;
     font-size: 20px;
     height: 41px;
@@ -104,6 +109,37 @@
     cursor: pointer;
 }
 
+.botones{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.boton-edit{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    cursor: default;
+}
+
+.boton-edit button, .boton-edit .buttomCaja{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    font-size: 20px;
+    height: 41px;
+    width: 170px;
+    margin: 30px 0;
+    border-radius: 12px;
+    border: 0px;
+    color: var(--blanco);
+    background-color: var(--morado-claro);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
 .parrafo-cambio-registro{
     margin-bottom: 30px;
 }

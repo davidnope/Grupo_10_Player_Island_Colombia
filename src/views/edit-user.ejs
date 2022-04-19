@@ -32,22 +32,22 @@
                     <div class="logo">
                         <img src="/img/logoProvisional.png" alt="">
                     </div>
-                    <h2>Registrarse</h2>
-                    <form action="/user/registerSave" method="POST" enctype="multipart/form-data" class="formulario-email-contrasena">
+                    <h2>Editar perfil</h2>
+                    <form action="/user/edit/<%=userSelect.id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario-email-contrasena">
                         <div class="hilera_form">
                             <div class="email-contrasena">
                                 <label for="Usuario">Nombre de usuario</label> <br>
-                                <input type="text" name="usuario" id="Usuario"> <br>
+                                <input type="text" name="usuario" id="Usuario" value=<%=userSelect.usuario%>><br>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="Email">Email</label> <br>
-                                <input type="email" name="email" id="Email"> <br>
+                                <input type="email" name="email" id="Email" value=<%=userSelect.email%>><br>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="Contrasena">Contraseña</label><br>
-                                <input type="password" name="contrasena" id="Contrasena"> <br>
+                                <input type="password" name="contrasena" id="Contrasena" value=<%=userSelect.contrasena%>><br>
                             </div>
 
                             <div class="email-contrasena">
@@ -58,17 +58,17 @@
                         <div class="hilera_form">
                             <div class="email-contrasena">
                                 <label for="documento">Numero de documento</label> <br>
-                                <input type="number" name="documento" id="documento"> <br>
+                                <input type="number" name="documento" id="documento" value=<%=userSelect.numeroDocumento%>> <br>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="direccion">Dirrección</label> <br>
-                                <input type="text" name="direccion" id="direccion"> <br>
+                                <input type="text" name="direccion" id="direccion" value=<%=userSelect.direccion%>> <br>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="celular">Celular</label><br>
-                                <input type="number" name="celular" id="celular"> <br>
+                                <input type="number" name="celular" id="celular" value=<%=userSelect.celular%>> <br>
                             </div>
 
                             <div class="email-contrasena">
@@ -76,13 +76,15 @@
                                 <input type="file" name="imgUser" id="img"> <br>
                             </div>
                         </div>
-                        <div class="boton">
-                            <button type="submit">Registrar</button>
+                        <div class="botones">
+                            <div class="boton-edit">
+                                <button type="submit">Editar</button>
+                            </div>
+                            <a href="/user/delete/<%=userSelect.id%>" class="boton-edit">
+                                <div class="buttomCaja">Eliminar</div>
+                            </a>
                         </div>
                     </form>
-                    <div class="parrafo-cambio-registro">
-                        <p>¿Ya estas registrado? <a href="/user/login">Iniciar Sesión</a></p>
-                    </div>
                 </div>
 
             </div>

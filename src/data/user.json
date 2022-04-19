@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "usuario": "davidnop500",
+    "email": "dnope745@gmail.com",
+    "contrasena": "holaquehace",
+    "numeroDocumento": "1000284535",
+    "direccion": "asdasdasdasdf",
+    "celular": "3194522655",
+    "img": "img_user_davidnop500_1650339638971_.jpg"
+  },
+  {
+    "id": 2,
+    "usuario": "jamesdnop300",
+    "email": "zion745.dn@gmail.com",
+    "contrasena": "perrro",
+    "numeroDocumento": "1033475325",
+    "direccion": "calle52",
+    "celular": "3214522655",
+    "img": "img_user_jamesdnop500_1650339297677_.png"
+  }
+]
