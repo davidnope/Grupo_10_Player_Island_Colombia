@@ -11,8 +11,8 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/register.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,51 +21,72 @@
 
 <body>
     <%- include('./partials/header') %>
-    <main>
-        <div class="caja_principal">
-            <div class="caja_izq">
-                <a href="/">
-                    <button type="submit" class="boton-atras">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-                </a>
-                <div class="logo">
-                    <img src="/img/logoProvisional.png" alt="">
-                </div>
-                <h2>Registrarse</h2>
-                <form action="/" class="formulario-email-contrasena">
-
-                    <div class="email-contrasena">
-                        <label for="Usuario">Nombre de usuario</label> <br>
-                        <input type="text" name="usuario" id="Usuario"> <br>
-                    </div>
-
-                    <div class="email-contrasena">
-                        <label for="Email">Email</label> <br>
-                        <input type="email" name="email" id="Email"> <br>
-                    </div>
-
-                    <div class="email-contrasena">
-                        <label for="Contrasena">Contraseña</label><br>
-                        <input type="password" name="contrasena" id="Contrasena"> <br>
-                    </div>
-
-                    <a href="/" class="boton">
-                        <button type="submit">Registrar</button>
+        <main>
+            <div class="caja_principal">
+                <div class="contenedor_form">
+                    <a href="/">
+                        <button type="submit" class="boton-atras">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
                     </a>
+                    <div class="logo">
+                        <img src="/img/logoProvisional.png" alt="">
+                    </div>
+                    <h2>Registrarse</h2>
+                    <form action="/user/registerSave" method="POST" enctype="multipart/form-data" class="formulario-email-contrasena">
+                        <div class="hilera_form">
+                            <div class="email-contrasena">
+                                <label for="Usuario">Nombre de usuario</label> <br>
+                                <input type="text" name="usuario" id="Usuario"> <br>
+                            </div>
 
-                </form>
-                <div class="parrafo-cambio-registro">
-                    <p>¿Ya estas registrado? <a href="/login">Iniciar Sesión</a></p>
+                            <div class="email-contrasena">
+                                <label for="Email">Email</label> <br>
+                                <input type="email" name="email" id="Email"> <br>
+                            </div>
+
+                            <div class="email-contrasena">
+                                <label for="Contrasena">Contraseña</label><br>
+                                <input type="password" name="contrasena" id="Contrasena"> <br>
+                            </div>
+
+                            <div class="email-contrasena">
+                                <label for="confirmarContrasena">Confirmar contraseña</label><br>
+                                <input type="password" name="confirmarContrasena" id="confirmarContrasena"> <br>
+                            </div>
+                        </div>
+                        <div class="hilera_form">
+                            <div class="email-contrasena">
+                                <label for="documento">Numero de documento</label> <br>
+                                <input type="number" name="documento" id="documento"> <br>
+                            </div>
+
+                            <div class="email-contrasena">
+                                <label for="dirrección">Dirrección</label> <br>
+                                <input type="text" name="dirrección" id="dirrección"> <br>
+                            </div>
+
+                            <div class="email-contrasena">
+                                <label for="celular">Celular</label><br>
+                                <input type="number" name="celular" id="celular"> <br>
+                            </div>
+
+                            <div class="email-contrasena">
+                                <label for="img">Imagen de perfil</label><br>
+                                <input type="file" name="imgUser" id="img"> <br>
+                            </div>
+                        </div>
+                        <div class="boton">
+                            <button type="submit">Registrar</button>
+                        </div>
+                    </form>
+                    <div class="parrafo-cambio-registro">
+                        <p>¿Ya estas registrado? <a href="/user/login">Iniciar Sesión</a></p>
+                    </div>
                 </div>
+
             </div>
-            <div class="caja_der">
-                <div class="img-der">
-                    <img src="/img/Img home/fortnite-g8ef7a9b92_1280 (2).jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </main>
+        </main>
 </body>
 
 </html>

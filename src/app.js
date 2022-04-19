@@ -16,8 +16,7 @@ app.use(express.json());
 
 const homeRouter = require(path.join(__dirname, 'routers/home'))
 const carritoRouter = require(path.join(__dirname, 'routers/carrito-compras'))
-const loginRouter = require(path.join(__dirname, 'routers/login'))
-const registerRouter = require(path.join(__dirname, 'routers/register'))
+const registerRouter = require(path.join(__dirname, 'routers/users'))
 const productosRouter = require(path.join(__dirname, 'routers/productos'))
 
 
@@ -25,7 +24,6 @@ const productosRouter = require(path.join(__dirname, 'routers/productos'))
 
 app.use('/', homeRouter)
 app.use('/carrito-compras', carritoRouter)
-app.use('/login', loginRouter)
-app.use('/register' , registerRouter)
+app.use('/user' , registerRouter)
 app.use('/productos' , productosRouter)
 
