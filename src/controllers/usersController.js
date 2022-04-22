@@ -1,9 +1,10 @@
 const path = require("path");
 const fs = require("fs");
+const {validationResult} = require('express-validator');
+
 const usersFilePath = path.join(__dirname, '../data/user.json');
 const usersFile = fs.readFileSync(usersFilePath, 'utf-8');
 const usersJson = usersFile ? JSON.parse(usersFile) : [];
-
 
 const controller = {
     loginView: (req, res) => {
@@ -17,8 +18,19 @@ const controller = {
     },
 
     registerSave: (req, res) => {
-        let idNumero = usersJson.length ? usersJson[usersJson.length - 1].id : 0;
 
+
+        // VALIDACIONES
+        let errorsValidation = validationResult(req);
+        if(errorsValidation.errors.length > 0){
+            res.render(path.join(__dirname, '../views/register.ejs'), {
+                errores:errorsValidation.mapped(), old: req.body});
+        }
+
+        // Agregar usuario
+        let idNumero = usersJson.length ? usersJson[usersJson.length - 1].id : 0;
+        
+        
         let userNew = {
             id: ++idNumero,
             usuario: req.body.usuario,
@@ -67,6 +79,7 @@ const controller = {
     deleteView: (req, res) => {
 
         let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
+        console.log(userSelect);
 
         res.render(path.join(__dirname, '../views/delete-user.ejs'), {userSelect})
     },
@@ -76,10 +89,9 @@ const controller = {
         let arrayFinal = usersJson.filter(user => user.id != req.params.id);
 
         let updateJson = JSON.stringify(arrayFinal, null, 2);
-        console.log(updateJson);
         fs.writeFileSync(usersFilePath, updateJson);
 
-        res.send('se borro')
+        res.redirect('/')
     }
 }
 module.exports = controller;

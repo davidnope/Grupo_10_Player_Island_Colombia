@@ -1,9 +1,15 @@
 const express = require("express");
 const path = require("path");
 const multer = require("multer");
+const {body} = require('express-validator');
+
+const usersController = require(path.join(__dirname, '../controllers/usersController'));
 
 const router = express.Router();
-const usersController = require(path.join(__dirname, '../controllers/usersController'));
+
+// MIDDLEWARES
+const validacionRegister = require(path.join(__dirname,'../middlewares/mdValidUsers'));
+
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -17,13 +23,15 @@ const storage = multer.diskStorage({
     },
 });
 
+
+
 const uploadFile = multer({storage : storage});
 
 router.get('/login', usersController.loginView);
 
 // Nuevo usuario
 router.get('/register', usersController.registerView);
-router.post('/registerSave', uploadFile.single('imgUser'),usersController.registerSave);
+router.post('/registerSave', uploadFile.single('imgUser'), validacionRegister, usersController.registerSave);
 
 // Editar usuario
 router.get('/edit/:id', uploadFile.single('imgUser'),usersController.editView);

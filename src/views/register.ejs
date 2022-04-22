@@ -33,47 +33,100 @@
                         <img src="/img/logoProvisional.png" alt="">
                     </div>
                     <h2>Registrarse</h2>
-                    <form action="/user/registerSave" method="POST" enctype="multipart/form-data" class="formulario-email-contrasena">
+                    <!-- <%if(locals.errores){%>
+                        <%for(indice in errores){%>
+                            <p>
+                                <%=errores[indice].msg%>
+                            </p>
+                            <%}%>
+                                <%}%> -->
+                    <form action="/user/registerSave" method="POST" enctype="multipart/form-data"
+                        class="formulario-email-contrasena">
                         <div class="hilera_form">
                             <div class="email-contrasena">
                                 <label for="Usuario">Nombre de usuario</label> <br>
-                                <input type="text" name="usuario" id="Usuario"> <br>
+                                <input type="text" name="usuario" id="Usuario"
+                                    value="<%=locals.old && old.usuario ? old.usuario : null%>"> <br>
+                                <%if(locals.errores && errores.usuario){%>
+                                    <div class="errores">
+                                        <%=errores.usuario.msg%>
+                                    </div>
+                                    <%}%>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="Email">Email</label> <br>
-                                <input type="email" name="email" id="Email"> <br>
+                                <input type="text" name="email" id="Email"
+                                    value="<%=locals.old && old.email ? old.email : null%>"> <br>
+                                <%if(locals.errores && errores.email){%>
+                                    <div class="errores">
+                                        <%=errores.email.msg%>
+                                    </div>
+                                    <%}%>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="Contrasena">Contraseña</label><br>
-                                <input type="password" name="contrasena" id="Contrasena"> <br>
+                                <input type="password" name="contrasena" id="Contrasena"><br>
+                                <%if(locals.errores && errores.contrasena){%>
+                                    <div class="errores">
+                                        <%=errores.contrasena.msg%>
+                                    </div>
+                                    <%}%>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="confirmarContrasena">Confirmar contraseña</label><br>
                                 <input type="password" name="confirmarContrasena" id="confirmarContrasena"> <br>
+                                <%if(locals.errores && errores.confirmarContrasena){%>
+                                    <div class="errores">
+                                        <%=errores.confirmarContrasena.msg%>
+                                    </div>
+                                    <%}%>
                             </div>
                         </div>
                         <div class="hilera_form">
                             <div class="email-contrasena">
                                 <label for="documento">Numero de documento</label> <br>
-                                <input type="number" name="documento" id="documento"> <br>
+                                <input type="number" name="documento" id="documento"
+                                    value="<%=locals.old && old.documento ? old.documento : null%>"> <br>
+                                <%if(locals.errores && errores.documento){%>
+                                    <div class="errores">
+                                        <%=errores.documento.msg%>
+                                    </div>
+                                    <%}%>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="direccion">Dirrección</label> <br>
-                                <input type="text" name="direccion" id="direccion"> <br>
+                                <input type="text" name="direccion" id="direccion"
+                                    value="<%=locals.old && old.direccion ? old.direccion : null%>"> <br>
+                                <%if(locals.errores && errores.direccion){%>
+                                    <div class="errores">
+                                        <%=errores.direccion.msg%>
+                                    </div>
+                                    <%}%>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="celular">Celular</label><br>
-                                <input type="number" name="celular" id="celular"> <br>
+                                <input type="tel" name="celular" id="celular"
+                                    value="<%=locals.old && old.celular ? old.celular : null%>"> <br>
+                                <%if(locals.errores && errores.celular){%>
+                                    <div class="errores">
+                                        <%=errores.celular.msg%>
+                                    </div>
+                                    <%}%>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="img">Imagen de perfil</label><br>
                                 <input type="file" name="imgUser" id="img"> <br>
+                                <%if(locals.errores && errores.imgUser){%>
+                                    <div class="errores">
+                                        <%=errores.imgUser.msg%>
+                                    </div>
+                                    <%}%>
                             </div>
                         </div>
                         <div class="boton">

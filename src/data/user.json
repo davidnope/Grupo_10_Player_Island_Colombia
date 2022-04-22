@@ -18,5 +18,15 @@
     "direccion": "calle52",
     "celular": "3214522655",
     "img": "img_user_jamesdnop500_1650339297677_.png"
+  },
+  {
+    "id": 3,
+    "usuario": "marcoS",
+    "email": "marcos@gmial.com",
+    "contrasena": "1234",
+    "numeroDocumento": "1000284535",
+    "direccion": "asdasdasd",
+    "celular": "3213270515",
+    "img": "img_user_marcoS_1650585419420_.txt"
   }
 ]
