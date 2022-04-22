@@ -28,5 +28,15 @@
     "direccion": "asdasdasd",
     "celular": "3213270515",
     "img": "img_user_marcoS_1650585419420_.txt"
+  },
+  {
+    "id": 4,
+    "usuario": "KevinPapu",
+    "email": "kevin20superior@hotmail.com",
+    "contrasena": "1234",
+    "numeroDocumento": "65465120211",
+    "direccion": "sadasdasd",
+    "celular": "3126131899",
+    "img": "img_user_KevinPapu_1650591420490_.jpg"
   }
 ]

@@ -34,10 +34,10 @@
     "name": "Control Xbox SE",
     "description": "Disfruta jugar con el confiable control de xbox pero rediseñado con un estilo guerrero, Xbox trae su control inalambrico, funciona con baterias, con una distancia de mas de 9m, y una rapida lectura en la consola",
     "carac": "",
-    "price": 300000,
+    "price": 250000,
     "discount": 10,
     "image": "controlSE.jpg",
-    "category": "oferta"
+    "category": "otros"
   },
   {
     "id": 5,
