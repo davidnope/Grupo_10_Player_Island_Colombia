@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/list-users.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Island</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <main>
+            <div class="titulo">
+                <h2>Lista usuarios</h2>
+            </div>
+
+            <%if(users.length % 2 == 0){%>
+                <div class="contenedor-usuarios-par">
+            <%}else{%>
+                <div class="contenedor-usuarios-impar">
+                <%}%>
+
+                <%users.forEach((users)=>{%>  
+                <div class="usuario">
+                    <div class="contenedor-img">
+                        <img src="/img/users/<%=users.img%>" alt="">
+                    </div>
+                    <div class="informacion-usuario">
+                        <h3>
+                            <%=users.usuario%>
+                        </h3>
+                        <div class="vendedor-comprador">
+                            <p><b>Tipo de usuario:</b> <%=users.tipoDeUsuario%></p>
+                        </div>
+                    </div>
+                    <div class="contenedor-boton">
+                        <a href="/" class="style-boton">
+                            Detalles
+                        </a>
+                    </div>
+                </div>
+                <%})%>
+            </div>
+        </main>
+</body>
+
+</html>

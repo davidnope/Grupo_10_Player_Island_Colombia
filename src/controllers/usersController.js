@@ -39,6 +39,7 @@ const controller = {
             numeroDocumento: req.body.documento,
             direccion: req.body.direccion,
             celular: req.body.celular,
+            tipoDeUsuario: req.body.tipoDeUsuario,
             img: req.file.filename,
         }
         usersJson.push(userNew);
@@ -47,6 +48,10 @@ const controller = {
         res.redirect('/')
     },
 
+    list: (req, res)=> {
+        console.log(usersJson);
+        res.render(path.join(__dirname, '../views/list-users.ejs'), {users: usersJson})
+    },
 
     // Editar usuario
     editView: (req, res) => {
@@ -65,6 +70,7 @@ const controller = {
             usersJson[posicionUser].contrasena = req.body.contrasena;
             usersJson[posicionUser].numeroDocumento = req.body.documento;
             usersJson[posicionUser].direccion = req.body.direccion;
+            usersJson[posicionUser].tipoDeUsuario = req.body.tipoDeUsuario;
             usersJson[posicionUser].celular = req.body.celular;
         }
         

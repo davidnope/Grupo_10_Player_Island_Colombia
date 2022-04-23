@@ -84,6 +84,16 @@
                                     </div>
                                     <%}%>
                             </div>
+
+                            <div class="email-contrasena">
+                                <label for="img">Imagen de perfil</label><br>
+                                <input type="file" name="imgUser" id="img"> <br>
+                                <%if(locals.errores && errores.imgUser){%>
+                                    <div class="errores">
+                                        <%=errores.imgUser.msg%>
+                                    </div>
+                                    <%}%>
+                            </div>
                         </div>
                         <div class="hilera_form">
                             <div class="email-contrasena">
@@ -120,14 +130,19 @@
                             </div>
 
                             <div class="email-contrasena">
-                                <label for="img">Imagen de perfil</label><br>
-                                <input type="file" name="imgUser" id="img"> <br>
-                                <%if(locals.errores && errores.imgUser){%>
+                                <label>Tipo de usuario</label><br>
+                                <select name="tipoDeUsuario" class="inputSelect">
+                                    <option value="''">Selecciona un opción</option>
+                                    <option value="Vendedor">Vendedor</option>
+                                    <option value="Comprador">Comprador</option>
+                                </select>
+                                <%if(locals.errores && errores.celular){%>
                                     <div class="errores">
-                                        <%=errores.imgUser.msg%>
+                                        <%=errores.celular.msg%>
                                     </div>
                                     <%}%>
                             </div>
+
                         </div>
                         <div class="boton">
                             <button type="submit">Registrar</button>

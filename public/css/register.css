@@ -1,4 +1,4 @@
-:root{
+:root {
     --morado-oscuro: #150722;
     --morado-intermedio: #230B39;
     --morado-claro: #352347;
@@ -8,7 +8,7 @@
 }
 
 /* boton-atras */
-.boton-atras{
+.boton-atras {
     top: 12px;
     height: 30px;
     width: 30px;
@@ -25,7 +25,7 @@
 
 /* caja padre- principal */
 
-.caja_principal{
+.caja_principal {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +36,7 @@
 }
 
 /* Caja izq */
-.contenedor_form{
+.contenedor_form {
     background-color: var(--blanco);
     width: 100%;
     display: flex;
@@ -47,35 +47,36 @@
 }
 
 /* Caja izq - componentes */
-.contenedor_form h2{
+.contenedor_form h2 {
     font-weight: lighter;
 }
 
-.logo{
+.logo {
     margin-top: 30px;
     width: 48px;
     height: 48px;
     margin-left: 5px;
     margin-right: 5px;
 }
-.logo img{
+
+.logo img {
     width: 100%;
     height: 100%;
 }
 
-.formulario-email-contrasena{
+.formulario-email-contrasena {
     width: 80%;
 }
 
-.email-contrasena{
+.email-contrasena {
     margin: 10px 0;
 }
 
-.email-contrasena label{
+.email-contrasena label {
     color: rgb(141, 141, 141);
 }
 
-.email-contrasena input{
+.email-contrasena input {
     margin: 15px 0;
     width: 97%;
     border: none;
@@ -83,7 +84,7 @@
 }
 
 
-.boton{
+.boton {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -92,7 +93,7 @@
 }
 
 
-.boton button{
+.boton button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,14 +110,14 @@
     cursor: pointer;
 }
 
-.botones{
+.botones {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.boton-edit{
+.boton-edit {
     width: 40%;
     display: flex;
     justify-content: center;
@@ -124,7 +125,8 @@
     cursor: default;
 }
 
-.boton-edit button, .boton-edit .buttomCaja{
+.boton-edit button,
+.boton-edit .buttomCaja {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,47 +142,55 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
-.parrafo-cambio-registro{
+
+.parrafo-cambio-registro {
     margin-bottom: 30px;
 }
-.parrafo-cambio-registro a{
+
+.parrafo-cambio-registro a {
     text-decoration: none;
     color: #0DAEE8;
 }
 
-.errores{
+.errores {
     color: red;
 }
 
 
 /* caja_izq */
+.inputSelect {
+    margin: 10px 0;
+    border: solid 1px transparent;
+    border-color: transparent transparent rgb(141, 141, 141) transparent;
+}
 
-.hilera_form{
+.hilera_form {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-@media (min-width: 1279px){
+@media (min-width: 1279px) {
 
-    .caja_principal{
+    .caja_principal {
         width: 820px;
-    }   
+    }
 
-    .formulario-email-contrasena{
+    .formulario-email-contrasena {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
 
-    .email-contrasena{
+    .email-contrasena {
         width: 100%;
     }
 
-    .hilera_form{
+    .hilera_form {
         width: 50%;
     }
-    .email-contrasena input{
+
+    .email-contrasena input {
         width: 87%;
     }
 }

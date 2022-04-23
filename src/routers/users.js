@@ -23,8 +23,6 @@ const storage = multer.diskStorage({
     },
 });
 
-
-
 const uploadFile = multer({storage : storage});
 
 router.get('/login', usersController.loginView);
@@ -32,6 +30,9 @@ router.get('/login', usersController.loginView);
 // Nuevo usuario
 router.get('/register', usersController.registerView);
 router.post('/registerSave', uploadFile.single('imgUser'), validacionRegister, usersController.registerSave);
+
+// Lista de usuarios
+router.get('/list', usersController.list)
 
 // Editar usuario
 router.get('/edit/:id', uploadFile.single('imgUser'),usersController.editView);

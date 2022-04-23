@@ -1,42 +1,46 @@
 [
   {
     "id": 1,
-    "usuario": "davidnop500",
+    "usuario": "davidnop200",
     "email": "dnope745@gmail.com",
-    "contrasena": "holaquehace",
-    "numeroDocumento": "1000284535",
-    "direccion": "asdasdasdasdf",
+    "contrasena": "Habbo.es1234",
+    "numeroDocumento": "100284535",
+    "direccion": "Calle 62 # 64 / 75",
     "celular": "3194522655",
-    "img": "img_user_davidnop500_1650339638971_.jpg"
+    "tipoDeUsuario": "Vendedor",
+    "img": "img_user_davidnop200_1650684749427_.jpg"
   },
   {
     "id": 2,
-    "usuario": "jamesdnop300",
-    "email": "zion745.dn@gmail.com",
-    "contrasena": "perrro",
-    "numeroDocumento": "1033475325",
-    "direccion": "calle52",
-    "celular": "3214522655",
-    "img": "img_user_jamesdnop500_1650339297677_.png"
+    "usuario": "KevinPapu",
+    "email": "kevin20superior@hotmail.com",
+    "contrasena": "kevina20",
+    "numeroDocumento": "1045325120",
+    "direccion": "Calle52#64-75",
+    "celular": "3126131899",
+    "tipoDeUsuario": "Comprador",
+    "img": "img_user_KevinPapu_1650684850734_.jpg"
   },
   {
     "id": 3,
-    "usuario": "marcoS",
-    "email": "marcos@gmial.com",
-    "contrasena": "1234",
-    "numeroDocumento": "1000284535",
-    "direccion": "asdasdasd",
+    "usuario": "GeraldineConeja",
+    "email": "gmejia@gmail.com",
+    "contrasena": "geral",
+    "numeroDocumento": "123416516545",
+    "direccion": "Calle 62 # 64 / 75",
     "celular": "3213270515",
-    "img": "img_user_marcoS_1650585419420_.txt"
+    "tipoDeUsuario": "Vendedor",
+    "img": "img_user_GeraldineConeja_1650686635766_.jpg"
   },
   {
     "id": 4,
-    "usuario": "KevinPapu",
-    "email": "kevin20superior@hotmail.com",
-    "contrasena": "1234",
-    "numeroDocumento": "65465120211",
-    "direccion": "sadasdasd",
-    "celular": "3126131899",
-    "img": "img_user_KevinPapu_1650591420490_.jpg"
+    "usuario": "JamesEdarudo",
+    "email": "James@gmail.com",
+    "contrasena": "jamespapi",
+    "numeroDocumento": "123416516545",
+    "direccion": "Calle 62 # 64 / 75",
+    "celular": "3213270515",
+    "tipoDeUsuario": "Vendedor",
+    "img": "img_user_davidnop200_1650684648808_.jpg"
   }
 ]
