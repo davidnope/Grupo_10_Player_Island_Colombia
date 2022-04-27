@@ -26,33 +26,39 @@
                 <h2>Lista usuarios</h2>
             </div>
 
-            <%if(users.length % 2 == 0){%>
+            <%if(users.length % 2==0){%>
                 <div class="contenedor-usuarios-par">
-            <%}else{%>
-                <div class="contenedor-usuarios-impar">
-                <%}%>
+                    <%}else{%>
+                        <div class="contenedor-usuarios-impar">
+                            <%}%>
 
-                <%users.forEach((users)=>{%>  
-                <div class="usuario">
-                    <div class="contenedor-img">
-                        <img src="/img/users/<%=users.img%>" alt="">
-                    </div>
-                    <div class="informacion-usuario">
-                        <h3>
-                            <%=users.usuario%>
-                        </h3>
-                        <div class="vendedor-comprador">
-                            <p><b>Tipo de usuario:</b> <%=users.tipoDeUsuario%></p>
+                                <%users.forEach((users)=>{%>
+                                    <div class="usuario">
+                                        <div class="contenedor-img">
+                                            <img src="<%if(users.img == 'default.png'){%>
+                            /img/<%=users.img%>
+                            <%}else{%>
+                                /img/users/<%=users.img%>
+                                <%}%>" alt="">
+                                        </div>
+                                        <div class="informacion-usuario">
+                                            <h3>
+                                                <%=users.usuario%>
+                                            </h3>
+                                            <div class="vendedor-comprador">
+                                                <p><b>Tipo de usuario:</b>
+                                                    <%=users.tipoDeUsuario%>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="contenedor-boton">
+                                            <a href="/" class="style-boton">
+                                                Detalles
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <%})%>
                         </div>
-                    </div>
-                    <div class="contenedor-boton">
-                        <a href="/" class="style-boton">
-                            Detalles
-                        </a>
-                    </div>
-                </div>
-                <%})%>
-            </div>
         </main>
 </body>
 

@@ -37,9 +37,7 @@ const validacionRegister = [
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
 
-        if(!file){
-            throw new Error ('Agrega una imagen');
-        }else{
+        if(file){
             let fileExtension = path.extname(file.originalname);
             if(!acceptedExtensions.includes(fileExtension)){
                 throw new Error (`Las extensiones de archvio permitidos son ${acceptedExtensions.join(', ')}`);

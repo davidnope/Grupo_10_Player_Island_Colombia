@@ -42,5 +42,16 @@
     "celular": "3213270515",
     "tipoDeUsuario": "Vendedor",
     "img": "img_user_davidnop200_1650684648808_.jpg"
+  },
+  {
+    "id": 5,
+    "usuario": "Alejandra",
+    "email": "Aleja@hotmail.com",
+    "contrasena": "1234",
+    "numeroDocumento": "534201526",
+    "direccion": "Calle 62 # 64 / 75",
+    "celular": "3126131899",
+    "tipoDeUsuario": "Vendedor",
+    "img": "default.png"
   }
 ]
