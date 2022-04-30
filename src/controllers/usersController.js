@@ -1,10 +1,13 @@
 const path = require("path");
 const fs = require("fs");
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 const usersFilePath = path.join(__dirname, '../data/user.json');
 const usersFile = fs.readFileSync(usersFilePath, 'utf-8');
 const usersJson = usersFile ? JSON.parse(usersFile) : [];
+
+let rutaRedirect;
 const formValidator = (req, res) => {
     let result = {
         valid: true
@@ -12,21 +15,46 @@ const formValidator = (req, res) => {
 
     let errorsValidation = validationResult(req);
 
-        if (errorsValidation.errors.length > 0) {
-            result.valid = false;
-            res.render(path.join(__dirname, '../views/register.ejs'), {
-                errores: errorsValidation.mapped(), old: req.body
-            });
-        } 
+    if (errorsValidation.errors.length > 0) {
+        result.valid = false;
+        res.render(rutaRedirect, {
+            errores: errorsValidation.mapped(), old: req.body
+        });
+    }
     return result;
-}; 
+};
+
+
 
 const controller = {
     loginView: (req, res) => {
         res.render(path.resolve(__dirname, '../views/login.ejs'))
     },
+    login: (req, res) => {
 
+        rutaRedirect = path.join(__dirname, '../views/login.ejs');
 
+        let validacion = formValidator(req, res);
+
+        let userLogin;
+
+        if (validacion.valid) {
+            for (let i = 0; i < usersJson.length; i++) {
+                if (req.body.email == usersJson[i].email) {
+                    if (bcrypt.compareSync(req.body.contrasena, usersJson[i].contrasena)) {
+                        userLogin = usersJson[i];
+                        break;
+                    }
+                };
+            };
+
+            if(userLogin == undefined){
+                return res.render(rutaRedirect, {errores: {contrasena: {msg : 'No se encontro usuario'}}});
+            }
+            req.session.usuarioLogueado = userLogin;
+            res.send('se logueo usuario: ' + req.session.usuarioLogueado.usuario)
+        };
+    },
     // Nuevo usuario
     registerView: (req, res) => {
         res.render(path.join(__dirname, '../views/register.ejs'))
@@ -35,9 +63,11 @@ const controller = {
     registerSave: (req, res) => {
 
         // VALIDACIONES
+        rutaRedirect = path.join(__dirname, '../views/register.ejs');
+
         let form = formValidator(req, res);
 
-        if(form.valid){
+        if (form.valid) {
 
             // Agregar usuario
             let idNumero = usersJson.length ? usersJson[usersJson.length - 1].id : 0;
@@ -46,8 +76,8 @@ const controller = {
             let userNew = {
                 id: ++idNumero,
                 usuario: req.body.usuario,
-                email: req.body.email,
-                contrasena: req.body.contrasena,
+                emailRegister: req.body.emailRegister,
+                contrasenaRegister: bcrypt.hashSync(req.body.contrasenaRegister, 10),
                 numeroDocumento: req.body.documento,
                 direccion: req.body.direccion,
                 celular: req.body.celular,
@@ -63,7 +93,6 @@ const controller = {
     },
 
     list: (req, res) => {
-        console.log(usersJson);
         res.render(path.join(__dirname, '../views/list-users.ejs'), { users: usersJson })
     },
 
@@ -99,7 +128,6 @@ const controller = {
     deleteView: (req, res) => {
 
         let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
-        console.log(userSelect);
 
         res.render(path.join(__dirname, '../views/delete-user.ejs'), { userSelect })
     },

@@ -56,7 +56,7 @@
 
                             <div class="email-contrasena">
                                 <label for="Email">Email</label> <br>
-                                <input type="text" name="email" id="Email"
+                                <input type="text" name="email" id="email"
                                     value="<%=locals.old && old.email ? old.email : null%>"> <br>
                                 <%if(locals.errores && errores.email){%>
                                     <div class="errores">
@@ -67,7 +67,7 @@
 
                             <div class="email-contrasena">
                                 <label for="Contrasena">Contraseña</label><br>
-                                <input type="password" name="contrasena" id="Contrasena"><br>
+                                <input type="password" name="contrasena" id="contrasena"><br>
                                 <%if(locals.errores && errores.contrasena){%>
                                     <div class="errores">
                                         <%=errores.contrasena.msg%>
@@ -132,13 +132,13 @@
                             <div class="email-contrasena">
                                 <label>Tipo de usuario</label><br>
                                 <select name="tipoDeUsuario" class="inputSelect">
-                                    <option value="''">Selecciona un opción</option>
-                                    <option value="Vendedor">Vendedor</option>
-                                    <option value="Comprador">Comprador</option>
+                                    <option value= "">Selecciona un opción</option>
+                                    <option value= "Vendedor" <%=locals.old && old.tipoDeUsuario === 'Vendedor' ? 'selected' : '';%>>Vendedor</option>
+                                    <option value="Comprador" <%=locals.old && old.tipoDeUsuario === 'Comprador' ? 'selected' : '';%>>Comprador</option>
                                 </select>
-                                <%if(locals.errores && errores.celular){%>
+                                <%if(locals.errores && errores.tipoDeUsuario){%>
                                     <div class="errores">
-                                        <%=errores.celular.msg%>
+                                        <%=errores.tipoDeUsuario.msg%>
                                     </div>
                                     <%}%>
                             </div>

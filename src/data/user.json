@@ -2,55 +2,22 @@
   {
     "id": 1,
     "usuario": "davidnop200",
-    "email": "dnope745@gmail.com",
-    "contrasena": "Habbo.es1234",
-    "numeroDocumento": "100284535",
+    "email": "dnope85@gmail.com",
+    "contrasena": "$2a$10$iIgpV1Qm5gcv4Ia0gLgLyeRWG2YcPHvgc8aXd3n/Esn8hlCXgaEHi",
+    "numeroDocumento": "1000284535",
     "direccion": "Calle 62 # 64 / 75",
     "celular": "3194522655",
     "tipoDeUsuario": "Vendedor",
-    "img": "img_user_davidnop200_1650684749427_.jpg"
+    "img": "default.png"
   },
   {
     "id": 2,
-    "usuario": "KevinPapu",
-    "email": "kevin20superior@hotmail.com",
-    "contrasena": "kevina20",
-    "numeroDocumento": "1045325120",
-    "direccion": "Calle52#64-75",
-    "celular": "3126131899",
-    "tipoDeUsuario": "Comprador",
-    "img": "img_user_KevinPapu_1650684850734_.jpg"
-  },
-  {
-    "id": 3,
-    "usuario": "GeraldineConeja",
-    "email": "gmejia@gmail.com",
-    "contrasena": "geral",
-    "numeroDocumento": "123416516545",
+    "usuario": "Ximena",
+    "email": "ximena@hotmail.com",
+    "contrasena": "$2a$10$RzsudRXaR9tuibyg3ZseIOkD7Lq0yYK6tfi3cd/bFd61lFJ2sF5Ky",
+    "numeroDocumento": "351651321",
     "direccion": "Calle 62 # 64 / 75",
-    "celular": "3213270515",
-    "tipoDeUsuario": "Vendedor",
-    "img": "img_user_GeraldineConeja_1650686635766_.jpg"
-  },
-  {
-    "id": 4,
-    "usuario": "JamesEdarudo",
-    "email": "James@gmail.com",
-    "contrasena": "jamespapi",
-    "numeroDocumento": "123416516545",
-    "direccion": "Calle 62 # 64 / 75",
-    "celular": "3213270515",
-    "tipoDeUsuario": "Vendedor",
-    "img": "img_user_davidnop200_1650684648808_.jpg"
-  },
-  {
-    "id": 5,
-    "usuario": "Alejandra",
-    "email": "Aleja@hotmail.com",
-    "contrasena": "1234",
-    "numeroDocumento": "534201526",
-    "direccion": "Calle 62 # 64 / 75",
-    "celular": "3126131899",
+    "celular": "3194522655",
     "tipoDeUsuario": "Vendedor",
     "img": "default.png"
   }

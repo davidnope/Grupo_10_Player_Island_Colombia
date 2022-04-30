@@ -118,7 +118,10 @@
     display: none;
 }
 
-
+.errores {
+    margin-bottom: 10px;
+    color: red;
+}
 
 @media(min-width:1279px){
     .caja_principal{

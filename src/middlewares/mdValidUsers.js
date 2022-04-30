@@ -2,11 +2,18 @@ const {body} = require('express-validator');
 const path = require('path');
 
 const validacionRegister = [
+    // validacion registro
     body('usuario').notEmpty().withMessage('Escribe un usuario'),
     body('email').notEmpty().withMessage('Escribe un email').bail().isEmail().withMessage('Escribe un correo valido'),
     body('documento').notEmpty().withMessage('Escribe tu numero de documento').bail().isInt().withMessage('Debe ser un numero de identidad valido'),
     body('direccion').notEmpty().withMessage('Escribe tu dirección de recidencia'),
     body('celular').notEmpty().withMessage('Escribe un numero de contacto').bail().isInt().withMessage('Debe ser un numero valido'),
+    body('tipoDeUsuario').custom((value, {req})=>{
+        if(req.body.tipoDeUsuario == ''){
+            throw new Error('Debes seleccionar una opción');
+        }
+        return true;
+    }),
 
     body('contrasena').notEmpty().withMessage('Escribe una contraseña').bail()
     .custom((value, {req})=>{
@@ -44,8 +51,7 @@ const validacionRegister = [
             }
         }
         return true;
-    })
+    }),
 ]
-
 
 module.exports = validacionRegister;

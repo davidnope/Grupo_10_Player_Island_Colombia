@@ -33,21 +33,27 @@
                     <img src="/img/logoProvisional.png" alt="">
                 </div>
                 <h2>Iniciar seción</h2>
-                <form action="/" class="formulario-email-contrasena">
+                <form action="/user/login" method="POST" class="formulario-email-contrasena">
 
                     <div class="email-contrasena">
                         <label for="Email">Email</label> <br>
                         <input type="email" name="email" id="Email"> <br>
+                        <%if(locals.errores && errores.email){%>
+                            <div class="errores"><%=errores.email.msg%></div>
+                        <%}%>
                     </div>
 
                     <div class="email-contrasena">
                         <label for="Contrasena">Contraseña</label><br>
-                        <input type="password" name="contrasena" id="Contrasena"> <br>
+                        <input type="password" name="contrasena" id="contrasena"> <br>
+                        <%if(locals.errores && errores.contrasena){%>
+                            <div class="errores"><%=errores.contrasena.msg%></div>
+                        <%}%>
                     </div>
 
-                    <a href="/" class="boton">
+                    <div class="boton">
                         <button type="submit">Iniciar</button>
-                    </a>
+                    </div>
 
                 </form>
                 <div class="parrafo-cambio-registro">

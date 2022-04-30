@@ -19,11 +19,14 @@
   },
   "homepage": "https://github.com/davidnope/proyecto_privado#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.6",
-    "express": "^4.17.3",
+    "express": "^4.18.1",
+    "express-session": "^1.17.2",
     "express-validator": "^6.14.0",
     "method-override": "^3.0.0",
     "multer": "^1.4.4",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "session": "^0.1.0"
   }
 }

@@ -8,9 +8,10 @@ const usersController = require(path.join(__dirname, '../controllers/usersContro
 const router = express.Router();
 
 // MIDDLEWARES
-const validacionRegister = require(path.join(__dirname,'../middlewares/mdValidUsers'));
+const validationRegister = require(path.join(__dirname,'../middlewares/mdValidUsers'));
+const validationLogin = require(path.join(__dirname,'../middlewares/mdValidLogin'));
 
-
+// form img
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, path.join(__dirname, '../../public/img/users'))
@@ -26,10 +27,11 @@ const storage = multer.diskStorage({
 const uploadFile = multer({storage : storage});
 
 router.get('/login', usersController.loginView);
+router.post('/login', validationLogin, usersController.login);
 
 // Nuevo usuario
 router.get('/register', usersController.registerView);
-router.post('/registerSave', uploadFile.single('imgUser'), validacionRegister, usersController.registerSave);
+router.post('/registerSave', uploadFile.single('imgUser'), validationRegister, usersController.registerSave);
 
 // Lista de usuarios
 router.get('/list', usersController.list)
