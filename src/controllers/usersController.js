@@ -76,8 +76,8 @@ const controller = {
             let userNew = {
                 id: ++idNumero,
                 usuario: req.body.usuario,
-                emailRegister: req.body.emailRegister,
-                contrasenaRegister: bcrypt.hashSync(req.body.contrasenaRegister, 10),
+                email: req.body.email,
+                contrasena: bcrypt.hashSync(req.body.contrasena, 10),
                 numeroDocumento: req.body.documento,
                 direccion: req.body.direccion,
                 celular: req.body.celular,
@@ -100,7 +100,9 @@ const controller = {
     editView: (req, res) => {
 
         let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
+        // console.log(userSelect);
 
+        
         res.render(path.join(__dirname, '../views/edit-user.ejs'), { userSelect })
     },
 

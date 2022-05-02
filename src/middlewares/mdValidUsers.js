@@ -17,10 +17,6 @@ const validacionRegister = [
 
     body('contrasena').notEmpty().withMessage('Escribe una contraseña').bail()
     .custom((value, {req})=>{
-        
-        if(req.body && req.body.confirmarContrasen){
-            throw new Error('Vuelve a llenar este campo');
-        }
 
         if(!req.body.confirmarContrasena){
             throw new Error('llena el campo "Confirmar contraseña"');
