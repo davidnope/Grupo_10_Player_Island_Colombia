@@ -7,6 +7,7 @@ const usersFilePath = path.join(__dirname, '../data/user.json');
 const usersFile = fs.readFileSync(usersFilePath, 'utf-8');
 const usersJson = usersFile ? JSON.parse(usersFile) : [];
 
+
 let rutaRedirect;
 const formValidator = (req, res) => {
     let result = {
@@ -48,11 +49,11 @@ const controller = {
                 };
             };
 
-            if(userLogin == undefined){
-                return res.render(rutaRedirect, {errores: {contrasena: {msg : 'No se encontro usuario'}}});
+            if (userLogin == undefined) {
+                return res.render(rutaRedirect, { errores: { contrasena: { msg: 'No se encontro usuario' } } });
             }
             req.session.usuarioLogueado = userLogin;
-            res.send('se logueo usuario: ' + req.session.usuarioLogueado.usuario)
+            res.redirect('/')
         };
     },
     // Nuevo usuario
@@ -87,7 +88,7 @@ const controller = {
             usersJson.push(userNew);
             createJson = JSON.stringify(usersJson, null, 2);
             fs.writeFileSync(usersFilePath, createJson);
-            res.redirect('/')
+            res.redirect('/user/list')
         }
 
     },
@@ -96,13 +97,44 @@ const controller = {
         res.render(path.join(__dirname, '../views/list-users.ejs'), { users: usersJson })
     },
 
+    profile: (req, res) => {
+        let opcionesView = [
+            {
+                opcion: 'Mis datos',
+                info: 'Edita tus datos personales',
+                ruta: "/user/edit/",
+                img: "default.png"
+            },
+            {
+                opcion: 'Seguridad',
+                info: 'Cambiar contraseña',
+                ruta: "/",
+                img: "seguridad.png"
+            },
+            {
+                opcion: 'Compras',
+                info: 'Revisa el historial de tus Compras',
+                ruta: "/",
+                img: "compras.png"
+            },
+            {
+                opcion: 'Ventas',
+                info: 'Revisa el historial de tus Ventas',
+                ruta: "/",
+                img: "ventas.png"
+            },
+        ];
+
+        let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
+
+        res.render(path.join(__dirname, '../views/profile.ejs'), {opcion : opcionesView, userSelect})
+    },
+
     // Editar usuario
     editView: (req, res) => {
 
         let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
-        // console.log(userSelect);
 
-        
         res.render(path.join(__dirname, '../views/edit-user.ejs'), { userSelect })
     },
 
@@ -122,7 +154,7 @@ const controller = {
         let updateJson = JSON.stringify(usersJson, null, 2);
         fs.writeFileSync(usersFilePath, updateJson);
 
-        res.redirect('/')
+        res.redirect('/user/list')
     },
 
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Island</title>
+</head>
+
+<body>
+    <%-include('./partials/header')%>
+        <main>
+            <div class="caja-primaria">
+                <div class="caja-img">
+                    <div class="img-profile">
+                        <img src="<%if(userSelect.img == 'default.png'){%>
+                            /img/<%=userSelect.img%>
+                            <%}else{%>
+                                /img/users/<%=userSelect.img%>
+                                <%}%>">
+                    </div>
+                </div>
+                <div class="detalle-usuario">
+                    <h3><%=userSelect.usuario%></h3>
+                    <p><b>Tipo de usuario: </b><%=userSelect.tipoDeUsuario%></p>
+                </div>
+            </div>
+            <div class="caja-secundaria">
+                <%for(let i=0; i < opcion.length; i++){%>
+                    <a href="<%=opcion[i].ruta%><%=userSelect.id%>" class="seccion">
+                        <div class="info-seccion">
+                            <div class="caja-icon">
+                                <div class="img-icon">
+                                    <img src="/img/<%=opcion[i].img%>">
+                                </div>
+                            </div>
+                            <div class="info-text">
+                                <h4><%=opcion[i].opcion%></h4>
+                                <p><%=opcion[i].info%></p>
+                            </div>
+                        </div>
+                        <div class="icon-rigth">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </a>
+                    <%}%>
+                    <a href="/user/delete/<%=userSelect.id%>" class="seccion-final">
+                        <div class="info-seccion">
+                            <div class="caja-icon">
+                                <div class="img-icon">
+                                    <img src="/img/eliminar.png">
+                                </div>
+                            </div>
+                            <div class="info-text">
+                                <h4>Eliminar cuenta</h4>
+                                <p>Borrar completamente esta cuenta</p>
+                            </div>
+                        </div>
+                        <div class="icon-rigth">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </a>
+            </div>
+        </main>
+</body>
+
+</html>

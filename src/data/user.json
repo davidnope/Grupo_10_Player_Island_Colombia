@@ -8,7 +8,7 @@
     "direccion": "Calle 62 # 64 / 75",
     "celular": "3194522655",
     "tipoDeUsuario": "Vendedor",
-    "img": "default.png"
+    "img": "img_user_davidnop200_1650683258382_.jpg"
   },
   {
     "id": 2,
@@ -23,13 +23,33 @@
   },
   {
     "id": 3,
-    "usuario": "kevin bermudez",
-    "email": "kevin20superior@hotmail.com",
-    "contrasena": "$2a$10$cn8OLMiYzaFaA1l1ZgCMVO0Kuq4KzHVhiaKoTKUKCYrBHdS7xy1cS",
-    "numeroDocumento": "1007645397",
-    "direccion": "madelena",
+    "usuario": "Yersy Khaterine",
+    "email": "yersy@gmail.com",
+    "numeroDocumento": "1234323455",
+    "direccion": "Calle 62 # 64 / 75",
     "celular": "3126131899",
-    "tipoDeUsuario": "Vendedor",
-    "img": "default.png"
+    "img": "img_user_Yersy Valencia_1651553112820_.jpg",
+    "tipoDeUsuario": "Comprador"
+  },
+  {
+    "id": 4,
+    "usuario": "Marcos Nope",
+    "email": "marcos@gmail.com",
+    "numeroDocumento": "4323421123",
+    "direccion": "Calle 62 # 64 / 75",
+    "celular": "3213270515",
+    "tipoDeUsuario": "Comprador",
+    "img": "img_user_Marcos Nope_1651553657628_.jpg"
+  },
+  {
+    "id": 5,
+    "usuario": "JamesNope",
+    "email": "james@gmail.com",
+    "contrasena": "$2a$10$DGF5tQHEXfARl0BZICbUd.i4cIYPE0Ug.03i8mEucCNGXJpJrt8Fu",
+    "numeroDocumento": "1033757006",
+    "direccion": "Calle 62 # 64 / 75",
+    "celular": "3213270515",
+    "tipoDeUsuario": "Comprador",
+    "img": "img_user_JamesNope_1651555489805_.png"
   }
 ]

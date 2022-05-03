@@ -24,7 +24,7 @@
         <main>
             <div class="caja_principal">
                 <div class="contenedor_form">
-                    <a href="/">
+                    <a href="/user/profile/<%=userSelect.id%>">
                         <button type="submit" class="boton-atras">
                             <i class="fa-solid fa-arrow-left"></i>
                         </button>
@@ -44,15 +44,9 @@
                                 <label for="Email">Email</label> <br>
                                 <input type="email" name="email" id="Email" value="<%=userSelect.email%>"><br>
                             </div>
-
                             <div class="email-contrasena">
-                                <label for="Contrasena">Contraseña</label><br>
-                                <input type="password" name="contrasena" id="Contrasena" value="<%=userSelect.contrasena%>" ><br>
-                            </div>
-
-                            <div class="email-contrasena">
-                                <label for="confirmarContrasena">Confirmar contraseña</label><br>
-                                <input type="password" name="confirmarContrasena" id="confirmarContrasena"> <br>
+                                <label for="celular">Celular</label><br>
+                                <input type="number" name="celular" id="celular" value="<%=userSelect.celular%>"> <br>
                             </div>
                         </div>
                         <div class="hilera_form">
@@ -65,15 +59,18 @@
                                 <label for="direccion">Dirrección</label> <br>
                                 <input type="text" name="direccion" id="direccion" value="<%=userSelect.direccion%>" > <br>
                             </div>
-
-                            <div class="email-contrasena">
-                                <label for="celular">Celular</label><br>
-                                <input type="number" name="celular" id="celular" value="<%=userSelect.celular%>"> <br>
-                            </div>
-
-                            <div class="email-contrasena">
-                                <label for="img">Imagen de perfil</label><br>
-                                <input type="file" name="imgUser" id="img" value="/img/users/<%=userSelect.img%>"> <br>
+                             <div class="email-contrasena">
+                                <label>Tipo de usuario</label><br>
+                                <select name="tipoDeUsuario" class="inputSelect">
+                                    <option value= "">Selecciona un opción</option>
+                                    <option value= "Vendedor" <%=userSelect.tipoDeUsuario === 'Vendedor' ? 'selected' : '';%>>Vendedor</option>
+                                    <option value="Comprador" <%=userSelect.tipoDeUsuario === 'Comprador' ? 'selected' : '';%>>Comprador</option>
+                                </select>
+                                <%if(locals.errores && errores.tipoDeUsuario){%>
+                                    <div class="errores">
+                                        <%=errores.tipoDeUsuario.msg%>
+                                    </div>
+                                    <%}%>
                             </div>
                         </div>
                         <div class="botones">

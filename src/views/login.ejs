@@ -37,7 +37,7 @@
 
                     <div class="email-contrasena">
                         <label for="Email">Email</label> <br>
-                        <input type="email" name="email" id="Email"> <br>
+                        <input type="email" name="email" id="Email" value="<%=locals.old && old.email ? old.email : null%>"> <br>
                         <%if(locals.errores && errores.email){%>
                             <div class="errores"><%=errores.email.msg%></div>
                         <%}%>
