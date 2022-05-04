@@ -48,4 +48,8 @@ router.put('/edit/:id',  uploadFile.single('imgUser'), usersController.editSave)
 router.get('/delete/:id', usersController.deleteView)
 router.delete('/delete/:id', usersController.deleteSave);
 
+// probar loginUser
+
+router.get('/loginConfig', usersController.pruebaLogin)
+
 module.exports = router;

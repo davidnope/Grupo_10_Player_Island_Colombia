@@ -1,8 +1,10 @@
 const express = require('express');
-const path = require('path');
-const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
+const cookieParser = require ( 'cookie-parser' );
+
+const path = require('path');
+const app = express();
 
 const port = process.env.PORT || 3030;
 
@@ -25,6 +27,13 @@ app.use(session({secret: "Nuestro mensaje secreto"}));
 
 // CONFIGURACION EJS
 app.set('view engine', 'ejs');
+
+// instalar paquete cookie-parser y crusarlo con toda la aplicaicon
+app.use(cookieParser());
+
+// middlewares Cookies
+const mdRecordarUser = require(path.join(__dirname,'./middlewares/mdRecordarUser'));
+app.use(mdRecordarUser);
 
 
 // RUTAS

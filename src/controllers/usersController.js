@@ -28,6 +28,7 @@ const formValidator = (req, res) => {
 
 
 const controller = {
+    // login usuario
     loginView: (req, res) => {
         res.render(path.resolve(__dirname, '../views/login.ejs'))
     },
@@ -52,15 +53,25 @@ const controller = {
             if (userLogin == undefined) {
                 return res.render(rutaRedirect, { errores: { contrasena: { msg: 'No se encontro usuario' } } });
             }
+
             req.session.usuarioLogueado = userLogin;
-            res.redirect('/')
+
+            if(req.body.recordarUsuario != undefined){
+                res.cookie('cookieRecordarUsuario', userLogin.email, {maxAge: 600000});
+            };
+
+            res.send('Bienvenido ' + userLogin.email);
         };
+    },
+    pruebaLogin: (req, res) => {
+        let userLoggedInSess = req.session.usuarioLogueado;
+        let userLoggedInCok = req.cookies.cookieRecordarUsuario;
+        res.render(path.join(__dirname, '../views/prueba.ejs'), {userLoggedInCok, userLoggedInSess})
     },
     // Nuevo usuario
     registerView: (req, res) => {
         res.render(path.join(__dirname, '../views/register.ejs'))
     },
-
     registerSave: (req, res) => {
 
         // VALIDACIONES
@@ -92,11 +103,11 @@ const controller = {
         }
 
     },
-
+    // lista de usuarios
     list: (req, res) => {
         res.render(path.join(__dirname, '../views/list-users.ejs'), { users: usersJson })
     },
-
+    // perfil de usuario
     profile: (req, res) => {
         let opcionesView = [
             {
@@ -129,7 +140,6 @@ const controller = {
 
         res.render(path.join(__dirname, '../views/profile.ejs'), {opcion : opcionesView, userSelect})
     },
-
     // Editar usuario
     editView: (req, res) => {
 
@@ -156,8 +166,6 @@ const controller = {
 
         res.redirect('/user/list')
     },
-
-
     // Borrar usuario
     deleteView: (req, res) => {
 
