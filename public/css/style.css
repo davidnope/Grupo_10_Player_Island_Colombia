@@ -52,7 +52,7 @@ header nav div{
 
 
 footer{
-    background-color: grey;
+    background-color: var(--mo2);
     width: 100%;
     padding: 20px 0px;
     display: flex;
@@ -70,6 +70,7 @@ footer section{
     margin: auto;
     display: flex;
     flex-direction: column;
+    color: white;
     
 }
 footer p{

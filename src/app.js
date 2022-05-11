@@ -8,7 +8,7 @@ const app = express();
 
 const port = process.env.PORT || 3030;
 
-app.listen(port, () => console.log('Corriendo servidor'))
+app.listen(port, () => console.log(`|| SERVIDOR FUNCIONANDO PUERTO: ${port} ||`))
 
 // Middlewares
 

@@ -1,9 +1,8 @@
 [
   {
     "id": 1,
-    "usuario": "davidnop200",
+    "usuario": "David Nope",
     "email": "dnope85@gmail.com",
-    "contrasena": "$2a$10$iIgpV1Qm5gcv4Ia0gLgLyeRWG2YcPHvgc8aXd3n/Esn8hlCXgaEHi",
     "numeroDocumento": "1000284535",
     "direccion": "Calle 62 # 64 / 75",
     "celular": "3194522655",
@@ -51,5 +50,15 @@
     "celular": "3213270515",
     "tipoDeUsuario": "Comprador",
     "img": "img_user_JamesNope_1651555489805_.png"
+  },
+  {
+    "id": 6,
+    "usuario": "kevin alexander bermudez",
+    "email": "kevin20superior@hotmail.com",
+    "numeroDocumento": "1007645397",
+    "direccion": "madelena ",
+    "celular": "3126131899",
+    "tipoDeUsuario": "Vendedor",
+    "img": "default.png"
   }
 ]
