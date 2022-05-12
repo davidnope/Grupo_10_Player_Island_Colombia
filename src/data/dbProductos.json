@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Xbox Series X",
     "price": 3000000,
-    "discount": 5,
+    "discount": 50,
     "category": "otros",
     "description": "Consola Xbox Series X, cuarta generacion de la compañia de Microsoft®, es la consola mas rapida hasta la fecha de esta compañia. ",
     "carac": "",
@@ -14,7 +14,7 @@
     "name": "PlayStation 5",
     "price": 3800000,
     "discount": 10,
-    "category": "oferta",
+    "category": "otros",
     "description": "Consola PlayStation 5, quinta generacion de la compañia de Sony®, es la consola mas rapida hasta la fecha de esta compañia.",
     "carac": "",
     "image": "PlayStation-5-DualShock.webp"

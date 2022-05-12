@@ -48,6 +48,12 @@ header nav div{
     display: flex;
    /*  position: relative; */
 }
+#logoCompleto{
+display: none;
+}
+#logoCel{
+
+}
 
 
 
@@ -198,20 +204,18 @@ header a{
 
 @media (min-width: 430px) {
     #header{
-        width: 80%;
+        width: 85%;
         margin: auto;
     }
+    #logoCompleto{
+        display: block;
+        }
+        #logoCel{
+        display: none;
+        }
     #barraBusqueda{
         left: 20%;
     }
-    
-    
-    
-    
-    
-    
-    
-    
     #footer{
     display: flex;
     flex-direction: row;
