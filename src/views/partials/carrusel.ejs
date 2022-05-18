@@ -5,9 +5,9 @@
         <%for(let i = 0; i < 4; i++){%>
         <div class="producto<%=i%>">
             <div class="imgNuProductos">
-                <a href="/productos/detalle-producto/<%=productosJSON[i].id%>">
+                <a href="/productos/detalle-producto/<%=productosJSON[ids[i]-1].id%>">
                     <img class="js-modal-product-cover product-cover-modal" width="800"
-                        src="/img/productos/<%= productosJSON[i].image %>"
+                        src="/img/productos/<%= productosJSON[ids[i]-1].image %>"
                         alt="" title="" itemprop="image">
                 </a>
             </div>
@@ -19,10 +19,10 @@
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                 </div>
-                <a href="/productos/detalle-producto/<%=productosJSON[i].id%>" class="nombre-producto">
-                    <h4><%=productosJSON[i].name%></h4>
+                <a href="/productos/detalle-producto/<%=productosJSON[ids[i]-1].id%>" class="nombre-producto">
+                    <h4><%=productosJSON[ids[i]-1].name%></h4>
                 </a>
-                <p>$<%=toThousand(productosJSON[i].price)%></p>
+                <p>$<%=toThousand(productosJSON[ids[i]-1].price)%></p>
                 <div class="iconosAbajo">
                     <a href="#">
                         <i class="fa-regular fa-heart"></i>

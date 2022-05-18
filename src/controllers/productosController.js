@@ -18,7 +18,14 @@ const partesFormulario = {
 
 const controller={
     productos: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/productos.ejs'), {productosJSON, toThousand} )
+        let contador=0;
+        for(let i=0;i<productosJSON.length;i++){
+            productosJSON[i].delete? contador++:null;
+        }
+        let total = productosJSON.length-contador;
+        console.log('total '+ total)
+        
+        res.render(path.resolve(__dirname, '../views/productos.ejs'), {productosJSON, toThousand, total} )
     },
 
     detalle: (req, res) =>{
@@ -26,11 +33,15 @@ const controller={
         let producto = productosJSON[id];
         let descuento = producto.price*(producto.discount/100)
         let precioReal = producto.price-descuento
-        console.log(precioReal)
+        
         res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), {producto, toThousand , precioReal})
     },
     agregar: (req, res) =>{   
         res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), {partesFormulario})
+    },
+    store: (req,res) => {
+        console.log(req.file)
+        res.redirect('/productos');
     },
 
     editar: (req, res) => {
@@ -39,9 +50,6 @@ const controller={
         res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), {producto,toThousand, partesFormulario})
     },
     guardarEdicion: (req,res) => {
-        
-        debugger;
-        
         
         productosJSON[req.params.id-1].name=req.body.name;
         productosJSON[req.params.id-1].price=Number(req.body.price);
@@ -55,8 +63,17 @@ const controller={
         
         res.redirect('/productos/detalle-producto/'+req.params.id);
     },
-    store: (req,res) => {
-        console.log(req.file)
+    
+    eliminar: (req,res) => {
+        let id = req.params.id - 1;
+        let producto = productosJSON[id];
+        res.render(path.resolve(__dirname, '../views/delete-producto.ejs'), {producto,toThousand})
+    },
+    guardarEliminar:(req,res)=>{
+        productosJSON[req.params.id-1].delete=true;
+        let escritura = JSON.stringify(productosJSON, null, 2);
+
+        fs.writeFileSync(path.join(__dirname, '../data/dbProductos.json'), escritura);
         res.redirect('/productos');
     }
 

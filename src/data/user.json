@@ -50,5 +50,16 @@
     "celular": "3213270515",
     "tipoDeUsuario": "Comprador",
     "img": "img_user_JamesNope_1651555489805_.png"
+  },
+  {
+    "id": 6,
+    "usuario": "kevin bermudez",
+    "email": "kevin20superior@hotmail.com",
+    "contrasena": "$2a$10$olbq34/uMTJRJMfuru.sret8DYp6J3NydkJiVWS8P.RDAiZvMIuyO",
+    "numeroDocumento": "1007645397",
+    "direccion": "madelena",
+    "celular": "3126131899",
+    "tipoDeUsuario": "Vendedor",
+    "img": "default.png"
   }
 ]
