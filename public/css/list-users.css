@@ -119,6 +119,12 @@ main{
     background-color: var(--naranja);
 }
 
+.transparente{
+    width: 30%;
+    min-width: 255px;
+    background-color: red;  
+}
+
 @media (min-width: 650px){
 
     .titulo{

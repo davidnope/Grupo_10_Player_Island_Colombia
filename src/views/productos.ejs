@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/productos.css">
     <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="/css/list-users.css"> -->
     <link rel="stylesheet" href="/css/partialsCss/cuadroDeProducto.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -96,8 +97,7 @@
             
             
             <!-- lista -->
-            <div id="lista">
-                 <!-- nuestros productos -->
+            <!-- <div id="lista">
                 <div class="separador">
                     <% for(let i=0; i < 3; i++){%>
                        
@@ -283,13 +283,49 @@
                         
                     <%}%>
                 </div>
-
-
-                
-                
-                
-
-            </div>
+            </div> -->
+            <%if(productosJSON.length % 2==0){%>
+                <div class="contenedor-usuarios-par">usuario
+                    <%}else{%>
+                        <div class="contenedor-usuarios-impar">
+                            <%}%>
+                                <%productosJSON.forEach((products)=>{%>
+                                    <div class="bloqueProducto" id="bloque">
+                                        <div class="imgNuProductos">
+                                            <a href="/productos/detalle-producto/<%=products.id%>">
+                                                <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%= products.image %>" alt="" title="" itemprop="image">
+                                            </a>
+                                        </div>
+                                        <div class="descripcion">
+                                            <div class="estrellas">
+                                                <i class="fa-regular fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                            <a href="/productos/detalle-producto/<%=products.id%>" class="nombre-producto">
+                                                <h4><%= products.name  %></h4>
+                                            </a> 
+                                            <p>$ <%= toThousand(products.price) %></p>
+                                            <div class="iconosAbajo">
+                                                <a href="#">
+                                                    <i class="fa-regular fa-heart"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="fa-solid fa-share-nodes"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="fa-solid fa-cart-shopping"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%})%>
+                                    <%if(!productosJSON.length % 2==0){%>
+                                        <div class = "bloqueProducto transparente"></div>
+                                    <%}%>
+                        </div>
         </section>
 
 
