@@ -95,201 +95,14 @@
                     </div>
             <!-- </div> --></form>
             
-            
-            <!-- lista -->
-            <!-- <div id="lista">
-                <div class="separador">
-                    <% for(let i=0; i < 3; i++){%>
-                       
-                        <div class="productoDescPrimera" id="bloque">
-                            <div class="imgNuProductos">
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
-                                    <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <div class="estrellas">
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
-                                    <h4><%= productosJSON[i].name  %></h4>
-                                </a> 
-                                <p>$ <%= toThousand(productosJSON[i].price) %></p>
-                                <div class="iconosAbajo">
-                                    <a href="#">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    <%}%>
-                </div>
-                <div class="separador">
-                    <% for(let i=3; i < 6; i++){%>
-                       
-                        <div class="productoDescPrimera" id="bloque">
-                            <div class="imgNuProductos">
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
-                                    <img class="js-modal-product-cover product-cover-modal" width="800" src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <div class="estrellas">
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
-                                    <h4><%= productosJSON[i].name  %></h4>
-                                </a> 
-                                <p>$ <%= toThousand(productosJSON[i].price) %></p>
-                                <div class="iconosAbajo">
-                                    <a href="#">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    <%}%>
-                </div>
-                <div class="separador">
-                    <% for(let i=6; i < 9; i++){%>
-                       
-                        <div class="productoDescPrimera" id="bloque">
-                            <div class="imgNuProductos">
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
-                                    <img class="js-modal-product-cover product-cover-modal" width="800" src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <div class="estrellas">
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
-                                    <h4><%= productosJSON[i].name  %></h4>
-                                </a> 
-                                <p>$ <%= toThousand(productosJSON[i].price) %></p>
-                                <div class="iconosAbajo">
-                                    <a href="#">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    <%}%>
-                </div>
-                <div class="separador">
-                    <% for(let i=9; i < 12; i++){%>
-                       
-                        <div class="productoDescPrimera" id="bloque">
-                            <div class="imgNuProductos">
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
-                                    <img class="js-modal-product-cover product-cover-modal" width="800" src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <div class="estrellas">
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
-                                    <h4><%= productosJSON[i].name  %></h4>
-                                </a> 
-                                <p>$ <%= toThousand(productosJSON[i].price) %></p>
-                                <div class="iconosAbajo">
-                                    <a href="#">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    <%}%>
-                </div>
-                <div class="separador">
-                    <% for(let i=12; i < 15; i++){%>
-                       
-                        <div class="productoDescPrimera" id="bloque">
-                            <div class="imgNuProductos">
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>">
-                                    <img class="js-modal-product-cover product-cover-modal" width="800" src="/img/productos/<%= productosJSON[i].image %>" alt="" title="" itemprop="image">
-                                </a>
-                            </div>
-                            <div class="descripcion">
-                                <div class="estrellas">
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <a href="/productos/detalle-producto/<%= productosJSON[i].id%>" class="nombre-producto">
-                                    <h4><%= productosJSON[i].name  %></h4>
-                                </a> 
-                                <p>$ <%= toThousand(productosJSON[i].price) %></p>
-                                <div class="iconosAbajo">
-                                    <a href="#">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    <%}%>
-                </div>
-            </div> -->
             <%if(productosJSON.length % 2==0){%>
                 <div class="contenedor-usuarios-par">usuario
                     <%}else{%>
                         <div class="contenedor-usuarios-impar">
                             <%}%>
+                            
                                 <%productosJSON.forEach((products)=>{%>
+                                    <%if(!products.delete){%>
                                     <div class="bloqueProducto" id="bloque">
                                         <div class="imgNuProductos">
                                             <a href="/productos/detalle-producto/<%=products.id%>">
@@ -321,9 +134,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%})%>
-                                    <%if(!productosJSON.length % 2==0){%>
+                                    <%}%>
+                                <%})%>
+                                    <%if(total % 4==2){%>
+                                    <div class = "bloqueProducto transparente"></div>
+                                    <div class = "bloqueProducto transparente"></div>
+                                    <%}%>
+                                    <%if(total % 2!=0){%>
                                         <div class = "bloqueProducto transparente"></div>
+                                            <%if(total % 4==1){%>
+                                                <div class = "bloqueProducto transparente"></div>
+                                                <div class = "bloqueProducto transparente"></div>
+                                                <%}%>
                                     <%}%>
                         </div>
         </section>

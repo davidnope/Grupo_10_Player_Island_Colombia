@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/register.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Island</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <main>
+            <div class="caja_principal">
+                <div class="contenedor_form">
+                    <a href="/productos/editar/<%=producto.id%>">
+                        <button type="submit" class="boton-atras">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </a>
+                    <div class="logo">
+                        <img src="/img/logoMoradoBlanco.jpg" alt="">
+                    </div>
+                    <h2>Eliminar Producto</h2>
+                    <form action="/productos/eliminar/<%=producto.id%>?_method=DELETE" method="POST"  class="formulario-email-contrasena" style="justify-content:center;">
+                        
+                        <div style="display:flex; flex-direction:column; align-items: center;">
+                            <h3 style="text-align:center;">Seguro quieres eliminar el siguiente producto</h3>
+                            <h2><%=producto.name%></h2>
+                        </div>
+
+                        <div class="boton" style="width: 100%;">
+                            
+                            <button type="submit">Eliminar</button>
+                        </div>
+                    </form>
+
+            </div>
+        </main>
+</body>
+
+</html>
