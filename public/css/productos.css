@@ -45,7 +45,7 @@ h2 {
     height: 3.5rem;
     justify-content: space-around;
     align-items: center;
-
+    background-color: var(--morado-intermedio)
 }
 
 .porLogo {

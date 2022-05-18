@@ -58,13 +58,12 @@ display: none;
 
 
 footer{
-    background-color: var(--mo2);
     width: 100%;
     padding: 20px 0px;
     display: flex;
     flex-direction: column;
-    
-
+    background-color: var(--morado-intermedio);
+    box-shadow: 0 10px 20px var(--gris);
 }
 #footer{
     display: flex;
