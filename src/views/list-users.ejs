@@ -58,9 +58,17 @@
                                         </div>
                                     </div>
                                     <%})%>
-                                    <%if(!users.length % 2==0){%>
-                                        <div class = "transparente"></div>
-                                    <%}%>
+                                    <%if(users.length % 4==2){%>
+                                        <div class = "usuario transparente">h</div>
+                                        <div class = "usuario transparente">h</div>
+                                        <%}%>
+                                        <%if(users.length % 2!=0){%>
+                                            <div class = "usuario transparente">h</div>
+                                                <%if(users.length % 4==1){%>
+                                                    <div class = "usuario transparente">h</div>
+                                                    <div class = "usuario transparente">h</div>
+                                                    <%}%>
+                                        <%}%>
                         </div>
         </main>
 </body>

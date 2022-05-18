@@ -33,8 +33,9 @@ const controller={
         let producto = productosJSON[id];
         let descuento = producto.price*(producto.discount/100)
         let precioReal = producto.price-descuento
-        
-        res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), {producto, toThousand , precioReal})
+        let tipo = req.session.usuarioLogueado ? req.session.usuarioLogueado.tipoDeUsuario : null;
+
+        res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), {producto, toThousand , precioReal, tipo})
     },
     agregar: (req, res) =>{   
         res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), {partesFormulario})

@@ -120,9 +120,7 @@ main{
 }
 
 .transparente{
-    width: 30%;
-    min-width: 255px;
-    background-color: red;  
+    background-color: rgba(255, 0, 0, 0);  
 }
 
 @media (min-width: 650px){

@@ -27,8 +27,8 @@ const controller={
                 }
             }   
         }
-        console.log(ids)
-        res.render(path.resolve(__dirname, '../views/home.ejs'), {productosJSON, toThousand,ids})
+        let usuarioLogueado = req.session.usuarioLogueado ? req.session.usuarioLogueado : null;
+        res.render(path.resolve(__dirname, '../views/home.ejs'), {productosJSON, toThousand,ids , usuarioLogueado});
     },
 }
 module.exports = controller;

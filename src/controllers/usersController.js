@@ -60,7 +60,7 @@ const controller = {
                 res.cookie('cookieRecordarUsuario', userLogin.email, {maxAge: 86400000});
             };
 
-            res.send('Bienvenido ' + userLogin.email);
+            res.redirect('/');
         };
     },
     pruebaLogin: (req, res) => {
