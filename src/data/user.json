@@ -50,5 +50,16 @@
     "celular": "3213270515",
     "tipoDeUsuario": "Comprador",
     "img": "img_user_JamesNope_1651555489805_.png"
+  },
+  {
+    "id": 6,
+    "usuario": "davidnop01",
+    "email": "zion745@hotmail.com",
+    "contrasena": "$2a$10$dmI/jKq0vKyX7ldamEULIuuLgpuyf/CNgpmTA4iOXzcTtZPESY2Fm",
+    "numeroDocumento": "123341",
+    "direccion": "Calle 62 # 64 / 75",
+    "celular": "3194522655",
+    "tipoDeUsuario": "Comprador",
+    "img": "default.png"
   }
 ]
