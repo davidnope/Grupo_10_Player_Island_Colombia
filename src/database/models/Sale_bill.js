@@ -1,11 +1,9 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoincrement: true,
-            primarykey: true
+            autoIncrement: true,
+            primaryKey: true
         },
         shopping_cart_id: {
             type: dataTypes.INTEGER.UNSIGNED,
@@ -25,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
         // asociacion carrito de compras
         saleBill.belongsTo(models.ShoppingCart, {
             as: 'shoppingCart',
-            foreignkey: 'shopping_cart_id'
+            foreignKey: 'shopping_cart_id'
         });
     }
     return saleBill;

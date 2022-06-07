@@ -1,11 +1,9 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) =>{
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoincrement: true,
-            primarykey: true
+            autoIncrement: true,
+            primaryKey: true
         },
         first_name:{
             type: dataTypes.STRING,
@@ -23,7 +21,7 @@ module.exports = (sequelize, dataTypes) =>{
             type: dataTypes.INTEGER,
         },
         phone_number:{
-            type: dataTypes.INTEGER,
+            type: dataTypes.STRING,
         },
         adress:{
             type: dataTypes.STRING,
@@ -41,7 +39,8 @@ module.exports = (sequelize, dataTypes) =>{
     let config = {
         timestamps : true,
         createdAt : 'created_at',
-        updatedAt : 'updated_at'
+        updatedAt : 'updated_at',
+        deletedAt : false
     }
 
     let User = sequelize.define('User', cols, config);
@@ -51,19 +50,19 @@ module.exports = (sequelize, dataTypes) =>{
         // asociacion comentarios
         User.hasMany(models.Comment , {
             as: 'comments',
-            foreignkey: 'user_id'
+            foreignKey: 'user_id'
         });
         // asociacion productos
         User.hasMany(models.Product , {
             as: 'products',
-            foreignkey: 'user_id'
+            foreignKey: 'user_id'
         });
         // asociacion carrito de compras
         User.hasMany(models.ShoppingCart , {
             as: 'shoppingCarts',
-            foreignkey: 'user_id'
+            foreignKey: 'user_id'
         })
     }
 
-    return user
+    return User
 }

@@ -1,11 +1,9 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) =>{
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoincrement: true,
-            primarykey: true
+            autoIncrement: true,
+            primaryKey: true
         },
         name:{
             type: dataTypes.STRING,
@@ -29,7 +27,7 @@ module.exports = (sequelize, dataTypes) =>{
         // asociacion productos
         ImgProduct.belongsTo(models.Product , {
             as: 'product',
-            foreignkey: 'product_id'
+            foreignKey: 'product_id'
         });
     }
     return ImgProduct;

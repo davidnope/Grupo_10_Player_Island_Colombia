@@ -1,11 +1,9 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) =>{
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoincrement: true,
-            primarykey: true
+            autoIncrement: true,
+            primaryKey: true
         },
         name:{
             type: dataTypes.STRING,
@@ -54,41 +52,41 @@ module.exports = (sequelize, dataTypes) =>{
         // asociacion usuarios
         Product.belongsTo(models.User , {
             as: 'user',
-            foreignkey: 'user_id'
+            foreignKey: 'user_id'
         });
         // asociacion comentarios
         Product.hasMany(models.Comment , {
             as: 'comments',
-            foreignkey: 'product_id'
+            foreignKey: 'product_id'
         });
         // asociacion imagenesProductos
         Product.hasMany(models.ImgProduct , {
             as: 'imgProducts',
-            foreignkey: 'product_id'
+            foreignKey: 'product_id'
         });
         // MUCHOS A MUCHOS
         // asociacion color
-        Product.belongstoMany(models.Color , {
+        Product.belongsToMany(models.Color , {
             as: 'colors',
-            throught: 'color_product',
-            foreignkey: 'product_id',
-            otherkey: 'color_id',
+            through: 'color_product',
+            foreignKey: 'product_id',
+            otherKey: 'color_id',
             timestamps: false,
         });
         // asociacion metodos de pago
-        Product.belongstoMany(models.PaymentMethod , {
+        Product.belongsToMany(models.PaymentMethod , {
             as: 'paymentMethods',
-            throught: 'payment_method_product',
-            foreignkey: 'product_id',
-            otherkey: 'payment_method_id',
+            through: 'payment_method_product',
+            foreignKey: 'product_id',
+            otherKey: 'payment_method_id',
             timestamps: false,
         });
         // asociacion carrito de compras
-        Product.belongstoMany(models.ShoppingCart , {
+        Product.belongsToMany(models.ShoppingCart , {
             as: 'shoppingCarts',
-            throught: 'shopping_cart_product',
-            foreignkey: 'product_id',
-            otherkey: 'shopping_cart_id',
+            through: 'shopping_cart_product',
+            foreignKey: 'product_id',
+            otherKey: 'shopping_cart_id',
             timestamps: false,
         });
 

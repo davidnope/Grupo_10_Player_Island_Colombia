@@ -182,6 +182,6 @@ const controller = {
         fs.writeFileSync(usersFilePath, updateJson);
 
         res.redirect('/')
-    },
+    }
 }
 module.exports = controller;

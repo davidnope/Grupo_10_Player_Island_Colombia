@@ -1,11 +1,9 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) =>{
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoincrement: true,
-            primarykey: true
+            autoIncrement: true,
+            primaryKey: true
         },
         comment:{
             type: dataTypes.TEXT,
@@ -32,12 +30,12 @@ module.exports = (sequelize, dataTypes) =>{
         // asociacion usuarios
         Comment.belongsTo(models.User , {
             as: 'user',
-            foreignkey: 'user_id'
+            foreignKey: 'user_id'
         });
         // asociacion productos
         Comment.belongsTo(models.Product , {
             as: 'Product',
-            foreignkey: 'Product_id'
+            foreignKey: 'Product_id'
         })
     }
     return Comment

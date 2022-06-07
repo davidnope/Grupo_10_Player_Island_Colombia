@@ -1,11 +1,9 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) =>{
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoincrement: true,
-            primarykey: true
+            autoIncrement: true,
+            primaryKey: true
         },
         color:{
             type: dataTypes.STRING,
@@ -25,11 +23,11 @@ module.exports = (sequelize, dataTypes) =>{
     Color.associate = function(models){
         // MUCHOS A MUCHOS
         // asociacion productos
-        Color.belongstoMany(models.Product , {
+        Color.belongsToMany(models.Product , {
             as: 'products',
-            throught: 'color_product',
-            foreignkey: 'color_id',
-            otherkey: 'product_id',
+            through: 'color_product',
+            foreignKey: 'color_id',
+            otherKey: 'product_id',
             timestamps: false,
         });
     }

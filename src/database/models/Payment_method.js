@@ -1,11 +1,10 @@
-const { sequelize } = require(".");
 
 module.exports = (sequelize, dataTypes) =>{
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoincrement: true,
-            primarykey: true
+            autoIncrement: true,
+            primaryKey: true
         },
         methods:{
             type: dataTypes.STRING(500),
@@ -25,11 +24,11 @@ module.exports = (sequelize, dataTypes) =>{
     PaymentMethod.associate = function(models){
         // MUCHOS A MUCHOS
         // asociacion productos
-        PaymentMethod.belongstoMany(models.Product , {
+        PaymentMethod.belongsToMany(models.Product , {
             as: 'products',
-            throught: 'payment_method_product',
-            foreignkey: 'payment_method_id',
-            otherkey: 'product_id',
+            through: 'payment_method_product',
+            foreignKey: 'payment_method_id',
+            otherKey: 'product_id',
             timestamps: false,
         });
     }

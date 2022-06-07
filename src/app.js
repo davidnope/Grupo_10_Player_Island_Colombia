@@ -43,6 +43,10 @@ const registerRouter = require(path.join(__dirname, 'routers/users'))
 const productosRouter = require(path.join(__dirname, 'routers/productos'))
 
 
+// APIS
+
+const apiUser = require(path.join(__dirname, 'routers/api/user'))
+app.use('/api/user', apiUser)
 
 
 app.use('/', homeRouter)

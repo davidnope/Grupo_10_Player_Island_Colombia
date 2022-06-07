@@ -1,11 +1,9 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
-            autoincrement: true,
-            primarykey: true
+            autoIncrement: true,
+            primaryKey: true
         },
         user_id: {
             type: dataTypes.INTEGER.UNSIGNED,
@@ -28,20 +26,20 @@ module.exports = (sequelize, dataTypes) => {
         // asociacion usuario
         ShoppingCart.belongsTo(models.User, {
             as: 'user',
-            foreignkey: 'user_id'
+            foreignKey: 'user_id'
         });
         // asociacion facturacion
         ShoppingCart.hasOne(models.SaleBill, {
             as: 'saleBill',
-            foreignkey: 'shopping_cart_id'
+            foreignKey: 'shopping_cart_id'
         });
         // MUCHOS A MUCHOS
         // asociacion producto
-        ShoppingCart.belongstoMany(models.Product, {
+        ShoppingCart.belongsToMany(models.Product, {
             as: 'products',
-            throught: 'shopping_cart_product',
-            foreignkey: 'shopping_cart_id',
-            otherkey: 'product_id',
+            through: 'shopping_cart_product',
+            foreignKey: 'shopping_cart_id',
+            otherKey: 'product_id',
             timestamps: false,
         });
     }
