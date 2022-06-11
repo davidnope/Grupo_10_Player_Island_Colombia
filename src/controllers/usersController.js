@@ -3,10 +3,16 @@ const fs = require("fs");
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
+
+// JSON
+
 const usersFilePath = path.join(__dirname, '../data/user.json');
 const usersFile = fs.readFileSync(usersFilePath, 'utf-8');
 const usersJson = usersFile ? JSON.parse(usersFile) : [];
 
+// base de datos - MODELOS
+const db = require('../database/models')
+let usuarios = db.User
 
 let rutaRedirect;
 const formValidator = (req, res) => {
@@ -105,7 +111,12 @@ const controller = {
     },
     // lista de usuarios
     list: (req, res) => {
-        res.render(path.join(__dirname, '../views/list-users.ejs'), { users: usersJson })
+        usuarios.findAll()
+        .then(usuarios =>{
+            console.log(usuarios);
+            res.render(path.join(__dirname, '../views/list-users.ejs'), { users: usuarios })
+        })
+        // JSON res.render(path.join(__dirname, '../views/list-users.ejs'), { users: usersJson })
     },
     // perfil de usuario
     profile: (req, res) => {
@@ -136,9 +147,13 @@ const controller = {
             },
         ];
 
-        let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
+        usuarios.findByPk(req.params.id)
+        .then(user =>{
+            res.render(path.join(__dirname, '../views/profile.ejs'), {opcion : opcionesView, userSelect: user})
+        })
+        //JSON let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
 
-        res.render(path.join(__dirname, '../views/profile.ejs'), {opcion : opcionesView, userSelect})
+        //JSON res.render(path.join(__dirname, '../views/profile.ejs'), {opcion : opcionesView, userSelect})
     },
     // Editar usuario
     editView: (req, res) => {

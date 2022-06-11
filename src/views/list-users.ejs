@@ -35,19 +35,19 @@
                                 <%users.forEach((users)=>{%>
                                     <div class="usuario">
                                         <div class="contenedor-img">
-                                            <img src="<%if(users.img == 'default.png'){%>
-                            /img/<%=users.img%>
+                                            <img src="<%if(users.img_user == 'default.png'){%>
+                            /img/<%=users.img_user%>
                             <%}else{%>
-                                /img/users/<%=users.img%>
+                                /img/users/<%=users.img_user%>
                                 <%}%>" alt="">
                                         </div>
                                         <div class="informacion-usuario">
                                             <h3>
-                                                <%=users.usuario%>
+                                                <%=users.first_name%> <%=users.last_name%>
                                             </h3>
                                             <div class="vendedor-comprador">
                                                 <p><b>Tipo de usuario:</b>
-                                                    <%=users.tipoDeUsuario%>
+                                                    <%=users.type_user%>
                                                 </p>
                                             </div>
                                         </div>
@@ -58,17 +58,17 @@
                                         </div>
                                     </div>
                                     <%})%>
-                                    <%if(users.length % 4==2){%>
-                                        <div class = "usuario transparente">h</div>
-                                        <div class = "usuario transparente">h</div>
-                                        <%}%>
-                                        <%if(users.length % 2!=0){%>
-                                            <div class = "usuario transparente">h</div>
-                                                <%if(users.length % 4==1){%>
-                                                    <div class = "usuario transparente">h</div>
-                                                    <div class = "usuario transparente">h</div>
-                                                    <%}%>
-                                        <%}%>
+                                        <%if(users.length % 4==2){%>
+                                            <div class="usuario transparente">h</div>
+                                            <div class="usuario transparente">h</div>
+                                            <%}%>
+                                                <%if(users.length % 2!=0){%>
+                                                    <div class="usuario transparente">h</div>
+                                                    <%if(users.length % 4==1){%>
+                                                        <div class="usuario transparente">h</div>
+                                                        <div class="usuario transparente">h</div>
+                                                        <%}%>
+                                                            <%}%>
                         </div>
         </main>
 </body>

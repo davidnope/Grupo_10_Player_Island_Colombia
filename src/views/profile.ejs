@@ -25,16 +25,16 @@
             <div class="caja-primaria">
                 <div class="caja-img">
                     <div class="img-profile">
-                        <img src="<%if(userSelect.img == 'default.png'){%>
-                            /img/<%=userSelect.img%>
+                        <img src="<%if(userSelect.img_user == 'default.png'){%>
+                            /img/<%=userSelect.img_user%>
                             <%}else{%>
-                                /img/users/<%=userSelect.img%>
+                                /img/users/<%=userSelect.img_user%>
                                 <%}%>">
                     </div>
                 </div>
                 <div class="detalle-usuario">
-                    <h3><%=userSelect.usuario%></h3>
-                    <p><b>Tipo de usuario: </b><%=userSelect.tipoDeUsuario%></p>
+                    <h3><%=userSelect.first_name%> <%=userSelect.last_name%></h3>
+                    <p><b>Tipo de usuario: </b><%=userSelect.type_user%></p>
                 </div>
             </div>
             <div class="caja-secundaria">

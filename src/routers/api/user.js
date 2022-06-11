@@ -6,5 +6,6 @@ const userController = require(path.join(__dirname, '../../controllers/api/userC
 router.get('/list', userController.list)
 router.post('/create', userController.create)
 router.put('/update/:id', userController.update)
+router.put('/delete/:id', userController.delete)
 
 module.exports = router;

@@ -1,18 +1,29 @@
-const req = require('express/lib/request');
 const db = require('../../database/models');
 const { login } = require('../usersController');
 
 const user = db.User;
 
-
 const controller = {
     list: (req, res) => {
+        //GET http://localhost:3030/api/user/list
         user.findAll()
             .then(listado => {
-                res.json(listado);
+                let respuesta = {
+                    meta : {
+                        status: 200,
+                        total: listado.length,
+                        url: 'api/user/list'
+                    },
+                    data: listado
+                };
+                res.json(respuesta);
+            })
+            .catch(err =>{
+                res.json('no se encontro')
             })
     },
     create: (req, res) => {
+        //POST http://localhost:3030/api/user/create
         user.create({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
@@ -50,6 +61,7 @@ const controller = {
             .catch(error => res.send(error))
     },
     update: (req, res) => {
+        // http://localhost:3030/api/user/update/1
         let actorId = req.params.id;
         user.update({
             ...req.body
@@ -82,8 +94,42 @@ const controller = {
                 res.json(respuesta);
             })
             .catch(error => res.send(error))
+    },
+    delete: (req, res) => {
+        // http://localhost:3030/api/user/delete/1
+        let actorId = req.params.id;
+        user.update({
+            deleted: 1
+        }, {
+            where: {
+                id: actorId
+            }
+        })
+            .then(confirm => {
+                let respuesta;
+                if (confirm) {
+                    respuesta = {
+                        meta: {
+                            status: 200,
+                            total: confirm.length,
+                            url: 'api/user/create'
+                        },
+                        data: confirm
+                    }
+                } else {
+                    respuesta = {
+                        meta: {
+                            status: 0,
+                            total: confirm.length,
+                            url: 'api/actors/create'
+                        },
+                        data: confirm
+                    }
+                }
+                res.json(respuesta);
+            })
+            .catch(error => res.send(error))
     }
-
 }
 
 module.exports = controller;
