@@ -3,7 +3,8 @@ const path = require('path');
 
 const validacionRegister = [
     // validacion registro
-    body('usuario').notEmpty().withMessage('Escribe un usuario'),
+    body('nombre').notEmpty().withMessage('Escribe un Nombre'),
+    body('apellido').notEmpty().withMessage('Escribe un Apellido'),
     body('email').notEmpty().withMessage('Escribe un email').bail().isEmail().withMessage('Escribe un correo valido'),
     body('documento').notEmpty().withMessage('Escribe tu numero de documento').bail().isInt().withMessage('Debe ser un numero de identidad valido'),
     body('direccion').notEmpty().withMessage('Escribe tu dirección de recidencia'),

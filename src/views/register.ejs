@@ -44,12 +44,12 @@
                         class="formulario-email-contrasena">
                         <div class="hilera_form">
                             <div class="email-contrasena">
-                                <label for="Usuario">Nombre de usuario</label> <br>
-                                <input type="text" name="usuario" id="Usuario"
-                                    value="<%=locals.old && old.usuario ? old.usuario : null%>"> <br>
-                                <%if(locals.errores && errores.usuario){%>
+                                <label for="nombre">Nombre</label> <br>
+                                <input type="text" name="nombre" id="nombre"
+                                    value="<%=locals.old && old.nombre ? old.nombre : null%>"> <br>
+                                <%if(locals.errores && errores.nombre){%>
                                     <div class="errores">
-                                        <%=errores.usuario.msg%>
+                                        <%=errores.nombre.msg%>
                                     </div>
                                     <%}%>
                             </div>
@@ -96,6 +96,16 @@
                             </div>
                         </div>
                         <div class="hilera_form">
+                            <div class="email-contrasena">
+                                <label for="apellido">Apellido</label> <br>
+                                <input type="text" name="apellido" id="apellido"
+                                    value="<%=locals.old && old.apellido ? old.apellido : null%>"> <br>
+                                <%if(locals.errores && errores.apellido){%>
+                                    <div class="errores">
+                                        <%=errores.apellido.msg%>
+                                    </div>
+                                    <%}%>
+                            </div>
                             <div class="email-contrasena">
                                 <label for="documento">Numero de documento</label> <br>
                                 <input type="number" name="documento" id="documento"

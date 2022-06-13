@@ -19,8 +19,7 @@ const storage = multer.diskStorage({
 
     filename: (req, file, cb) => { 
         console.log(file);
-        cb(null, `img_user_${req.body.usuario}_${Date.now()}_${path.extname(file.originalname)}`);
-    
+        cb(null, `img_user_${req.body.usuario}_${req.body.apellido}_${Date.now()}_${path.extname(file.originalname)}`);
     },
 });
 
@@ -46,7 +45,9 @@ router.put('/edit/:id',  uploadFile.single('imgUser'), usersController.editSave)
 
 // Borrar usuario
 router.get('/delete/:id', usersController.deleteView)
-router.delete('/delete/:id', usersController.deleteSave);
+router.put('/delete/:id', usersController.deleteSave);
+// JSON
+// router.delete('/delete/:id', usersController.deleteSave);
 
 // probar loginUser
 
