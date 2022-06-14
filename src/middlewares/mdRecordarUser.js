@@ -12,7 +12,7 @@ function mdRecordarUsuario (req, res, next){
     let userLogin;
     usuarios.findAll()
     .then(usuarios =>{
-        if(req.cookies.cookieRecordarUsuario != undefined && req.session.usuarioLogueado == undefined){
+        if(req.cookies.cookieRecordarUsuario && req.session.usuarioLogueado == undefined){
             for (let i = 0; i < usuarios.length; i++) {
                 if (usuarios[i].email == req.cookies.cookieRecordarUsuario) {
                         userLogin = usuarios[i];

@@ -66,8 +66,7 @@ const controller = {
                 if(req.body.recordarUsuario != undefined){
                     res.cookie('cookieRecordarUsuario', userLogin.email, {maxAge: 86400000});
                 };
-                console.log('req.cookies.cookieRecordarUsuario');
-                res.redirect('/');
+                res.redirect('/user/loginConfig');
             };   
         })
     },
@@ -86,6 +85,8 @@ const controller = {
         rutaRedirect = path.join(__dirname, '../views/register.ejs');
         let form = formValidator(req, res);
         if (form.valid) {
+            console.log(req.file.filename + 'usuarios');
+            
         usuarios.create({
             first_name: req.body.nombre,
             last_name: req.body.apellido,
@@ -96,7 +97,7 @@ const controller = {
             adress: req.body.direccion,
             password: bcrypt.hashSync(req.body.contrasena, 10),
             img_user: !req.file ? 'default.png' : req.file.filename,
-            delete: 0,
+            deleted: 0,
         })
             res.redirect('/user/list')
     }   

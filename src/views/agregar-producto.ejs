@@ -12,6 +12,249 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/agregar-producto.css">
+    <link rel="stylesheet" href="/css/editar-producto.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Island</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <main>
+            <div class="container products-wrapper">
+                <div class="row">
+                    <div class="titulo">
+                        <h2 class="products-title">Estás creando un producto: <br> </h2>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <form action="/productos" method="POST" enctype="multipart/form-data">
+                        <div class="grupos">
+                            <div class="bloque-edicion">
+                                <label for="name" class="form-label">Nombre del producto: </label>
+                                <input type="text" id="name" name="name" placeholder="Ej: consola X" class="form-input"
+                                    value=""><br>
+                            </div>
+                            <div class="bloque-edicion">
+                                <label for="price" class="form-label">Precio del producto:</label>
+                                <input type="number" id="price" name="price" placeholder="Ej: $50.000"
+                                    class="form-input" value=""><br>
+                            </div>
+                        </div>
+                        <div class="grupos">
+                            <div class="bloque-edicion">
+                                <label for="discount" class="form-label">Descuento:</label>
+                                <input type="number" id="discount" name="discount" placeholder="Ej: 20"
+                                    class="form-input" value=""><br>
+                            </div>
+                            <div class="bloque-edicion">
+                                <label for="category" class="form-label">Categoría:</label>
+                                <select name="category" id="category" class="form-input">
+
+                                    <option value="otros" selected>Otros</option>
+                                    <option value="consola">Consolas</option>
+                                    <option value="control">Controles</option>
+                                    <option value="edicion-especial">Ediciones especiales</option>
+                                    <option value="accesorios">Accesorios</option>
+                                </select><br>
+                            </div>
+
+                        </div>
+                        <div class="grupos">
+
+                            <div class="bloque-edicion">
+                                <label for="stock" class="form-label">Stock (cantidad en bodega) :</label>
+                                <input type="text" id="stock" name="stock" placeholder="Ej: 10" class="form-input"
+                                    value=""><br>
+                            </div>
+
+                            <div class="bloque-edicion">
+                                <label for="company" class="form-label">Compañia:</label>
+                                <select name="company" id="company" class="form-input">
+
+                                    <option value="otros" selected>Otros</option>
+                                    <option value="playstation">Playstation</option>
+                                    <option value="xbox">Xbox</option>
+                                    <option value="nintendo">Nintendo</option>
+
+                                </select><br>
+                            </div>
+
+                        </div>
+                        <div class="grupos">
+                            <div class="bloque-edicion">
+                                <label for="color" class="form-label">Color:</label>
+                                <select name="color" id="color" class="form-input">
+
+                                    <option value="6" disabled selected>Otros</option>
+                                    <option value="1">Negro</option>
+                                    <option value="2">Rojo</option>
+                                    <option value="3">Gris</option>
+                                    <option value="4">Blanco</option>
+                                    <option value="5">Azul</option>
+
+                                </select><br>
+                            </div>
+                            <div class="bloque-edicion">
+                                <label for="img" class="form-label" >imagenes: </label>
+                                <input type="file" id="img" name="img" multiple class="form-input" maxImg="5"
+                                    value=""><br>
+                            </div>
+                        </div>
+                        <div class="grupos">
+
+
+                            <div class="bloque-edicion">
+                                <label for="features" class="form-label">Caracteristicas:</label>
+                                <textarea name="features" id="features"
+                                    placeholder="Ej: caracteristicas de su producto (max:500)"
+                                    class="form-textarea"></textarea><br>
+                            </div>
+
+                            <div class="bloque-edicion">
+                                <label for="description" class="form-label">Descripción:</label>
+                                <textarea name="description" id="description"
+                                    placeholder="Ej: breve descripcion de su producto (max:500)"
+                                    class="form-textarea"></textarea><br>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="grupos">
+
+                            <div class="bloque-edicion">
+                                <button type="submit" class="botonGuardar">Guardar producto</button>
+                            </div>
+                            <div class="bloque-edicion">
+                                <button type="reset" class="botonGuardar">Resetear</button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+            <!-- <div class="titulo-producto">
+                <h2>Editar producto</h2>
+            </div>
+            <section class="content-form">
+                <form action="/" method="get">
+
+                    IMAGENES
+                    <div class="imagenes">
+                        <label for="imageProducto" class="titulos-seccion">Imagenes</label>
+                        <input type="file" name="imgProducto" accept=".jpg" required>
+                    </div>
+
+                    MARCA
+                    <div class="marca">
+                        <label for="marca" class="titulos-seccion">Marca</label>
+                        <% for(let i=0; i < partesFormulario.marca.length; i ++) {%>
+                            <div class="points">
+                                <input type="radio" name="marcas" required value=<%partesFormulario.marca[i]%> >
+                                <label>
+                                    <%=partesFormulario.marca[i]%>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    DESCRIPCION
+                    <div class="descripcion-caracteristicas">
+                        <label for="descripcion" class="titulos-seccion">Descripción</label>
+                        <textarea name="descripcionText" id="descripcion" required></textarea>
+                    </div>
+
+                    CARACTERISTICAS
+                    <div class="descripcion-caracteristicas">
+                        <label for="caracteristicas" class="titulos-seccion">Caracteristicas</label>
+                        <textarea name="caracteristicasText" id="caracteristicas" required></textarea>
+                    </div>
+
+                    CATEGORIA
+                    <div class="categoria">
+                        <label for="categoria" class="titulos-seccion">Categorias</label>
+                        <% for(let i=0; i < partesFormulario.categoria.length; i ++) {%>
+                            <div class="points">
+                                <input type="radio" name="categorias" required value=<%partesFormulario.categoria[i]%>>
+                                <label>
+                                    <%=partesFormulario.categoria[i]%>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    METODOS DE PAGO
+
+                    <div class="metodosPago">
+                        <label for="metodosPago" class="titulos-seccion">Metodos de pago</label>
+                        <% for(let i=0; i < partesFormulario.metodosPago.length; i ++) {%>
+                            <div class="points">
+                                <input type="checkbox" name="metodosPago"
+                                    value=<%partesFormulario.metodosPago[i]%>>
+                                <label>
+                                    <%=partesFormulario.metodosPago[i]%>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    COLERES
+
+                    <div class="colores">
+                        <label for="colores" class="titulos-seccion">Color</label>
+                        <% for(let i=0; i < partesFormulario.color.length; i++) {%>
+                            <div class="points">
+                                <input type="checkbox" name="color" value=<%partesFormulario.color[i]%>>
+                                <label>
+                                    <%=partesFormulario.color[i]%>
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    PRECIO
+
+                    <div class="precio">
+                        <label for="precio" class="titulos-seccion">Precio</label>
+                        <input type="tel" name="precio" min="0" required>
+                    </div>
+
+                    Boton
+                    <div class="style-boton">
+                        <button type="submit">Guardar</button>
+                        <button type="reset">Borrar</button>
+                    </div>
+                </form>
+            </section> -->
+        </main>
+        <%- include('./partials/footer') %>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/agregar-producto.css">
     <link rel="stylesheet" href="/css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,13 +271,13 @@
             <section class="content-form">
                 <form action="/productos" method="post" enctype="multipart/form-data">
 
-                    <!-- IMAGENES -->
+                    IMAGENES
                     <div class="imagenes">
                         <label for="imageProducto" class="titulos-seccion">Imagenes</label>
                         <input type="file" name="imgProducto" accept=".jpg" required>
                     </div>
 
-                    <!-- MARCA -->
+                    MARCA
                     <div class="marca">
                         <label for="marca" class="titulos-seccion">Marca</label>
                         <% for(let i=0; i < partesFormulario.marca.length; i ++) {%>
@@ -47,19 +290,19 @@
                             <% } %>
                     </div>
 
-                    <!-- DESCRIPCION -->
+                    DESCRIPCION
                     <div class="descripcion-caracteristicas">
                         <label for="descripcion" class="titulos-seccion">Descripción</label>
                         <textarea name="descripcionText" id="descripcion" required></textarea>
                     </div>
 
-                    <!-- CARACTERISTICAS -->
+                    CARACTERISTICAS
                     <div class="descripcion-caracteristicas">
                         <label for="caracteristicas" class="titulos-seccion">Caracteristicas</label>
                         <textarea name="caracteristicasText" id="caracteristicas" required></textarea>
                     </div>
 
-                    <!-- CATEGORIA -->
+                    CATEGORIA
                     <div class="categoria">
                         <label for="categoria" class="titulos-seccion">Categorias</label>
                         <% for(let i=0; i < partesFormulario.categoria.length; i ++) {%>
@@ -72,7 +315,7 @@
                             <% } %>
                     </div>
 
-                    <!-- METODOS DE PAGO -->
+                    METODOS DE PAGO
 
                     <div class="metodosPago">
                         <label for="metodosPago" class="titulos-seccion">Metodos de pago</label>
@@ -87,7 +330,7 @@
                             <% } %>
                     </div>
 
-                    <!-- COLERES -->
+                    COLERES
 
                     <div class="colores">
                         <label for="colores" class="titulos-seccion">Color</label>
@@ -101,14 +344,14 @@
                             <% } %>
                     </div>
 
-                    <!-- PRECIO -->
+                    PRECIO
 
                     <div class="precio">
                         <label for="precio" class="titulos-seccion">Precio</label>
                         <input type="tel" name="precio" min="0" required>
                     </div>
 
-                    <!-- Boton -->
+                    Boton
                     <div class="style-boton">
                         <button type="submit">Guardar</button>
                         <button type="reset">Borrar</button>
@@ -119,4 +362,4 @@
         <%- include('./partials/footer') %>
 </body>
 
-</html>
+</html> -->

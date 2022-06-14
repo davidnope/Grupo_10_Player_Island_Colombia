@@ -1,13 +1,21 @@
+/* https://sebhastian.com/sequelize-belongstomany/ */
+const { compareSync } = require('bcryptjs');
 const { log } = require('console');
 const { redirect, json } = require('express/lib/response');
 const fs = require('fs');
 const path = require('path');
+const { features } = require('process');
+const { Recoverable } = require('repl');
 
 const productsFilePath = path.join(__dirname, '../data/dbProductos.json');
 const productosJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+// modelos
+const db = require('../database/models')
+let productos = db.Product
+let colors = db.Color
 
 const partesFormulario = {
     marca: ['PlayStation', 'Xbox', 'Nintendo'],
@@ -18,14 +26,20 @@ const partesFormulario = {
 
 const controller={
     productos: (req, res) => {
-        let contador=0;
-        for(let i=0;i<productosJSON.length;i++){
-            productosJSON[i].delete? contador++:null;
-        }
-        let total = productosJSON.length-contador;
-        console.log('total '+ total)
         
-        res.render(path.resolve(__dirname, '../views/productos.ejs'), {productosJSON, toThousand, total} )
+        productos.findAll()
+        .then(products=>{
+                
+        let contador=0;
+        for(let i=0;i<products.length;i++){
+            products[i].deleted==1? contador++:null;
+        }
+        let total = products.length-contador;
+        console.log('total '+ total)
+
+        res.render(path.resolve(__dirname, '../views/productos.ejs'), {productosJSON : products, toThousand, total} )
+        })
+        
     },
 
     detalle: (req, res) =>{
@@ -33,7 +47,7 @@ const controller={
         let producto = productosJSON[id];
         let descuento = producto.price*(producto.discount/100)
         let precioReal = producto.price-descuento
-        let tipo = req.session.usuarioLogueado ? req.session.usuarioLogueado.tipoDeUsuario : null;
+        let tipo = req.session.usuarioLogueado ? req.session.usuarioLogueado.type_user : null;     
 
         res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), {producto, toThousand , precioReal, tipo})
     },
@@ -41,8 +55,40 @@ const controller={
         res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), {partesFormulario})
     },
     store: (req,res) => {
-        console.log(req.file)
-        res.redirect('/productos');
+        
+        productos.create({
+            name: req.body.name,
+            description: req.body.description,
+            features: req.body.features,
+            company: req.body.company,
+            category: req.body.category, 
+            price: req.body.price,
+            discount: req.body.discount,
+            rating: 5,
+            stock: req.body.stock,
+            user_id: 2,
+            deleted: 0,
+            // colors: [
+            //     {color: 'Negro'},
+            //     {color: 'Rojo'}
+            //     // {id: 2}
+            // ]            
+        }
+        // , {include: 'colors'}
+        )
+        .then(creado=>{
+            let identificadoresDeColores = [1, 2, 3]
+            identificadoresDeColores.forEach(item => {
+                // 2. Find the Classes row
+                colors.findByPk(item)
+                .then(colorAdquirido =>{
+                    // 3. INSERT the association in Enrollments table
+                    creado.addColor(colorAdquirido, { through: 'colors' });
+                })
+                
+            });
+
+        })
     },
 
     editar: (req, res) => {
