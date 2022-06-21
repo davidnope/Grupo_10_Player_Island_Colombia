@@ -8,6 +8,7 @@ const usersJson = usersFile ? JSON.parse(usersFile) : [];
 const db = require('../database/models')
 let usuarios = db.User
 
+
 function mdRecordarUsuario (req, res, next){
     let userLogin;
     usuarios.findAll()

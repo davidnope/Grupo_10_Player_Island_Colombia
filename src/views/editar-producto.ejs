@@ -26,144 +26,124 @@
             <div class="container products-wrapper">
                 <div class="row">
                     <div class="titulo">
-                        <h2 class="products-title">Estás editando: <br> <i><%= producto.name %></i></h2>
+                        <h2 class="products-title">Estás editando: <%= producto.name%> <br> </h2>
                     </div>
                 </div>
                 <div class="col-12">
-                    <form action="/productos/editar/<%= producto.id %>?_method=put" method="POST">
+                    <form action="/productos/editar/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                         <div class="grupos">
                             <div class="bloque-edicion">
-                                <label for="name" class="form-label">Nombre del producto:   </label>
-                                <input type="text" id="name" name="name" placeholder="Ej: consola X" class="form-input" value="<%= producto.name %>"><br>
+                                <label for="name" class="form-label">Nombre del producto: </label>
+                                <input type="text" id="name" name="name" placeholder="Ej: consola X" class="form-input"
+                                    value="<%= producto.name%>"><br>
                             </div>
                             <div class="bloque-edicion">
                                 <label for="price" class="form-label">Precio del producto:</label>
-                                <input type="text" id="price" name="price" placeholder="Ej: $50.000" class="form-input" value="<%= producto.price %>" ><br>
+                                <input type="number" id="price" name="price" placeholder="Ej: $50.000"
+                                    class="form-input" value="<%= producto.price%>"><br>
                             </div>
                         </div>
                         <div class="grupos">
                             <div class="bloque-edicion">
                                 <label for="discount" class="form-label">Descuento:</label>
-                                <input type="text" id="discount" name="discount" placeholder="Ej: 20" class="form-input" value="<%= producto.discount %>"><br>
+                                <input type="number" id="discount" name="discount" placeholder="Ej: 20"
+                                    class="form-input" value="<%= producto.discount%>"><br>
                             </div>
                             <div class="bloque-edicion">
                                 <label for="category" class="form-label">Categoría:</label>
                                 <select name="category" id="category" class="form-input">
                                     
-                                    <option value="otros" selected>Otros</option> 
-                                    <option value="consola" >Consolas</option>    							
-                                    <option value="control" >Controles</option>
-                                    <option value="edicion-especial" >Ediciones especiales</option>
-                                    <option value="accesorios" >Accesorios</option>         
+                                    <option value="otros" <%= producto.category === 'otros' ? 'selected' : '' ; %>  >Otros</option>
+                                    <option value="consola" <%= producto.category === 'consola' ? 'selected' : '' ; %>>Consolas</option>
+                                    <option value="control" <%= producto.category === 'control' ? 'selected' : '' ; %>>Controles</option>
+                                    <option value="edicion-especial" <%= producto.category === 'edicion-especial' ? 'selected' : '' ; %>>Ediciones especiales</option>
+                                    <option value="accesorios" <%= producto.category === 'accesorios' ? 'selected' : '' ; %>>Accesorios</option>
                                 </select><br>
                             </div>
-                        </div> 
-                            
+
+                        </div>
+                        <div class="grupos">
+
+                            <div class="bloque-edicion">
+                                <label for="stock" class="form-label">Stock (cantidad en bodega) :</label>
+                                <input type="text" id="stock" name="stock" placeholder="Ej: 10" class="form-input"
+                                    value="<%= producto.stock %>"><br>
+                            </div>
+
+                            <div class="bloque-edicion">
+                                <label for="company" class="form-label">Compañia:</label>
+                                <select name="company" id="company" class="form-input">
+
+                                    <option value="otros" <%= producto.company === 'otros' ? 'selected' : '' ; %>>Otros</option>
+                                    <option value="playstation" <%= producto.company === 'playstation' ? 'selected' : '' ; %>>Playstation</option>
+                                    <option value="xbox" <%= producto.company === 'xbox' ? 'selected' : '' ; %>>Xbox</option>
+                                    <option value="nintendo" <%= producto.company === 'nintendo' ? 'selected' : '' ; %>>Nintendo</option>
+
+                                </select><br>
+                            </div>
+
+                        </div>
+                        <div class="grupos">
+                            <div class="bloque-edicion">
+                                <label for="color" class="form-label">Color:</label>
+                                <select name="color" id="color" class="form-input">
+
+                                    <option value="6" disabled selected>Otros</option>
+                                    <option value="1">Negro</option>
+                                    <option value="2">Rojo</option>
+                                    <option value="3">Gris</option>
+                                    <option value="4">Blanco</option>
+                                    <option value="5">Azul</option>
+
+                                </select><br>
+                            </div>
+                            <div class="bloque-edicion">
+                                <label for="img" class="form-label" >imagenes: </label>
+                                <input type="file" id="img" name="img" multiple class="form-input" maxImg="5"
+                                    value=""><br>
+                            </div>
+                        </div>
+                        <div class="grupos">
+
+
+                            <div class="bloque-edicion">
+                                <label for="features" class="form-label">Caracteristicas:</label>
+                                <textarea name="features" id="features"
+                                    placeholder="Ej: caracteristicas de su producto (max:500)"
+                                    class="form-textarea"><%= producto.features %></textarea><br>
+                            </div>
+
                             <div class="bloque-edicion">
                                 <label for="description" class="form-label">Descripción:</label>
-                                <textarea name="description" id="description" placeholder="Ej: breve descripcion de su producto (max: " class="form-textarea"><%= producto.description %></textarea><br>
+                                <textarea name="description" id="description"
+                                    placeholder="Ej: breve descripcion de su producto (max:500)"
+                                    class="form-textarea"><%= producto.description %></textarea><br>
                             </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="grupos">
+
                             <div class="bloque-edicion">
                                 <button type="submit" class="botonGuardar">Guardar producto</button>
                             </div>
-                     </form>
+                            <div class="bloque-edicion">
+                                <button type="reset" class="botonGuardar">Resetear</button>
+                            </div>
+
+                        </div>
+                    </form>
                     <a href="/productos/eliminar/<%=producto.id %>" style="text-decoration:none; color: black;"><button class="botonGuardar">Eliminar</button></a>
                 </div>
-        
+
             </div>
-            <!-- <div class="titulo-producto">
-                <h2>Editar producto</h2>
-            </div>
-            <section class="content-form">
-                <form action="/" method="get">
-
-                    IMAGENES
-                    <div class="imagenes">
-                        <label for="imageProducto" class="titulos-seccion">Imagenes</label>
-                        <input type="file" name="imgProducto" accept=".jpg" required>
-                    </div>
-
-                    MARCA
-                    <div class="marca">
-                        <label for="marca" class="titulos-seccion">Marca</label>
-                        <% for(let i=0; i < partesFormulario.marca.length; i ++) {%>
-                            <div class="points">
-                                <input type="radio" name="marcas" required value=<%partesFormulario.marca[i]%> >
-                                <label>
-                                    <%=partesFormulario.marca[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    DESCRIPCION
-                    <div class="descripcion-caracteristicas">
-                        <label for="descripcion" class="titulos-seccion">Descripción</label>
-                        <textarea name="descripcionText" id="descripcion" required></textarea>
-                    </div>
-
-                    CARACTERISTICAS
-                    <div class="descripcion-caracteristicas">
-                        <label for="caracteristicas" class="titulos-seccion">Caracteristicas</label>
-                        <textarea name="caracteristicasText" id="caracteristicas" required></textarea>
-                    </div>
-
-                    CATEGORIA
-                    <div class="categoria">
-                        <label for="categoria" class="titulos-seccion">Categorias</label>
-                        <% for(let i=0; i < partesFormulario.categoria.length; i ++) {%>
-                            <div class="points">
-                                <input type="radio" name="categorias" required value=<%partesFormulario.categoria[i]%>>
-                                <label>
-                                    <%=partesFormulario.categoria[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    METODOS DE PAGO
-
-                    <div class="metodosPago">
-                        <label for="metodosPago" class="titulos-seccion">Metodos de pago</label>
-                        <% for(let i=0; i < partesFormulario.metodosPago.length; i ++) {%>
-                            <div class="points">
-                                <input type="checkbox" name="metodosPago"
-                                    value=<%partesFormulario.metodosPago[i]%>>
-                                <label>
-                                    <%=partesFormulario.metodosPago[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    COLERES
-
-                    <div class="colores">
-                        <label for="colores" class="titulos-seccion">Color</label>
-                        <% for(let i=0; i < partesFormulario.color.length; i++) {%>
-                            <div class="points">
-                                <input type="checkbox" name="color" value=<%partesFormulario.color[i]%>>
-                                <label>
-                                    <%=partesFormulario.color[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    PRECIO
-
-                    <div class="precio">
-                        <label for="precio" class="titulos-seccion">Precio</label>
-                        <input type="tel" name="precio" min="0" required>
-                    </div>
-
-                    Boton
-                    <div class="style-boton">
-                        <button type="submit">Guardar</button>
-                        <button type="reset">Borrar</button>
-                    </div>
-                </form>
-            </section> -->
+                            
+                     
+            
         </main>
         <%- include('./partials/footer') %>
 </body>
