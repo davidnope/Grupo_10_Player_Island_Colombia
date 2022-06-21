@@ -122,8 +122,16 @@ const controller={
 
         fs.writeFileSync(path.join(__dirname, '../data/dbProductos.json'), escritura);
         res.redirect('/productos');
+    },
+    list: (req, res) =>{
+        productos.findAll({
+            where: {
+                user_id: req.params.id,
+            },
+        }).then(productos=>{
+            res.render(path.join(__dirname, '../views/list-products.ejs'), {products: productos})
+        })
     }
-
 }
 
 module.exports = controller;

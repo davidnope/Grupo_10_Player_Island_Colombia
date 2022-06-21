@@ -153,6 +153,12 @@ const controller = {
                 img: "seguridad.png"
             },
             {
+                opcion: 'Productos',
+                info: 'Revisa, edita y agrega tus productos',
+                ruta: "/productos/listProductsUser/",
+                img: "Productos.png"
+            },
+            {
                 opcion: 'Compras',
                 info: 'Revisa el historial de tus Compras',
                 ruta: "/",
@@ -215,6 +221,7 @@ const controller = {
 
          res.redirect('/user/profile/' + req.params.id)
     },
+    
     // Borrar usuario
     deleteView: (req, res) => {
         usuarios.findByPk(req.params.id)

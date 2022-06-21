@@ -14,14 +14,18 @@ main{
 }
 
 .titulo{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
     background-color: var(--gris);
     width: 97%;
-    margin-bottom: 5px;
+    box-shadow: 0 20px 10px black;
 }
 .titulo h2{
     color: var(--morado-claro);
     width: 90%;
     margin: 20px auto;
+
 }
 
 .contenedor-usuarios-impar{
@@ -89,11 +93,16 @@ main{
 .informacion-usuario p b{
     color: var(--naranja);
 }
-/* boton */
+/* botones */
 
 .contenedor-boton{
     display: flex;
     justify-content: center;
+    width: 100%;
+}
+.contenedor-boton-productos{
+    display: flex;
+    justify-content:space-evenly;
     width: 100%;
 }
 
@@ -122,6 +131,16 @@ main{
 .transparente{
     background-color: rgba(255, 0, 0, 0);  
 }
+/* botones */
+/* porductos */
+.botones-menu{
+    width: 97%;
+    background-color: var(--morado-claro);
+    padding: 30px 0;
+    margin-bottom: 10px;
+    border-radius: 0 0 20px 20px;
+}
+/* porductos */ 
 
 @media (min-width: 650px){
 
@@ -140,6 +159,10 @@ main{
         max-width: 520px;
         flex-direction: row;
         justify-content: space-between;
+    }
+    .botones-menu{
+        width: 80%;
+        max-width: 520px;
     }
 
 }
@@ -163,6 +186,11 @@ main{
         max-width: 785px;
         flex-direction: row;
     }
+    .botones-menu{
+        width: 80%;
+        max-width: 785px;
+    }
+
 }
 
 
@@ -185,5 +213,9 @@ main{
     }
     .usuario{
         width: 24%;
+    }
+    .botones-menu{
+        width: 80%;
+        max-width: none;
     }
 }

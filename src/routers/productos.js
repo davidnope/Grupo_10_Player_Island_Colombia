@@ -32,4 +32,7 @@ router.delete('/eliminar/:id', productosController.guardarEliminar )
 
 router.get('/detalle-producto/:id', productosController.detalle);
 
+// lista productos usuario
+router.get('/listProductsUser/:id', productosController.list)
+
 module.exports = router;
