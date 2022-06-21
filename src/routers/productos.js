@@ -24,7 +24,7 @@ router.get('/agregar' , productosController.agregar);
 router.post('/', uploadFile.any('img'), productosController.store )
 
 router.get('/editar/:id', productosController.editar);
-router.put('/editar/:id', productosController.guardarEdicion )
+router.put('/editar/:id', uploadFile.any('img'), productosController.guardarEdicion )
 
 router.get('/eliminar/:id', productosController.eliminar);
 router.delete('/eliminar/:id', productosController.guardarEliminar )

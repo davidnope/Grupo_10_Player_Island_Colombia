@@ -31,25 +31,35 @@
         <div id="divArriba">    
         <section id="imagenes-producto">
             <h4> <a href="/productos" style="text-decoration: none; color: white; margin-right: 5px;">Productos </a> > <%= producto.name %></h4>
-            <div id="imagenPrincipal">
-                <img src="/img/productos/<%= producto.image %>" alt="">
-            </div>
-            <div id="carrusel">
-
-                <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-left"></i></button></div>
-                <div id="siguientes-imagenes">
-                    <div id="imagenscroll1" class="imagenes-pequeñas"><img
-                            src="/img/productos/<%= producto.image %>"
-                            alt=""></div>
-                    <div id="imagenscroll2" class="imagenes-pequeñas"> <img
-                            src="/img/productos/<%= producto.image %>"
-                            alt=""></div>
-                    <div id="imagenscroll3" class="imagenes-pequeñas"> <img src="/img/productos/<%= producto.image %>" alt=""></div>
-                    <div id="imagenscroll4" class="imagenes-pequeñas"> <img src="/img/productos/<%= producto.image %>" alt=""></div>
+            <%if(producto.imgProducts[0]){%>
+                <div id="imagenPrincipal">
+                    <img src="/img/productos/<%= producto.imgProducts[0].name %>" alt="">
                 </div>
-                <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-right"></i></button></div>
-
-            </div>
+                <div id="carrusel">
+    
+                    <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-left"></i></button></div>
+                    <div id="siguientes-imagenes">
+                        <div id="imagenscroll1" class="imagenes-pequeñas"><img
+                                src="/img/productos/<%= producto.image %>"
+                                alt=""></div>
+                        <div id="imagenscroll2" class="imagenes-pequeñas"> <img
+                                src="/img/productos/<%= producto.image %>"
+                                alt=""></div>
+                        <div id="imagenscroll3" class="imagenes-pequeñas"> <img src="/img/productos/<%= producto.image %>" alt=""></div>
+                        <div id="imagenscroll4" class="imagenes-pequeñas"> <img src="/img/productos/<%= producto.image %>" alt=""></div>
+                    </div>
+                    <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-right"></i></button></div>
+    
+                </div>
+            <%}else{%>
+                <div id="imagenPrincipal">
+                    <img src="/img/productos/default.png" alt="">
+                </div>                
+                <%}%>
+            
+            
+            
+            
 
 
         </section>

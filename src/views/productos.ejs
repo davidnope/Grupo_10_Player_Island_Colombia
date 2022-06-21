@@ -95,18 +95,23 @@
                     </div>
             <!-- </div> --></form>
             
-            <%if(productosJSON.length % 2==0){%>
-                <div class="contenedor-usuarios-par">usuario
+            <%if(productos.length % 2==0){%>
+                <div class="contenedor-usuarios-par">
                     <%}else{%>
                         <div class="contenedor-usuarios-impar">
                             <%}%>
                             
-                                <%productosJSON.forEach((products)=>{%>
-                                    <%if(!products.delete){%>
+                                <%productos.forEach((products)=>{%>
+                                    <%if(!products.deleted){%>
                                     <div class="bloqueProducto" id="bloque">
                                         <div class="imgNuProductos">
                                             <a href="/productos/detalle-producto/<%=products.id%>">
-                                                <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%= products.image %>" alt="" title="" itemprop="image">
+                                                <%if(!products.imgProducts[0]){%>
+                                                    <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/default.png" alt="" title="" itemprop="image">
+                                                <%}else{%>
+                                                    <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%=products.imgProducts[0].name%>" alt="" title="" itemprop="image">
+                                                    
+                                                    <%}%>
                                             </a>
                                         </div>
                                         <div class="descripcion">

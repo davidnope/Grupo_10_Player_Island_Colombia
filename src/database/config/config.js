@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": '',
+    "password": null,
     "database": "player_island_colombia",
     "host": "127.0.0.1",
     "dialect": "mysql"

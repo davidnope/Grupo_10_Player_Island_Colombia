@@ -85,7 +85,7 @@ const controller = {
         rutaRedirect = path.join(__dirname, '../views/register.ejs');
         let form = formValidator(req, res);
         if (form.valid) {
-            console.log(req.file.filename + 'usuarios');
+            /* console.log(req.file.filename + 'usuarios'); */
             
         usuarios.create({
             first_name: req.body.nombre,

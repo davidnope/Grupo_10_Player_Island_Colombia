@@ -159,13 +159,15 @@ h2 {
   animation-duration: 100ms; */
     transform: scale(1.05, 1.05);
 }
-
+#bloque{
+    margin: 10px;
+}
 .contenedor-usuarios-impar {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    width: 80%;
+    width: 90%;
 }
 
 /* si son tres */
@@ -173,9 +175,9 @@ h2 {
 .contenedor-usuarios-par {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    width: 97%;
+    width: 90%;
 }
 
 .transparente{
@@ -184,9 +186,11 @@ h2 {
 
 @keyframes seleccion {
 
-
+    50% {
+        transform: scale(1.05, 1.05);
+    }
     100% {
-        transform: scale(1.1, 1.1);
+        transform: scale(1.5, 1.5);
     }
 
 }
@@ -239,7 +243,7 @@ h2 {
     }
 
     .bloqueProducto {
-        width: 45%;
+        width: 28%;
     }
 
     #filtros {

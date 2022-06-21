@@ -61,5 +61,27 @@
     "celular": "3194522655",
     "tipoDeUsuario": "Vendedor",
     "img": "default.png"
+  },
+  {
+    "id": 7,
+    "usuario": "kevin bermudez",
+    "email": "kevin20superior@hotmail.com",
+    "contrasena": "$2a$10$bWUy1.WB3s9WwM29E6sVFOZEY.42Vw9KbQn/RkhNG.9fQKhlIvtKW",
+    "numeroDocumento": "1007645397",
+    "direccion": "madelena",
+    "celular": "3126131899",
+    "tipoDeUsuario": "Vendedor",
+    "img": "default.png"
+  },
+  {
+    "id": 8,
+    "usuario": "cesar",
+    "email": "cesar@hotmail.com",
+    "contrasena": "$2a$10$mxXzD6ipdhtdg4PNZJMaAuQ4XKy7WxSnOvuyMvP9LveY2rigYY1Te",
+    "numeroDocumento": "1234",
+    "direccion": "bosa",
+    "celular": "1234",
+    "tipoDeUsuario": "Vendedor",
+    "img": "default.png"
   }
 ]
