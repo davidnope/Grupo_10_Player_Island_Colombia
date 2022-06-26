@@ -97,10 +97,20 @@
 
                                 </select><br>
                             </div>
-                            <div class="bloque-edicion">
-                                <label for="img" class="form-label" >imagenes: </label>
-                                <input type="file" id="img" name="img" multiple class="form-input" maxImg="5"
-                                    value=""><br>
+                            <div class="bloque-edicion" id="divImg">
+                                <label for="img" class="form-label">imagenes: </label>
+                                <div class="form-input form-img">
+                                    <input type="file" id="img" name="img" multiple maxImg="5" value=""  hidden>
+                                     <div class="botonAddImg" id="botonAddImg">
+                                        <span><i class="fa-solid fa-images"></i></span>
+                                    </div>
+                                    <div class="contenedorImg">
+
+                                    </div>
+                                    
+
+                                </div>
+                                <br>
                             </div>
                         </div>
                         <div class="grupos">
@@ -141,225 +151,13 @@
                 </div>
 
             </div>
-            <!-- <div class="titulo-producto">
-                <h2>Editar producto</h2>
-            </div>
-            <section class="content-form">
-                <form action="/" method="get">
-
-                    IMAGENES
-                    <div class="imagenes">
-                        <label for="imageProducto" class="titulos-seccion">Imagenes</label>
-                        <input type="file" name="imgProducto" accept=".jpg" required>
-                    </div>
-
-                    MARCA
-                    <div class="marca">
-                        <label for="marca" class="titulos-seccion">Marca</label>
-                        <% for(let i=0; i < partesFormulario.marca.length; i ++) {%>
-                            <div class="points">
-                                <input type="radio" name="marcas" required value=<%partesFormulario.marca[i]%> >
-                                <label>
-                                    <%=partesFormulario.marca[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    DESCRIPCION
-                    <div class="descripcion-caracteristicas">
-                        <label for="descripcion" class="titulos-seccion">Descripción</label>
-                        <textarea name="descripcionText" id="descripcion" required></textarea>
-                    </div>
-
-                    CARACTERISTICAS
-                    <div class="descripcion-caracteristicas">
-                        <label for="caracteristicas" class="titulos-seccion">Caracteristicas</label>
-                        <textarea name="caracteristicasText" id="caracteristicas" required></textarea>
-                    </div>
-
-                    CATEGORIA
-                    <div class="categoria">
-                        <label for="categoria" class="titulos-seccion">Categorias</label>
-                        <% for(let i=0; i < partesFormulario.categoria.length; i ++) {%>
-                            <div class="points">
-                                <input type="radio" name="categorias" required value=<%partesFormulario.categoria[i]%>>
-                                <label>
-                                    <%=partesFormulario.categoria[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    METODOS DE PAGO
-
-                    <div class="metodosPago">
-                        <label for="metodosPago" class="titulos-seccion">Metodos de pago</label>
-                        <% for(let i=0; i < partesFormulario.metodosPago.length; i ++) {%>
-                            <div class="points">
-                                <input type="checkbox" name="metodosPago"
-                                    value=<%partesFormulario.metodosPago[i]%>>
-                                <label>
-                                    <%=partesFormulario.metodosPago[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    COLERES
-
-                    <div class="colores">
-                        <label for="colores" class="titulos-seccion">Color</label>
-                        <% for(let i=0; i < partesFormulario.color.length; i++) {%>
-                            <div class="points">
-                                <input type="checkbox" name="color" value=<%partesFormulario.color[i]%>>
-                                <label>
-                                    <%=partesFormulario.color[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    PRECIO
-
-                    <div class="precio">
-                        <label for="precio" class="titulos-seccion">Precio</label>
-                        <input type="tel" name="precio" min="0" required>
-                    </div>
-
-                    Boton
-                    <div class="style-boton">
-                        <button type="submit">Guardar</button>
-                        <button type="reset">Borrar</button>
-                    </div>
-                </form>
-            </section> -->
+            
         </main>
         <%- include('./partials/footer') %>
+        <script src="/js/agregar-producto.js"></script>
 </body>
 
 </html>
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/agregar-producto.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Island</title>
-</head>
-
-<body>
-    <%- include('./partials/header') %>
-        <main>
-            <div class="titulo-producto">
-                <h2>Tu producto</h2>
-            </div>
-            <section class="content-form">
-                <form action="/productos" method="post" enctype="multipart/form-data">
-
-                    IMAGENES
-                    <div class="imagenes">
-                        <label for="imageProducto" class="titulos-seccion">Imagenes</label>
-                        <input type="file" name="imgProducto" accept=".jpg" required>
-                    </div>
-
-                    MARCA
-                    <div class="marca">
-                        <label for="marca" class="titulos-seccion">Marca</label>
-                        <% for(let i=0; i < partesFormulario.marca.length; i ++) {%>
-                            <div class="points">
-                                <input type="radio" name="marcas" required value=<%partesFormulario.marca[i]%> >
-                                <label>
-                                    <%=partesFormulario.marca[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    DESCRIPCION
-                    <div class="descripcion-caracteristicas">
-                        <label for="descripcion" class="titulos-seccion">Descripción</label>
-                        <textarea name="descripcionText" id="descripcion" required></textarea>
-                    </div>
-
-                    CARACTERISTICAS
-                    <div class="descripcion-caracteristicas">
-                        <label for="caracteristicas" class="titulos-seccion">Caracteristicas</label>
-                        <textarea name="caracteristicasText" id="caracteristicas" required></textarea>
-                    </div>
-
-                    CATEGORIA
-                    <div class="categoria">
-                        <label for="categoria" class="titulos-seccion">Categorias</label>
-                        <% for(let i=0; i < partesFormulario.categoria.length; i ++) {%>
-                            <div class="points">
-                                <input type="radio" name="categorias" required value=<%partesFormulario.categoria[i]%>>
-                                <label>
-                                    <%=partesFormulario.categoria[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    METODOS DE PAGO
-
-                    <div class="metodosPago">
-                        <label for="metodosPago" class="titulos-seccion">Metodos de pago</label>
-                        <% for(let i=0; i < partesFormulario.metodosPago.length; i ++) {%>
-                            <div class="points">
-                                <input type="checkbox" name="metodosPago"
-                                    value=<%partesFormulario.metodosPago[i]%>>
-                                <label>
-                                    <%=partesFormulario.metodosPago[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    COLERES
-
-                    <div class="colores">
-                        <label for="colores" class="titulos-seccion">Color</label>
-                        <% for(let i=0; i < partesFormulario.color.length; i++) {%>
-                            <div class="points">
-                                <input type="checkbox" name="color" value=<%partesFormulario.color[i]%>>
-                                <label>
-                                    <%=partesFormulario.color[i]%>
-                                </label>
-                            </div>
-                            <% } %>
-                    </div>
-
-                    PRECIO
-
-                    <div class="precio">
-                        <label for="precio" class="titulos-seccion">Precio</label>
-                        <input type="tel" name="precio" min="0" required>
-                    </div>
-
-                    Boton
-                    <div class="style-boton">
-                        <button type="submit">Guardar</button>
-                        <button type="reset">Borrar</button>
-                    </div>
-                </form>
-            </section>
-        </main>
-        <%- include('./partials/footer') %>
-</body>
-
-</html> -->

@@ -24,270 +24,302 @@
     <%- include('./partials/header') %>
 
 
-    <main>
-        <!-- detalle del producto -->
-        <!-- imagenes  -->
-        <!-- <div id="main"> -->
-        <div id="divArriba">    
-        <section id="imagenes-producto">
-            <h4> <a href="/productos" style="text-decoration: none; color: white; margin-right: 5px;">Productos </a> > <%= producto.name %></h4>
-            <%if(producto.imgProducts[0]){%>
-                <div id="imagenPrincipal">
-                    <img src="/img/productos/<%= producto.imgProducts[0].name %>" alt="">
-                </div>
-                <div id="carrusel">
-    
-                    <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-left"></i></button></div>
-                    <div id="siguientes-imagenes">
-                        <div id="imagenscroll1" class="imagenes-pequeñas"><img
-                                src="/img/productos/<%= producto.image %>"
-                                alt=""></div>
-                        <div id="imagenscroll2" class="imagenes-pequeñas"> <img
-                                src="/img/productos/<%= producto.image %>"
-                                alt=""></div>
-                        <div id="imagenscroll3" class="imagenes-pequeñas"> <img src="/img/productos/<%= producto.image %>" alt=""></div>
-                        <div id="imagenscroll4" class="imagenes-pequeñas"> <img src="/img/productos/<%= producto.image %>" alt=""></div>
-                    </div>
-                    <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-right"></i></button></div>
-    
-                </div>
-            <%}else{%>
-                <div id="imagenPrincipal">
-                    <img src="/img/productos/default.png" alt="">
-                </div>                
-                <%}%>
-            
-            
-            
-            
-
-
-        </section>
-        <!-- descripcion -->
-        <div id="textoProducto">
-        <section id="descripcion-producto">
-            <h2><%= producto.name %></h2>
-            <div class="estrellas" style="color: gold;">
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
-            <h4 style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0px;">reviews (1)</h4>
-            <p><%= producto.description %></p>
-
-        </section>
-
-
-        <!-- compra producto  -->
-
-
-        <section id="compra-producto">
-            <h2>Stock disponible</h2>
-            <div  >
-
-                <form action="/carrito-compras" method="get" id="formCompra">
-                 <div style="display: flex; flex-direction: column;">   
-                    
-                    <% if(producto.discount>0){ %>
-                        <h2 style="font-weight:normal; opacity: 0.9; color: white;">$<%= toThousand(precioReal) %></h2>
-                        <div style="display: flex;">
-                        <h3 style="font-weight:normal; opacity: 0.7; align-self:flex-end;">-<%=producto.discount %>% off </h3>
-                        <h3 style="font-weight:normal; opacity: 0.7; align-self:flex-end; text-decoration: line-through;">$<%=toThousand(producto.price) %> </h3>
-                    </div>
-                        <% }else{ %>
-                        <h2 style="font-weight:normal; opacity: 0.9;">$<%= toThousand(producto.price) %></h2>
-                    <% } %>
-
-                  <!--   toThousand(producto.price-(producto.price*(producto.discount/100))) -->
-                
-                </div>   
-                    <div style="display: flex; align-items: center;">
-                        <h3 style="color: white; display: flex;">Color: </h3>
-                        <select name="escoje-color" id="selectorColor">
-                            <option value="porDefecto" selected>Elige un Color</option>
-                            <option value="negro" style="background-color: black;">Negro</option>
-                            <option value="blanco" style="background-color: rgb(255, 255, 255); color: black;">Blanco
-                            </option>
-                            <option value="rojo" style="background-color: rgb(255, 0, 0);">Rojo</option>
-                            <option value="azul" style="background-color: rgb(8, 4, 252);">Azul</option>
-                        </select>
-                    </div>
-                    <div style="display: flex; align-items: center; ">
-                        <h3 style="color: white;">Cantidad: </h3>
-                        <div class="botones-articulo">
-                            <input type="number" name="cantidadcompra" min="1" value="1" >
-    
-                            
-    
-                            <button type="reset" class="delete">Eliminar</button>
+        <main>
+            <!-- detalle del producto -->
+            <!-- imagenes  -->
+            <!-- <div id="main"> -->
+            <div id="divArriba">
+                <section id="imagenes-producto">
+                    <h4> <a href="/productos" style="text-decoration: none; color: white; margin-right: 5px;">Productos
+                        </a> > <%= producto.name %>
+                    </h4>
+                    <%if(cantidad> 0){%>
+                        <div id="imagenPrincipal" >
+                            <img src="/img/productos/<%= resp[0].name %>" class="imgPrincipal" alt="">
                         </div>
-                       
-                       
-                       
-                    </div>
-                    <div style="display: flex; align-items: center;">
-                        <h3 style="color: white;">Metodo de pago: </h3>
-                        <select name="escoje-metodo" id="selectorMetodo">
-                            <option value="pse" selected>PSE</option>
-                            <option value="visa">VISA</option>
-                            <option value="masterCard">MASTER CARD</option>
-                            <option value="americanExpress">AMERICAN EXPRESS</option>
-                        </select>
-                    </div>
-                    <div id="moduloBotones">
-                        <%if(tipo == 'Vendedor'){%>
-                        <a href="/productos/editar/<%= producto.id%>" class="action-button edit">EDITAR PRODUCTO</a>
-                        <%}%>
-                        <button id="boton-agregar-carrito" type="submit" value="comprar">AGREGA AL CARRITO</button>
-                    </div>
-                </form>
+                        <div id="carrusel">
 
-            </div>
-        </section>
-        </div>
-        </div>
+                            <!--  <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-left"></i></button></div> -->
+                             
+                            <div id="siguientes-imagenes">
+                                <%for(let i = 0; i<cantidad ; i++ ){%>
+                                <div id="imagenscroll1" class="imagenes-pequeñas">
+                                    <img src="/img/productos/<%= resp[i].name %>" id="imagen<%= i %>" class="imagenesPequeñas" alt="">
+                                </div>
+                                <%}%>
+                            </div>
 
-        <!-- OPCIONES DE PRODUCTO -->
+                            <!-- <div class="divFlechas"><button class="flechas"><i class="fa-solid fa-caret-right"></i></button></div> -->
 
-        <section id="opciones-producto">
-
-            <div id="navOpciones">
-                <div>
-                    <button class="botonOpc">Descripcion</button>
-                </div>
-                <div>
-                    <button class="botonOpc">Caracteristicas del producto</button>
-                </div>
-                <div>
-                    <button class="botonOpc">Comentarios</button>
-                </div>
-            </div>
-            <div id="parrafo-opciones">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi vero
-                    sint perferendis unde? Similique beatae veniam, sint deserunt, debitis
-                    quis perspiciatis
-                    et doloribus sed enim sapiente. Perferendis atque ipsa magnam!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis,
-                    maxime rem. Odio provident iusto unde facilis voluptatibus similique
-                    deserunt dolore voluptates quis quasi voluptate rerum nisi, molestiae
-                    tempora pariatur harum!</p>
-            </div>
+                        </div>
+                        <%}else{%>
+                            <div id="imagenPrincipal">
+                                <img src="/img/productos/default.png" alt="">
+                            </div>
+                            <%}%>
 
 
 
 
 
 
-
-
-
-
-
-        </section>
-
-
-
-        <!-- Nuestros productos -->
-
-        <section id="pruductosLinea">
-
-            <h2>Nuestros productos</h2>
-            <div style="display: flex; width: 80%; margin: auto;">
-                <div class="productoDesc bloque">
-                    <div class="imgNuProductos">
-                        <a href="/detalle-producto">
-                            <img src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg"
-                                alt="" href="/">
-                        </a>
-                    </div>
-                    <div class="descripcion">
-                        <div class="estrellas">
+                </section>
+                <!-- descripcion -->
+                <div id="textoProducto">
+                    <section id="descripcion-producto">
+                        <h2>
+                            <%= producto.name %>
+                        </h2>
+                        <div class="estrellas" style="color: gold;">
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                         </div>
-                        <h4>Producto</h4>
-                        <p>$50.000</p>
-                        <div class="iconosAbajo">
-                            <a href="#">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="productoDesc producto2 bloque">
-                    <div class="imgNuProductos">
-                        <a href="/detalle-producto">
-                            <img src="/img/control.png" alt="" href="/">
-                        </a>
-                    </div>
-                    <div class="descripcion">
-                        <div class="estrellas">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h4>Producto</h4>
-                        <p>$50.000</p>
-                        <div class="iconosAbajo">
-                            <a href="#">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="productoDesc producto3 bloque">
-                    <div class="imgNuProductos">
-                        <a href="/detalle-producto">
-                            <img src="/img/control.png" alt="" href="/">
-                        </a>
-                    </div>
-                    <div class="descripcion">
-                        <div class="estrellas">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h4>Producto</h4>
-                        <p>$50.000</p>
-                        <div class="iconosAbajo">
-                            <a href="#">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
-                        </div>
-                    </div>
+                        <h4 style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0px;">reviews (1)</h4>
+                        <p>
+                            <%= producto.description %>
+                        </p>
+
+                    </section>
+
+
+                    <!-- compra producto  -->
+
+
+                    <section id="compra-producto">
+
+                        <h2>Stock disponible: </h2>
+                        <% if(producto.stock==1){ %>
+                            <h3>
+                                <%=producto.stock %> unidad
+                            </h3>
+                            <%}else{%>
+                                <h3>
+                                    <%=producto.stock %> unidades
+                                </h3>
+                                <%}%>
+                                    <div>
+
+                                        <form action="/carrito-compras" method="get" id="formCompra">
+                                            <div style="display: flex; flex-direction: column;">
+
+                                                <% if(producto.discount>0){ %>
+                                                    <h2 style="font-weight:normal; opacity: 0.9; color: white;">$<%=
+                                                            toThousand(precioReal) %>
+                                                    </h2>
+                                                    <div style="display: flex;">
+                                                        <h3
+                                                            style="font-weight:normal; opacity: 0.7; align-self:flex-end;">
+                                                            -<%=producto.discount %>% off </h3>
+                                                        <h3
+                                                            style="font-weight:normal; opacity: 0.7; align-self:flex-end; text-decoration: line-through;">
+                                                            $<%=toThousand(producto.price) %>
+                                                        </h3>
+                                                    </div>
+                                                    <% }else{ %>
+                                                        <h2 style="font-weight:normal; opacity: 0.9;">$<%=
+                                                                toThousand(producto.price) %>
+                                                        </h2>
+                                                        <% } %>
+
+                                                            <!--   toThousand(producto.price-(producto.price*(producto.discount/100))) -->
+
+                                            </div>
+                                            <div style="display: flex; align-items: center;">
+                                                <h3 style="color: white; display: flex;">Color: </h3>
+                                                <select name="escoje-color" id="selectorColor">
+                                                    <option value="porDefecto" selected>Elige un Color</option>
+                                                    <option value="negro" style="background-color: black;">Negro
+                                                    </option>
+                                                    <option value="blanco"
+                                                        style="background-color: rgb(255, 255, 255); color: black;">
+                                                        Blanco
+                                                    </option>
+                                                    <option value="rojo" style="background-color: rgb(255, 0, 0);">Rojo
+                                                    </option>
+                                                    <option value="azul" style="background-color: rgb(8, 4, 252);">Azul
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div style="display: flex; align-items: center; ">
+                                                <h3 style="color: white;">Cantidad: </h3>
+                                                <div class="botones-articulo">
+                                                    <input type="number" name="cantidadcompra" min="1" value="1">
+
+
+
+                                                    <button type="reset" class="delete">Eliminar</button>
+                                                </div>
+
+
+
+                                            </div>
+                                            <div style="display: flex; align-items: center;">
+                                                <h3 style="color: white;">Metodo de pago: </h3>
+                                                <select name="escoje-metodo" id="selectorMetodo">
+                                                    <option value="pse" selected>PSE</option>
+                                                    <option value="visa">VISA</option>
+                                                    <option value="masterCard">MASTER CARD</option>
+                                                    <option value="americanExpress">AMERICAN EXPRESS</option>
+                                                </select>
+                                            </div>
+                                            <div id="moduloBotones">
+                                                <%if(tipo=='Vendedor' ){%>
+                                                    <a href="/productos/editar/<%= producto.id%>"
+                                                        class="action-button edit">EDITAR PRODUCTO</a>
+                                                    <%}%>
+                                                        <button id="boton-agregar-carrito" type="submit"
+                                                            value="comprar">AGREGA AL CARRITO</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                    </section>
                 </div>
             </div>
-        </section>
-        <!-- </div>  -->
-    </main>
-    <%- include('./partials/footer') %>
+
+            <!-- OPCIONES DE PRODUCTO -->
+
+            <section id="opciones-producto">
+
+                <div id="navOpciones">
+                    <div>
+                        <button class="botonOpc">Descripcion</button>
+                    </div>
+                    <div>
+                        <button class="botonOpc">Caracteristicas del producto</button>
+                    </div>
+                    <div>
+                        <button class="botonOpc">Comentarios</button>
+                    </div>
+                </div>
+                <div id="parrafo-opciones">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi vero
+                        sint perferendis unde? Similique beatae veniam, sint deserunt, debitis
+                        quis perspiciatis
+                        et doloribus sed enim sapiente. Perferendis atque ipsa magnam!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis,
+                        maxime rem. Odio provident iusto unde facilis voluptatibus similique
+                        deserunt dolore voluptates quis quasi voluptate rerum nisi, molestiae
+                        tempora pariatur harum!</p>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+
+
+            <!-- Nuestros productos -->
+
+            <section id="pruductosLinea">
+
+                <h2>Nuestros productos</h2>
+                <div style="display: flex; width: 80%; margin: auto;">
+                    <div class="productoDesc bloque">
+                        <div class="imgNuProductos">
+                            <a href="/detalle-producto">
+                                <img src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg"
+                                    alt="" href="/">
+                            </a>
+                        </div>
+                        <div class="descripcion">
+                            <div class="estrellas">
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h4>Producto</h4>
+                            <p>$50.000</p>
+                            <div class="iconosAbajo">
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="productoDesc producto2 bloque">
+                        <div class="imgNuProductos">
+                            <a href="/detalle-producto">
+                                <img src="/img/control.png" alt="" href="/">
+                            </a>
+                        </div>
+                        <div class="descripcion">
+                            <div class="estrellas">
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h4>Producto</h4>
+                            <p>$50.000</p>
+                            <div class="iconosAbajo">
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="productoDesc producto3 bloque">
+                        <div class="imgNuProductos">
+                            <a href="/detalle-producto">
+                                <img src="/img/control.png" alt="" href="/">
+                            </a>
+                        </div>
+                        <div class="descripcion">
+                            <div class="estrellas">
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <h4>Producto</h4>
+                            <p>$50.000</p>
+                            <div class="iconosAbajo">
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- </div>  -->
+        </main>
+        <%- include('./partials/footer') %>
+        <script src="/js/detalle-producto.js"></script>
 </body>
 
 </html>

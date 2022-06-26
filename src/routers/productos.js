@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     },
     filename: (req,file,cb)=>{
         console.log(file);
-        cb(null, `${req.body.name}_img_${Date.now()}${path.extname(file.originalname)}`);
+        cb(null, `${req.body.name.split(' ').join('_')}_img__${req.body.category}_${Date.now()}${path.extname(file.originalname)}`);
 
     }
 });
@@ -31,8 +31,5 @@ router.delete('/eliminar/:id', productosController.guardarEliminar )
 
 
 router.get('/detalle-producto/:id', productosController.detalle);
-
-// lista productos usuario
-router.get('/listProductsUser/:id', productosController.list)
 
 module.exports = router;

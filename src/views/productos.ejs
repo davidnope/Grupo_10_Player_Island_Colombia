@@ -100,16 +100,16 @@
                     <%}else{%>
                         <div class="contenedor-usuarios-impar">
                             <%}%>
-                            
-                                <%productos.forEach((products)=>{%>
-                                    <%if(!products.deleted){%>
+                            <!-- productos.forEach((products, iterador )=>{ -->
+                                <%  for(let i = 0; i<total; i++){  %>
+                                    <%if(!productos[i].deleted){%>
                                     <div class="bloqueProducto" id="bloque">
                                         <div class="imgNuProductos">
-                                            <a href="/productos/detalle-producto/<%=products.id%>">
-                                                <%if(!products.imgProducts[0]){%>
+                                            <a href="/productos/detalle-producto/<%=productos[i].id%>">
+                                                <%if(!resp[i]){%>
                                                     <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/default.png" alt="" title="" itemprop="image">
                                                 <%}else{%>
-                                                    <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%=products.imgProducts[0].name%>" alt="" title="" itemprop="image">
+                                                    <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%=resp[i].name%>" alt="" title="" itemprop="image">
                                                     
                                                     <%}%>
                                             </a>
@@ -122,10 +122,10 @@
                                                 <i class="fa-regular fa-star"></i>
                                                 <i class="fa-regular fa-star"></i>
                                             </div>
-                                            <a href="/productos/detalle-producto/<%=products.id%>" class="nombre-producto">
-                                                <h4><%= products.name  %></h4>
+                                            <a href="/productos/detalle-producto/<%=productos[i].id%>" class="nombre-producto">
+                                                <h4><%= productos[i].name  %></h4>
                                             </a> 
-                                            <p>$ <%= toThousand(products.price) %></p>
+                                            <p>$ <%= toThousand(productos[i].price) %></p>
                                             <div class="iconosAbajo">
                                                 <a href="#">
                                                     <i class="fa-regular fa-heart"></i>
@@ -140,7 +140,7 @@
                                         </div>
                                     </div>
                                     <%}%>
-                                <%})%>
+                                <%}%>
                                     <%if(total % 4==2){%>
                                     <div class = "bloqueProducto transparente"></div>
                                     <div class = "bloqueProducto transparente"></div>

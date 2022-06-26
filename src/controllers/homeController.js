@@ -5,9 +5,14 @@ const productsFilePath = path.join(__dirname, '../data/dbProductos.json');
 const productosJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const db = require('../database/models')
+const productos = db.Product
+const colors = db.Color
+const imgProductos = db.ImgProduct
+
 const controller={
     home: (req, res) => {
-        let ids=[]
+        /* let ids=[]
         for(let i=0;i<productosJSON.length;i++){
             if((!productosJSON[i].delete)&&productosJSON[i].discount>9){
                 ids.push(productosJSON[i].id)
@@ -26,9 +31,18 @@ const controller={
                     ids.push(productosJSON[i].id)
                 }
             }   
-        }
+        } */
         let usuarioLogueado = req.session.usuarioLogueado ? req.session.usuarioLogueado : null;
-        res.render(path.resolve(__dirname, '../views/home.ejs'), {productosJSON, toThousand,ids , usuarioLogueado});
+        productos.findAll({
+            include:[{association:'imgProducts'}] ,
+            where: { deleted : 0}
+    })
+        .then(productos=>{
+            res.render(path.resolve(__dirname, '../views/home.ejs'), {productos, toThousand, usuarioLogueado});
+        })
+
+        
+        
     },
 }
 module.exports = controller;
