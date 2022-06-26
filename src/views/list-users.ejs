@@ -11,7 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/list-users.css">
+    <link rel="stylesheet" href="/css/listas-user-products.css">
     <link rel="stylesheet" href="/css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,52 +25,100 @@
             <div class="titulo">
                 <h2>Lista usuarios</h2>
             </div>
+            <div class="botones-menu">
+                <div class="contenedor-boton-productos">
+                    <div class="style-boton" id="boton-vendedor">Vendedores</div>
+                    <div class="style-boton" id="boton-comprador">Compradores</div>
+                </div>
+            </div>
+            <div class="contenedores-general contenedor-vendedor">
+                <%if(usuariosVendedor.length % 2==0){%>
+                    <div class="contenedor-usuarios-par">
+                        <%}else{%>
+                            <div class="contenedor-usuarios-impar">
+                                <%}%>
 
-            <%if(users.length % 2==0){%>
-                <div class="contenedor-usuarios-par">
-                    <%}else{%>
-                        <div class="contenedor-usuarios-impar">
-                            <%}%>
-
-                                <%users.forEach((users)=>{%>
-                                    <div class="usuario">
-                                        <div class="contenedor-img">
-                                            <img src="<%if(users.img_user == 'default.png'){%>
-                            /img/<%=users.img_user%>
-                            <%}else{%>
-                                /img/users/<%=users.img_user%>
-                                <%}%>" alt="">
-                                        </div>
-                                        <div class="informacion-usuario">
-                                            <h3>
-                                                <%=users.first_name%> <%=users.last_name%>
-                                            </h3>
-                                            <div class="vendedor-comprador">
-                                                <p><b>Tipo de usuario:</b>
-                                                    <%=users.type_user%>
-                                                </p>
+                                    <%usuariosVendedor.forEach((usuariosVendedor)=>{%>
+                                        <div class="usuario">
+                                            <div hidden><%=usuariosVendedor.id%></div>
+                                            <div class="contenedor-img" style="background-image: url(/img/users/<%=usuariosVendedor.img_user%>);"></div>
+                                            <div class="informacion-usuario">
+                                                <h3>
+                                                    <%=usuariosVendedor.first_name%>
+                                                        <%=usuariosVendedor.last_name%>
+                                                </h3>
+                                                <div class="vendedor-comprador">
+                                                    <p><b>Tipo de usuario:</b>
+                                                        <%=usuariosVendedor.type_user%>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="contenedor-boton">
+                                                <a href="/user/profile/<%=usuariosVendedor.id%>" class="style-boton">
+                                                    Detalles
+                                                </a>
                                             </div>
                                         </div>
-                                        <div class="contenedor-boton">
-                                            <a href="/user/profile/<%=users.id%>" class="style-boton">
-                                                Detalles
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <%})%>
-                                        <%if(users.length % 4==2){%>
-                                            <div class="usuario transparente">h</div>
-                                            <div class="usuario transparente">h</div>
-                                            <%}%>
-                                                <%if(users.length % 2!=0){%>
-                                                    <div class="usuario transparente">h</div>
-                                                    <%if(users.length % 4==1){%>
+                                        <%})%>
+                                            <%if(usuariosVendedor.length % 4==2){%>
+                                                <div class="usuario transparente">h</div>
+                                                <div class="usuario transparente">h</div>
+                                                <%}%>
+                                                    <%if(usuariosVendedor.length % 2!=0){%>
+                                                        <div class="usuario transparente">h</div>
+                                                        <%if(usuariosVendedor.length % 4==1){%>
+                                                            <div class="usuario transparente">h</div>
+                                                            <div class="usuario transparente">h</div>
+                                                            <%}%>
+
+                                                                <%}%>
+                            </div>
+                    </div>
+                    <div class="contenedores-general contenedor-comprador">
+                        <%if(usuariosComprador.length % 2==0){%>
+                            <div class="contenedor-usuarios-par">
+                                <%}else{%>
+                                    <div class="contenedor-usuarios-impar">
+                                        <%}%>
+
+                                            <%usuariosComprador.forEach((usuariosComprador)=>{%>
+                                                <div class="usuario">
+                                                    <div class="contenedor-img" style="background-image: url(/img/users/<%=usuariosComprador.img_user%>);"></div>
+                                                    <div class="informacion-usuario">
+                                                        <h3>
+                                                            <%=usuariosComprador.first_name%>
+                                                                <%=usuariosComprador.last_name%>
+                                                        </h3>
+                                                        <div class="vendedor-comprador">
+                                                            <p><b>Tipo de usuario:</b>
+                                                                <%=usuariosComprador.type_user%>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="contenedor-boton">
+                                                        <a href="/user/profile/<%=usuariosComprador.id%>"
+                                                            class="style-boton">
+                                                            Detalles
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <%})%>
+                                                    <%if(usuariosComprador.length % 4==2){%>
                                                         <div class="usuario transparente">h</div>
                                                         <div class="usuario transparente">h</div>
                                                         <%}%>
-                                                            <%}%>
-                        </div>
+                                                            <%if(usuariosComprador.length % 2!=0){%>
+                                                                <div class="usuario transparente">h</div>
+                                                                <%if(usuariosComprador.length % 4==1){%>
+                                                                    <div class="usuario transparente">h</div>
+                                                                    <div class="usuario transparente">h</div>
+                                                                    <%}%>
+
+                                                                        <%}%>
+                                    </div>
+                            </div>
         </main>
+        <script src="/js/user/list-user.js"></script>
 </body>
 
 </html>

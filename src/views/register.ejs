@@ -53,49 +53,6 @@
                                     </div>
                                     <%}%>
                             </div>
-
-                            <div class="email-contrasena">
-                                <label for="Email">Email</label> <br>
-                                <input type="text" name="email" id="email"
-                                    value="<%=locals.old && old.email ? old.email : null%>"> <br>
-                                <%if(locals.errores && errores.email){%>
-                                    <div class="errores">
-                                        <%=errores.email.msg%>
-                                    </div>
-                                    <%}%>
-                            </div>
-
-                            <div class="email-contrasena">
-                                <label for="Contrasena">Contraseña</label><br>
-                                <input type="password" name="contrasena" id="contrasena"><br>
-                                <%if(locals.errores && errores.contrasena){%>
-                                    <div class="errores">
-                                        <%=errores.contrasena.msg%>
-                                    </div>
-                                    <%}%>
-                            </div>
-
-                            <div class="email-contrasena">
-                                <label for="confirmarContrasena">Confirmar contraseña</label><br>
-                                <input type="password" name="confirmarContrasena" id="confirmarContrasena"> <br>
-                                <%if(locals.errores && errores.confirmarContrasena){%>
-                                    <div class="errores">
-                                        <%=errores.confirmarContrasena.msg%>
-                                    </div>
-                                    <%}%>
-                            </div>
-
-                            <div class="email-contrasena">
-                                <label for="img">Imagen de perfil</label><br>
-                                <input type="file" name="imgUser" id="img"> <br>
-                                <%if(locals.errores && errores.imgUser){%>
-                                    <div class="errores">
-                                        <%=errores.imgUser.msg%>
-                                    </div>
-                                    <%}%>
-                            </div>
-                        </div>
-                        <div class="hilera_form">
                             <div class="email-contrasena">
                                 <label for="apellido">Apellido</label> <br>
                                 <input type="text" name="apellido" id="apellido"
@@ -116,7 +73,16 @@
                                     </div>
                                     <%}%>
                             </div>
-
+                            <div class="email-contrasena">
+                                <label for="Email">Email</label> <br>
+                                <input type="text" name="email" id="email"
+                                    value="<%=locals.old && old.email ? old.email : null%>"> <br>
+                                <%if(locals.errores && errores.email){%>
+                                    <div class="errores">
+                                        <%=errores.email.msg%>
+                                    </div>
+                                    <%}%>
+                            </div>
                             <div class="email-contrasena">
                                 <label for="direccion">Dirrección</label> <br>
                                 <input type="text" name="direccion" id="direccion"
@@ -127,7 +93,6 @@
                                     </div>
                                     <%}%>
                             </div>
-
                             <div class="email-contrasena">
                                 <label for="celular">Celular</label><br>
                                 <input type="tel" name="celular" id="celular"
@@ -138,7 +103,25 @@
                                     </div>
                                     <%}%>
                             </div>
+                            <div class="email-contrasena">
+                                <label for="Contrasena">Contraseña</label><br>
+                                <input type="password" name="contrasena" id="contrasena"><br>
+                                <%if(locals.errores && errores.contrasena){%>
+                                    <div class="errores">
+                                        <%=errores.contrasena.msg%>
+                                    </div>
+                                    <%}%>
+                            </div>
 
+                            <div class="email-contrasena">
+                                <label for="confirmarContrasena">Confirmar contraseña</label><br>
+                                <input type="password" name="confirmarContrasena" id="confirmarContrasena"> <br>
+                                <%if(locals.errores && errores.confirmarContrasena){%>
+                                    <div class="errores">
+                                        <%=errores.confirmarContrasena.msg%>
+                                    </div>
+                                    <%}%>
+                            </div>
                             <div class="email-contrasena">
                                 <label>Tipo de usuario</label><br>
                                 <select name="tipoDeUsuario" class="inputSelect">
@@ -149,6 +132,15 @@
                                 <%if(locals.errores && errores.tipoDeUsuario){%>
                                     <div class="errores">
                                         <%=errores.tipoDeUsuario.msg%>
+                                    </div>
+                                    <%}%>
+                            </div>
+                            <div class="email-contrasena">
+                                <label for="img">Imagen de perfil</label><br>
+                                <input type="file" name="imgUser" id="img"> <br>
+                                <%if(locals.errores && errores.imgUser){%>
+                                    <div class="errores">
+                                        <%=errores.imgUser.msg%>
                                     </div>
                                     <%}%>
                             </div>

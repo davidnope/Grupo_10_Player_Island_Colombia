@@ -36,6 +36,20 @@ main{
     width: 97%;
 }
 
+/* CONTENEDORES USUARIOS VENDEDOR-COMPRADOR */
+.contenedores-general{
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+.contenedor-vendedor{
+    display: none;
+}
+.contenedor-comprador{
+    display: none;
+}
+/* CONTENEDORES USUARIOS VENDEDOR-COMPRADOR */
+
 /* si son tres */
 
 .contenedor-usuarios-par{
@@ -65,6 +79,9 @@ main{
     width: 100px;
     height: 100px;
     margin: 5px;
+    border-radius: 50px;
+    background-position: center;
+    background-size: cover;
 }
 .contenedor-img img{
     width: 100%;
@@ -123,6 +140,11 @@ main{
     cursor: pointer;
     transition: all 0.2s;
 }
+/* js */
+.boton-seleccionado{
+    background-color: var(--naranja);
+}
+/* js */
 
 .style-boton:hover{
     background-color: var(--naranja);

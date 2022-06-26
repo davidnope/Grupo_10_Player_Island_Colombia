@@ -22,6 +22,13 @@ const controller = {
                 res.json('no se encontro')
             })
     },
+    uno:(req, res)=>{
+        //GET http://localhost:3030/api/user/uno
+        user.findByPk(req.params.id)
+        .then(result =>{
+            res.json(result)
+        })
+    },
     create: (req, res) => {
         //POST http://localhost:3030/api/user/create
         user.create({

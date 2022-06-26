@@ -183,14 +183,15 @@
     }
 
     .email-contrasena {
-        width: 100%;
-    }
-
-    .hilera_form {
         width: 50%;
     }
 
+    .hilera_form {
+        flex-direction: row;
+        width: 100%;
+    }
+
     .email-contrasena input {
-        width: 87%;
+        width: 90%;
     }
 }
