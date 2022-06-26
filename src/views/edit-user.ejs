@@ -33,48 +33,57 @@
                         <img src="/img/logoProvisional.png" alt="">
                     </div>
                     <h2>Editar perfil</h2>
-                    <form action="/user/edit/<%=userSelect.id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario-email-contrasena">
+                    <form action="/user/edit/<%=userSelect.id%>?_method=PUT" method="POST" enctype="multipart/form-data"
+                        class="formulario-email-contrasena">
                         <div class="hilera_form">
                             <div class="email-contrasena">
                                 <label for="nombre">Nombre</label> <br>
-                                <input type="text" name="nombre" id="nombre" maxlength="200" value="<%=userSelect.first_name%>"><br>
+                                <input type="text" name="nombre" id="nombre" maxlength="200"
+                                    value="<%=userSelect.first_name%>"><br>
+                            </div>
+
+                            <div class="email-contrasena">
+                                <label for="apellido">Apellido</label> <br>
+                                <input type="text" name="apellido" id="apellido" maxlength="200"
+                                    value="<%=userSelect.last_name%>"><br>
+                            </div>
+
+                            <div class="email-contrasena">
+                                <label for="documento">Numero de documento</label> <br>
+                                <input type="number" name="documento" id="documento" value="<%=userSelect.user_dni%>">
+                                <br>
                             </div>
 
                             <div class="email-contrasena">
                                 <label for="Email">Email</label> <br>
                                 <input type="email" name="email" id="Email" value="<%=userSelect.email%>"><br>
                             </div>
+
                             <div class="email-contrasena">
                                 <label for="celular">Celular</label><br>
-                                <input type="number" name="celular" id="celular" value="<%=userSelect.phone_number%>"> <br>
+                                <input type="number" name="celular" id="celular" value="<%=userSelect.phone_number%>">
+                                <br>
                             </div>
+
+                            <div class="email-contrasena">
+                                <label for="direccion">Dirrección</label> <br>
+                                <input type="text" name="direccion" id="direccion" value="<%=userSelect.adress%>"> <br>
+                            </div>
+
                             <div class="email-contrasena">
                                 <label>Tipo de usuario</label><br>
                                 <select name="tipoDeUsuario" class="inputSelect">
-                                    <option value= "">Selecciona un opción</option>
-                                    <option value= "Vendedor" <%=userSelect.type_user === 'Vendedor' ? 'selected' : '';%>>Vendedor</option>
-                                    <option value="Comprador" <%=userSelect.type_user === 'Comprador' ? 'selected' : '';%>>Comprador</option>
+                                    <option value="">Selecciona un opción</option>
+                                    <option value="Vendedor" <%=userSelect.type_user==='Vendedor' ? 'selected' : '' ;%>
+                                        >Vendedor</option>
+                                    <option value="Comprador" <%=userSelect.type_user==='Comprador' ? 'selected' : ''
+                                        ;%>>Comprador</option>
                                 </select>
                                 <%if(locals.errores && errores.tipoDeUsuario){%>
                                     <div class="errores">
                                         <%=errores.tipoDeUsuario.msg%>
                                     </div>
                                     <%}%>
-                            </div>
-                        </div>
-                        <div class="hilera_form">
-                            <div class="email-contrasena">
-                                <label for="apellido">Apellido</label> <br>
-                                <input type="text" name="apellido" id="apellido" maxlength="200" value="<%=userSelect.last_name%>"><br>
-                            </div>
-                            <div class="email-contrasena">
-                                <label for="documento">Numero de documento</label> <br>
-                                <input type="number" name="documento" id="documento" value="<%=userSelect.user_dni%>"> <br>
-                            </div>
-
-                            <div class="email-contrasena">
-                                <label for="direccion">Dirrección</label> <br>
-                                <input type="text" name="direccion" id="direccion" value="<%=userSelect.adress%>" > <br>
                             </div>
                         </div>
                         <div class="botones">

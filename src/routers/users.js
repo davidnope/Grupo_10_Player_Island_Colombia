@@ -17,9 +17,9 @@ const storage = multer.diskStorage({
         cb(null, path.join(__dirname, '../../public/img/users'))
     },
 
-    filename: (req, file, cb) => { 
-        console.log(file);
-        cb(null, `img_user_${req.body.nombre}_${req.body.apellido}_${Date.now()}_${path.extname(file.originalname)}`);
+    filename: (req, file, cb) => {
+        console.log('aca llega el multer', req.body);
+        cb(null, `img_user_${req.body.nombre.split(' ').join('_')}_${req.body.apellido.split(' ').join('_')}_${Date.now()}_${path.extname(file.originalname)}`);
     },
 });
 
@@ -40,9 +40,9 @@ router.get('/list', usersController.list)
 router.get('/profile/:id', usersController.profile);
 
 // Editar usuario
-router.get('/edit/:id', uploadFile.single('imgUser'),usersController.editView);
-router.put('/edit/:id',  uploadFile.single('imgUser'), usersController.editSave);
-
+router.get('/edit/:id', uploadFile.single('imgUser'), usersController.editView);
+router.put('/edit/:id', uploadFile.single('imgUser'), usersController.editSave);
+router.put('/editImg/:id', uploadFile.single('imgUser'), usersController.editImg);
 // Borrar usuario
 router.get('/delete/:id', usersController.deleteView)
 router.put('/delete/:id', usersController.deleteSave);

@@ -86,7 +86,7 @@ const controller = {
         let form = formValidator(req, res);
         if (form.valid) {
             /* console.log(req.file.filename + 'usuarios'); */
-            
+            // console.log('este es el controller' ,req.body);
         usuarios.create({
             first_name: req.body.nombre,
             last_name: req.body.apellido,
@@ -133,7 +133,9 @@ const controller = {
             }
         })
         .then(usuarios =>{
-            res.render(path.join(__dirname, '../views/list-users.ejs'), { users: usuarios })
+            let usuariosVendedor = usuarios.filter(vendedor => vendedor.type_user == 'Vendedor');
+            let usuariosComprador = usuarios.filter(comprador => comprador.type_user == 'Comprador');
+            res.render(path.join(__dirname, '../views/list-users.ejs'), {usuariosVendedor, usuariosComprador})
         })
         // JSON res.render(path.join(__dirname, '../views/list-users.ejs'), { users: usersJson })
     },
@@ -144,7 +146,7 @@ const controller = {
                 opcion: 'Mis datos',
                 info: 'Edita tus datos personales',
                 ruta: "/user/edit/",
-                img: "default.png"
+                img: "users/default.png"
             },
             {
                 opcion: 'Seguridad',
@@ -176,6 +178,7 @@ const controller = {
         .then(user =>{
             res.render(path.join(__dirname, '../views/profile.ejs'), {opcion : opcionesView, userSelect: user})
         })
+        
         //JSON let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
 
         //JSON res.render(path.join(__dirname, '../views/profile.ejs'), {opcion : opcionesView, userSelect})
@@ -191,6 +194,7 @@ const controller = {
         // res.render(path.join(__dirname, '../views/edit-user.ejs'), { userSelect })
     },
     editSave: (req, res) => {
+        console.log('este es el controller' ,req.body);
         usuarios.update({
             first_name: req.body.nombre,
             last_name: req.body.apellido,
@@ -199,6 +203,7 @@ const controller = {
             user_dni: req.body.documento,
             phone_number: req.body.celular,
             adress: req.body.direccion,
+            
         },{
             where: {
                 id: req.params.id,
@@ -218,10 +223,19 @@ const controller = {
 
         // let updateJson = JSON.stringify(usersJson, null, 2);
         // fs.writeFileSync(usersFilePath, updateJson);
-
          res.redirect('/user/profile/' + req.params.id)
     },
-    
+    editImg: (req, res) => {
+        console.log('este es el controller' ,req.body);
+        usuarios.update({
+            img_user: req.file ? req.file.filename : undefined,
+        },{
+            where: {
+                id: req.params.id,
+            }
+        })
+        res.redirect('/user/profile/' + req.params.id)
+    },
     // Borrar usuario
     deleteView: (req, res) => {
         usuarios.findByPk(req.params.id)

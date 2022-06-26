@@ -24,26 +24,27 @@
                 <div class="caja-primaria">
                     <div class="caja-img">
                         <div class="img-profile">
-                            <img src="<%if(userSelect.img_user == 'default.png'){%>
+                            <!-- <img src="<%if(userSelect.img_user == 'default.png'){%>
                                 /img/<%=userSelect.img_user%>
                                 <%}else{%>
                                     /img/users/<%=userSelect.img_user%>
-                                    <%}%>">
+                                    <%}%>"> -->
                         </div>
-                    <a href="#" class="editar"></a>
+                    <div class="img_editar"></div>
                     </div>
                     <div class="detalle-usuario">
                         <h3><%=userSelect.first_name%> <%=userSelect.last_name%></h3>
                         <p><b>Tipo de usuario: </b><%=userSelect.type_user%></p>
                     </div>
                 </div>
-                <div>
                     <div class="caja-secundaria">
-                        <%for(let i=0; i < opcion.length; i++){%>
-                            <a href="<%=opcion[i].ruta%><%=userSelect.id%>" class="seccion">
-                                <div class="info-seccion">
-                                    <div class="caja-icon">
-                                        <div class="img-icon">
+                        <!-- INFO COMPLETA -->
+                        <div class="estilos-generales informacion-completa">
+                            <%for(let i=0; i < opcion.length; i++){%>
+                                <a href="<%=opcion[i].ruta%><%=userSelect.id%>" class="seccion">
+                                    <div class="info-seccion">
+                                        <div class="caja-icon">
+                                            <div class="img-icon">
                                             <img src="/img/<%=opcion[i].img%>">
                                         </div>
                                     </div>
@@ -73,11 +74,31 @@
                                     <i class="fa-solid fa-angle-right"></i>
                                 </div>
                             </a>
-                    </div>
-                   
-                </div>
-                
+                        </div>
+                        <!-- INFO COMPLETA -->
+                        <!-- CAMBIAR IMG -->
+                        <div class="estilos-generales img-cambio">
+                                <button type="submit" class="boton-atras">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                </button>
+                            <form action="/user/editImg/<%=userSelect.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                <h2>Cambia tu foto de perfil</h2>
+                                <div class="contenedor-img-existente">
+                                    <div class="img-existente">
+                                        <div class="boton-img "></div>
+                                    </div>
+                                </div>
+                                <div class="info-img">
+                                    <input type="text" name="nombre"  value="<%=userSelect.first_name%>" hidden>
+                                    <input type="text" name="apellido" value="<%=userSelect.last_name%>" hidden>
+                                    <input type="file" name="imgUser" id="img" class="inputImg" hidden>
+                                </div>
+                            <button class="style-boton" type="submit">Guardar</button>
+                            </form>
+                        </div>
+                        <!-- CAMBIAR IMG -->
+                    </div>            
             </main>
-            <script src="/js/profile.js"></script>
+            <script src="/js/user/profile.js"></script>
         </body>
 </html>
