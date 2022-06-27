@@ -1,3 +1,4 @@
+const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 
@@ -38,6 +39,7 @@ const controller={
             where: { deleted : 0}
     })
         .then(productos=>{
+            console.log(productos[0]);
             res.render(path.resolve(__dirname, '../views/home.ejs'), {productos, toThousand, usuarioLogueado});
         })
 

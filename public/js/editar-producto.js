@@ -72,6 +72,7 @@ window.onload = () => {
                 contImg.innerHTML += `<div id='imagen${dato.imgProducts[i].id}' class="divPreImg" style= 'background-image: url(/img/productos/${dato.imgProducts[i].name})' ><div><i class="fa-regular fa-trash-can"></i></div></div>`
                 }
 
+                contImg.o
 
 
             }

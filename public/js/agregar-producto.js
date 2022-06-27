@@ -6,7 +6,8 @@ window.onload = () => {
     let inputImg = document.getElementById('img')
     let contImg = document.querySelector('.contenedorImg')
     let botonGuardar = document.querySelector('#botonGuardar')
-
+    let imgEmergentes = document.querySelector('.emergente.contenedorEmergente.grupos')
+    let emergente = document.querySelector('.emergente')
 
     botonAddImg.onclick = (e) => {
         e.preventDefault();
@@ -17,6 +18,9 @@ window.onload = () => {
     }
     inputImg.addEventListener('change', (e) => {
         console.log(inputImg.files)
+
+        
+        
         let imagenes = inputImg.files;
         for (let i = 0; i < imagenes.length; i++) {
 
@@ -24,13 +28,36 @@ window.onload = () => {
             let img = `<div class="divPreImg" style='background-image: url(${imgCodified})'><div><i class="fa-regular fa-trash-can"></i></div></div>`
             /* formImg.innerHTML += img */
             contImg.innerHTML += img
-
+            
+            
         }
+        emergente.classList.add('show')
+        for (let i = 0; i < imagenes.length; i++) {
+            console.log('entre al for');
+            let img =  `
+            <div class="bloque-edicion">
+                <label for="imagenPrincipal${i}">SELECCIONA</label>
+                <div class="form-imgPrincipal"
+                style="background-image: url(${imgCodified});">
+                <div style="display: flex; width: 100%;">
+                    <input type="radio" name="imagenPrincipal" id="imagenPrincipal${i}"
+                        value="prueba">
+                </div>
+                 </div>
+            </div>
+            `
+            
+            imgEmergentes.innerHTML += img
+            imgEmergentes.innerHTML += '<div class="botonGuardar">Guardar</div>'
+        }
+
+
+
         let array = document.querySelectorAll('.divPreImg')
         let array2 = document.querySelectorAll('.divPreImg div')
         for (let i = 0; i < array.length; i++) {
             array[i].addEventListener('mouseover', (e) => {
-
+                
                 array2[i].style.display = 'flex'
 
             })

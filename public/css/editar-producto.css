@@ -6,7 +6,69 @@
   --gris: #D6D6D6;
   --blanco: #FFFFFF;
 }
+
+.emergente{
+  background-color: rgba(0,0,0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  
+}
+.show{
+  display: flex;
+  
+}
+.contenedorEmergente{
+  background-color: var(--gris);
+  padding: 33px;
+  width: 80%;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.contenedorEmergente h1{
+  margin: 0;
+  margin-bottom: 2rem;
+}
+.form-imgPrincipal{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: .5rem;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100%;
+  background-position: center;
+    background-size: cover;
+  
+}
+.emergente .grupos .bloque-edicion{
+  width: 40vh;
+  max-width: 100px;
+  height: 40vh;
+  max-height: 100px;
+
+  
+}
+.emergente .grupos .bloque-edicion::before{
+  padding-bottom: 100%;
+}
  
+.emergente .grupos {
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 .container{
   background-color: var(--morado-claro);
   display: flex;
@@ -58,6 +120,7 @@
 
   .bloque-edicion{
     display: flex;
+    
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -70,7 +133,7 @@
 
   }
   .form-input{
-    width: 100%;
+    width: 90%;
     margin-top: .5rem;
     padding: 10px;
     border-radius: 10px;
@@ -79,6 +142,7 @@
     box-sizing: border-box;
     background-color: var(--blanco);
   }
+
   .form-img{
     display: flex;
     justify-content: space-between;
@@ -153,7 +217,7 @@
     margin-top: 10px;
   }
   .botonGuardar:hover{
-    background-color: var(--gris);
+    background-color: var(--blanco);
   }
   @media (min-width: 1024px) {
     .grupos{
@@ -161,9 +225,16 @@
       justify-content: space-around;
 
     }
-    .grupos .bloque-edicion{
-      width: 45%;
+    .emergente .grupos .bloque-edicion{
+      width: 15%;
     }
+
+    .contenedorEmergente{
+      
+      width: 60%;
+      
+    }
+    
     
   }
 

@@ -33,6 +33,7 @@ function imagenesExistentes(producto){
     for(let i = 0; i<producto.imgProducts.length; i++){
         !(producto.imgProducts[i].deleted) ? ids.push(producto.imgProducts[i].id): '' ;
     }
+    console.log(ids);
     return ids
 }
 
@@ -77,7 +78,7 @@ const controller = {
                 console.log(ids)
                 imgProductos.findAll({where:{id:ids}})
                 .then(resp=>{
-                    console.log(resp[0].name);
+                    
                     res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total , resp})
 
             })
@@ -100,9 +101,9 @@ const controller = {
             let ids = imagenesExistentes(producto)
             imgProductos.findAll({where:{id:ids}})
             .then(resp=>{
-                res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo , imagenDefault, cantidad , ids , resp})
-
+                
             })
+            res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo , imagenDefault, cantidad , ids })
             /* res.json(producto) */
         })
     },
@@ -111,7 +112,7 @@ const controller = {
     },
     store: (req, res) => {
 
-        productos.create({
+        /* productos.create({
             name: req.body.name,
             description: req.body.description,
             features: req.body.features,
@@ -161,7 +162,9 @@ const controller = {
 
                 Promise.all(arrayImages).then(response => res.redirect('/productos'))
 
-            })
+            }) */
+
+            res.json(req.files)
     },
 
     editar: (req, res) => {

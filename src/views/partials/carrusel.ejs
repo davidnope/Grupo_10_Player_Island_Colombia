@@ -2,12 +2,13 @@
 
     <h2>Nuestros productos</h2>
     <div class="productoEnFila">
+        <%   if(productos[0]){%>
         <%for(let i = 0; i < 4; i++){%>
         <div class="producto<%=i%>">
             <div class="imgNuProductos">
                 <a href="/productos/detalle-producto/<%=productos[i].id%>">
                     <img class="js-modal-product-cover product-cover-modal" width="800"
-                        src="/img/productos/products[i].imgProductos[i] %>"
+                        src="/img/productos/productos[i].imgProductos[i] %>"
                         alt="" title="" itemprop="image">
                 </a>
             </div>
@@ -37,6 +38,11 @@
             </div>
         </div>
         <%}%>
+        <%}else{%>
+            <div class="imgNuProductos">
+                <h1>no hay productos</h1>
+            </div>
+            <%}%>
         <!-- <div class="productoDescSegunda">
             <div class="imgNuProductos">
                 <a href="/detalle-producto">
