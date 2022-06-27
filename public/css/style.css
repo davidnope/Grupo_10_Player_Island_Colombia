@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 :root{
    --na1: #FF6D00;
    --na2: #FF7900;
@@ -24,35 +27,37 @@ header{
       width: 100%;
       height: 48px;
       display: flex;
+      justify-content: center;
       background-color: var(--morado-intermedio);
 }
 
 #header{
     display: flex;
     width: 100%;
-    position: relative;
 }
+
+#listaNavegacion{
+    display: none;
+}
+
 #listaNavegacion a:hover{
     color: #FF7900;
-    text-decoration: underline;
 }
 #navegacion{
-    display: none;
+    width: 55%;
 }
 header nav{
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 header nav div{
     display: flex;
-   /*  position: relative; */
 }
 #logoCompleto{
 display: none;
-}
-#logoCel{
-
 }
 
 
@@ -110,32 +115,72 @@ footer form textarea{
     resize: none;
 }
 
+.contendor-logo{
+    width: 20%;
+    max-width: 60px;
+}
+
 #logo{
     width: 48px;
     height: 48px;
     margin-left: 5px;
     margin-right: 5px;
 }
+
+/* BARRA DE BUSQUEDA */
 #barraBusqueda{
     background-color: white;
-    width: 55%;
+    width: 100%;
     height: 34px;
     align-self: center;
-    border-radius: 20px;
-    position: absolute;
-    left: 60px;
-    top: 7px;
-    right: auto;
-
+    border-radius: 20px 20px 20px 20px;
+    flex-wrap: wrap;
+    position: relative;
 }
-#barraBusqueda input{
+.input-barra-busqueda{
     height: 33px;
-    width: 75%;
+    width: 100%;
     border: 0px;
     border-radius: 20px;
+    border: none;
     padding-left: 10px;
     align-self: center;
+    outline: 0;
+    justify-content: space-between;
+    z-index: 2;
 }
+.input-barra-busqueda i{
+    width: 10%;
+    max-width: 20px;
+}
+
+.input-barra-busqueda input{
+    width: 80%;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+
+[type="search"]::-webkit-search-cancel-button {
+    display: none; /*Ocultamos la UI de Webkit*/
+  }
+
+  .predicciones{
+    display: none;
+    flex-flow: column nowrap;
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 34px;
+    border-radius: 0px 0px 20px 20px;
+  }
+  .predicciones p{
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+ /* BARRA DE BUSQUEDA */
 #formEmail{
     border: 0px;
 }
@@ -167,7 +212,7 @@ footer form textarea{
 
 .navButton{
     text-align: center;
-    padding: 0px 10px;
+    padding: 0px 5px;
     align-items: center;
     align-self: center;
     
@@ -177,20 +222,26 @@ footer form textarea{
     color: #FF7900;
 
 }
-header a{
-    text-decoration:none;
+
+.iconos{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 20%;
+    max-width: 100px;
     color: white;
 }
+.iconos a{
+    color: white;
+}
+
 .barras{
-    position: absolute;
-    right: 45px;
+    display: flex;
 }
 .login{
     display: none;
 }
 .carrito{
-    position: absolute;
-    right: 10px;
+    display: flex;
 }
 .red{
     border-radius: 50px;
@@ -201,10 +252,9 @@ header a{
 
 }
 
-@media (min-width: 430px) {
+@media (min-width: 768px) {
     #header{
         width: 85%;
-        margin: auto;
     }
     #logoCompleto{
         display: block;
@@ -212,9 +262,15 @@ header a{
         #logoCel{
         display: none;
         }
-    #barraBusqueda{
-        left: 20%;
+    .input-barra-busqueda input{
+        width: 92%;
     }
+    
+
+    .iconos{
+        justify-content:space-evenly;
+    }
+
     #footer{
     display: flex;
     flex-direction: row;
@@ -243,51 +299,26 @@ header a{
         height: 70px;
 
     }
-    #barraBusqueda{
-        display: none;
+    .contendor-logo {
+        max-width: 100px;
     }
     #navegacion{
-        display: flex;
-        justify-self: center;
-        position: absolute;
-        width: 80%;
-        height: 100%;
-        right: 80px;
-
+        justify-content: space-between;
+        flex-grow: 0.8;
     }
-    #barraBusqueda1{
-        background-color: white;
+    #barraBusqueda{
         width: 50%;
-        height: 34px;
-        align-self: center;
-        border-radius: 20px;
-        position: absolute;
-        left: 0px;
-        top: 7px;
-        right: auto;
     }
-    #barraBusqueda1 input{
-        display: flex;
-        height: 33px;
-        width: 75%;
-        border: 0px;
-        border-radius: 20px;
-        padding-left: 10px;
-        align-self: center;
-    }
+
     .barras{
         display: none;
     }
     .login{
         display:block;
-        position: absolute;
-        right: 45px;
     }
     #listaNavegacion{
         display: flex;
-        position: absolute;
-        right: 0px;
-        width: 300px;
+        width: 35%;
         justify-content: space-between;
         color:  white;
     }
@@ -298,12 +329,10 @@ header a{
         justify-content: space-around;
         padding: 0;
         width: 100%;
-
-        
     }
-    #listaNavegacion ul li{
-        display: flex;
-        justify-self: normal;
+    #listaNavegacion ul li a{
+        color: white;
+        text-decoration: none;
     }
     
 

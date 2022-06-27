@@ -1,9 +1,33 @@
 const db = require('../../database/models');
+const Op = db.Sequelize.Op;
 
 let productos = db.Product
 const imgProductos = db.ImgProduct
 
 const controller = {
+    searchAll: (req, res)=>{
+        //GET http://localhost:3030/api/productos/searchAll
+        productos.findAll({
+            where:{
+                deleted: 0
+            }
+            // where:{
+            //     name: {[Op.like]: `%${req.params.search}%`}
+            // }
+        })
+        .then(listado => {
+            
+            let array = []
+            for(let i = 0; i < listado.length; i++){
+                array.push(listado[i].name)
+            }
+            console.log(array);
+            res.json(array);
+         })
+         .catch(err =>{
+             res.json('no se encontro')
+         })
+    },
     searchOne: (req, res) => {
         //GET http://localhost:3030/api/user/list
         

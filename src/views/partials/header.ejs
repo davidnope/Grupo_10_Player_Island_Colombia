@@ -2,44 +2,49 @@
     <div id="header">
 
         <nav>
-            <a href="/">
+            <a href="/" class="contendor-logo">
                 <div id="logo">
                     <img src="/img/nuevoLogo.jpg" alt="logo" id="logoCompleto">
                     <img src="/img/logoCel.jpg" alt="logo" id="logoCel">
                 </div>
             </a>
-            <div id="barraBusqueda">
+            <!-- <div id="barraBusqueda">
                 <i class="fa-solid fa-magnifying-glass navButton"></i>
-                <input type="search" placeholder="Busca aquí...">
+                <input type="search" placeholder="Busca aquí..." id="">
 
-            </div>
+            </div> -->
             <div id="navegacion">
-                <div id="barraBusqueda1">
-                    <i class="fa-solid fa-magnifying-glass navButton"></i>
-                    <input type="search" placeholder="Busca aquí...">
-
+                <div id="barraBusqueda">
+                    <div class="input-barra-busqueda">
+                        <i class="fa-solid fa-magnifying-glass navButton"></i>
+                        <input autocomplete="off" type="search" placeholder="Busca aquí..." id="search">
+                    </div>
+                    <div class="predicciones">
+                    </div>
                 </div>
                 <div id="listaNavegacion">
                     <ul>
                         <li><a href="/">Inicio </a></li>
                         <li><a href="/productos">Productos </a></li>
-                        <li><a href="/productos/agregar">Servicios </a></li>
                         <li><a href="#footer">Contacto</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="navButton barras">
-                <a href="#"><i class="fa-solid fa-bars"></i></a>
-            </div>
-            <div class="navButton login">
-                <a href="/user/login"><i class="fa-solid fa-user">
+            <div class="iconos">
+                <div class="navButton barras">
+                    <a href="#"><i class="fa-solid fa-bars"></i></a>
+                </div>
+                <div class="navButton login">
+                    <a href="/user/login"><i class="fa-solid fa-user">
 
-                        <i class="fa-solid fa-angle-down"></i>
-                    </i></a>
-            </div>
-            <div class="navButton carrito">
-                <a href="/carrito-compras"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </i></a>
+                </div>
+                <div class="navButton carrito">
+                    <a href="/carrito-compras"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
             </div>
         </nav>
     </div>
 </header>
+<script src="/js/header.js"></script>
