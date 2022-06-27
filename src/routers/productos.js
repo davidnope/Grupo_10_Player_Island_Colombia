@@ -20,6 +20,8 @@ const uploadFile = multer({storage});
 
 router.get('/', productosController.productos);
 
+router.get('/results', productosController.search)
+
 router.get('/agregar' , productosController.agregar);
 router.post('/', uploadFile.any('img'), productosController.store )
 
@@ -31,5 +33,7 @@ router.delete('/eliminar/:id', productosController.guardarEliminar )
 
 
 router.get('/detalle-producto/:id', productosController.detalle);
+
+router.get('/listProductsUser/:id', productosController.list)
 
 module.exports = router;

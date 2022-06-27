@@ -2,7 +2,17 @@ window.onload = () => {
     let contenedorSearch = document.querySelector('#barraBusqueda')
     let buscador = document.querySelector('#search');
     let predicciones = document.querySelector('.predicciones');
-    
+    let search_query;
+    let query = new URLSearchParams(location.search);
+    if(query.has('search_query')){
+        search_query = query.get('search_query');
+    console.log(search)
+    } ;
+
+    if(search_query){
+        buscador.value = search_query
+    }
+
 
 
     fetch(`http://localhost:3030/api/productos/searchAll`)
@@ -31,13 +41,15 @@ window.onload = () => {
                     contenedorSearch.style.borderRadius = '20px 20px 20px 20px';
                 }
                 buscador.addEventListener('keyup', (e) => {
-                
+                    if (e.key == 'Enter' && buscador.value != '' ) {
+                        window.location.href = `http://localhost:3030/productos/results?search_query=${buscador.value.split(' ').join('+')}`
+                    }
                     predicciones.innerHTML = ''
                     for (let i = 0; i < 5; i++) {
                         if (listadoProducts[i]) {
                             if (listadoProducts[i].toUpperCase().includes(buscador.value.toUpperCase())) {
                                 // console.log(listadoProducts[i])
-                                predicciones.innerHTML += `<p>${listadoProducts[i]}</p>`
+                                predicciones.innerHTML += `<p style='pointer-events: all'>${listadoProducts[i]}</p>`
                             }
                         }
                     }
@@ -71,6 +83,7 @@ window.onload = () => {
                         }
                         if (e.key == 'Enter' && i == contador) {
                             buscador.value = arrayP[i].outerText
+                            window.location.href = `http://localhost:3030/productos/results?search_query=${buscador.value.split(' ').join('+')}`
                         }
                         arrayP[i].addEventListener('click', () => {
                             console.log('click');
@@ -78,12 +91,13 @@ window.onload = () => {
                         })
                     }
                 })
+                buscador.addEventListener('blur', ()=>{
+                    predicciones.style.display = 'none';
+                    contenedorSearch.style.borderRadius = '20px 20px 20px 20px';
+                })
             })
 
-            buscador.addEventListener('blur', ()=>{
-                predicciones.style.display = 'none';
-                contenedorSearch.style.borderRadius = '20px 20px 20px 20px';
-            })
+            
             
 
 
