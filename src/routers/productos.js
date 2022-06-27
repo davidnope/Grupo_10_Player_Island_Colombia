@@ -20,6 +20,8 @@ const uploadFile = multer({storage});
 
 router.get('/', productosController.productos);
 
+router.get('/results', productosController.search)
+
 router.get('/agregar' , productosController.agregar);
 router.post('/', uploadFile.any('img'), productosController.store )
 

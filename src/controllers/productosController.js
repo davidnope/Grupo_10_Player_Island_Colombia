@@ -6,6 +6,12 @@ const fs = require('fs');
 const path = require('path');
 const { features } = require('process');
 const { Recoverable } = require('repl');
+// modelos
+const db = require('../database/models')
+const productos = db.Product
+const colors = db.Color
+const imgProductos = db.ImgProduct
+const Op = db.Sequelize.Op
 
 const productsFilePath = path.join(__dirname, '../data/dbProductos.json');
 const productosJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -37,11 +43,6 @@ function imagenesExistentes(producto){
     return ids
 }
 
-// modelos
-const db = require('../database/models')
-const productos = db.Product
-const colors = db.Color
-const imgProductos = db.ImgProduct
 
 
 
@@ -239,10 +240,48 @@ const controller = {
         productos.findAll({
             where: {
                 user_id: req.params.id,
+                deleted: 0
             },
         }).then(productos=>{
             res.render(path.join(__dirname, '../views/list-products.ejs'), {products: productos})
         })
+    },
+    search: (req, res) =>{
+        /* console.log(req.query.search_query); */
+        productos.findAll({
+            include:[{association:'imgProducts'}] ,
+            where: { 
+                deleted : 0,
+                name: {[Op.like]:`%${req.query.search_query}%`}
+            }
+        })
+            .then(products => {
+                let ids = []
+                for (let i = 0; i < products.length; i++) {
+                    if (!products[i].deleted){
+                    ids.push(imgPrincipal(products[i]))
+                    }
+                }
+                
+                
+                let contador = [];
+                for (let i = 0; i < products.length; i++) {
+                    products[i].deleted == 1 ? contador.push(products[i].id) : null;
+                }
+                let total = products.length 
+                console.log('total ' + total)
+                /* console.log(products)
+                console.log(ids) */
+                imgProductos.findAll({where:{id:ids}})
+                .then(resp=>{
+                    
+                    res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total , resp})
+
+            })
+
+
+                
+            })
     }
 }
 
