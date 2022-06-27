@@ -102,8 +102,8 @@ const controller = {
             imgProductos.findAll({where:{id:ids}})
             .then(resp=>{
                 
+                res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo , imagenDefault, cantidad , ids, resp })
             })
-            res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo , imagenDefault, cantidad , ids })
             /* res.json(producto) */
         })
     },
