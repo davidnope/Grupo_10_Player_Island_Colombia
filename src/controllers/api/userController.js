@@ -6,7 +6,11 @@ const user = db.User;
 const controller = {
     list: (req, res) => {
         //GET http://localhost:3030/api/user/list
-        user.findAll()
+        user.findAll({
+            where: {
+                deleted: 0
+            }
+        })
             .then(listado => {
                 let respuesta = {
                     meta : {

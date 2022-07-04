@@ -49,8 +49,5 @@ router.put('/delete/:id', usersController.deleteSave);
 // JSON
 // router.delete('/delete/:id', usersController.deleteSave);
 
-// probar loginUser
-
-router.get('/loginConfig', usersController.pruebaLogin)
 
 module.exports = router;

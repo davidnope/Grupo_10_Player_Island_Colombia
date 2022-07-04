@@ -36,6 +36,7 @@ main {
     flex-wrap: wrap;
     align-items: center;
     position: relative;
+    z-index: 1;
 }
 
 .img-profile{

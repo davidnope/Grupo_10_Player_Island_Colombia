@@ -39,6 +39,7 @@ const controller={
             where: { deleted : 0}
     })
         .then(productos=>{
+            
             res.render(path.resolve(__dirname, '../views/index.ejs'), {productos, toThousand, usuarioLogueado});
         })
 

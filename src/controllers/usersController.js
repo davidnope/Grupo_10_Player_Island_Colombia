@@ -59,14 +59,16 @@ const controller = {
     
                 if (userLogin == undefined) {
                     return res.render(rutaRedirect, { errores: { contrasena: { msg: 'Credenciales invalidas' } } });
+                }else{
+                    req.session.usuarioLogueado = userLogin;
                 }
-    
-                req.session.usuarioLogueado = userLogin;
     
                 if(req.body.recordarUsuario != undefined){
                     res.cookie('cookieRecordarUsuario', userLogin.email, {maxAge: 86400000});
+                }else{
+                    res.cookie('cookieRecordarUsuarioSession', userLogin.email, {maxAge: 10000})
                 };
-                res.redirect('/user/loginConfig');
+                res.redirect('/');
             };   
         })
     },
