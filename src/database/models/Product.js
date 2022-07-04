@@ -32,6 +32,9 @@ module.exports = (sequelize, dataTypes) =>{
         stock:{
             type: dataTypes.STRING(500),
         },
+        img_principal:{
+            type: dataTypes.STRING,
+        },
         user_id:{
             type: dataTypes.INTEGER.UNSIGNED,
         },

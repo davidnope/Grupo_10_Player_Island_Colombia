@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/detalle-producto.css">
-    <link rel="stylesheet" href="/css/partialsCss/cuadroDeProducto.css">
+    <!-- <link rel="stylesheet" href="/css/partialsCss/cuadroDeProducto.css"> -->
+    <link rel="stylesheet" href="/css/partialsCss/carrusel.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -222,100 +223,7 @@
 
             <!-- Nuestros productos -->
 
-            <section id="pruductosLinea">
-
-                <h2>Nuestros productos</h2>
-                <div style="display: flex; width: 80%; margin: auto;">
-                    <div class="productoDesc bloque">
-                        <div class="imgNuProductos">
-                            <a href="/detalle-producto">
-                                <img src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg"
-                                    alt="" href="/">
-                            </a>
-                        </div>
-                        <div class="descripcion">
-                            <div class="estrellas">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <h4>Producto</h4>
-                            <p>$50.000</p>
-                            <div class="iconosAbajo">
-                                <a href="#">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-solid fa-share-nodes"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="productoDesc producto2 bloque">
-                        <div class="imgNuProductos">
-                            <a href="/detalle-producto">
-                                <img src="/img/control.png" alt="" href="/">
-                            </a>
-                        </div>
-                        <div class="descripcion">
-                            <div class="estrellas">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <h4>Producto</h4>
-                            <p>$50.000</p>
-                            <div class="iconosAbajo">
-                                <a href="#">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-solid fa-share-nodes"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="productoDesc producto3 bloque">
-                        <div class="imgNuProductos">
-                            <a href="/detalle-producto">
-                                <img src="/img/control.png" alt="" href="/">
-                            </a>
-                        </div>
-                        <div class="descripcion">
-                            <div class="estrellas">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <h4>Producto</h4>
-                            <p>$50.000</p>
-                            <div class="iconosAbajo">
-                                <a href="#">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-solid fa-share-nodes"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <%- include('./partials/carrusel') %>
             <!-- </div>  -->
         </main>
         <%- include('./partials/footer') %>

@@ -61,12 +61,8 @@ const controller = {
             where: { deleted : 0}
         })
             .then(products => {
-                let ids = []
-                for (let i = 0; i < products.length; i++) {
-                    if (!products[i].deleted){
-                    ids.push(imgPrincipal(products[i]))
-                    }
-                }
+                /* console.log('linea 64',products[17].img_principal) */
+               
                 
                 
                 let contador = [];
@@ -75,15 +71,11 @@ const controller = {
                 }
                 let total = products.length 
                 console.log('total ' + total)
-                console.log(products)
-                console.log(ids)
-                imgProductos.findAll({where:{id:ids}})
-                .then(resp=>{
-                    
-                    res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total , resp})
+                /* console.log(products) */
+                /* console.log(products[0].img_principal) */
+                
 
-            })
-
+                res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total})
 
                 
             })
@@ -102,8 +94,14 @@ const controller = {
             let ids = imagenesExistentes(producto)
             imgProductos.findAll({where:{id:ids}})
             .then(resp=>{
-                
-                res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo , imagenDefault, cantidad , ids, resp })
+                productos.findAll({
+                    where: {deleted:0}
+                }).then( productos =>{
+                    
+                    res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo , imagenDefault, cantidad , ids, resp, productos })
+                }
+                    
+                )
             })
             /* res.json(producto) */
         })
@@ -112,8 +110,13 @@ const controller = {
         res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), { partesFormulario })
     },
     store: (req, res) => {
+        let imagen
+        
+        req.body.imagenPrincipal?( req.body.imagenPrincipal[3]? imagen = req.body.imagenPrincipal[3]: '') : '';
+        console.log(imagen);
+        console.log('el files',req.body.imagenPrincipal,req.files[imagen])
 
-        /* productos.create({
+        productos.create({
             name: req.body.name,
             description: req.body.description,
             features: req.body.features,
@@ -145,27 +148,46 @@ const controller = {
                 //insercion imagenes del producto
                 //array para las promesas de la cantidad n de imagenes
                 let arrayImages = [];
+                let imagenes = [];
                 //iteramos el files
                 for(let i=0; i<req.files.length; i++){
+
                     //creamos promesa donde se guarda uno por uno el filename de cada imagen
                     let promesa = imgProductos.create({
                         name: req.files[i].filename,
                         product_id: creado.id,
                         deleted: 0
+                    }).then(creada=>{
+                        console.log('linea 160' , `id producto ${creado.id} ... id imagen ${creada.id} imagen escojida  ${imagen} direccion ${req.files[imagen].filename}`);
+                        
+                        imagenes.push(creada.id)
+                        let promesa2 = productos.update({
+                            img_principal: req.files[imagen].filename
+                        },{
+                            where:{id: creado.id}
+                        }).then(result => {
+                            console.log('siiiiiiii la imagennn se guardooooo', result ,imagenes[imagen])
+                        }                          
+                        )
+                        arrayImages.push(promesa2)
+                    
                     })
 
                     //guardamos la promesa creada en el array
                     arrayImages.push(promesa)
+                    
+                       
 
 
                 }
                 // realizamos las promesas de la creacion de imagenes
 
-                Promise.all(arrayImages).then(response => res.redirect('/productos'))
+                Promise.all(arrayImages)
+                .then(response => res.redirect('/productos'))
 
-            }) */
+            })
 
-            res.json(req.files)
+            /* res.sendFile(req.files[imagen].path) */
     },
 
     editar: (req, res) => {

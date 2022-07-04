@@ -72,7 +72,7 @@ main{
 #siguientes-imagenes{
     display: flex;
     align-self: center;
-    width: 70%;
+    width: 100%;
     justify-content: space-around;
 }
 #imagenscroll1{
@@ -308,7 +308,7 @@ display: none;
 
 /* Nuestros productos */
 
-#pruductosLinea{
+/* #pruductosLinea{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -338,19 +338,19 @@ display: none;
 .producto3{
     display: none;
 }
-/* imgNuProductos - Img */
+imgNuProductos - Img
 .imgNuProductos{
     width: 100%;
 }
 #pruductosLinea img{
     width: 100%;
     display: block;
-}
+} */
 
 
 /* Descripcion -texto */
 
-.descripcion{
+/* .descripcion{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -384,7 +384,7 @@ display: none;
 .bloque:hover{
     
  transform: scale(1.05,1.05);
-}
+} */
 
 @media (min-width: 430px) {
     main{
@@ -418,9 +418,9 @@ display: none;
         
         
     }
-    #pruductosLinea{
+    /* #pruductosLinea{
         width:100%;
-    }
+    } */
     #navOpciones{
         display: flex;
         flex-direction: row;
@@ -429,9 +429,9 @@ display: none;
         margin-top: 25px;
         justify-content: center;
     }
-    .productoDesc{
+    /* .productoDesc{
         width: 25%;
-    }
+    } */
     .botonOpc{
         display: flex;
         margin: auto;
@@ -444,14 +444,14 @@ display: none;
         background-color: rgba(67, 67, 67, 0.3) ;
         border:solid 1px white; */
         
-    }
-    .producto2{
+     }
+    /* .producto2{
         display: flex;
     }
     .producto3{
         display: flex;
     }
-    
+     */
     
 }
 @media (min-width: 770px) {
