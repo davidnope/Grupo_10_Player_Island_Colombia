@@ -30,6 +30,9 @@
     justify-content:space-between;
     width: 60%;
   }
+  .bloque:hover{
+    transform: scale(1.05, 1.05);
+  }
   
   .producto0{
     display: flex;
@@ -146,7 +149,7 @@
 
 @media (min-width: 1279px){
     .productoEnFila{
-        width: 70%;
+        width: 80%;
     }
   
     .producto0{

@@ -6,9 +6,10 @@ window.onload = () => {
     let inputImg = document.getElementById('img')
     let contImg = document.querySelector('.contenedorImg')
     let botonGuardar = document.querySelector('#botonGuardar')
-    let imgEmergentes = document.querySelector('.emergente.contenedorEmergente.grupos')
+    let imgEmergentes = document.querySelector('#emergente .contenedorEmergente .grupos')
     let emergente = document.querySelector('.emergente')
-
+    let botonGuardarEmergente = document.querySelector('.guardarEmergente')
+    
     botonAddImg.onclick = (e) => {
         e.preventDefault();
         inputImg.click();
@@ -16,8 +17,12 @@ window.onload = () => {
         console.log('diste click');
 
     }
+    botonGuardarEmergente.addEventListener('click', (e) => {
+        emergente.classList.remove('show')
+    })
     inputImg.addEventListener('change', (e) => {
-        console.log(inputImg.files)
+        
+
 
         
         
@@ -34,23 +39,32 @@ window.onload = () => {
         emergente.classList.add('show')
         for (let i = 0; i < imagenes.length; i++) {
             console.log('entre al for');
+            let imgCodified = URL.createObjectURL(imagenes[i])
+            let name = imagenes[i].name.split(' ')[0].split('_')[0]
+            if (name.length>14) {
+                let letras = []
+                for (let i = 0; i < 14; i++) {
+                    letras.push(name[i])
+                }
+                name = letras.join('')
+            }
             let img =  `
             <div class="bloque-edicion">
-                <label for="imagenPrincipal${i}">SELECCIONA</label>
+                <label for="imagenPrincipal${i}">${name}</label>
                 <div class="form-imgPrincipal"
                 style="background-image: url(${imgCodified});">
                 <div style="display: flex; width: 100%;">
                     <input type="radio" name="imagenPrincipal" id="imagenPrincipal${i}"
-                        value="prueba">
+                        value="img${i}">
                 </div>
                  </div>
             </div>
             `
             
             imgEmergentes.innerHTML += img
-            imgEmergentes.innerHTML += '<div class="botonGuardar">Guardar</div>'
+            
         }
-
+       
 
 
         let array = document.querySelectorAll('.divPreImg')

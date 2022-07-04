@@ -2,146 +2,108 @@
 
     <h2>Nuestros productos</h2>
     <div class="productoEnFila">
-        <%   if(productos[0]){%>
-        <%for(let i = 0; i < 4; i++){%>
-        <div class="producto<%=i%>">
-            <div class="imgNuProductos">
-                <a href="/productos/detalle-producto/<%=productos[i].id%>">
-                    <img class="js-modal-product-cover product-cover-modal" width="800"
-                        src="/img/productos/productos[i].imgProductos[i] %>"
-                        alt="" title="" itemprop="image">
-                </a>
-            </div>
-            <div class="descripcion">
-                <div class="estrellas">
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <a href="/productos/detalle-producto/<%=productos[i].id%>" class="nombre-producto">
-                    <h4><%=productos[i].name%></h4>
-                </a>
-                <p>$<%=toThousand(productos[i].price)%></p>
-                <div class="iconosAbajo">
-                    <a href="#">
-                        <i class="fa-regular fa-heart"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-share-nodes"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <%}%>
-        <%}else{%>
-            <div class="imgNuProductos">
-                <h1>no hay productos</h1>
-            </div>
-            <%}%>
-        <!-- <div class="productoDescSegunda">
-            <div class="imgNuProductos">
-                <a href="/detalle-producto">
-                    <img class="js-modal-product-cover product-cover-modal" width="800"
-                        src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/6/76-large_default.jpg"
-                        alt="" title="" itemprop="image">
-                </a>
-            </div>
-            <div class="descripcion">
-                <div class="estrellas">
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <a href="/productos/detalle-producto" class="nombre-producto">
-                    <h4>Producto</h4>
-                </a>
-                <p>$50.000</p>
-                <div class="iconosAbajo">
-                    <a href="#">
-                        <i class="fa-regular fa-heart"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-share-nodes"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="productoDescTercera">
-            <div class="imgNuProductos">
-                <a href="/detalle-producto">
-                    <img class="js-modal-product-cover product-cover-modal" width="800"
-                        src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/5/75-large_default.jpg"
-                        alt="" title="" itemprop="image">
-                </a>
-            </div>
-            <div class="descripcion">
-                <div class="estrellas">
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <a href="/productos/detalle-producto" class="nombre-producto">
-                    <h4>Producto</h4>
-                </a>
-                <p>$50.000</p>
-                <div class="iconosAbajo">
-                    <a href="#">
-                        <i class="fa-regular fa-heart"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-share-nodes"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="productoDescCuarta">
-            <div class="imgNuProductos">
-                <a href="/detalle-producto">
-                    <img class="js-modal-product-cover product-cover-modal" width="800"
-                        src="https://demo.codezeel.com/prestashop/PRS15/PRS150365/img/p/7/6/76-large_default.jpg"
-                        alt="" title="" itemprop="image">
-                </a>
-            </div>
-            <div class="descripcion">
-                <div class="estrellas">
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                </div>
-                <a href="/productos/detalle-producto" class="nombre-producto">
-                    <h4>Producto</h4>
-                </a>
-                <p>$50.000</p>
-                <div class="iconosAbajo">
-                    <a href="#">
-                        <i class="fa-regular fa-heart"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-share-nodes"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
-                </div>
-            </div>
-        </div> -->
+        <% if(productos[0]){%>
+            <% if(productos.length < 4){ %>
+                <%for(let i=0; i < productos.length; i++){%>
+                    <% if(!productos[0].deleted){%>
+                        <div class="bloque  producto<%=i%>">
+                            <div class="imgNuProductos">
+                                <a href="/productos/detalle-producto/<%=productos[i].id%>">
+                                    <%if(productos[i].img_principal){%>
+                                        <img class="js-modal-product-cover product-cover-modal" width="800"
+                                            src="/img/productos/<%=productos[i].img_principal %>" alt="" title=""
+                                            itemprop="image">
+                                            <%}else{%>
+                                                <img class="js-modal-product-cover product-cover-modal" width="800"
+                                                src="/img/productos/default.png" alt="" title=""
+                                                itemprop="image">
+                                                <%}%>
+                                </a>
+                            </div>
+                            <div class="descripcion">
+                                <div class="estrellas">
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <a href="/productos/detalle-producto/<%=productos[i].id%>" class="nombre-producto">
+                                    <h4>
+                                        <%=productos[i].name%>
+                                    </h4>
+                                </a>
+                                <p>$<%=toThousand(productos[i].price)%>
+                                </p>
+                                <div class="iconosAbajo">
+                                    <a href="#">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+                            <%}%>
+                                <%}else{%>
+                                    <%for(let i=0; i < 4; i++){%>
+                                        <% if(!productos[0].deleted){%>
+                                            <div class="bloque producto<%=i%>">
+                                                <div class="imgNuProductos">
+                                                    <a href="/productos/detalle-producto/<%=productos[i].id%>">
+                                                        <%if(productos[i].img_principal){%>
+                                                        <img class="js-modal-product-cover product-cover-modal" width="800"
+                                                            src="/img/productos/<%=productos[i].img_principal %>" alt="" title=""
+                                                            itemprop="image">
+                                                            <%}else{%>
+                                                                <img class="js-modal-product-cover product-cover-modal" width="800"
+                                                                src="/img/productos/default.png" alt="" title=""
+                                                                itemprop="image">
+                                                                <%}%>
+                                                    </a>
+                                                </div>
+                                                <div class="descripcion">
+                                                    <div class="estrellas">
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <i class="fa-regular fa-star"></i>
+                                                        <i class="fa-regular fa-star"></i>
+                                                    </div>
+                                                    <a href="/productos/detalle-producto/<%=productos[i].id%>" class="nombre-producto">
+                                                        <h4>
+                                                            <%=productos[i].name%>
+                                                        </h4>
+                                                    </a>
+                                                    <p>$<%=toThousand(productos[i].price)%>
+                                                    </p>
+                                                    <div class="iconosAbajo">
+                                                        <a href="#">
+                                                            <i class="fa-regular fa-heart"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <i class="fa-solid fa-share-nodes"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <i class="fa-solid fa-cart-shopping"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <%}%>
+                                                <%}%>
+                                    <%}%>
+                                    <%}else{%>
+                                        <div class="imgNuProductos">
+                                            <h1>no hay productos</h1>
+                                        </div>
+                                        <%}%>
+                                         
     </div>
 
 </section>

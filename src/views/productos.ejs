@@ -104,10 +104,10 @@
                                     <div class="bloqueProducto" id="bloque">
                                         <div class="imgNuProductos">
                                             <a href="/productos/detalle-producto/<%=productos[i].id%>">
-                                                <%if(!resp[i]){%>
+                                                <%if(!productos[i].img_principal){%>
                                                     <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/default.png" alt="" title="" itemprop="image">
                                                 <%}else{%>
-                                                    <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%=resp[i].name%>" alt="" title="" itemprop="image">
+                                                    <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%=productos[i].img_principal%>" alt="" title="" itemprop="image">
                                                     
                                                     <%}%>
                                             </a>
