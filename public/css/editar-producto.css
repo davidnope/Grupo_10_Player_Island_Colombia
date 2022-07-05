@@ -120,10 +120,11 @@
 
   .bloque-edicion{
     display: flex;
-    
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-bottom: 10px ;
     
   }
   .form-label{

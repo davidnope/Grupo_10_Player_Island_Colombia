@@ -13,6 +13,10 @@ main{
     flex-wrap: wrap;
     justify-content: center;
 }
+.errores{
+    color: var(--naranja);
+    margin: 0
+}
 
 .titulos-seccion{
     width: 100%;

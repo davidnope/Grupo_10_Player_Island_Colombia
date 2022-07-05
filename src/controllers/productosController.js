@@ -6,6 +6,27 @@ const fs = require('fs');
 const path = require('path');
 const { features } = require('process');
 const { Recoverable } = require('repl');
+
+// VALIDACIONES
+const {validationResult} = require('express-validator');
+// FUNCION VALIDAR ERRORES
+let rutaRedirect;
+const formValidator = (req, res) => {
+    let result = {
+        valid: true
+    };
+
+    let errorsValidation = validationResult(req);
+
+    if (errorsValidation.errors.length > 0) {
+        result.valid = false;
+        res.render(rutaRedirect, {
+            errores: errorsValidation.mapped(), old: req.body
+        });
+    }
+    return result;
+};
+// FUNCION VALIDAR ERRORES - CERRAR
 // modelos
 const db = require('../database/models')
 const productos = db.Product
@@ -15,6 +36,9 @@ const Op = db.Sequelize.Op
 
 const productsFilePath = path.join(__dirname, '../data/dbProductos.json');
 const productosJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+
+
 
 //constantes
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -26,14 +50,8 @@ function cantImg(producto){
     }
     return contador
 }
-function imgPrincipal(producto){
-    let id = 0
-    for(let i = 0; i<producto.imgProducts.length; i++){
-        if(!(producto.imgProducts[i].deleted)&& id == 0) { 
-            id = producto.imgProducts[i].id } 
-        }
-    return id
-}
+
+
 function imagenesExistentes(producto){
     let ids = [];
     for(let i = 0; i<producto.imgProducts.length; i++){
@@ -110,82 +128,87 @@ const controller = {
         res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), { partesFormulario })
     },
     store: (req, res) => {
-        let imagen
+
+        rutaRedirect = path.join(__dirname, '../views/agregar-producto.ejs');
         
-        req.body.imagenPrincipal?( req.body.imagenPrincipal[3]? imagen = req.body.imagenPrincipal[3]: '') : '';
-        console.log(imagen);
-        console.log('el files',req.body.imagenPrincipal,req.files[imagen])
-
-        productos.create({
-            name: req.body.name,
-            description: req.body.description,
-            features: req.body.features,
-            company: req.body.company,
-            category: req.body.category,
-            price: req.body.price,
-            discount: req.body.discount,
-            rating: 5,
-            stock: req.body.stock,
-            user_id: 12,
-            deleted: 0,
-            // colors: [
-            //     {color: 'Negro'},
-            //     {color: 'Rojo'}
-            //     // {id: 2}
-            // ]            
-        }
-            // , {include: 'colors'}
-        ).then(creado => {
-                let identificadoresDeColores = [10,11,12]
-                identificadoresDeColores.forEach(item => {
-                    // 2. Find the Classes row
-                    colors.findByPk(item)
-                        .then(colorAdquirido => {
-                            // 3. INSERT the association in Enrollments table
-                            creado.addColor(colorAdquirido, { through: 'colors' });
-                        })
-                });
-                //insercion imagenes del producto
-                //array para las promesas de la cantidad n de imagenes
-                let arrayImages = [];
-                let imagenes = [];
-                //iteramos el files
-                for(let i=0; i<req.files.length; i++){
-
-                    //creamos promesa donde se guarda uno por uno el filename de cada imagen
-                    let promesa = imgProductos.create({
-                        name: req.files[i].filename,
-                        product_id: creado.id,
-                        deleted: 0
-                    }).then(creada=>{
-                        console.log('linea 160' , `id producto ${creado.id} ... id imagen ${creada.id} imagen escojida  ${imagen} direccion ${req.files[imagen].filename}`);
+        if(formValidator(req, res).valid){
+            let imagen
+        
+            req.body.imagenPrincipal?( req.body.imagenPrincipal[3]? imagen = req.body.imagenPrincipal[3]: '') : '';
+            console.log(imagen);
+            console.log('el files',req.body.imagenPrincipal,req.files[imagen])
+    
+            productos.create({
+                name: req.body.name,
+                description: req.body.description,
+                features: req.body.features,
+                company: req.body.company,
+                category: req.body.category,
+                price: req.body.price,
+                discount: req.body.discount,
+                rating: 5,
+                stock: req.body.stock,
+                user_id: 12,
+                deleted: 0,
+                // colors: [
+                //     {color: 'Negro'},
+                //     {color: 'Rojo'}
+                //     // {id: 2}
+                // ]            
+            }
+                // , {include: 'colors'}
+            ).then(creado => {
+                    let identificadoresDeColores = [10,11,12]
+                    identificadoresDeColores.forEach(item => {
+                        // 2. Find the Classes row
+                        colors.findByPk(item)
+                            .then(colorAdquirido => {
+                                // 3. INSERT the association in Enrollments table
+                                creado.addColor(colorAdquirido, { through: 'colors' });
+                            })
+                    });
+                    //insercion imagenes del producto
+                    //array para las promesas de la cantidad n de imagenes
+                    let arrayImages = [];
+                    let imagenes = [];
+                    //iteramos el files
+                    for(let i=0; i<req.files.length; i++){
+    
+                        //creamos promesa donde se guarda uno por uno el filename de cada imagen
+                        let promesa = imgProductos.create({
+                            name: req.files[i].filename,
+                            product_id: creado.id,
+                            deleted: 0
+                        }).then(creada=>{
+                            console.log('linea 160' , `id producto ${creado.id} ... id imagen ${creada.id} imagen escojida  ${imagen} direccion ${req.files[imagen].filename}`);
+                            
+                            imagenes.push(creada.id)
+                            let promesa2 = productos.update({
+                                img_principal: req.files[imagen].filename
+                            },{
+                                where:{id: creado.id}
+                            }).then(result => {
+                                console.log('siiiiiiii la imagennn se guardooooo', result ,imagenes[imagen])
+                            }                          
+                            )
+                            arrayImages.push(promesa2)
                         
-                        imagenes.push(creada.id)
-                        let promesa2 = productos.update({
-                            img_principal: req.files[imagen].filename
-                        },{
-                            where:{id: creado.id}
-                        }).then(result => {
-                            console.log('siiiiiiii la imagennn se guardooooo', result ,imagenes[imagen])
-                        }                          
-                        )
-                        arrayImages.push(promesa2)
-                    
-                    })
-
-                    //guardamos la promesa creada en el array
-                    arrayImages.push(promesa)
-                    
-                       
-
-
-                }
-                // realizamos las promesas de la creacion de imagenes
-
-                Promise.all(arrayImages)
-                .then(response => res.redirect('/productos'))
-
-            })
+                        })
+    
+                        //guardamos la promesa creada en el array
+                        arrayImages.push(promesa)
+                        
+                           
+    
+    
+                    }
+                    // realizamos las promesas de la creacion de imagenes
+    
+                    Promise.all(arrayImages)
+                    .then(response => res.redirect('/productos'))
+    
+                })
+        }
 
             /* res.sendFile(req.files[imagen].path) */
     },

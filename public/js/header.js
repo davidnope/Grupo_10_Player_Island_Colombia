@@ -1,5 +1,7 @@
 // HACER MEDIA QUERYS https://developer.mozilla.org/es/docs/Web/API/MediaQueryList/addListener
-window.onload = () => {
+
+
+
 
     // SEARCH
     let contenedorSearch = document.querySelector('#barraBusqueda')
@@ -7,6 +9,7 @@ window.onload = () => {
     let predicciones = document.querySelector('.predicciones');
     let search_query;
     let query = new URLSearchParams(location.search);
+    console.log(document.querySelector('#header'))
 
 
     if (query.has('search_query')) {
@@ -252,8 +255,6 @@ window.onload = () => {
         })
     // MENUS DESPLEGADOS CIERRE
 
-
-}
 
 
 

@@ -4,6 +4,10 @@ const multer = require('multer');
 const router = express.Router();
 const productosController = require(path.join(__dirname, '../controllers/productosController'));
 
+
+// MIDDLEWARES
+const validacionProductos = require(path.join(__dirname, '../middlewares/mdValidProducts'));
+
 const storage = multer.diskStorage({
     destination: (req,file,cb)=>{
         cb(null, path.join(__dirname, '../../public/img/productos'))
@@ -22,8 +26,8 @@ router.get('/', productosController.productos);
 
 router.get('/results', productosController.search)
 
-router.get('/agregar' , productosController.agregar);
-router.post('/', uploadFile.any('img'), productosController.store )
+router.get('/agregar', productosController.agregar);
+router.post('/', uploadFile.any('img'), validacionProductos, productosController.store )
 
 router.get('/editar/:id', productosController.editar);
 router.put('/editar/:id', uploadFile.any('img'), productosController.guardarEdicion )
