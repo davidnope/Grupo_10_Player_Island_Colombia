@@ -1,15 +1,11 @@
 // HACER MEDIA QUERYS https://developer.mozilla.org/es/docs/Web/API/MediaQueryList/addListener
 
-
-
-
     // SEARCH
     let contenedorSearch = document.querySelector('#barraBusqueda')
     let buscador = document.querySelector('#search');
     let predicciones = document.querySelector('.predicciones');
     let search_query;
     let query = new URLSearchParams(location.search);
-    console.log(document.querySelector('#header'))
 
 
     if (query.has('search_query')) {
@@ -114,6 +110,7 @@
 
     // SEARCH  CIERRE 
 
+    
     // IMG E ICONO USER LOGIN -LOGOUT
     let iconoUser = document.querySelector('.logout');
     let imgUserPeque = document.querySelector('.login');
@@ -125,6 +122,7 @@
     let iconoMenuCompleto = document.querySelector('.barras');
     let menuDesplegableCelular = document.querySelector('.menu-desplegable-celular');
     let containerLogin = document.querySelector('.container-login');
+    let containerLogout = document.querySelector('.container-logout');
     let opcionesUsuarioCompu = document.querySelectorAll('.opciones-usuario');
 
 
@@ -176,7 +174,6 @@
             if(sessionStorage.getItem('correoUserLoginLocal') == null){
                 cookie.find(obj => {
                     if (obj.split('=')[0] === 'cookieRecordarUsuario' || obj.split('=')[0] === 'cookieRecordarUsuarioSession') {
-                        console.log('entre');
                         cookieCompleta = obj;
                     }
                     // switch(obj.split('=')[0]){
@@ -225,6 +222,7 @@
             // SI EXISTE EL USUARIO 
             if (userLogin) {
                 validarUser('imgUserPeque')
+                containerLogout.style.display = 'none';
                 // IMG USER
                 imgUserPeque.style.backgroundImage = `url(/img/users/${userLogin.img_user})`;
                 // INFO USER
@@ -235,15 +233,15 @@
                 }
 
                 // OPCIONES MENU Y SUS RUTAS 
-                // opcionPerfil[0].setAttribute('href',`/user/profile/${userLogin.id}`)
-                // opcionPerfil[1].setAttribute('href',`/user/profile/${userLogin.id}`)
-                // opcionInicio.setAttribute('href',`/`)
-                // opcionProdcutos.setAttribute('href',`/productos`)
-                // opcionContacto.setAttribute('href',`#footer`)
+                opcionPerfil[0].setAttribute('href',`/user/profile/${userLogin.id}`)
+                opcionPerfil[1].setAttribute('href',`/user/profile/${userLogin.id}`)
+                opcionInicio.setAttribute('href',`/`)
+                opcionProdcutos.setAttribute('href',`/productos`)
+                opcionContacto.setAttribute('href',`#footer`)
 
             } else {
-                containerLogin.style.display = 'none';
                 validarUser('iconoUser')
+                containerLogin.style.display = 'none';
                 for (let i = 0; i < opcionesUsuarioCompu.length; i++) {
                     opcionesUsuarioCompu[i].innerHTML = '<a href="#" class="opcion-iniciar-sesion"><i class="fa-solid fa-user-check"></i><p>Iniciar sesion</p></a>'
                     opcionesUsuarioCompu[i].innerHTML += '<a href="#" class="opcion-registrarse"><i class="fa-solid fa-user-plus"></i><p>Registrase</p></a>'

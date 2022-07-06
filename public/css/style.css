@@ -263,6 +263,13 @@ footer form textarea{
     flex-grow: 0.4;
     justify-content: center;
 }
+.container-logout{
+    display: none;
+    align-items: center; 
+    height: 100%;
+    flex-grow: 0.4;
+    justify-content: center;
+}
 /* MENU DESPEGABLE PARA COMPU */
 .menu-desplegable{
     width: 100%;
@@ -279,10 +286,11 @@ footer form textarea{
 .menu-desplegable a{
     color: black;
 }
-.container-login:hover .menu-desplegable{
+.container-login:hover .menu-desplegable, .container-logout:hover .menu-desplegable{
     visibility: visible;
     height: 275px;
 }
+
 /* MENU DESPEGABLE PARA CEL */
 .menu-desplegable-celular{
     width: 100%;
@@ -461,6 +469,9 @@ footer form textarea{
     }
 
     .container-login{
+        display: flex;
+    }
+    .container-logout{
         display: flex;
     }
 

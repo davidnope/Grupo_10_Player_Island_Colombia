@@ -43,69 +43,76 @@
                     <form action="/user/registerSave" method="POST" enctype="multipart/form-data"
                         class="formulario-email-contrasena">
                         <div class="hilera_form">
-                            <div class="email-contrasena">
-                                <label for="nombre">Nombre</label> <br>
-                                <input type="text" name="nombre" id="nombre"
+                            <div class="email-contrasena nombre">
+                                <label class="labels" for="nombre">Nombre</label><font class="icon-check"></font> <br>
+                                <input autocomplete="off" type="text" name="nombre" id="nombre"
                                     value="<%=locals.old && old.nombre ? old.nombre : null%>"> <br>
+                                    <p class="errorJs"></p>
                                 <%if(locals.errores && errores.nombre){%>
                                     <div class="errores">
                                         <%=errores.nombre.msg%>
                                     </div>
                                     <%}%>
                             </div>
-                            <div class="email-contrasena">
-                                <label for="apellido">Apellido</label> <br>
-                                <input type="text" name="apellido" id="apellido"
+                            <div class="email-contrasena apellido">
+                                <label class="labels" for="apellido">Apellido</label><font class="icon-check"></font> <br>
+                                <input autocomplete="off" type="text" name="apellido" id="apellido"
                                     value="<%=locals.old && old.apellido ? old.apellido : null%>"> <br>
+                                    <p class="errorJs"></p>
                                 <%if(locals.errores && errores.apellido){%>
                                     <div class="errores">
                                         <%=errores.apellido.msg%>
                                     </div>
                                     <%}%>
                             </div>
-                            <div class="email-contrasena">
-                                <label for="documento">Numero de documento</label> <br>
-                                <input type="number" name="documento" id="documento"
+                            <div class="email-contrasena documento">
+                                <label class="labels" for="documento">Numero de documento</label><font class="icon-check"></font> <br>
+                                <input autocomplete="off" type="number" name="documento" id="documento"
                                     value="<%=locals.old && old.documento ? old.documento : null%>"> <br>
-                                <%if(locals.errores && errores.documento){%>
+                                    <p class="errorJs"></p>
+                                    <%if(locals.errores && errores.documento){%>
                                     <div class="errores">
                                         <%=errores.documento.msg%>
                                     </div>
                                     <%}%>
                             </div>
-                            <div class="email-contrasena">
-                                <label for="Email">Email</label> <br>
-                                <input type="text" name="email" id="email"
+                            <div class="email-contrasena email">
+                                <label class="labels" for="Email">Email</label><font class="icon-check"></font> <br>
+                                <input type="email" name="email" id="email"
                                     value="<%=locals.old && old.email ? old.email : null%>"> <br>
-                                <%if(locals.errores && errores.email){%>
+                                    <p class="errorJs"></p>
+                                    <%if(locals.errores && errores.email){%>
                                     <div class="errores">
                                         <%=errores.email.msg%>
                                     </div>
                                     <%}%>
                             </div>
-                            <div class="email-contrasena">
-                                <label for="direccion">Dirrección</label> <br>
-                                <input type="text" name="direccion" id="direccion"
+                            <div class="email-contrasena dirreccion">
+                                <label class="labels" for="direccion">Dirrección</label><font class="icon-check"></font> <br>
+                                <input autocomplete="off" type="text" name="direccion" id="direccion"
                                     value="<%=locals.old && old.direccion ? old.direccion : null%>"> <br>
-                                <%if(locals.errores && errores.direccion){%>
+                                    <p class="errorJs"></p>
+                                    <%if(locals.errores && errores.direccion){%>
                                     <div class="errores">
                                         <%=errores.direccion.msg%>
                                     </div>
                                     <%}%>
                             </div>
-                            <div class="email-contrasena">
-                                <label for="celular">Celular</label><br>
-                                <input type="tel" name="celular" id="celular"
+                            <div class="email-contrasena celular">
+                                <label class="labels" for="celular">Celular</label><font class="icon-check"></font><br>
+                                <input autocomplete="off" type="tel" name="celular" id="celular"
                                     value="<%=locals.old && old.celular ? old.celular : null%>"> <br>
-                                <%if(locals.errores && errores.celular){%>
+                                    <p class="errorJs"></p>
+                                    <%if(locals.errores && errores.celular){%>
                                     <div class="errores">
                                         <%=errores.celular.msg%>
                                     </div>
                                     <%}%>
                             </div>
-                            <div class="email-contrasena">
-                                <label for="Contrasena">Contraseña</label><br>
+                            <div class="email-contrasena contrasena">
+                                <label class="labels" for="Contrasena">Contraseña</label><font class="icon-check"></font><br>
                                 <input type="password" name="contrasena" id="contrasena"><br>
+                                <p class="errorJs"></p>
                                 <%if(locals.errores && errores.contrasena){%>
                                     <div class="errores">
                                         <%=errores.contrasena.msg%>
@@ -113,31 +120,34 @@
                                     <%}%>
                             </div>
 
-                            <div class="email-contrasena">
-                                <label for="confirmarContrasena">Confirmar contraseña</label><br>
+                            <div class="email-contrasena confirmarContrasena">
+                                <label class="labels" for="confirmarContrasena">Confirmar contraseña</label><font class="icon-check"></font><br>
                                 <input type="password" name="confirmarContrasena" id="confirmarContrasena"> <br>
+                                <p class="errorJs"></p>
                                 <%if(locals.errores && errores.confirmarContrasena){%>
                                     <div class="errores">
                                         <%=errores.confirmarContrasena.msg%>
                                     </div>
                                     <%}%>
                             </div>
-                            <div class="email-contrasena">
-                                <label>Tipo de usuario</label><br>
-                                <select name="tipoDeUsuario" class="inputSelect">
+                            <div class="email-contrasena tipoDeUsuario">
+                                <label class="labels" >Tipo de usuario</label><font class="icon-check"></font><br>
+                                <select name="tipoDeUsuario" class="inputSelect" id="tipoDeUsuario">
                                     <option value= "">Selecciona un opción</option>
                                     <option value= "Vendedor" <%=locals.old && old.tipoDeUsuario === 'Vendedor' ? 'selected' : '';%>>Vendedor</option>
                                     <option value="Comprador" <%=locals.old && old.tipoDeUsuario === 'Comprador' ? 'selected' : '';%>>Comprador</option>
                                 </select>
+                                <p class="errorJs"></p>
                                 <%if(locals.errores && errores.tipoDeUsuario){%>
                                     <div class="errores">
                                         <%=errores.tipoDeUsuario.msg%>
                                     </div>
                                     <%}%>
                             </div>
-                            <div class="email-contrasena">
-                                <label for="img">Imagen de perfil</label><br>
+                            <div class="email-contrasena imgUser">
+                                <label class="labels" for="img">Imagen de perfil</label><font class="icon-check"></font><br>
                                 <input type="file" name="imgUser" id="img"> <br>
+                                <p class="errorJs"></p>
                                 <%if(locals.errores && errores.imgUser){%>
                                     <div class="errores">
                                         <%=errores.imgUser.msg%>
@@ -157,6 +167,7 @@
 
             </div>
         </main>
+        <script src="/js/user/validacionesUsuarios.js"></script>
 </body>
 
 </html>
