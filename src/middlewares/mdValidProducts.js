@@ -12,9 +12,7 @@ const validacionProducto =[
 
         let files = req.files;
         let acceptedExtensions = ['.jpg', '.png', '.jpeg'];
-        if(!files[0]){
-            throw new Error (`Agrege almenos una imagen`);  
-        }
+        
 
         if(files){
            
@@ -30,6 +28,19 @@ const validacionProducto =[
         }
         return true;
     }),
+
+    body('price').custom((value, {req})=>{
+        let price= req.body.price
+        if (price <= 0) {
+            throw new Error (`el precio no puede ser ${price}`)
+        }
+    }),
+    body('stock').custom((value, {req})=>{
+        let stock= req.body.stock
+        if (stock <= 0) {
+            throw new Error (`el precio no puede ser ${stock}`)
+        }
+    })
   
 ]
 

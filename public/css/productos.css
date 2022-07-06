@@ -129,9 +129,16 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     margin: 10px 0;
-    width: 100%;
+    width: 80vw;
     text-decoration: none;
     color: black;
+}
+.imgPrincipal{
+    width: 80vw;
+    height: 80vw;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #lista {
@@ -241,9 +248,16 @@ h2 {
         width: 80%;
         justify-content: space-around;
     }
+    .imgPrincipal{
+        width: 23vw;
+        height: 23vw;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
     .bloqueProducto {
-        width: 28%;
+        width: 23vw;
     }
 
     #filtros {
@@ -259,7 +273,14 @@ h2 {
 @media (min-width: 1024px) {
 
     .bloqueProducto {
-        width: 30%;
+        width: 16vw;
+    }
+    .imgPrincipal{
+        width: 16vw;
+        height: 16vw;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     #escogeMarca {
@@ -309,6 +330,13 @@ h2 {
 
 @media(min-width: 1200px){
     .bloqueProducto{
-        width: 22%;
+        width: 12vw;
+    }
+    .imgPrincipal{
+        width: 12vw;
+        height: 12vw;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }

@@ -35,8 +35,7 @@
                         </a> > <%= producto.name %>
                     </h4>
                     <%if(cantidad> 0){%>
-                        <div id="imagenPrincipal" >
-                            <img src="/img/productos/<%= resp[0].name %>" class="imgPrincipal" alt="">
+                        <div id="imagenPrincipal" style="background-image: url(/img/productos/<%= resp[0].name %>) ;" >
                         </div>
                         <div id="carrusel">
 
@@ -223,9 +222,10 @@
 
             <!-- Nuestros productos -->
 
-            <%- include('./partials/carrusel') %>
+           
             <!-- </div>  -->
         </main>
+        <%- include('./partials/carrusel') %>
         <%- include('./partials/footer') %>
         <script src="/js/detalle-producto.js"></script>
 </body>

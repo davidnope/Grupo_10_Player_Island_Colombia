@@ -30,7 +30,7 @@ router.get('/agregar', productosController.agregar);
 router.post('/', uploadFile.any('img'), validacionProductos, productosController.store )
 
 router.get('/editar/:id', productosController.editar);
-router.put('/editar/:id', uploadFile.any('img'), productosController.guardarEdicion )
+router.put('/editar/:id', uploadFile.any('img'), validacionProductos , productosController.guardarEdicion )
 
 router.get('/eliminar/:id', productosController.eliminar);
 router.delete('/eliminar/:id', productosController.guardarEliminar )

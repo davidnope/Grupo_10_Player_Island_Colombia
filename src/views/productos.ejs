@@ -102,12 +102,19 @@
                                 <%  for(let i = 0; i<total; i++){  %>
                                     <%if(!productos[i].deleted){%>
                                     <div class="bloqueProducto" id="bloque">
-                                        <div class="imgNuProductos">
+                                        <div class="imgNuProductos" style="background-color: #352347;">
                                             <a href="/productos/detalle-producto/<%=productos[i].id%>">
                                                 <%if(!productos[i].img_principal){%>
-                                                    <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/default.png" alt="" title="" itemprop="image">
+                                                    <div class="imgPrincipal" style="background-image:url('/img/productos/default.png') ;">
+
+                                                    </div>
+                                                
+                                                    <!-- <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/default.png" alt="" title="" itemprop="image"> -->
                                                 <%}else{%>
-                                                    <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%=productos[i].img_principal%>" alt="" title="" itemprop="image">
+                                                    <div  class="imgPrincipal" style="background-image:url('/img/productos/<%=productos[i].img_principal%>') ;">
+
+                                                    </div>
+                                                    <!-- <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%=productos[i].img_principal%>" alt="" title="" itemprop="image"> -->
                                                     
                                                     <%}%>
                                             </a>

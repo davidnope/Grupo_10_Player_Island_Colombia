@@ -42,15 +42,17 @@ main{
 }
 #imagenPrincipal{
     display: flex;
-    width: 80%;
+    width: 80vw;
+    height: 80vw;
     margin: auto;
     border: solid 1px black;
     margin-bottom: 20px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
 }
-#imagenPrincipal img{
-    display: flex;
-    width: 100%;
-}
+
 #carrusel{
     display: flex;
     justify-content: space-around;
@@ -394,6 +396,12 @@ imgNuProductos - Img
         flex-wrap: wrap; */
         position: relative;
     }
+    #imagenPrincipal{
+        
+        width: 25vw;
+        height: 25vw;
+       
+    }
     #imagenes-producto{
         width: 45%;
         margin: 0px;
@@ -462,6 +470,12 @@ imgNuProductos - Img
     #imagenscroll4{
         display: flex;
         }
+        #imagenPrincipal{
+        
+            width: 30vw;
+            height: 30vw;
+           
+        }
 }
 @media (min-width: 1020px) {
     #compra-producto{
@@ -476,7 +490,12 @@ imgNuProductos - Img
         top: 700px;
         left: 9%;
     } */
-    
+    #imagenPrincipal{
+        
+        width: 20vw;
+        height: 20vw;
+       
+    }
    
 }
 @media (min-width: 1440px) {
@@ -498,6 +517,12 @@ imgNuProductos - Img
     #compra-producto{
         
         bottom: 360px;
+    }
+    #imagenPrincipal{
+        
+        width: 18vw;
+        height: 18vw;
+       
     }
 }
 

@@ -3,12 +3,37 @@ window.onload = () => {
     let divImg = document.getElementById('divImg');
     let formImg = document.querySelector('.form-img');
     let botonAddImg = document.getElementById('botonAddImg')
-    let inputImg = document.getElementById('img')
+   
     let contImg = document.querySelector('.contenedorImg')
     let botonGuardar = document.querySelector('#botonGuardar')
     let imgEmergentes = document.querySelector('#emergente .contenedorEmergente .grupos')
     let emergente = document.querySelector('.emergente')
     let botonGuardarEmergente = document.querySelector('.guardarEmergente')
+
+     //inputs del formulario 
+     const inputName = document.querySelector('#name')
+     const inputPrice = document.querySelector('#price')
+     const inputDiscount = document.querySelector('#discount')
+     const inputCategory = document.querySelector('#category')
+     const inputStock = document.querySelector('#stock')
+     const inputCompany = document.querySelector('#company')
+     const inputColor = document.querySelector('#color')
+     const inputImg = document.getElementById('img')
+     const inputFeatures = document.querySelector('#features')
+     const inputDescription = document.querySelector('#description')
+     const imgPrincipalRadio = document.querySelectorAll('.radio')
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     botonAddImg.onclick = (e) => {
         e.preventDefault();
@@ -54,7 +79,7 @@ window.onload = () => {
                 <div class="form-imgPrincipal"
                 style="background-image: url(${imgCodified});">
                 <div style="display: flex; width: 100%;">
-                    <input type="radio" name="imagenPrincipal" id="imagenPrincipal${i}"
+                    <input type="radio" name="imagenPrincipal" id="imagenPrincipal${i}" class="radio"
                         value="img${i}">
                 </div>
                  </div>

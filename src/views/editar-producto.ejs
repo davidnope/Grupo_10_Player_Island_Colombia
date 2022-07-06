@@ -30,18 +30,30 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <form action="/productos/editar/<%= producto.id %>?_method=PUT" method="POST"
+                    <form id="form" action="/productos/editar/<%= producto.id %>?_method=PUT" method="POST"
                         enctype="multipart/form-data">
                         <div class="grupos">
                             <div class="bloque-edicion">
                                 <label for="name" class="form-label">Nombre del producto: </label>
                                 <input type="text" id="name" name="name" placeholder="Ej: consola X" class="form-input"
-                                    value="<%= producto.name%>"><br>
+                                    value="<%= producto.name%>">
+                                    <%if(locals.errores && errores.name){%>
+                                        <div class="errores">
+                                            <%=errores.name.msg%>
+                                        </div>
+                                        <%}%>
+                                <p></p>
                             </div>
                             <div class="bloque-edicion">
                                 <label for="price" class="form-label">Precio del producto:</label>
                                 <input type="number" id="price" name="price" placeholder="Ej: $50.000"
-                                    class="form-input" value="<%= producto.price%>"><br>
+                                    class="form-input" value="<%= producto.price%>">
+                                    <%if(locals.errores && errores.price){%>
+                                        <div class="errores">
+                                            <%=errores.price.msg%>
+                                        </div>
+                                        <%}%>
+                                        <p></p>
                             </div>
                         </div>
                         <div class="grupos">
@@ -49,6 +61,7 @@
                                 <label for="discount" class="form-label">Descuento:</label>
                                 <input type="number" id="discount" name="discount" placeholder="Ej: 20"
                                     class="form-input" value="<%= producto.discount%>"><br>
+                                    <p></p>
                             </div>
                             <div class="bloque-edicion">
                                 <label for="category" class="form-label">Categoría:</label>
@@ -72,8 +85,14 @@
 
                             <div class="bloque-edicion">
                                 <label for="stock" class="form-label">Stock (cantidad en bodega) :</label>
-                                <input type="text" id="stock" name="stock" placeholder="Ej: 10" class="form-input"
-                                    value="<%= producto.stock %>"><br>
+                                <input type="text"  autocomplete="off" id="stock" name="stock" placeholder="Ej: 10" class="form-input"
+                                    value="<%= producto.stock %>">
+                                    <%if(locals.errores && errores.stock){%>
+                                        <div class="errores">
+                                            <%=errores.stock.msg%>
+                                        </div>
+                                        <%}%>
+                                <p></p>
                             </div>
 
                             <div class="bloque-edicion">
@@ -120,7 +139,12 @@
                                     
 
                                 </div>
-                                <br>
+                                <%if(locals.errores && errores.img){%>
+                                    <div class="errores">
+                                        <%=errores.img.msg%>
+                                    </div>
+                                    <%}%>
+                                
                             </div>
                         </div>
                         <div class="grupos">
@@ -130,26 +154,39 @@
                                 <label for="features" class="form-label">Caracteristicas:</label>
                                 <textarea name="features" id="features"
                                     placeholder="Ej: caracteristicas de su producto (max:500)"
-                                    class="form-textarea"><%= producto.features %></textarea><br>
+                                    class="form-textarea"><%= producto.features %></textarea>
+                                    <p></p>
                             </div>
 
                             <div class="bloque-edicion">
                                 <label for="description" class="form-label">Descripción:</label>
                                 <textarea name="description" id="description"
                                     placeholder="Ej: breve descripcion de su producto (max:500)"
-                                    class="form-textarea"><%= producto.description %></textarea><br>
+                                    class="form-textarea"><%= producto.description %></textarea>
+                                    <%if(locals.errores && errores.description){%>
+                                        <div class="errores">
+                                            <%=errores.description.msg%>
+                                        </div>
+                                        <%}%>
+                                        <p></p>
                             </div>
 
 
 
                         </div>
 
+                        <div class="grupos">
 
+                            <div class="mensajeDeErrores ">
+                                <p>llene de forma correcta el formulario</p>
+                            </div>
+
+                        </div>
 
                         <div class="grupos">
 
                             <div class="bloque-edicion">
-                                <button type="submit" class="botonGuardar" id="botonGuardar">Guardar producto</button>
+                                <button type="submit" class="botonGuardar submit" id="botonGuardar">Guardar producto</button>
                             </div>
                             <div class="bloque-edicion">
                                 <button type="reset" class="botonGuardar">Resetear</button>
@@ -168,6 +205,7 @@
         </main>
         <%- include('./partials/footer') %>
         <script src="/js/editar-producto.js"></script>
+        <script src="/js/validacionProductos.js"></script>
 </body>
 
 </html>

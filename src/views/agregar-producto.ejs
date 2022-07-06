@@ -27,44 +27,40 @@
                 <div class="row">
                     <div class="titulo">
                         <h2 class="products-title">Estás creando un producto: <br> </h2>
-                        <!-- <%if(locals.errores){%>
-                        <%for(indice in errores){%>
-                            <p>
-                                <%=errores[indice].msg%>
-                            </p>
-                            <%}%>
-                                <%}%> -->
                     </div>
                 </div>
                 <div class="col-12">
-                    <form action="/productos" method="POST" enctype="multipart/form-data">
+                    <form id="form" action="/productos" method="POST" enctype="multipart/form-data">
                         <div class="grupos">
                             <div class="bloque-edicion">
-                                <label for="name" class="form-label">Nombre del producto: </label>
-                                <input type="text" id="name" name="name" placeholder="Ej: consola X" class="form-input"
+                                <label for="name" class="form-label"><font color="red">*</font>Nombre del producto: </label>
+                                <input type="text" autocomplete="off" id="name" name="name"  placeholder="Ej: consola X" class="form-input obligatorio"
                                     value="<%= locals.old&&old.name ? old.name:''; %>">
                                     <%if(locals.errores && errores.name){%>
                                         <div class="errores">
                                             <%=errores.name.msg%>
                                         </div>
                                         <%}%>
+                                <p></p>
                             </div>
                             <div class="bloque-edicion">
-                                <label for="price" class="form-label">Precio del producto:</label>
-                                <input type="number" id="price" name="price" placeholder="Ej: $50.000"
-                                    class="form-input" value="<%= locals.old&&old.price ? old.price:''; %>">
+                                <label for="price" class="form-label"><font color="red">*</font>Precio del producto:</label>
+                                <input type="number" autocomplete="off" id="price" name="price" placeholder="Ej: $50.000"
+                                    class="form-input obligatorio" value="<%= locals.old&&old.price ? old.price:''; %>">
                                     <%if(locals.errores && errores.price){%>
                                         <div class="errores">
                                             <%=errores.price.msg%>
                                         </div>
                                         <%}%>
+                                        <p></p>
                             </div>
                         </div>
                         <div class="grupos">
                             <div class="bloque-edicion">
                                 <label for="discount" class="form-label">Descuento:</label>
-                                <input type="number" id="discount" name="discount" placeholder="Ej: 20"
-                                    class="form-input" value="<%= locals.old&&old.discount ? old.discount:''; %>"><br>
+                                <input type="number" autocomplete="off" id="discount" name="discount" placeholder="Ej: 20"
+                                    class="form-input" value="<%= locals.old&&old.discount ? old.discount:''; %>">
+                                    <p></p>
                             </div>
                             <div class="bloque-edicion">
                                 <label for="category" class="form-label">Categoría:</label>
@@ -82,14 +78,15 @@
                         <div class="grupos">
 
                             <div class="bloque-edicion">
-                                <label for="stock" class="form-label">Stock (cantidad en bodega) :</label>
-                                <input type="text" id="stock" name="stock" placeholder="Ej: 10" class="form-input"
+                                <label for="stock" class="form-label"><font color="red">*</font>Stock (cantidad en bodega) :</label>
+                                <input type="number" autocomplete="off" id="stock"  step="1" name="stock" placeholder="Ej: 10" class="form-input obligatorio"
                                     value="<%= locals.old&&old.stock ? old.stock:''; %>">
                                     <%if(locals.errores && errores.stock){%>
                                         <div class="errores">
                                             <%=errores.stock.msg%>
                                         </div>
                                         <%}%>
+                                <p></p>
                             </div>
 
                             <div class="bloque-edicion">
@@ -120,7 +117,7 @@
                                 </select><br>
                             </div>
                             <div class="bloque-edicion" id="divImg">
-                                <label for="img" class="form-label">imagenes: </label>
+                                <label for="img" class="form-label"><font color="red">*</font>imagenes: </label>
                                 <div class="form-input form-img">
                                     <input type="file" id="img" name="img" multiple maxImg="5" value="" hidden>
                                     <div class="botonAddImg" id="botonAddImg">
@@ -143,21 +140,23 @@
 
                             <div class="bloque-edicion">
                                 <label for="features" class="form-label">Caracteristicas:</label>
-                                <textarea name="features" id="features"
+                                <textarea name="features" autocomplete="off" id="features"
                                     placeholder="Ej: caracteristicas de su producto (max:500)"
-                                    class="form-textarea"><%= locals.old&&old.features ? old.features:''; %></textarea><br>
+                                    class="form-textarea"><%= locals.old&&old.features ? old.features:''; %></textarea>
+                                    <p></p>
                             </div>
 
                             <div class="bloque-edicion">
-                                <label for="description" class="form-label">Descripción:</label>
-                                <textarea name="description" id="description"
+                                <label for="description" class="form-label"><font color="red">*</font>Descripción:</label>
+                                <textarea name="description" autocomplete="off" id="description"
                                     placeholder="Ej: breve descripcion de su producto (max:500)"
-                                    class="form-textarea"><%= locals.old&&old.description ? old.description:''; %></textarea>
+                                    class="form-textarea obligatorio"><%= locals.old&&old.description ? old.description:''; %></textarea>
                                     <%if(locals.errores && errores.description){%>
                                         <div class="errores">
                                             <%=errores.description.msg%>
                                         </div>
                                         <%}%>
+                                        <p></p>
                             </div>
 
 
@@ -178,11 +177,20 @@
                                 <div class="botonGuardar guardarEmergente" style="margin-top:20px;" >Guardar</div>
                             </div>
                         </div>
+                        <div class="grupos">
+
+                            <div class="mensajeDeErrores ">
+                                <p>llene de forma correcta el formulario</p>
+                            </div>
+
+                        </div>
 
                         <div class="grupos">
 
+                            
+
                             <div class="bloque-edicion">
-                                <button type="submit" class="botonGuardar">Guardar producto</button>
+                                <button type="submit" class="botonGuardar submit">Guardar producto</button>
                             </div>
                             <div class="bloque-edicion">
                                 <button type="reset" class="botonGuardar">Resetear</button>
@@ -198,6 +206,7 @@
         </main>
         <%- include('./partials/footer') %>
             <script src="/js/agregar-producto.js"></script>
+            <script src="/js/validacionProductos.js"></script>
 </body>
 
 </html>

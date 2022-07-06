@@ -13,9 +13,51 @@ main{
     flex-wrap: wrap;
     justify-content: center;
 }
+.mensajeDeErrores{
+    width: 90%;
+    display: none;
+    justify-self: center;
+    background-color: white;
+    height: 48px;
+    align-items: center;
+    align-self: center;
+    border-radius: 5px;
+
+    padding: 10px 30px;
+    box-sizing: border-box;
+    border-left: solid 10px red;
+    border-right: solid 1px red;
+    border-bottom: solid 1px red;
+    border-top: solid 1px red;
+
+}
+
 .errores{
     color: var(--naranja);
     margin: 0
+}
+
+.incompleto{
+    border-color: red;
+    background-color: rgb(246, 137, 137);
+    
+    outline-color: red;
+    
+}
+.advertencia{
+    border-color: rgb(255, 179, 0);
+    background-color: rgb(244, 235, 154);
+    
+    outline-color:  rgb(255, 179, 0);
+    
+}
+
+
+.valido{
+    border-color: green;
+    background-color: rgb(162, 248, 150);
+  
+    outline-color: green;
 }
 
 .titulos-seccion{
