@@ -72,15 +72,17 @@
     margin: 10px 0;
 }
 
-.email-contrasena label {
+.labels {
     color: rgb(141, 141, 141);
 }
+
 
 .email-contrasena input {
     margin: 15px 0;
     width: 97%;
     border: none;
     border-bottom: 1px solid rgb(141, 141, 141);
+    outline: none;
 }
 
 
@@ -169,6 +171,21 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
+
+.is-valid {
+    color: green;
+}
+.is-invalid {
+    color: red;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
 
 @media (min-width: 1279px) {
 
