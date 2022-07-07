@@ -149,6 +149,7 @@ const controller = {
             })
     },
     agregar: (req, res) => {
+        console.log(req.session.usuarioLogueado);
         res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), { partesFormulario })
     },
     store: (req, res) => {
@@ -172,7 +173,7 @@ const controller = {
                 discount: req.body.discount,
                 rating: 5,
                 stock: req.body.stock,
-                user_id: 12,
+                user_id: req.params.id,
                 deleted: 0,
                 // colors: [
                 //     {color: 'Negro'},
@@ -317,7 +318,8 @@ const controller = {
                 deleted: 0
             },
         }).then(productos => {
-            res.render(path.join(__dirname, '../views/list-products.ejs'), { products: productos })
+            let idUser = req.params.id;
+            res.render(path.join(__dirname, '../views/list-products.ejs'), { products: productos, idUser })
         })
     },
     search: (req, res) => {

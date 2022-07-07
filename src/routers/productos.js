@@ -26,7 +26,7 @@ router.get('/', productosController.productos);
 
 router.get('/results', productosController.search)
 
-router.get('/agregar', productosController.agregar);
+router.get('/agregar/:id', productosController.agregar);
 router.post('/', uploadFile.any('img'), validacionProductos, productosController.store )
 
 router.get('/editar/:id', productosController.editar);

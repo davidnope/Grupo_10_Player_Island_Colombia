@@ -240,7 +240,7 @@ fetch('http://localhost:3030/api/user/list')
                 case 'Vendedor':
                     for (let i = 0; i < opcionesVendedorComprador.length; i++) {
                         opcionesVendedorComprador[i].innerHTML = '<a href="/carrito-compras" class="opcion-iniciar-sesion"><i class="fa-solid fa-cart-plus"></i><p>Compras</p></a>'
-                        opcionesVendedorComprador[i].innerHTML += '<a href="/productos/agregar" class="opcion-registrarse"><i class="fa-solid fa-check-to-slot"></i><p>Vender</p></a>'
+                        opcionesVendedorComprador[i].innerHTML += `<a href="/productos/agregar/${userLogin.id}" class="opcion-registrarse"><i class="fa-solid fa-check-to-slot"></i><p>Vender</p></a>`
                         opcionesVendedorComprador[i].innerHTML += `<a href="/productos/listProductsUser/${userLogin.id}" class="opcion-registrarse"><i class="fa-solid fa-box-archive"></i><p>Mis productos</p></a>`
                     }
                 break;
