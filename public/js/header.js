@@ -309,13 +309,13 @@ for (let i = 0; i < opcionSalir.length; i++) {
     let correoCookie = cookieCompleta ? cookieCompleta.split('=')[1] : '';
 
     opcionSalir[i].addEventListener('click', ()=>{
-        if(nombreCookie &&  nombreCookie == 'cookieRecordarUsuario'){
+        if(nombreCookie && nombreCookie == 'cookieRecordarUsuario'){
             document.cookie = `cookieRecordarUsuario=${correoCookie}; expires=Thu, 31 Dec 2000 12:00:00 UTC; path=/;`
-            location.reload()
+            location.href = 'http://localhost:3030/';
         }else if (sessionStorage.getItem('correoUserLoginSession')){
             document.cookie = `cookieRecordarUsuarioSession=${correoCookie}; expires=Thu, 31 Dec 2000 12:00:00 UTC; path=/;`
             sessionStorage.removeItem('correoUserLoginSession')
-            location.reload()
+            location.href = 'http://localhost:3030/';
         }
     })
 

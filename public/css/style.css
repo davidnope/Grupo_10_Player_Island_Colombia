@@ -210,7 +210,6 @@ footer form textarea{
 
 .navButton{
     text-align: center;
-    padding: 0px 5px;
     align-items: center;
     align-self: center;
 }
@@ -227,6 +226,7 @@ footer form textarea{
     color: white;
     height: 100%;
     align-items: center;
+    justify-content: space-evenly;
 }
 .iconos a{
     color: white;
@@ -290,11 +290,12 @@ footer form textarea{
     height: 0px;
     flex-flow: column nowrap;
     position: absolute;
-    background-color: white;
+    background-color: rgb(224, 224, 224);
     top: 48px;
     /* visibility: hidden; */
     overflow: hidden;
     transition: all .3s;
+    z-index: 5;
 }
 
 .menu-desplegable a{
@@ -315,7 +316,7 @@ footer form textarea{
     height: 0px;
     flex-flow: column nowrap;
     position: absolute;
-    background-color: white;
+    background-color: rgb(224, 224, 224);
     top: 48px;
     visibility: hidden;
     overflow: hidden;
