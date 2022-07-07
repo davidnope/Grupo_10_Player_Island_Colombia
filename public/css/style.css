@@ -38,7 +38,7 @@ header{
 }
 
 #listaNavegacion a:hover{
-    color: #FF7900;
+    color: #FCA311;
 }
 #navegacion{
     width: 55%;
@@ -215,7 +215,7 @@ footer form textarea{
     align-self: center;
 }
 .navButton a:hover{
-    color: #FF7900;
+    color: #FCA311;
 
 }
 
@@ -235,7 +235,12 @@ footer form textarea{
 
 
 .boton-user{
-    display: none;
+    color: var(--mo1);
+    border-radius: 20px;
+    background-color: var(--gris);
+    width: 26px;
+    height: 26px;
+    justify-content: center;
 }
 
 .barras{
@@ -262,6 +267,7 @@ footer form textarea{
     height: 100%;
     flex-grow: 0.4;
     justify-content: center;
+    flex-grow: 1;
 }
 .container-logout{
     display: none;
@@ -269,10 +275,18 @@ footer form textarea{
     height: 100%;
     flex-grow: 0.4;
     justify-content: center;
+    flex-grow: 1;
+    cursor: pointer;
 }
+
+.container-logout:hover .boton-user{
+    background-color: #FCA311;
+}
+
 /* MENU DESPEGABLE PARA COMPU */
 .menu-desplegable{
     width: 100%;
+    max-width: 300px;
     height: 0px;
     flex-flow: column nowrap;
     position: absolute;
@@ -287,8 +301,12 @@ footer form textarea{
     color: black;
 }
 .container-login:hover .menu-desplegable, .container-logout:hover .menu-desplegable{
+    height: auto;
     visibility: visible;
-    height: 275px;
+}
+
+.opciones-usuario a:hover, .opciones-menu a:hover, .opcion-vendedor-comprador a:hover{
+    background-color: #FCA311;
 }
 
 /* MENU DESPEGABLE PARA CEL */
@@ -306,7 +324,7 @@ footer form textarea{
 }
 .transicion{
     visibility: visible;
-    height: 310px;
+    height: auto;
 }
 
 
@@ -359,6 +377,7 @@ footer form textarea{
     padding: 16px 0;
 }
 .opciones-general a{
+    color: var(--morado-claro);
     display: flex;
     align-items: center;
     padding: 8px 20px 8px 26px;
@@ -474,5 +493,4 @@ footer form textarea{
     .container-logout{
         display: flex;
     }
-
 }

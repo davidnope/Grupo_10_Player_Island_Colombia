@@ -40,42 +40,43 @@ const controller = {
     },
     login: (req, res) => {
 
+            // administrador@gmail.com - ID 21 - contraseña monito1234
+            // vendedor@gmail.com - ID 22
+            // comprador@gmail.com - ID 23
+
         rutaRedirect = path.join(__dirname, '../views/login.ejs');
 
         let validacion = formValidator(req, res);
 
         let userLogin;
         usuarios.findAll()
-        .then(usuarios =>{
-            if (validacion.valid) {
-                for (let i = 0; i < usuarios.length; i++) {
-                    if (req.body.email == usuarios[i].email) {
-                        if (bcrypt.compareSync(req.body.contrasena, usuarios[i].password)) {
-                            userLogin = usuarios[i];
-                            break;
-                        }
+            .then(usuarios => {
+                if (validacion.valid) {
+                    for (let i = 0; i < usuarios.length; i++) {
+                        if (req.body.email == usuarios[i].email) {
+                            if (bcrypt.compareSync(req.body.contrasena, usuarios[i].password)) {
+                                userLogin = usuarios[i];
+                                break;
+                            }
+                        };
                     };
+
+                    if (userLogin == undefined) {
+                        return res.render(rutaRedirect, { errores: { contrasena: { msg: 'Credenciales invalidas' } } });
+                    } else if (userLogin.deleted !== 0) {
+                        return res.render(rutaRedirect, { errores: { contrasena: { msg: 'Este correo fue borrado' } } });
+                    }
+                    else {
+                        req.session.usuarioLogueado = userLogin;
+                        if (req.body.recordarUsuario != undefined) {
+                            res.cookie('cookieRecordarUsuario', userLogin.email, { maxAge: 86400000 });
+                        } else {
+                            res.cookie('cookieRecordarUsuarioSession', userLogin.email, { maxAge: 1000 })
+                        };
+                    }
+                    res.redirect('/');
                 };
-    
-                if (userLogin == undefined) {
-                    return res.render(rutaRedirect, { errores: { contrasena: { msg: 'Credenciales invalidas' } } });
-                }else{
-                    req.session.usuarioLogueado = userLogin;
-                }
-    
-                if(req.body.recordarUsuario != undefined){
-                    res.cookie('cookieRecordarUsuario', userLogin.email, {maxAge: 86400000});
-                }else{
-                    res.cookie('cookieRecordarUsuarioSession', userLogin.email, {maxAge: 10000})
-                };
-                res.redirect('/');
-            };   
-        })
-    },
-    pruebaLogin: (req, res) => {
-        let userLoggedInSess = req.session.usuarioLogueado;
-        let userLoggedInCok = req.cookies.cookieRecordarUsuario;
-        res.render(path.join(__dirname, '../views/prueba.ejs'), {userLoggedInCok, userLoggedInSess})
+            })
     },
     // Nuevo usuario
     registerView: (req, res) => {
@@ -89,20 +90,21 @@ const controller = {
         if (form.valid) {
             /* console.log(req.file.filename + 'usuarios'); */
             // console.log('este es el controller' ,req.body);
-        usuarios.create({
-            first_name: req.body.nombre,
-            last_name: req.body.apellido,
-            type_user: req.body.tipoDeUsuario,
-            email: req.body.email,
-            user_dni: req.body.documento,
-            phone_number: req.body.celular,
-            adress: req.body.direccion,
-            password: bcrypt.hashSync(req.body.contrasena, 10),
-            img_user: !req.file ? 'default.png' : req.file.filename,
-            deleted: 0,
-        })
-            res.redirect('/user/list')
-    }   
+            usuarios.create({
+                first_name: req.body.nombre,
+                last_name: req.body.apellido,
+                type_user: req.body.tipoDeUsuario,
+                email: req.body.email,
+                user_dni: req.body.documento,
+                phone_number: req.body.celular,
+                adress: req.body.direccion,
+                password: bcrypt.hashSync(req.body.contrasena, 10),
+                img_user: !req.file ? 'default.png' : req.file.filename,
+                deleted: 0,
+            })
+            res.cookie('cookieRecordarUsuarioSession',  req.body.email, { maxAge: 1000 })
+            res.redirect('/')
+        }
         // JSON
         // if (form.valid) {
 
@@ -130,15 +132,15 @@ const controller = {
     // lista de usuarios
     list: (req, res) => {
         usuarios.findAll({
-            where:{
+            where: {
                 deleted: 0 && null
             }
         })
-        .then(usuarios =>{
-            let usuariosVendedor = usuarios.filter(vendedor => vendedor.type_user == 'Vendedor');
-            let usuariosComprador = usuarios.filter(comprador => comprador.type_user == 'Comprador');
-            res.render(path.join(__dirname, '../views/list-users.ejs'), {usuariosVendedor, usuariosComprador})
-        })
+            .then(usuarios => {
+                let usuariosVendedor = usuarios.filter(vendedor => vendedor.type_user == 'Vendedor');
+                let usuariosComprador = usuarios.filter(comprador => comprador.type_user == 'Comprador');
+                res.render(path.join(__dirname, '../views/list-users.ejs'), { usuariosVendedor, usuariosComprador })
+            })
         // JSON res.render(path.join(__dirname, '../views/list-users.ejs'), { users: usersJson })
     },
     // perfil de usuario
@@ -177,10 +179,10 @@ const controller = {
         ];
 
         usuarios.findByPk(req.params.id)
-        .then(user =>{
-            res.render(path.join(__dirname, '../views/profile.ejs'), {opcion : opcionesView, userSelect: user})
-        })
-        
+            .then(user => {
+                res.render(path.join(__dirname, '../views/profile.ejs'), { opcion: opcionesView, userSelect: user })
+            })
+
         //JSON let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
 
         //JSON res.render(path.join(__dirname, '../views/profile.ejs'), {opcion : opcionesView, userSelect})
@@ -188,15 +190,15 @@ const controller = {
     // Editar usuario
     editView: (req, res) => {
         usuarios.findByPk(req.params.id)
-        .then(usuario => {
-            res.render(path.join(__dirname, '../views/edit-user.ejs'), { userSelect : usuario })
-        })
+            .then(usuario => {
+                res.render(path.join(__dirname, '../views/edit-user.ejs'), { userSelect: usuario })
+            })
         // JSON
         // let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
         // res.render(path.join(__dirname, '../views/edit-user.ejs'), { userSelect })
     },
     editSave: (req, res) => {
-        console.log('este es el controller' ,req.body);
+        console.log('este es el controller', req.body);
         usuarios.update({
             first_name: req.body.nombre,
             last_name: req.body.apellido,
@@ -205,8 +207,8 @@ const controller = {
             user_dni: req.body.documento,
             phone_number: req.body.celular,
             adress: req.body.direccion,
-            
-        },{
+
+        }, {
             where: {
                 id: req.params.id,
             }
@@ -225,13 +227,13 @@ const controller = {
 
         // let updateJson = JSON.stringify(usersJson, null, 2);
         // fs.writeFileSync(usersFilePath, updateJson);
-         res.redirect('/user/profile/' + req.params.id)
+        res.redirect('/user/profile/' + req.params.id)
     },
     editImg: (req, res) => {
-        console.log('este es el controller' ,req.body);
+        console.log('este es el controller', req.body);
         usuarios.update({
             img_user: req.file ? req.file.filename : undefined,
-        },{
+        }, {
             where: {
                 id: req.params.id,
             }
@@ -241,9 +243,9 @@ const controller = {
     // Borrar usuario
     deleteView: (req, res) => {
         usuarios.findByPk(req.params.id)
-        .then(usuario => {
-            res.render(path.join(__dirname, '../views/delete-user.ejs'), { userSelect: usuario })
-        })
+            .then(usuario => {
+                res.render(path.join(__dirname, '../views/delete-user.ejs'), { userSelect: usuario })
+            })
         // JSON
         // let userSelect = usersJson.find(usuario => usuario.id == req.params.id);
 
@@ -253,8 +255,8 @@ const controller = {
 
         usuarios.update({
             deleted: 1
-        },{
-            where:{
+        }, {
+            where: {
                 id: req.params.id
             }
         })
