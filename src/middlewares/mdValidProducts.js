@@ -34,12 +34,14 @@ const validacionProducto =[
         if (price <= 0) {
             throw new Error (`el precio no puede ser ${price}`)
         }
+        return true;
     }),
     body('stock').custom((value, {req})=>{
         let stock= req.body.stock
         if (stock <= 0) {
-            throw new Error (`el precio no puede ser ${stock}`)
+            throw new Error (`el stock no puede ser ${stock}`)
         }
+        return true;
     })
   
 ]

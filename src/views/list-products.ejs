@@ -27,7 +27,7 @@
             </div>
             <div class="botones-menu">
                 <div class="contenedor-boton-productos">
-                    <a  class="style-boton" href="/productos/agregar/<%=idUser%>">Crear producto</a >
+                    <a  class="style-boton" href="/productos/agregar?u=<%=idUser%>">Crear producto</a >
                     <a  class="style-boton" href="#">Borrar productos</a >
                 </div>
             </div>
@@ -39,7 +39,7 @@
                                 <%products.forEach((products)=>{%>
                                     <div class="usuario">
                                         <div class="contenedor-img">
-                                            <img src="/img/users/default.png" alt="">
+                                            <img src="/img/productos/<%= products.img_principal %>" alt="">
                                         </div>
                                         <div class="informacion-usuario">
                                             <h3>
@@ -52,8 +52,8 @@
                                             </div>
                                         </div>
                                         <div class="contenedor-boton">
-                                            <a href="/productos/detalle-producto/<%=products.id%>" class="style-boton">
-                                                Detalles
+                                            <a href="/productos/editar?p=<%=products.id%>&u=<%= idUser %>" class="style-boton">
+                                                Editar
                                             </a>
                                         </div>
                                     </div>

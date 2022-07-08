@@ -166,10 +166,6 @@
                                                 </select>
                                             </div>
                                             <div id="moduloBotones">
-                                                <%if(tipo=='Vendedor' ){%>
-                                                    <a href="/productos/editar/<%= producto.id%>"
-                                                        class="action-button edit">EDITAR PRODUCTO</a>
-                                                    <%}%>
                                                         <button id="boton-agregar-carrito" type="submit"
                                                             value="comprar">AGREGA AL CARRITO</button>
                                             </div>
@@ -227,7 +223,7 @@
         </main>
         <%- include('./partials/carrusel') %>
         <%- include('./partials/footer') %>
-        <script src="/js/detalle-producto.js"></script>
+        <script src="/js/productos/detalle-producto.js"></script>
 </body>
 
 </html>

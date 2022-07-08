@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <form id="form" action="/productos" method="POST" enctype="multipart/form-data">
+                    <form id="form" action="/productos/agregar?u=<%= idUser%> " method="POST" enctype="multipart/form-data">
                         <div class="grupos">
                             <div class="bloque-edicion">
                                 <label for="name" class="form-label"><font color="red">*</font>Nombre del producto: </label>
@@ -205,8 +205,8 @@
 
         </main>
         <%- include('./partials/footer') %>
-            <script src="/js/agregar-producto.js"></script>
-            <script src="/js/validacionProductos.js"></script>
+            <script src="/js/productos/agregar-producto.js"></script>
+            <script src="/js/productos/validacionProductos.js"></script>
 </body>
 
 </html>

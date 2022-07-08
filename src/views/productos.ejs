@@ -32,24 +32,24 @@
             <div id="marcas1">
             <div  id="marcas">
                  <!-- Primero play -->
-            <a href="/" class="porLogo">
-                <div class="iconMarca">
-                    <i class="fa-brands fa-playstation"></i>
+            <a href="/productos/results?company=playstation" class="porLogo ">
+                <div class="iconMarca ">
+                    <i class="fa-brands fa-playstation play btn"></i>
                 </div>
             </a>
             <!-- Segundo xbox -->
 
-            <a href="/" class="porLogo">
-                <div class="iconMarca">
-                    <i class="fa-brands fa-xbox"></i>
+            <a href="/productos/results?company=xbox" class="porLogo ">
+                <div class="iconMarca ">
+                    <i class="fa-brands fa-xbox xbox btn"></i>
                 </div>
             </a>
 
             <!-- Tercero nintendo -->
 
-            <a href="/" class="porLogo">
-                <div class="iconMarca">
-                    <i class="fa-solid fa-gamepad"></i>
+            <a href="/productos/results?company=nintendo" class="porLogo ">
+                <div class="iconMarca ">
+                    <i class="fa-solid fa-gamepad nintendo btn"></i>
                 </div>
             </a>
             </div>
@@ -65,30 +65,34 @@
                     <div id="filtroModelo" class="contenedorFiltros">
                         <h3>Categoria</h3>
                         <div class="check">
-                            <input type="checkbox"> Ediciones especiales <br>
-                            <input type="checkbox"> Consolas #   <br>
-                            <input type="checkbox"> Controles <br>
+                            <input type="checkbox"  name="categoria" id="Consolas" value="consola"><label for="Consolas"> Consolas </label>  <br>
+                            <input type="checkbox"  name="categoria" id="Controles" value="control"><label for="Controles"> Controles </label>  <br>
+                            <input type="checkbox"  name="categoria" id="Ediciones especiales" value="edicion-especial"><label for="Ediciones especiales"> Ediciones especiales </label>  <br>
+                            <input type="checkbox"  name="categoria" id="Accesorios" value="accesorios"><label for="Accesorios"> Accesorios </label>  <br>
+                            <input type="checkbox"  name="categoria" id="Otros" value="otros"><label for="Otros"> Otros </label>  <br>
                         </div>                        
                     </div>
                     
                     <div id="filtroModelo" class="contenedorFiltros">
                         <h3>Color</h3>
                         <div class="check">
-                            <input type="checkbox"> Color 1<br>
-                            <input type="checkbox"> Color 2   <br>
-                            <input type="checkbox"> Color 3 <br>
-                            <input type="checkbox"> Color 4 <br>
-                            <input type="checkbox"> Color 5 <br>
+                            <input type="checkbox"  name="color" id="Negro " value="1"><label for="Negro"> Negro </label>  <br>
+                            <input type="checkbox"  name="color" id="Rojo" value="2"><label for="Rojo"> Rojo </label>  <br>
+                            <input type="checkbox"  name="color" id="Gris" value="3"><label for="Gris"> Gris </label>  <br>
+                            <input type="checkbox"  name="color" id="Blanco" value="4"><label for="Blanco"> Blanco </label>  <br>
+                            <input type="checkbox"  name="color" id="Azul" value="5"><label for="Azul"> Azul </label>  <br>
+                            <input type="checkbox"  name="color" id="Otros" value="6"><label for="Otros"> Otros </label>  <br>
                         </div>                        
                     </div>
                     
                     <div id="filtroModelo" class="contenedorFiltros">
                         <h3>Precio</h3>
                         <div class="check">
-                            <input type="checkbox"> < $200.000 <br>
-                            <input type="checkbox"> $201.000 - 800.000  <br>
-                            <input type="checkbox"> $801.000 - $1.500.000 <br>
-                            <input type="checkbox"> < $1.500.000 <br>
+                            <input type="checkbox"  name="precio" id="200000" value="200000"><label for="200000"> < $200.000 </label>  <br>
+                            <input type="checkbox"  name="precio" id="800000" value="800000"><label for="800000"> <$201.000 - 800.000 </label>  <br>
+                            <input type="checkbox"  name="precio" id="1500000" value="1500000"><label for="1500000"> $801.000 - $1.500.000 </label>  <br>
+                            <input type="checkbox"  name="precio" id="mayor" value="mayor"><label for="mayor"> < $1.500.000 </label>  <br>
+                            
                         </div>                        
                     </div>
             <!-- </div> --></form>
@@ -167,5 +171,6 @@
 
     
 </body>
+<script src="/js/productos/productos.js"></script>
 
 </html>

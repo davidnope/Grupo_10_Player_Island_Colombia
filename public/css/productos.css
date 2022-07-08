@@ -64,12 +64,15 @@ h2 {
     cursor: default;
 }
 
-.iconMarca i{
+.btn{
     color: var(--gris);
     cursor: pointer;
 }
 
 .iconMarca i:hover{
+    color: var(--na1);
+}
+.selected{
     color: var(--na1);
 }
 
@@ -96,7 +99,7 @@ h2 {
 
     list-style: none;
     text-decoration: none;
-    width: 80%;
+    width: 100%;
     align-self: center;
 
 }
@@ -132,6 +135,7 @@ h2 {
     width: 80vw;
     text-decoration: none;
     color: black;
+    margin: 10px;
 }
 .imgPrincipal{
     width: 80vw;
@@ -175,6 +179,7 @@ h2 {
     /* flex-direction: column; */
     align-items: center;
     width: 90%;
+    
 }
 
 /* si son tres */
@@ -185,6 +190,8 @@ h2 {
     /* flex-direction: column; */
     align-items: center;
     width: 90%;
+    justify-content: center;
+    
 }
 
 .transparente{
@@ -245,8 +252,18 @@ h2 {
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
-        width: 80%;
-        justify-content: space-around;
+        width: 100%;
+        align-self: flex-start;
+        justify-content: center;
+    }
+    .contenedor-usuarios-par {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        align-self: flex-start;
+        justify-content: center;
     }
     .imgPrincipal{
         width: 23vw;
@@ -302,7 +319,7 @@ h2 {
 
     #matriz {
         flex-direction: row;
-        width: 70%;
+        width: 80%;
     }
 
     #filtros {
