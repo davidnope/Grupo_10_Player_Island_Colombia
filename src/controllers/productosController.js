@@ -39,13 +39,18 @@ const formValidatorEdicion = (req, res , id) => {
         result.valid = false;
         productos.findByPk(req.query.p, { include: [{ association: 'imgProducts' }] })
             .then(producto => {
+                let colores = []
+                for (let i = 0; i < producto.colors.length; i++) {
+                    colores.push(producto.colors[i].dataValues.color)
+                    
+                }
                 let descuento = producto.price * (producto.discount / 100)
                 let precioReal = producto.price - descuento
                 let tipo = req.session.usuarioLogueado ? req.session.usuarioLogueado.type_user : null;
                 let idUser = req.query.u
 
                 /* res.json(producto) */
-                res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), { producto, toThousand, precioReal, tipo, errores: errorsValidation.mapped(), old: req.body ,idUser})
+                res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), { producto, toThousand, precioReal, tipo, errores: errorsValidation.mapped(), old: req.body ,idUser , colores})
             })
         
         
@@ -84,7 +89,7 @@ function imagenesExistentes(producto) {
     for (let i = 0; i < producto.imgProducts.length; i++) {
         !(producto.imgProducts[i].deleted) ? ids.push(producto.imgProducts[i].id) : '';
     }
-    console.log(ids);
+    
     return ids
 }
 
@@ -130,8 +135,10 @@ const controller = {
     detalle: (req, res) => {
         /* let id = req.params.id - 1;
         let producto = productosJSON[id]; */
-        productos.findByPk(req.params.id, { include: [{ association: 'imgProducts' }] })
+        productos.findByPk(req.params.id, { include: [{ association: 'imgProducts'},{ association: 'colors' }] })
             .then(producto => {
+                let colores =  producto.colores? producto.colores.split(','): [];
+                let coloresName = ['Negro','Rojo','Gris','Blanco','Azul','Otros']
                 let descuento = producto.price * (producto.discount / 100)
                 let precioReal = producto.price - descuento
                 let tipo = req.session.usuarioLogueado ? req.session.usuarioLogueado.type_user : null;
@@ -143,7 +150,7 @@ const controller = {
                             where: { deleted: 0 }
                         }).then(productos => {
 
-                            res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo, imagenDefault, cantidad, ids, resp, productos })
+                            res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo, imagenDefault, cantidad, ids, resp, productos , colores , coloresName})
                         }
 
                         )
@@ -153,7 +160,7 @@ const controller = {
     },
     agregar: (req, res) => {
         let idUser = req.query.u
-        console.log(idUser , '/////////////////////////////////////////////');
+        
         res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), { partesFormulario , idUser })
     },
     store: (req, res) => {
@@ -164,8 +171,7 @@ const controller = {
             let imagen
 
             req.body.imagenPrincipal ? (req.body.imagenPrincipal[3] ? imagen = req.body.imagenPrincipal[3] : '') : '';
-            console.log(imagen);
-            console.log('el files', req.body.imagenPrincipal, req.files[imagen])
+            
 
             productos.create({
                 name: req.body.name,
@@ -177,29 +183,42 @@ const controller = {
                 discount: req.body.discount,
                 rating: 5,
                 stock: req.body.stock,
-                user_id: req.query.u,
+                user_id: req.query.u, 
                 deleted: 0,
-                // colors: [
-                //     {color: 'Negro'},
-                //     {color: 'Rojo'}
-                //     // {id: 2}
-                // ]            
-            }
+                colores: Array.isArray(req.body.colores)? req.body.colores.join(','): req.body.colores  ,          
+            },/* {
+                include: [{
+                    association : 'colors'
+                }]
+            } */
                 // , {include: 'colors'}
             ).then(creado => {
-                let identificadoresDeColores = [10, 11, 12]
-                identificadoresDeColores.forEach(item => {
+                /* console.log(Array.isArray(req.body.colores),'///////////////////////////////')
+
+                let identificadoresDeColores = []
+                let opciones = [1,2,3,4,5,6]
+                
+                req.body.colores? Array.isArray(req.body.colores) ? identificadoresDeColores = req.body.colores : identificadoresDeColores.push(req.body.colores) : identificadoresDeColores=[6];
+                
+                identificadoresDeColores.forEach((item) => {
                     // 2. Find the Classes row
                     colors.findByPk(item)
                         .then(colorAdquirido => {
+                            
                             // 3. INSERT the association in Enrollments table
-                            creado.addColor(colorAdquirido, { through: 'colors' });
+                            creado.addColor(colorAdquirido, { through: 'colors' }) 
+                                
                         })
-                });
+                }); */
+
+                
                 //insercion imagenes del producto
                 //array para las promesas de la cantidad n de imagenes
                 let arrayImages = [];
                 let imagenes = [];
+
+            
+                
                 //iteramos el files
                 for (let i = 0; i < req.files.length; i++) {
 
@@ -244,15 +263,21 @@ const controller = {
 
     editar: (req, res) => {
 
-        productos.findByPk(req.query.p, { include: [{ association: 'imgProducts' }] })
+        productos.findByPk(req.query.p, { include: [{ association: 'imgProducts'}] })
             .then(producto => {
+                let colores =  producto.colores? producto.colores.split(','): [];
+                /* for (let i = 0; i < producto.colors.length; i++) {
+                    colores.push(producto.colors[i].dataValues.color)
+                    
+                } */
+                console.log(colores, '//////////////////');
                 let descuento = producto.price * (producto.discount / 100)
                 let precioReal = producto.price - descuento
                 let tipo = req.session.usuarioLogueado ? req.session.usuarioLogueado.type_user : null;
 
 
                 /* res.json(producto) */
-                res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), { producto, toThousand, precioReal, tipo , idProducto:req.query.p , idUser: req.query.u })
+                res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), { producto, toThousand, precioReal, tipo , idProducto:req.query.p , idUser: req.query.u ,colores})
             })
 
     },
@@ -273,10 +298,34 @@ const controller = {
                 rating: 5,
                 stock: req.body.stock,
                 deleted: 0,
-                id_user: req.query.u
+                id_user: req.query.u,
+                colores: Array.isArray(req.body.colores)? req.body.colores.join(','): req.body.colores  ,
             }, {
                 where: { id: req.query.p }
             }).then(resultado => {
+                   /*  console.log(req.body.colores);
+                //colores
+                    let identificadoresDeColores = []
+                
+                    req.body.colores? Array.isArray(req.body.colores) ? identificadoresDeColores = req.body.colores : identificadoresDeColores.push(req.body.colores) : identificadoresDeColores=[6];
+                
+                productos.findByPk(req.query.p)
+                .then( producto =>{
+                    console.log(producto);
+                    identificadoresDeColores.forEach(item => {
+                        // 2. Find the Classes row
+                        colors.findByPk(item)
+                            .then(colorAdquirido => {
+                                console.log('entre al add');
+                                // 3. INSERT the association in Enrollments table
+                                producto.addColor(colorAdquirido, { through: 'colors' });
+                            })
+                    });
+                }
+                ) */
+                    //colores- cerrar
+
+
                 console.log(resultado);
                 let arrayImages = [];
                 //iteramos el files
@@ -284,7 +333,7 @@ const controller = {
                     //creamos promesa donde se guarda uno por uno el filename de cada imagen
                     let promesa = imgProductos.create({
                         name: req.files[i].filename,
-                        product_id: req.params.id,
+                        product_id: req.query.u,
                         deleted: 0
                     })
 

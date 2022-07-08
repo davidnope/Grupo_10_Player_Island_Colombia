@@ -150,11 +150,11 @@ main{
 
 /* colores */
 
-.colores{
+/* .colores{
     display: flex;
     flex-direction: column;
     color: var(--blanco);
-}
+} */
 
 /* precio */
 
@@ -237,11 +237,11 @@ main{
     }
 
     /* colores */
-    .colores{
+    /* .colores{
         flex-direction: row;
         flex-wrap: wrap;
         width: 48%;
-    }
+    } */
 
     /* precio */
     .precio{

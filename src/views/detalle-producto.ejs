@@ -130,17 +130,12 @@
                                             <div style="display: flex; align-items: center;">
                                                 <h3 style="color: white; display: flex;">Color: </h3>
                                                 <select name="escoje-color" id="selectorColor">
-                                                    <option value="porDefecto" selected>Elige un Color</option>
-                                                    <option value="negro" style="background-color: black;">Negro
-                                                    </option>
-                                                    <option value="blanco"
-                                                        style="background-color: rgb(255, 255, 255); color: black;">
-                                                        Blanco
-                                                    </option>
-                                                    <option value="rojo" style="background-color: rgb(255, 0, 0);">Rojo
-                                                    </option>
-                                                    <option value="azul" style="background-color: rgb(8, 4, 252);">Azul
-                                                    </option>
+                                                    <option value="">escoja el color</option>
+                                                    <%if(colores.length > 0){%>
+                                                        <%for(let i = 0 ; i < colores.length ; i++){%>
+                                                            <option value="<%= colores[i] %>"><%= coloresName[i] %> </option>
+                                                            <% } %>
+                                                    <% } %>
                                                 </select>
                                             </div>
                                             <div style="display: flex; align-items: center; ">

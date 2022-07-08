@@ -115,16 +115,45 @@
                         <div class="grupos">
                             <div class="bloque-edicion">
                                 <label for="color" class="form-label">Color:</label>
-                                <select name="color" id="color" class="form-input">
+                                <div class=" colors form-input" id="divColores">
+                                    <div id="btnColor">
+                                        <p>Escoje los colores</p>
+                                    </div>
+                                    <span class="flechita"><i class="fa-solid fa-angle-down"></i></span>
 
-                                    <option value="6" disabled selected>Otros</option>
-                                    <option value="1">Negro</option>
-                                    <option value="2">Rojo</option>
-                                    <option value="3">Gris</option>
-                                    <option value="4">Blanco</option>
-                                    <option value="5">Azul</option>
+                                    <div class="colores " id="contenedorColores">
+                                        <div class="opcolor">
+                                            <input type="checkbox" name="colores" id="negro" value="1" <%= colores.includes('1')? 'checked' : ''; %>>
+                                            <label for="">Negro</label>
+                                        </div>
+                                        <div class="opcolor">
+                                            <input type="checkbox" name="colores" id="rojo" value="2"  <%= colores.includes('2')? 'checked' : ''; %>>
+                                            <label for="">Rojo</label>
+                                        </div>
+                                        <div class="opcolor">
+                                            <input type="checkbox" name="colores" id="gris" value="3"  <%= colores.includes('3')? 'checked' : ''; %>>
+                                            <label for="">Gris</label>
+                                        </div>
+                                        <div class="opcolor">
+                                            <input type="checkbox" name="colores" id="blanco" value="4"  <%= colores.includes('4')? 'checked' : ''; %>>
+                                            <label for="">Blanco</label>
+                                        </div>
+                                        <div class="opcolor">
+                                            <input type="checkbox" name="colores" id="azul" value="5"  <%= colores.includes('5')? 'checked' : ''; %>>
+                                            <label for="">Azul</label>
+                                        </div>
+                                        <div class="opcolor">
+                                            <input type="checkbox" name="colores" id="otros" value="6"  <%= colores.includes('6')? 'checked' : ''; %>>
+                                            <label for="">Otros</label>
+                                        </div>
 
-                                </select><br>
+                                    </div>
+
+
+
+                                </div>
+
+                                
                             </div>
                             <div class="bloque-edicion" id="divImg">
                                 <label for="img" class="form-label">imagenes: </label>

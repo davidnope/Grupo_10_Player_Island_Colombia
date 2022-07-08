@@ -35,6 +35,9 @@ module.exports = (sequelize, dataTypes) =>{
         img_principal:{
             type: dataTypes.STRING,
         },
+        colores:{
+            type: dataTypes.STRING,
+        },
         user_id:{
             type: dataTypes.INTEGER.UNSIGNED,
         },

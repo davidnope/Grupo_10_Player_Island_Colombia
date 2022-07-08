@@ -4,7 +4,10 @@
     const inputCategory = document.querySelector('#category')
     const inputStock = document.querySelector('#stock')
     const inputCompany = document.querySelector('#company')
-    const inputColor = document.querySelector('#color')
+    const divColores = document.querySelector('#divColores')
+    const contenedorColores = document.querySelector('#contenedorColores')
+    const contenedorColoresDiv = document.querySelectorAll('#contenedorColores div')
+    const btnColor = document.querySelector('#btnColor')
     const inputImg = document.getElementById('img')
     const inputFeatures = document.querySelector('#features')
     const inputDescription = document.querySelector('#description')
@@ -248,6 +251,36 @@
             msjErrores.classList.add('show') 
         } 
        
+    })
+
+    for (let i = 0; i < contenedorColoresDiv.length; i++) {
+        
+        
+        if(contenedorColoresDiv[i].childNodes[1].getAttribute('checked')== ''){
+            contenedorColoresDiv[i].classList.toggle('opcolorSelected')
+        }
+        
+    }
+    
+
+    btnColor.addEventListener('click', (e)=>{
+        
+        contenedorColores.classList.toggle('colores')
+        contenedorColores.classList.toggle('coloresShow')
+
+        for (let i = 0; i < contenedorColoresDiv.length; i++) {
+            contenedorColoresDiv[i].addEventListener('click',(e)=>{
+                e.target.classList.toggle('opcolorSelected')
+                
+                
+                if(e.target.childNodes[1].getAttribute('checked')==''){
+                    e.target.childNodes[1].removeAttribute('checked') 
+                }else{
+                    e.target.childNodes[1].setAttribute('checked', '')
+                }
+            })
+            
+        }
     })
 
 
