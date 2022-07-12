@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
         cb(null, path.join(__dirname, '../../public/img/productos'))
     },
     filename: (req,file,cb)=>{
-        console.log(file);
+        
         cb(null, `${req.body.name.split(' ').join('_')}_img__${req.body.category}_${Date.now()}${path.extname(file.originalname)}`);
 
     }
@@ -41,4 +41,4 @@ router.get('/detalle-producto/:id', productosController.detalle);
 
 router.get('/listProductsUser/:id', productosController.list)
 
-module.exports = router;
+module.exports = router; 

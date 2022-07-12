@@ -21,7 +21,7 @@ const controller = {
             for(let i = 0; i < listado.length; i++){
                 array.push(listado[i].name)
             }
-            console.log(array);
+            
             res.json(array);
          })
          .catch(err =>{
@@ -49,7 +49,7 @@ const controller = {
         let arrayPromesas = []
 
         for(let i=0; i<req.body.imgBorradas.length ;i++)    {
-            console.log(req.body.imgBorradas[i]) 
+            
             let promesa = imgProductos.update({
                     deleted : 1
                 },{

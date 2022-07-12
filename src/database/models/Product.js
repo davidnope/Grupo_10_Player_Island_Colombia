@@ -90,10 +90,10 @@ module.exports = (sequelize, dataTypes) =>{
         // asociacion carrito de compras
         Product.belongsToMany(models.ShoppingCart , {
             as: 'shoppingCarts',
-            through: 'shopping_cart_product',
-            foreignKey: 'product_id',
+            through: 'shoppingcartproducts',
+            foreignKey: 'products_id',
             otherKey: 'shopping_cart_id',
-            timestamps: false,
+            timestamps: false,  
         });
 
     }

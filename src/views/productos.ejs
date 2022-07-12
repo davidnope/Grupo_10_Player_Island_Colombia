@@ -62,39 +62,46 @@
                 <!-- filtros -->
 
             <form action="/productos" method="get" id="filtros"><!-- <div id="filtros"> -->
-                    <div id="filtroModelo" class="contenedorFiltros">
-                        <h3>Categoria</h3>
-                        <div class="check">
-                            <input type="checkbox"  name="categoria" id="Consolas" value="consola"><label for="Consolas"> Consolas </label>  <br>
-                            <input type="checkbox"  name="categoria" id="Controles" value="control"><label for="Controles"> Controles </label>  <br>
-                            <input type="checkbox"  name="categoria" id="Ediciones especiales" value="edicion-especial"><label for="Ediciones especiales"> Ediciones especiales </label>  <br>
-                            <input type="checkbox"  name="categoria" id="Accesorios" value="accesorios"><label for="Accesorios"> Accesorios </label>  <br>
-                            <input type="checkbox"  name="categoria" id="Otros" value="otros"><label for="Otros"> Otros </label>  <br>
-                        </div>                        
+
+                    <div class="btnReset" id="btnReset">
+                        RESET
+                    </div>
+                    <div id="contFiltrosTotales">
+                        <div id="filtroModelo" class="contenedorFiltros">
+                            <h3>Categoria</h3>
+                            <div class="check">
+                                <input type="checkbox"  name="categoria" id="Consolas" value="consola"><label for="Consolas"> Consolas </label>  <br>
+                                <input type="checkbox"  name="categoria" id="Controles" value="control"><label for="Controles"> Controles </label>  <br>
+                                <input type="checkbox"  name="categoria" id="Ediciones especiales" value="edicion-especial"><label for="Ediciones especiales"> Ediciones especiales </label>  <br>
+                                <input type="checkbox"  name="categoria" id="Accesorios" value="accesorios"><label for="Accesorios"> Accesorios </label>  <br>
+                                <input type="checkbox"  name="categoria" id="Otros" value="otros"><label for="Otros"> Otros </label>  <br>
+                            </div>                        
+                        </div>
+                        
+                        <div id="filtroModelo" class="contenedorFiltros">
+                            <h3>Color</h3>
+                            <div class="check">
+                                <input type="checkbox"  name="color" id="Negro " value="1"><label for="Negro"> Negro </label>  <br>
+                                <input type="checkbox"  name="color" id="Rojo" value="2"><label for="Rojo"> Rojo </label>  <br>
+                                <input type="checkbox"  name="color" id="Gris" value="3"><label for="Gris"> Gris </label>  <br>
+                                <input type="checkbox"  name="color" id="Blanco" value="4"><label for="Blanco"> Blanco </label>  <br>
+                                <input type="checkbox"  name="color" id="Azul" value="5"><label for="Azul"> Azul </label>  <br>
+                                <input type="checkbox"  name="color" id="Otros" value="6"><label for="Otros"> Otros </label>  <br>
+                            </div>                        
+                        </div>
+                        
+                        <div id="filtroModelo" class="contenedorFiltros">
+                            <h3>Precio</h3>
+                            <div class="check">
+                                <input type="checkbox"  name="precio" id="200000" value="200000"><label for="200000"> < $200.000 </label>  <br>
+                                <input type="checkbox"  name="precio" id="800000" value="800000"><label for="800000"> <$201.000 - 800.000 </label>  <br>
+                                <input type="checkbox"  name="precio" id="1500000" value="1500000"><label for="1500000"> $801.000 - $1.500.000 </label>  <br>
+                                <input type="checkbox"  name="precio" id="mayor" value="mayor"><label for="mayor"> < $1.500.000 </label>  <br>
+                                
+                            </div>                        
+                        </div> 
                     </div>
                     
-                    <div id="filtroModelo" class="contenedorFiltros">
-                        <h3>Color</h3>
-                        <div class="check">
-                            <input type="checkbox"  name="color" id="Negro " value="1"><label for="Negro"> Negro </label>  <br>
-                            <input type="checkbox"  name="color" id="Rojo" value="2"><label for="Rojo"> Rojo </label>  <br>
-                            <input type="checkbox"  name="color" id="Gris" value="3"><label for="Gris"> Gris </label>  <br>
-                            <input type="checkbox"  name="color" id="Blanco" value="4"><label for="Blanco"> Blanco </label>  <br>
-                            <input type="checkbox"  name="color" id="Azul" value="5"><label for="Azul"> Azul </label>  <br>
-                            <input type="checkbox"  name="color" id="Otros" value="6"><label for="Otros"> Otros </label>  <br>
-                        </div>                        
-                    </div>
-                    
-                    <div id="filtroModelo" class="contenedorFiltros">
-                        <h3>Precio</h3>
-                        <div class="check">
-                            <input type="checkbox"  name="precio" id="200000" value="200000"><label for="200000"> < $200.000 </label>  <br>
-                            <input type="checkbox"  name="precio" id="800000" value="800000"><label for="800000"> <$201.000 - 800.000 </label>  <br>
-                            <input type="checkbox"  name="precio" id="1500000" value="1500000"><label for="1500000"> $801.000 - $1.500.000 </label>  <br>
-                            <input type="checkbox"  name="precio" id="mayor" value="mayor"><label for="mayor"> < $1.500.000 </label>  <br>
-                            
-                        </div>                        
-                    </div>
             <!-- </div> --></form>
             
             <%if(productos.length % 2==0){%>

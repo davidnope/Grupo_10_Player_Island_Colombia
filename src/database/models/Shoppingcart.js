@@ -37,9 +37,9 @@ module.exports = (sequelize, dataTypes) => {
         // asociacion producto
         ShoppingCart.belongsToMany(models.Product, {
             as: 'products',
-            through: 'shopping_cart_product',
-            foreignKey: 'shopping_cart_id',
-            otherKey: 'product_id',
+            through: 'shoppingcartproducts',
+            foreignKey: 'shopping_cart_id', 
+            otherKey: 'products_id',
             timestamps: false,
         });
     }

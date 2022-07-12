@@ -10,7 +10,7 @@ let query = new URLSearchParams(location.search);
 
 if (query.has('search_query')) {
     search_query = query.get('search_query');
-    console.log(search)
+    
 };
 
 if (search_query) {
@@ -31,7 +31,6 @@ fetch(`http://localhost:3030/api/productos/searchAll`)
                 if (listadoProducts[i]) {
                     console.log(buscador.value);
                     if (listadoProducts[i].toUpperCase().includes(buscador.value.toUpperCase())) {
-                        // console.log(listadoProducts[i])
                         predicciones.innerHTML += `<p>${listadoProducts[i]}</p>`
                     }
                 }

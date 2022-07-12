@@ -22,13 +22,13 @@ const formValidator = (req, res) => {
         let idUser = req.query.u
         result.valid = false;
         res.render(rutaRedirect, {
-            errores: errorsValidation.mapped(), old: req.body, idUser 
+            errores: errorsValidation.mapped(), old: req.body, idUser
         });
     }
-    
+
     return result;
 };
-const formValidatorEdicion = (req, res , id) => {
+const formValidatorEdicion = (req, res, id) => {
     let result = {
         valid: true
     };
@@ -42,7 +42,7 @@ const formValidatorEdicion = (req, res , id) => {
                 let colores = []
                 for (let i = 0; i < producto.colors.length; i++) {
                     colores.push(producto.colors[i].dataValues.color)
-                    
+
                 }
                 let descuento = producto.price * (producto.discount / 100)
                 let precioReal = producto.price - descuento
@@ -50,10 +50,10 @@ const formValidatorEdicion = (req, res , id) => {
                 let idUser = req.query.u
 
                 /* res.json(producto) */
-                res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), { producto, toThousand, precioReal, tipo, errores: errorsValidation.mapped(), old: req.body ,idUser , colores})
+                res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), { producto, toThousand, precioReal, tipo, errores: errorsValidation.mapped(), old: req.body, idUser, colores })
             })
-        
-        
+
+
     }
     return result;
 };
@@ -64,6 +64,7 @@ const db = require('../database/models')
 const productos = db.Product
 const colors = db.Color
 const imgProductos = db.ImgProduct
+const users = db.User
 const Op = db.Sequelize.Op
 
 const productsFilePath = path.join(__dirname, '../data/dbProductos.json');
@@ -89,18 +90,8 @@ function imagenesExistentes(producto) {
     for (let i = 0; i < producto.imgProducts.length; i++) {
         !(producto.imgProducts[i].deleted) ? ids.push(producto.imgProducts[i].id) : '';
     }
-    
+
     return ids
-}
-
-
-
-
-const partesFormulario = {
-    marca: ['PlayStation', 'Xbox', 'Nintendo'],
-    categoria: ['Controles', 'Consolas', 'Accesorios'],
-    metodosPago: ['PSE', 'VISA', 'MASTERCARD', 'AMERICAN EXPRESS', 'DAVIVIENDA', 'BANCOLOMBIA'],
-    color: ['Negro', 'Blanco', 'Rojo', 'Azul', 'Gris', 'Otro']
 }
 
 const controller = {
@@ -111,7 +102,7 @@ const controller = {
             where: { deleted: 0 }
         })
             .then(products => {
-                /* console.log('linea 64',products[17].img_principal) */
+
 
 
 
@@ -121,8 +112,7 @@ const controller = {
                 }
                 let total = products.length
                 console.log('total ' + total)
-                /* console.log(products) */
-                /* console.log(products[0].img_principal) */
+
 
 
                 res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total })
@@ -133,35 +123,39 @@ const controller = {
     },
 
     detalle: (req, res) => {
-        /* let id = req.params.id - 1;
-        let producto = productosJSON[id]; */
-        productos.findByPk(req.params.id, { include: [{ association: 'imgProducts'},{ association: 'colors' }] })
+
+        productos.findByPk(req.params.id, { include: [{ association: 'imgProducts' }, { association: 'colors' }] })
             .then(producto => {
-                let colores =  producto.colores? producto.colores.split(','): [];
-                let coloresName = ['Negro','Rojo','Gris','Blanco','Azul','Otros']
+                let colores = producto.colores ? producto.colores.split(',') : [];
+                let coloresName = ['Negro', 'Rojo', 'Gris', 'Blanco', 'Azul', 'Otros']
                 let descuento = producto.price * (producto.discount / 100)
                 let precioReal = producto.price - descuento
                 let tipo = req.session.usuarioLogueado ? req.session.usuarioLogueado.type_user : null;
                 let cantidad = cantImg(producto)
                 let ids = imagenesExistentes(producto)
-                imgProductos.findAll({ where: { id: ids } })
+                console.log(req.cookies.cookieRecordarUsuario);
+                users.findOne({where:{email : req.cookies.cookieRecordarUsuario}}).then( usuario =>{
+                    
+                    imgProductos.findAll({ where: { id: ids } })
                     .then(resp => {
                         productos.findAll({
                             where: { deleted: 0 }
                         }).then(productos => {
 
-                            res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo, imagenDefault, cantidad, ids, resp, productos , colores , coloresName})
+                            res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo, imagenDefault, cantidad, ids, resp, productos, colores, coloresName,usuario:usuario.id})
                         }
 
                         )
                     })
+                })
+                
                 /* res.json(producto) */
             })
     },
     agregar: (req, res) => {
         let idUser = req.query.u
-        
-        res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), { partesFormulario , idUser })
+
+        res.render(path.resolve(__dirname, '../views/agregar-producto.ejs'), { idUser })
     },
     store: (req, res) => {
 
@@ -171,7 +165,7 @@ const controller = {
             let imagen
 
             req.body.imagenPrincipal ? (req.body.imagenPrincipal[3] ? imagen = req.body.imagenPrincipal[3] : '') : '';
-            
+
 
             productos.create({
                 name: req.body.name,
@@ -183,42 +177,21 @@ const controller = {
                 discount: req.body.discount,
                 rating: 5,
                 stock: req.body.stock,
-                user_id: req.query.u, 
+                user_id: req.query.u,
                 deleted: 0,
-                colores: Array.isArray(req.body.colores)? req.body.colores.join(','): req.body.colores  ,          
-            },/* {
-                include: [{
-                    association : 'colors'
-                }]
-            } */
-                // , {include: 'colors'}
+                colores: req.body.colores ? Array.isArray(req.body.colores) ? req.body.colores.join(',') : req.body.colores : null ,
+            }
             ).then(creado => {
-                /* console.log(Array.isArray(req.body.colores),'///////////////////////////////')
 
-                let identificadoresDeColores = []
-                let opciones = [1,2,3,4,5,6]
-                
-                req.body.colores? Array.isArray(req.body.colores) ? identificadoresDeColores = req.body.colores : identificadoresDeColores.push(req.body.colores) : identificadoresDeColores=[6];
-                
-                identificadoresDeColores.forEach((item) => {
-                    // 2. Find the Classes row
-                    colors.findByPk(item)
-                        .then(colorAdquirido => {
-                            
-                            // 3. INSERT the association in Enrollments table
-                            creado.addColor(colorAdquirido, { through: 'colors' }) 
-                                
-                        })
-                }); */
 
-                
+
                 //insercion imagenes del producto
                 //array para las promesas de la cantidad n de imagenes
                 let arrayImages = [];
                 let imagenes = [];
 
-            
-                
+
+
                 //iteramos el files
                 for (let i = 0; i < req.files.length; i++) {
 
@@ -228,7 +201,7 @@ const controller = {
                         product_id: creado.id,
                         deleted: 0
                     }).then(creada => {
-                        console.log('linea 160', `id producto ${creado.id} ... id imagen ${creada.id} imagen escojida  ${imagen} direccion ${req.files[imagen].filename}`);
+                       
 
                         imagenes.push(creada.id)
                         let promesa2 = productos.update({
@@ -236,7 +209,7 @@ const controller = {
                         }, {
                             where: { id: creado.id }
                         }).then(result => {
-                            console.log('siiiiiiii la imagennn se guardooooo', result, imagenes[imagen])
+                            
                         }
                         )
                         arrayImages.push(promesa2)
@@ -258,26 +231,23 @@ const controller = {
             })
         }
 
-        /* res.sendFile(req.files[imagen].path) */
+
     },
 
     editar: (req, res) => {
 
-        productos.findByPk(req.query.p, { include: [{ association: 'imgProducts'}] })
+        productos.findByPk(req.query.p, { include: [{ association: 'imgProducts' }] })
             .then(producto => {
-                let colores =  producto.colores? producto.colores.split(','): [];
-                /* for (let i = 0; i < producto.colors.length; i++) {
-                    colores.push(producto.colors[i].dataValues.color)
-                    
-                } */
-                console.log(colores, '//////////////////');
+                let colores = producto.colores ? producto.colores.split(',') : [];
+                console.log(colores);
+               
                 let descuento = producto.price * (producto.discount / 100)
                 let precioReal = producto.price - descuento
                 let tipo = req.session.usuarioLogueado ? req.session.usuarioLogueado.type_user : null;
 
 
                 /* res.json(producto) */
-                res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), { producto, toThousand, precioReal, tipo , idProducto:req.query.p , idUser: req.query.u ,colores})
+                res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), { producto, toThousand, precioReal, tipo, idProducto: req.query.p, idUser: req.query.u, colores })
             })
 
     },
@@ -299,34 +269,14 @@ const controller = {
                 stock: req.body.stock,
                 deleted: 0,
                 id_user: req.query.u,
-                colores: Array.isArray(req.body.colores)? req.body.colores.join(','): req.body.colores  ,
+                colores:req.body.colores ? Array.isArray(req.body.colores) ? req.body.colores.join(',') : req.body.colores : null ,
             }, {
                 where: { id: req.query.p }
             }).then(resultado => {
-                   /*  console.log(req.body.colores);
-                //colores
-                    let identificadoresDeColores = []
-                
-                    req.body.colores? Array.isArray(req.body.colores) ? identificadoresDeColores = req.body.colores : identificadoresDeColores.push(req.body.colores) : identificadoresDeColores=[6];
-                
-                productos.findByPk(req.query.p)
-                .then( producto =>{
-                    console.log(producto);
-                    identificadoresDeColores.forEach(item => {
-                        // 2. Find the Classes row
-                        colors.findByPk(item)
-                            .then(colorAdquirido => {
-                                console.log('entre al add');
-                                // 3. INSERT the association in Enrollments table
-                                producto.addColor(colorAdquirido, { through: 'colors' });
-                            })
-                    });
-                }
-                ) */
-                    //colores- cerrar
 
 
-                console.log(resultado);
+
+                
                 let arrayImages = [];
                 //iteramos el files
                 for (let i = 0; i < req.files.length; i++) {
@@ -379,14 +329,36 @@ const controller = {
         })
     },
     search: (req, res) => {
-        /* console.log(req.query.search_query); */
-        if(req.query.search_query){
-            productos.findAll({
-            where: {
-                deleted: 0,
-                name: { [Op.like]: `%${req.query.search_query}%` }
+
+
+        let losWhere = () => {
+            let intervalos = [
+                [0, 200000],
+                [201000, 800000],
+                [801000, 1500000],
+                [1500001, 9999999999999999999999999999]
+
+            ]
+            let config = {
+                deleted: 0
             }
-        }).then(products => {
+            req.query.ct ? config.category = req.query.ct.split(' ') : null;
+            req.query.cl ? config.colores = {
+                [Op.or]: req.query.cl.split(' ').map(filtro => {
+                    return { [Op.like]: `%${filtro}%` }
+                })
+            } : null;
+            req.query.pr ? config.price = { [Op.between]: req.query.pr == 200000 ? intervalos[0] : req.query.pr == 800000 ? intervalos[1] : req.query.pr == 1500000 ? intervalos[2] : req.query.pr == 'mayor' ? intervalos[3] : null } : null;
+
+            return config
+        }
+        if (req.query.search_query) {
+            productos.findAll({
+                where: {
+                    deleted: 0,
+                    name: { [Op.like]: `%${req.query.search_query}%` }
+                }
+            }).then(products => {
 
 
                 let contador = [];
@@ -395,107 +367,48 @@ const controller = {
                 }
                 let total = products.length
                 console.log('total ' + total)
-                /* console.log(products)
-                console.log(ids) */
-            
 
-                        res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total })
-
-                    
-
-
+                res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total })
 
             })
-        }else if(req.query.company){
+        } else if (req.query.company) {
             productos.findAll({
                 where: {
                     deleted: 0,
                     company: { [Op.like]: `%${req.query.company}%` }
                 }
             }).then(products => {
-    
-    
-                    let contador = [];
-                    for (let i = 0; i < products.length; i++) {
-                        products[i].deleted == 1 ? contador.push(products[i].id) : null;
-                    }
-                    let total = products.length
-                    console.log('total ' + total)
-                    /* console.log(products)
-                    console.log(ids) */
-                
-    
-                            res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total })
-    
-                        
-    
-    
-    
-                })
-        }else if (req.query.ct){
-           let filtros = req.query.ct.split(' ')
-            
-           
-            productos.findAll({
-                where: {
-                    deleted: 0,
-                    category: filtros
+
+
+                let contador = [];
+                for (let i = 0; i < products.length; i++) {
+                    products[i].deleted == 1 ? contador.push(products[i].id) : null;
                 }
-            }).then(products => {
-    
-    
-                    let contador = [];
-                    for (let i = 0; i < products.length; i++) {
-                        products[i].deleted == 1 ? contador.push(products[i].id) : null;
-                    }
-                    let total = products.length
-                    console.log('total ' + total)
-                    /* console.log(products)
-                    console.log(ids) */
-                
-    
-                            res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total })
-    
-                        
-    
-    
-    
-                })
-        }else if(req.query.pr){
-            
-            let intervalos = [
-                    [0 , 200000],
-                    [201000 , 800000],
-                    [801000 , 1500000],
-                    [1500001 , 9999999999999999999999999999 ]
-                    
-            ]
-            let intervalo = req.query.pr == 200000 ? intervalos[0]: req.query.pr == 800000 ? intervalos[1]: req.query.pr == 1500000 ? intervalos[2]: req.query.pr == 'mayor' ? intervalos[3]: null ; ; ; ;
+                let total = products.length
+                console.log('total ' + total)
+
+
+
+                res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total })
+
+
+
+
+
+            })
+        } else {
             productos.findAll({
-                where: {
-                    deleted: 0,
-                    price:  { [Op.between]: intervalo }
-                }
+                where: losWhere()
             }).then(products => {
-    
-    
-                    let contador = [];
-                    for (let i = 0; i < products.length; i++) {
-                        products[i].deleted == 1 ? contador.push(products[i].id) : null;
-                    }
-                    let total = products.length
-                    console.log('total ' + total)
-                    /* console.log(products)
-                    console.log(ids) */
-                
-    
-                            res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total })
-    
-                        
-    
-    
-    
-                })
+                let contador = [];
+                for (let i = 0; i < products.length; i++) {
+                    products[i].deleted == 1 ? contador.push(products[i].id) : null;
+                }
+                let total = products.length
+                console.log('total ' + total)
+
+                res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total })
+            })
         }
     }
 }

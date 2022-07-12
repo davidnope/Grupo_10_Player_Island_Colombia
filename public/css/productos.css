@@ -68,6 +68,28 @@ h2 {
     color: var(--gris);
     cursor: pointer;
 }
+.btnReset{
+    display: none;
+    justify-self: center;
+    align-self: center;
+    background-color: #D6D6D6;
+    height: 30px;
+    width: 120px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.btnReset:hover{
+    background-color: var(--na1);
+}
+.show{
+    display: flex;
+}
+#contFiltrosTotales{
+    display: flex;
+    flex-direction: column;
+}
 
 .iconMarca i:hover{
     color: var(--na1);
@@ -278,6 +300,11 @@ h2 {
     }
 
     #filtros {
+        
+        justify-content: space-around;
+    }
+    #contFiltrosTotales{
+        
         flex-direction: row;
         justify-content: space-around;
     }
@@ -323,9 +350,13 @@ h2 {
     }
 
     #filtros {
-        flex-direction: column;
+        
         width: 25%;
         align-self: flex-start;
+    }
+    #contFiltrosTotales{
+        
+        flex-direction: column;
     }
 
     .contenedorFiltros {

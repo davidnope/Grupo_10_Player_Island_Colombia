@@ -13,6 +13,7 @@ const usersJson = usersFile ? JSON.parse(usersFile) : [];
 // base de datos - MODELOS
 const db = require('../database/models')
 let usuarios = db.User
+let carrito = db.ShoppingCart
 
 let rutaRedirect;
 const formValidator = (req, res) => {
@@ -101,9 +102,16 @@ const controller = {
                 password: bcrypt.hashSync(req.body.contrasena, 10),
                 img_user: !req.file ? 'default.png' : req.file.filename,
                 deleted: 0,
+            }).then(creado => {
+                console.log(creado);
+                carrito.create({
+                    user_id : creado.id,
+                    deleted: 0
+                })
+                    res.cookie('cookieRecordarUsuarioSession',  req.body.email, { maxAge: 1000 }),
+                    res.redirect('/')
             })
-            res.cookie('cookieRecordarUsuarioSession',  req.body.email, { maxAge: 1000 })
-            res.redirect('/')
+           
         }
         // JSON
         // if (form.valid) {

@@ -102,7 +102,7 @@
                                 <%}%>
                                     <div>
 
-                                        <form action="/carrito-compras" method="get" id="formCompra">
+                                        <form action="/carrito-compras?u=<%= usuario %>&p=<%= producto.id %>" method="post" id="formCompra">
                                             <div style="display: flex; flex-direction: column;">
 
                                                 <% if(producto.discount>0){ %>
