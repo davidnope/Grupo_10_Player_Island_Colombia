@@ -174,16 +174,16 @@ const controller = {
             },
             {
                 opcion: 'Compras',
-                info: 'Revisa el historial de tus Compras',
-                ruta: "/",
+                info: 'Tu carrito de compras',
+                ruta: "/carrito-compras?u=",
                 img: "compras.png"
             },
-            {
-                opcion: 'Ventas',
-                info: 'Revisa el historial de tus Ventas',
-                ruta: "/",
-                img: "ventas.png"
-            },
+            // {
+            //     opcion: 'Ventas',
+            //     info: 'Revisa el historial de tus Ventas',
+            //     ruta: "/",
+            //     img: "ventas.png"
+            // },
         ];
 
         usuarios.findByPk(req.params.id)
