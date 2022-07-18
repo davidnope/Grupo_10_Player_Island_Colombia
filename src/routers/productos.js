@@ -41,4 +41,6 @@ router.get('/detalle-producto/:id', productosController.detalle);
 
 router.get('/listProductsUser/:id', productosController.list)
 
+router.get('/compra', productosController.compra)
+
 module.exports = router; 

@@ -11,6 +11,7 @@ const controller = {
             where:{
                 deleted: 0
             }
+             
             // where:{
             //     name: {[Op.like]: `%${req.params.search}%`}
             // }

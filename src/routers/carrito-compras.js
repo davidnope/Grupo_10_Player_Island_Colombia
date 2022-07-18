@@ -6,4 +6,5 @@ const carritoController = require(path.join(__dirname, '../controllers/carritoCo
 router.post('/', carritoController.agregarProducto);
 router.get('/', carritoController.carrito);
 
-module.exports = router;
+
+module.exports = router; 

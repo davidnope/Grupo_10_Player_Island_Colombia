@@ -8,7 +8,7 @@
 }
 
 /* atributos Generales */
-main{
+main{ 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

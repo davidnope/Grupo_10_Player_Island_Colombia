@@ -44,7 +44,8 @@ const productosRouter = require(path.join(__dirname, 'routers/productos'))
 
 
 // APIS
-
+const apicarrito = require(path.join(__dirname, 'routers/api/carrito-compras'))
+app.use('/api/carrito-compras', apicarrito)
 const apiUser = require(path.join(__dirname, 'routers/api/user'))
 app.use('/api/user', apiUser)
 const apiProductos = require(path.join(__dirname, 'routers/api/producto'))

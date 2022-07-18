@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/productos.css">
+    <link rel="stylesheet" href="/css/partialsCss/cuadroDeProducto.css">
+    <link rel="stylesheet" href="/css/compra.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <main>
+            <div class="contenedorTotal">
+                <div class="titulo">
+                    <h1>Esta es tu compra:</h1>
+                </div>
+                <div class="info">
+                    <div class="productos">
+                        <%if(productos.length % 2==0){%>
+                            <div class="contenedor-usuarios-par">
+                                <%}else{%>
+                                    <div class="contenedor-usuarios-impar">
+                                        <%}%>
+                                            <!-- productos.forEach((products, iterador )=>{ -->
+                                            <% for(let i=0; i < productos.length ; i++){ %>
+        
+                                                <div class="bloqueProducto" id="bloque">
+                                                    <div class="imgNuProductos" style="background-color: #352347;">
+                                                        <a href="/productos/detalle-producto/<%=productos[i].id%>">
+                                                            <%if(!productos[i].img_principal){%>
+                                                                <div class="imgPrincipal"
+                                                                    style="background-image:url('/img/productos/default.png') ;">
+        
+                                                                </div>
+        
+                                                                <!-- <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/default.png" alt="" title="" itemprop="image"> -->
+                                                                <%}else{%>
+                                                                    <div class="imgPrincipal"
+                                                                        style="background-image:url('/img/productos/<%=productos[i].img_principal%>') ;">
+        
+                                                                    </div>
+                                                                    <!-- <img class="js-modal-product-cover product-cover-modal"   src="/img/productos/<%=productos[i].img_principal%>" alt="" title="" itemprop="image"> -->
+        
+                                                                    <%}%>
+                                                        </a>
+                                                    </div>
+                                                    <div class="descripcion">
+                                                        <div class="estrellas">
+                                                            <i class="fa-regular fa-star"></i>
+                                                            <i class="fa-regular fa-star"></i>
+                                                            <i class="fa-regular fa-star"></i>
+                                                            <i class="fa-regular fa-star"></i>
+                                                            <i class="fa-regular fa-star"></i>
+                                                        </div>
+                                                        <a href="/productos/detalle-producto/<%=productos[i].id%>"
+                                                            class="nombre-producto">
+                                                            <h4>
+                                                                <%= productos[i].name %>
+                                                            </h4>
+                                                        </a>
+                                                        <p>$ <%= toThousand(productos[i].price) %>
+                                                        </p>
+                                                        <div class="iconosAbajo">
+                                                            <a href="#">
+                                                                <i class="fa-regular fa-heart"></i>
+                                                            </a>
+                                                            <a href="#">
+                                                                <i class="fa-solid fa-share-nodes"></i>
+                                                            </a>
+                                                            <a href="#">
+                                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%}%>
+        
+                                                    <!--                  <%if(total % 4==2){%>
+                                            <div class = "bloqueProducto transparente"></div>
+                                            <div class = "bloqueProducto transparente"></div>
+                                            <%}%>
+                                            <%if(total % 2!=0){%>
+                                                <div class = "bloqueProducto transparente"></div>
+                                                    <%if(total % 4==1){%>
+                                                        <div class = "bloqueProducto transparente"></div>
+                                                        <div class = "bloqueProducto transparente"></div>
+                                                        <%}%>
+                                            <%}%> -->
+                                    
+                            </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="datos">
+                        <h2>Informacion de la compra</h2>
+                        <div class="listaDatos">
+                            <div class="titulosLista">
+                                <h4>Usuario</h4>
+                                <h4>Id carrito</h4>
+                                <h4>Total</h4>
+                                <h4>Total productos</h4>
+                                <h4>Direccion</h4>
+                                
+                            </div>
+                            <div class="datosLista">
+                                <h5><%= `${usuario.first_name} ${usuario.last_name}`%></h5>
+                                <h5><%= result.id%></h5>
+                                <h5>$<%= toThousand(totalPrice) %></h5>
+                                <h5><%= total %></h5>
+                                <h5><%= usuario.adress %></h5>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+        </main>
+        <%- include('./partials/footer') %>
+</body>
+
+</html>

@@ -10,7 +10,7 @@ let query = new URLSearchParams(location.search);
 
 if (query.has('search_query')) {
     search_query = query.get('search_query');
-    
+
 };
 
 if (search_query) {
@@ -209,13 +209,33 @@ fetch('http://localhost:3030/api/user/list')
 
         let userLogin;
 
+        
+
         // TRAIGO TODOS LOS USUARIOS Y FILTRO POR EL QUE ESTE LOGEADO
         for (let i = 0; i < users.data.length; i++) {
             if (users.data[i].email == correoUser) {
                 userLogin = users.data[i]
             }
         }
+        
+        //agregando la query de del usuario
 
+        let carritoMenu = document.querySelector('.navButton a')
+        if (userLogin) {
+            carritoMenu.setAttribute('href', `/carrito-compras?u=${userLogin.id}`)
+            console.log(carritoMenu);
+        } else {
+            carritoMenu.setAttribute('href', `#`)
+            console.log(carritoMenu); 
+        }       
+
+        if (carritoMenu.getAttribute('href')==='#') {
+            carritoMenu.addEventListener('click' , (e)=>{
+                
+            })
+        }
+        
+        
         // SI EXISTE EL USUARIO 
         if (userLogin) {
             validarUser('imgUserPeque')
@@ -235,19 +255,19 @@ fetch('http://localhost:3030/api/user/list')
             // administrador@gmail.com - ID 21 - contraseña monito1234
             // vendedor@gmail.com - ID 22
             // comprador@gmail.com - ID 23
-            switch(userLogin.type_user){
+            switch (userLogin.type_user) {
                 case 'Vendedor':
                     for (let i = 0; i < opcionesVendedorComprador.length; i++) {
-                        opcionesVendedorComprador[i].innerHTML = '<a href="/carrito-compras" class="opcion-iniciar-sesion"><i class="fa-solid fa-cart-plus"></i><p>Compras</p></a>'
+                        opcionesVendedorComprador[i].innerHTML = `<a href="/carrito-compras?u=${userLogin.id}" class="opcion-iniciar-sesion"><i class="fa-solid fa-cart-plus"></i><p>Compras</p></a>`
                         opcionesVendedorComprador[i].innerHTML += `<a href="/productos/agregar?u=${userLogin.id}" class="opcion-registrarse"><i class="fa-solid fa-check-to-slot"></i><p>Vender</p></a>`
                         opcionesVendedorComprador[i].innerHTML += `<a href="/productos/listProductsUser/${userLogin.id}" class="opcion-registrarse"><i class="fa-solid fa-box-archive"></i><p>Mis productos</p></a>`
                     }
-                break;
+                    break;
                 case 'Comprador':
                     for (let i = 0; i < opcionesVendedorComprador.length; i++) {
                         opcionesVendedorComprador[i].innerHTML = '<a href="/carrito-compras" class="opcion-iniciar-sesion"><i class="fa-solid fa-house"></i><p>Compras</p></a>'
                     }
-                break;
+                    break;
                 case 'Administrador':
                     for (let i = 0; i < opcionesVendedorComprador.length; i++) {
                         opcionesVendedorComprador[i].innerHTML = '<a href="/user/list" class="opcion-iniciar-sesion"><i class="fa-solid fa-house"></i><p>Lista de usuarios</p></a>'
@@ -282,7 +302,7 @@ fetch('http://localhost:3030/api/user/list')
 
 
     })
-    // MENUS DESPLEGADOS CIERRE
+// MENUS DESPLEGADOS CIERRE
 
 // EVENTO PARA BARRAS MENU
 iconoMenuCompleto.addEventListener('click', (e) => {
@@ -297,30 +317,34 @@ for (let i = 0; i < opcionSalir.length; i++) {
     let cookieCompleta;
 
     // TRAER EL PRIMERO QUE COINCIDA CON EL MISMO NOMBRE DE LA COOKIE
-        cookie.find(obj => {
-            if (obj.split('=')[0] === 'cookieRecordarUsuario' || obj.split('=')[0] === 'cookieRecordarUsuarioSession') {
-                cookieCompleta = obj;
-            }
-        })
+    cookie.find(obj => {
+        if (obj.split('=')[0] === 'cookieRecordarUsuario' || obj.split('=')[0] === 'cookieRecordarUsuarioSession') {
+            cookieCompleta = obj;
+        }
+    })
 
 
     // SE SEPARA LA COOKIE, SE ARREGLA EL CORREO Y LUEGO SE GUARDA EN LA VARIABLE arreglarCorreoUser
     let nombreCookie = cookieCompleta ? cookieCompleta.split('=')[0] : '';
     let correoCookie = cookieCompleta ? cookieCompleta.split('=')[1] : '';
 
-    opcionSalir[i].addEventListener('click', ()=>{
-        if(nombreCookie && nombreCookie == 'cookieRecordarUsuario'){
+    opcionSalir[i].addEventListener('click', () => {
+        if (nombreCookie && nombreCookie == 'cookieRecordarUsuario') {
             document.cookie = `cookieRecordarUsuario=${correoCookie}; expires=Thu, 31 Dec 2000 12:00:00 UTC; path=/;`
             location.href = 'http://localhost:3030/';
-        }else if (sessionStorage.getItem('correoUserLoginSession')){
+        } else if (sessionStorage.getItem('correoUserLoginSession')) {
             document.cookie = `cookieRecordarUsuarioSession=${correoCookie}; expires=Thu, 31 Dec 2000 12:00:00 UTC; path=/;`
             sessionStorage.removeItem('correoUserLoginSession')
             location.href = 'http://localhost:3030/';
         }
     })
 
-    
+
 }
+
+
+
+
 
 
 
