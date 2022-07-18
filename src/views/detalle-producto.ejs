@@ -101,8 +101,12 @@
                                 </h3>
                                 <%}%>
                                     <div>
-
-                                        <form action="/carrito-compras?u=<%= usuario %>&p=<%= producto.id %>" method="post" id="formCompra">
+                                        <% if(usuario){ %>
+                                            <form action="/carrito-compras?u=<%= usuario %>&p=<%= producto.id %>" method="post" id="formCompra">
+                                            <%}else{%>
+                                                <form action="/" method="post" id="formCompra">
+                                                <%}%>
+                                       
                                             <div style="display: flex; flex-direction: column;">
 
                                                 <% if(producto.discount>0){ %>
@@ -161,8 +165,13 @@
                                                 </select>
                                             </div>
                                             <div id="moduloBotones">
-                                                        <button id="boton-agregar-carrito" type="submit"
-                                                            value="comprar">AGREGA AL CARRITO</button>
+                                                <% if(usuario){ %>
+                                                    <button id="boton-agregar-carrito" type="submit"
+                                                    value="comprar">AGREGA AL CARRITO</button>
+                                                    <%}%> 
+                                                       
+                                                              
+                                                
                                             </div>
                                         </form>
 
