@@ -31,12 +31,12 @@
 .contenedorNotificacion{
     display: flex;
     position: fixed;
-    width: 10vh;
-    height: 10vh;
+    width: 60px;
     right: 15px;
     bottom: 15px;
     animation: tiembla 0.2s 2;
     animation-delay: 5s; 
+    
     
    
     
@@ -45,8 +45,8 @@
 .contenedorNotificacion a{
    
     display: flex;
-    width: 10vh;
-    height: 10vh;
+    width: 60px;
+    height: 60px;
     background-color: var(--mo1) ;
     align-items: center;
     justify-content: center;
@@ -89,6 +89,46 @@
     animation: tiembla 0.15s 1;
     background-color: var(--mo2);
 }
+.mensajeShow{
+    display: flex;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    right: 90px;
+    bottom: 15px;
+    width: 220px;
+    height:50px;
+    z-index: 999;
+    padding: 5px;
+    padding-left: 10px;
+    align-items: center;
+    border-radius: 10px;
+    border-left: 3px red solid;
+}
+.mensajesNone{
+    display:none
+}
+.mensajeShow h4{
+    margin: 0;
+}
+.puntaShow{
+    display:flex;
+    position: fixed;
+    background-color: white;
+    right: 85px;
+    bottom: 27px;
+    width: 35px;
+    height: 35px;
+    z-index: 1001;
+    transform:rotateZ(45deg);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+    
+}
+.puntaNone{
+ display: none;
+}
+
 @keyframes tiembla{
     0%  { transform:rotateZ(-10deg); }
     25% { transform:rotateZ( 0deg) ; }
@@ -96,3 +136,5 @@
     75%{ transform:rotateZ( 0deg); }
     100%{ transform:rotateZ( -10deg); }
   }
+
+

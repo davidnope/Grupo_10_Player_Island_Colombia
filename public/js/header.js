@@ -24,6 +24,7 @@ fetch(`http://localhost:3030/api/productos/searchAll`)
         return result.json()
     })
     .then(listadoProducts => {
+        console.log(listadoProducts);
         buscador.addEventListener('focus', (e) => {
             let contador = -1
             predicciones.innerHTML = ''
@@ -48,14 +49,21 @@ fetch(`http://localhost:3030/api/productos/searchAll`)
                     window.location.href = `http://localhost:3030/productos/results?search_query=${buscador.value.split(' ').join('+')}`
                 }
                 predicciones.innerHTML = ''
-                for (let i = 0; i < 5; i++) {
+                let cincoPredicciones = []
+                let num = 0
+                for (let i = 0; i < listadoProducts.length; i++) {
                     if (listadoProducts[i]) {
                         if (listadoProducts[i].toUpperCase().includes(buscador.value.toUpperCase())) {
-                            // console.log(listadoProducts[i])
-                            predicciones.innerHTML += `<p style='pointer-events: all'>${listadoProducts[i]}</p>`
+                            
+                            num < 5 ? cincoPredicciones.push(listadoProducts[i]) && num++ : null;
                         }
                     }
                 }
+
+                for (let i = 0; i < cincoPredicciones.length; i++) {
+                    predicciones.innerHTML += `<p style='pointer-events: all'>${cincoPredicciones[i]}</p>`
+                    console.log(listadoProducts[i]);
+                    }
                 if (predicciones.innerHTML == '') {
                     predicciones.innerHTML += `<p>No hay resultados</p>`
                 }
