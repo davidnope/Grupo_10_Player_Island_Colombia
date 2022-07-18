@@ -1,0 +1,12 @@
+.pestaña{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: rgb(182, 182, 182);
+    width: 15%;
+    height: 45px;
+    border-radius: 15px 15px 0 0;
+    margin-left: 50px;
+    text-decoration: none;
+}

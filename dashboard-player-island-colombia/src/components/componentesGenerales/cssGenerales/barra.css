@@ -1,0 +1,8 @@
+.barra{
+    color: black;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    background-color: green;
+    width: 100%;
+}

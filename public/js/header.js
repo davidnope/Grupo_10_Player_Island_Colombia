@@ -251,6 +251,7 @@ fetch('http://localhost:3030/api/user/list')
                 case 'Administrador':
                     for (let i = 0; i < opcionesVendedorComprador.length; i++) {
                         opcionesVendedorComprador[i].innerHTML = '<a href="/user/list" class="opcion-iniciar-sesion"><i class="fa-solid fa-house"></i><p>Lista de usuarios</p></a>'
+                        opcionesVendedorComprador[i].innerHTML += '<a href="http://localhost:3000" class="opcion-iniciar-sesion"><i class="fa-solid fa-house"></i><p>Dashboard</p></a>'
                     }
             }
 

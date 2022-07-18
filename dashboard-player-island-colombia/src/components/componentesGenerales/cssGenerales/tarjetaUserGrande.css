@@ -1,0 +1,17 @@
+.contenedorTarjetaUserGrande{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 28%;
+    height: 90%;
+}
+.tarjetaUserGrande{
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #EBEBEB;
+    width: 100%;
+    height: 95%;
+    border-radius: 52px;
+    padding: 20px 30px;
+    justify-content: space-evenly;
+    color: black;
+}

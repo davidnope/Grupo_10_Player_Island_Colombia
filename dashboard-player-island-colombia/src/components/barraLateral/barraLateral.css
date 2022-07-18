@@ -1,0 +1,41 @@
+.barraLateral{
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: black;
+    width: 15vw;
+}
+
+.datos-user{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 15vw;
+    height: 15vw;
+    background-color: grey;
+    justify-content: center;
+}
+.img-user{
+    display: flex;
+    background-color: white;
+    border-radius: 50%;
+    width: 7vw;
+    height: 7vw;
+}
+.info-user{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    color: white;
+}
+.info-user h3, p {
+    margin: 0;
+}
+
+.links, .link-a{
+    text-decoration: none;
+}
+
+.links:hover, .link-a:hover{
+    color: black;
+    background-color: wheat;
+}

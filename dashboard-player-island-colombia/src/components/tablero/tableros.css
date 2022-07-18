@@ -1,0 +1,14 @@
+.contenedor-tablero{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    color: white;
+    width: 100%;
+}
+
+.contendor-pestaña{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: flex-start;
+}
