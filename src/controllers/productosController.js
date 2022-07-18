@@ -135,20 +135,35 @@ const controller = {
                 let cantidad = cantImg(producto)
                 let ids = imagenesExistentes(producto)
                 console.log(req.cookies.cookieRecordarUsuario);
-                users.findOne({where:{email : req.cookies.cookieRecordarUsuario}}).then( usuario =>{
+                if(req.cookies.cookieRecordarUsuario){
+                    users.findOne({where:{email : req.cookies.cookieRecordarUsuario}}).then( usuario =>{
                     
-                    imgProductos.findAll({ where: { id: ids } })
-                    .then(resp => {
-                        productos.findAll({
-                            where: { deleted: 0 }
-                        }).then(productos => {
-
-                            res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo, imagenDefault, cantidad, ids, resp, productos, colores, coloresName,usuario:usuario.id})
-                        }
-
-                        )
+                        imgProductos.findAll({ where: { id: ids } })
+                        .then(resp => {
+                            productos.findAll({
+                                where: { deleted: 0 }
+                            }).then(productos => {
+    
+                                res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo, imagenDefault, cantidad, ids, resp, productos, colores, coloresName,usuario:usuario.id})
+                            }
+    
+                            )
+                        })
                     })
-                })
+                }else{
+                    imgProductos.findAll({ where: { id: ids } })
+                        .then(resp => {
+                            productos.findAll({
+                                where: { deleted: 0 }
+                            }).then(productos => {
+    
+                                res.render(path.resolve(__dirname, '../views/detalle-producto.ejs'), { producto, toThousand, precioReal, tipo, imagenDefault, cantidad, ids, resp, productos, colores, coloresName , usuario : null})
+                            }
+    
+                            )
+                        })
+                }
+                
                 
                 /* res.json(producto) */
             })
