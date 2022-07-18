@@ -3,7 +3,7 @@ import './cssGenerales/tarjetasEstadisticas.css';
 import Barra from './Barra';
 
 
-let color = ['#EFEF1B', '#EF9A1B', '#B302E9', '#E90257', '#3FEF1B'];
+let color = ['#EFEF1B', '#EF9A1B', '#c1ff46', '#E90257', '#3FEF1B'];
 function TarjetasEstadisticas(props) {
     
     return (
@@ -18,7 +18,7 @@ function TarjetasEstadisticas(props) {
                        props.datos.map((result,i) =>{
                         return <Barra
                         colores = {color[i]}
-                        valor = {props.valor[i]}  
+                        valor = {props.valor[i]} 
                         key = {i}
                          />
                        } 

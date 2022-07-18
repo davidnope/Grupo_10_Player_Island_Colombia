@@ -11,7 +11,13 @@ import {useState, useEffect} from "react";
 // Info Tarjetas totales
 let iconos = [<i className="fa-solid fa-user-check"></i>, <i className="fa-solid fa-dolly"></i>, <i className="fa-solid fa-eye"></i>]
 let titulos = ['Usuarios registrados', 'Productos en venta', 'Visitas a la página']
+
 // Info etiquetas CERRADO
+
+let porcentaje = (dato,total)=>{
+  return ((dato*100)/total).toFixed(1)
+ 
+}
 
 // INFO ESTADISTICAS
 let arrCompanyProducts = ['PlayStation', 'Xbox', 'Nintendo'];
@@ -22,16 +28,32 @@ let arrTitulos = ['Cantidad Productos por Compañia', 'Cantidad Usuarios por tip
 
 
 function TableroGeneral() {
-  const [datos, setDatos] = useState(
-  [
-    [0,0,'1M'],[[10,20,50], [40,30]]
-  ]
-  )
+  const [totales, setTotales] = useState(  [ 0,0,'1M']  )
+  const [porcentajes, setPorcentajes] = useState([[10,20,30],[40,50]])
 
-  useEffect(async()=>{
-    let consulta = await fetch('http://localhost:3030/api/user/list')
-    consulta = await consulta.json()
-    console.log(consulta.data.length);
+  useEffect(()=>{
+    
+    let promesas = []
+
+    promesas.push(fetch('http://localhost:3030/api/user/list').then(result => result.json()))
+    promesas.push(fetch('http://localhost:3030/api/productos/list').then(result => result.json()))
+    
+    Promise.all(promesas)
+    .then(result => {
+      setTotales([result[0].data.length,result[1].length,'1M'])
+    
+      let xbox = result[1].filter(data => data.company == 'xbox')
+      let playstation = result[1].filter(data => data.company == 'playstation')
+      let nintendo = result[1].filter(data => data.company == 'nintendo')
+      
+    
+      let comprador = result[0].data.filter(data => data.type_user == 'comprador')
+      let vendedor = result[0].data.filter(data => data.type_user == 'vendedor' || data.type_user == 'Vendedor')
+      console.log(result[0].data);
+      setPorcentajes([[porcentaje(playstation.length,result[1].length),porcentaje(xbox.length,result[1].length),porcentaje(nintendo.length,result[1].length)],[porcentaje(vendedor.length,result[0].data.length),porcentaje(comprador.length,result[0].data.length)]])
+    
+    
+    })
   }, [])
 
   return (
@@ -45,7 +67,7 @@ function TableroGeneral() {
           <ContenedorTotales
             titulos={titulos}
             iconos={iconos}
-            valor= {datos[0]}
+            valor= {totales}
           />
         }
         <ContTarjetasConsulta
@@ -53,7 +75,7 @@ function TableroGeneral() {
             return <TarjetasEstadisticas
               titulo={titulo}
               datos={arrDatos[i]}
-              valor={datos[1][i]}
+              valor={porcentajes[i]}
               key = {i}
             />
           })}

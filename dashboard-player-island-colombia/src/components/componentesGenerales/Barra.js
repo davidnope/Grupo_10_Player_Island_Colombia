@@ -2,8 +2,15 @@ import React from "react";
 import './cssGenerales/barra.css';
 
 function Barra(props) {
+
+    
+    let estilo= {
+       backgroundColor: props.colores,
+       width : `${props.valor*6}%`
+       
+    }
     return (
-        <div className="barra" style={{backgroundColor: props.colores}}>
+        <div className="barra" style={estilo}>
             {props.valor}%
         </div>
     );

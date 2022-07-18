@@ -5,6 +5,27 @@ let productos = db.Product
 const imgProductos = db.ImgProduct
 
 const controller = {
+    list:(req, res)=>{
+        //GET http://localhost:3030/api/productos/searchAll
+        productos.findAll({
+            where:{
+                deleted: 0
+            }
+             
+            // where:{
+            //     name: {[Op.like]: `%${req.params.search}%`}
+            // }
+        })
+        .then(listado => {
+            
+           
+            
+            res.json(listado);
+         })
+         .catch(err =>{
+             res.json('no se encontro')
+         })
+    },
     searchAll: (req, res)=>{
         //GET http://localhost:3030/api/productos/searchAll
         productos.findAll({

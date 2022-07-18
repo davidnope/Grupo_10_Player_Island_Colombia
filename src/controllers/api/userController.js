@@ -1,10 +1,13 @@
 const db = require('../../database/models');
 const { login } = require('../usersController');
 
+
 const user = db.User;
 
 const controller = {
     list: (req, res) => {
+        
+
         //GET http://localhost:3030/api/user/list
         user.findAll({
             where: {
