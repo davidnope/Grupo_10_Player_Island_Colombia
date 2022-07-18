@@ -1,0 +1,98 @@
+:root{
+    --na1: #FF6D00;
+    --na2: #FF7900;
+    --na3: #FF8500;
+    --na4: #FF9100;
+    --na5: #FF9E00;
+    --mo1: #240046;
+    --mo2: #3C096C;
+    --mo3: #5A189A;
+    --mo4: #7B2CBF;
+    --mo5: #9D4EDD;
+    --morado-oscuro: #150722;
+    --morado-intermedio: #230B39;
+    --morado-claro: #352347;
+    --naranja: #FCA311;
+    --gris: #D6D6D6;
+    --blanco: #FFFFFF;
+ }
+ .showAlarma{
+    display: flex;
+    position: absolute;
+    width: 3vh;
+    height: 3vh;
+    background-color: red;
+    border-radius: 50%;
+    right: 3px;
+    top: 3px;
+    justify-content: center;
+    align-items: center;
+ }
+.contenedorNotificacion{
+    display: flex;
+    position: fixed;
+    width: 10vh;
+    height: 10vh;
+    right: 15px;
+    bottom: 15px;
+    animation: tiembla 0.2s 2;
+    animation-delay: 5s; 
+    
+   
+    
+    
+}
+.contenedorNotificacion a{
+   
+    display: flex;
+    width: 10vh;
+    height: 10vh;
+    background-color: var(--mo1) ;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 50%;
+    border-color: var(--na1);
+    border-width: 2px;
+    border-style: solid;
+   
+}
+
+.contenedorNotificacion a i{
+    font-size: 30px;
+    color: white;
+    position: relative;
+}
+.alarma{
+    display: none;
+    position: absolute;
+    width: 3vh;
+    height: 3vh;
+    background-color: red;
+    border-radius: 50%;
+    right: 3px;
+    top: 3px;
+    justify-content: center;
+    align-items: center;
+}
+.showAlarma p{
+    color: white;
+    font-size: 14px;
+}
+.contenedorNotificacion:hover{
+    transform: scale(1.05, 1.05);
+    animation: tiembla 0.15s 1;
+    
+}
+.contenedorNotificacion a:hover{
+    transform: scale(1.05, 1.05);
+    animation: tiembla 0.15s 1;
+    background-color: var(--mo2);
+}
+@keyframes tiembla{
+    0%  { transform:rotateZ(-10deg); }
+    25% { transform:rotateZ( 0deg) ; }
+    50%{ transform:rotateZ( 10deg); }
+    75%{ transform:rotateZ( 0deg); }
+    100%{ transform:rotateZ( -10deg); }
+  }

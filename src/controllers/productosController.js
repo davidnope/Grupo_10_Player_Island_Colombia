@@ -66,6 +66,7 @@ const colors = db.Color
 const imgProductos = db.ImgProduct
 const users = db.User
 const Op = db.Sequelize.Op
+const carrito = db.ShoppingCart
 
 const productsFilePath = path.join(__dirname, '../data/dbProductos.json');
 const productosJSON = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -410,6 +411,30 @@ const controller = {
                 res.render(path.resolve(__dirname, '../views/productos.ejs'), { productos: products, toThousand, total })
             })
         }
+    },
+    compra: async (req, res) => {
+        carrito.findOne({ where: { user_id: req.query.u } })
+            .then(result => {
+                result.getProducts()
+                    .then(productos => {
+                        let totalPrice = 0
+                        let total = 0
+                        productos.forEach(element => {
+                            totalPrice += element.price
+                            total++
+                        });
+                        let variable = [result, productos]
+                        
+                        /* res.json(variable) */
+                        users.findByPk(req.query.u)
+                        .then( user => {
+                           
+                            res.render(path.resolve(__dirname, '../views/compra.ejs'),{ productos , total , totalPrice ,toThousand, usuario : user.dataValues,result })
+                        })
+                    })
+
+
+            })
     }
 }
 
