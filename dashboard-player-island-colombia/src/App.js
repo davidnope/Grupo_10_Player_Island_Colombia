@@ -20,9 +20,11 @@ function App() {
         <Route path="/General" element={<Tablero identificador={1} />} />
         <Route path="/Productos/PestProductos" element={<Tablero identificador={3} pestaña = {'PestProductos'} />} />
         <Route path="/Productos/PestUltimo" element={<Tablero identificador={3} pestaña = {'PestUltimo'} />} />
-        <Route path="/Productos/PestList" element={<Tablero identificador={3} pestaña = {'PestList'} />} />
+        <Route  path="/Productos/PestListProducts" element={<Tablero identificador={3} pestaña = {'PestListProducts'} />} />
+        {/* <Route  path="/Productos/PestListProducts/:id" element={<Tablero identificador={3} pestaña = {'PestListProducts/:id'} />} /> */}
         <Route path="/Usuarios/PestUsuario" element={<Tablero identificador={2} pestaña={'PestUsuario'}/>} />
         <Route path="/Usuarios/PestListadoUser" element={<Tablero identificador={2} pestaña={'PestListadoUser'} />} />
+        {/* <Route path="/Usuarios/PestListadoUser/:id" element={<Tablero identificador={2} pestaña={'PestListadoUser/:id'} />} /> */}
       </Routes>
     </div>
   );

@@ -19,16 +19,37 @@ let arrDatos = [arrTipoUser]
 let arrTitulos = ['Cantidad Usuarios por tipo'];
 // INFO ESTADISTICAS CERRADO
 
-function PestUsuario() {
+function PestUsuario(props) {
+  /* console.log(props.porcentajes); */
   return (
       <div className="info-tablero info-tablero-colum">
-      {
+        {
           <ContenedorTotales
             titulos={titulos}
             iconos={iconos}
+            valor={props.valorTotales}
           />
         }
         <ContTarjetasConsulta
+        tarjUser = {<TarjetaUser/>}
+          tarjEstadistica={arrTitulos.map((titulo, i) => {
+            return <TarjetasEstadisticas
+              titulo='Cantidad Usuarios por tipo'
+              datos={arrDatos[i]}
+              valor={props.porcentajes}
+              key = {i}
+            />
+          })}
+        />
+    </div>
+  );
+}
+
+export default PestUsuario;
+
+
+
+{/* <ContTarjetasConsulta
           tarjEstadistica={arrTitulos.map((titulo, i) => {
             return <TarjetasEstadisticas
               titulo={titulo}
@@ -37,9 +58,4 @@ function PestUsuario() {
             />
           })}
           tarjUser = {<TarjetaUser/>}
-        />
-    </div>
-  );
-}
-
-export default PestUsuario;
+        /> */}

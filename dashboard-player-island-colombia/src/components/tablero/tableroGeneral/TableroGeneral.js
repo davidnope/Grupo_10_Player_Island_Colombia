@@ -47,9 +47,9 @@ function TableroGeneral() {
       let nintendo = result[1].filter(data => data.company == 'nintendo')
       
     
-      let comprador = result[0].data.filter(data => data.type_user == 'comprador')
+      let comprador = result[0].data.filter(data => data.type_user == 'Comprador')
       let vendedor = result[0].data.filter(data => data.type_user == 'vendedor' || data.type_user == 'Vendedor')
-      console.log(result[0].data);
+     
       setPorcentajes([[porcentaje(playstation.length,result[1].length),porcentaje(xbox.length,result[1].length),porcentaje(nintendo.length,result[1].length)],[porcentaje(vendedor.length,result[0].data.length),porcentaje(comprador.length,result[0].data.length)]])
     
     

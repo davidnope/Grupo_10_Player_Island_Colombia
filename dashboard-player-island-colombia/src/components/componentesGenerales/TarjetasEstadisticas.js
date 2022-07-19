@@ -2,8 +2,9 @@ import React from "react";
 import './cssGenerales/tarjetasEstadisticas.css';
 import Barra from './Barra';
 
-
 let color = ['#EFEF1B', '#EF9A1B', '#c1ff46', '#E90257', '#3FEF1B'];
+
+
 function TarjetasEstadisticas(props) {
     
     return (
@@ -16,11 +17,15 @@ function TarjetasEstadisticas(props) {
                 <div className="contenedorBarras">
                     {
                        props.datos.map((result,i) =>{
-                        return <Barra
+                        return (
+                        <Barra
                         colores = {color[i]}
-                        valor = {props.valor[i]} 
+                        valor = {props.valor[i]}
                         key = {i}
-                         />
+                         />     
+                        )
+                        
+                        
                        } 
                        )
                     }

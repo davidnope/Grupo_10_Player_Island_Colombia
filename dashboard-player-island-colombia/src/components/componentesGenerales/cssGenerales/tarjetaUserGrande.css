@@ -7,11 +7,19 @@
 .tarjetaUserGrande{
     display: flex;
     flex-flow: column nowrap;
-    background-color: #EBEBEB;
+    background-color: var(--morado-claro);
     width: 100%;
     height: 95%;
     border-radius: 52px;
     padding: 20px 30px;
     justify-content: space-evenly;
-    color: black;
+    color: var(--blanco);
+    box-shadow: 3px 2px 7px rgba(0, 0, 0, 0.464);
+}
+.tarjetaUserGrande b{
+    color: var(--naranja);
+}
+.imgUserTarjet{
+    background-position: center;
+    background-size: contain;
 }

@@ -2,9 +2,19 @@
     box-sizing: border-box;
 }
 
+:root {
+    --morado-oscuro: #150722;
+    --morado-intermedio: #230B39;
+    --morado-claro: #352347;
+    --naranja: #FCA311;
+    --gris: #D6D6D6;
+    --blanco: #FFFFFF;
+}
+
 .container-app{
     display: flex;
     flex-flow: row nowrap;
-    width: 100vw;
+    width: 84vw;
     height: 100vh;
+    background: url(../../public/img/Fondo.jpg);
 }

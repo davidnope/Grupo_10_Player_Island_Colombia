@@ -13,10 +13,10 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: space-evenly;
-    color: black;
+    color: var(--naranja);
 }
 .imgUserTarjet{
-    background-color: aqua;
+    background-color: white;
     width: 10vw;
     height: 10vw;
     border-radius: 50%;
@@ -26,10 +26,12 @@
     flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
+    color: var(--blanco)
 }
+
 .textUserType h4{
-    margin: 0;
-    margin-bottom: 10px;
+    color: var(--naranja);
+    margin: 10px 0; 
 }
 
 .infoUser{

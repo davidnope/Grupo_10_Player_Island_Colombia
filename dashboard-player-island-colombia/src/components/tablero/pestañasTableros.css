@@ -2,10 +2,14 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    background-color: rgb(182, 182, 182);
-    width: 100%;
+    width: 84vw;
     height: 85vh;
+    background-color: var(--gris);
 }
+.info-tablero h2{
+    color: var(--naranja);
+}
+
 .info-tablero-row{
     display: flex;
     flex-flow: row wrap;

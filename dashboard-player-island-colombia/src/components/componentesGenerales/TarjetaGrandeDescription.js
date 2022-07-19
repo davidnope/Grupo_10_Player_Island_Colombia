@@ -1,23 +1,32 @@
 import React from "react";
 import './cssGenerales/tarjetaUserGrande.css';
+const imagenUsuario = require.context('../../img/productos', true);
 
 
 let color = ['#EFEF1B', '#EF9A1B', '#B302E9', '#E90257', '#3FEF1B'];
-function TarjetaUserGrande() {
+const TarjetaUserGrande = (props) => {
+
+    let variable = `./${props.datosDescription.imagen}`
+    let estilo = props.datosDescription?.imagen ? {background: `url(${imagenUsuario(variable)})` } : null
+    
     return (
         <div className="contenedorTarjetaUserGrande">
             <div className="tarjetaUserGrande">
                 <div className="contenedorImg">
-                    <div className="imgUserTarjet"></div>
+                    {
+                        
+                        estilo? <div className="imgUserTarjet" style= {estilo} ></div> : <div className="imgUserTarjet"  ></div>
+                     
+                    }
                     <div className="textUserType">
-                        <h4>Tipo de usuario:</h4>
-                        <p>Vendedor</p>
+                    {props.datosDescription?.producto}
                     </div>
                 </div>
-                <p><b>Nombre:</b> David Ricardo Nope A</p>
-                <p><b>Correo:</b> dnope745@gmail.com</p>
-                <p><b>Celular:</b> 314 25895644</p>
-                <p><b>Cantidad de prodcutos:</b> 314</p>
+                
+                <p><font style= {{color: 'var(--naranja)',fontWeight: 'bold'}}>{props.titulos.uno}</font> {props.datosDescription?.datosUser}</p>
+                <p><font style= {{color: 'var(--naranja)',fontWeight: 'bold'}}>{props.titulos.dos}</font>  {props.datosDescription?.company}</p>
+                <p><font style= {{color: 'var(--naranja)',fontWeight: 'bold'}}>{props.titulos.tres}</font> {props.datosDescription?.precio}</p>
+                <p><font style= {{color: 'var(--naranja)',fontWeight: 'bold'}}>{props.titulos.cuatro}</font> {props.datosDescription?.stock}</p>
             </div>
         </div>
     );

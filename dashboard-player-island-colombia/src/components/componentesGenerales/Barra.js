@@ -6,7 +6,7 @@ function Barra(props) {
     
     let estilo= {
        backgroundColor: props.colores,
-       width : `${props.valor*6}%`
+       width : `${props.valor*2}%`
        
     }
     return (

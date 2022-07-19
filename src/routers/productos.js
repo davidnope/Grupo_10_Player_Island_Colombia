@@ -10,7 +10,10 @@ const validacionProductos = require(path.join(__dirname, '../middlewares/mdValid
 
 const storage = multer.diskStorage({
     destination: (req,file,cb)=>{
-        cb(null, path.join(__dirname, '../../public/img/productos'))
+        let carpetasProductos = ['../../public/img/productos', '../../dashboard-player-island-colombia/src/img/productos'];
+        for (let i = 0; i < carpetasProductos.length; i++) {
+            cb(null, path.join(__dirname, carpetasProductos[i]));
+        }
     },
     filename: (req,file,cb)=>{
         

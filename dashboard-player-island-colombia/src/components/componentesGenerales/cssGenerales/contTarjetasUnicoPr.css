@@ -1,0 +1,54 @@
+.contTarjetasUnicoPr{
+    display: flex;
+    flex-grow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    margin-top: 50px;
+    flex-grow: 0.8;
+}
+.contImgProductoGrande{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 38%;
+    height: 100%;
+}
+.contImgProductoGrande h2{
+    color: var(--morado-claro);
+    margin: 0;
+    margin-bottom: 25px;
+}
+.ImgProductoGrande{
+    width: 25vw;
+    height: 25vw;
+    border-radius: 40px;
+    background-size: cover;
+    background-position: center;
+}
+
+.contInfoProductoUnico{
+    box-sizing: border-box;
+    background-color: var(--morado-claro);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    width: 60%;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.contTexts{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    color: red;
+    padding: 20px;
+}
+.contTexts b{
+    color: var(--naranja);
+    
+}
+.contTexts p{
+    color: white;
+    word-wrap: break-word;
+}

@@ -19,5 +19,5 @@
 
 .opcion-barra-lateral:hover{
     color: black;
-    background-color: wheat;
+    background-color: var(--gris);
 }

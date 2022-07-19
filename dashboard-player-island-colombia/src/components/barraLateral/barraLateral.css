@@ -1,7 +1,7 @@
 .barraLateral{
     display: flex;
     flex-flow: column nowrap;
-    background-color: black;
+    background-color: var(--morado-intermedio);
     width: 15vw;
 }
 
@@ -11,7 +11,7 @@
     align-items: center;
     width: 15vw;
     height: 15vw;
-    background-color: grey;
+    background-color: var(--morado-claro);
     justify-content: center;
 }
 .img-user{
@@ -37,5 +37,5 @@
 
 .links:hover, .link-a:hover{
     color: black;
-    background-color: wheat;
+    background-color: var(--gris);
 }
