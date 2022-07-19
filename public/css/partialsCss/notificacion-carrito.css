@@ -107,6 +107,9 @@
 .mensajesNone{
     display:none
 }
+.mensajeNone h4{
+display: none;
+}
 .mensajeShow h4{
     margin: 0;
 }

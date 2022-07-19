@@ -50,8 +50,12 @@ window.onload = () => {
 
 
 
-    let array = location.pathname.split('/')
-    let id = array[3]
+    let query = new URLSearchParams(location.search);
+    let id
+    if (query.has('p')) {
+         id =  query.get('p')
+    }
+    
     let arrayimagenes = []
 
     fetch(`http://localhost:3030/api/productos/searchOne/${id}`)
@@ -59,6 +63,7 @@ window.onload = () => {
         .then(dato => {
             let ids = []
             let idsBorrados = []
+            console.log(dato)
             for (let i = 0; i < dato.imgProducts.length; i++) {
                 
                 if (!(dato.imgProducts[i].deleted)) {

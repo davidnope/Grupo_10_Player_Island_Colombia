@@ -39,7 +39,11 @@
                                 <%products.forEach((products)=>{%>
                                     <div class="usuario">
                                         <div class="contenedor-img">
+                                            <%if(products.img_principal){%>
                                             <img src="/img/productos/<%= products.img_principal %>" alt="">
+                                            <%}else{%>
+                                                <img src="/img/productos/default.png" alt="">
+                                            <%}%>
                                         </div>
                                         <div class="informacion-usuario">
                                             <h3>

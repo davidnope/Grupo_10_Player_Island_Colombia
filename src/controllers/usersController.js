@@ -160,12 +160,12 @@ const controller = {
                 ruta: "/user/edit/",
                 img: "users/default.png"
             },
-            {
-                opcion: 'Seguridad',
-                info: 'Cambiar contraseña',
-                ruta: "/",
-                img: "seguridad.png"
-            },
+            // {
+            //     opcion: 'Seguridad',
+            //     info: 'Cambiar contraseña',
+            //     ruta: "/",
+            //     img: "seguridad.png"
+            // },
             {
                 opcion: 'Productos',
                 info: 'Revisa, edita y agrega tus productos',
@@ -206,7 +206,6 @@ const controller = {
         // res.render(path.join(__dirname, '../views/edit-user.ejs'), { userSelect })
     },
     editSave: (req, res) => {
-        console.log('este es el controller', req.body);
         usuarios.update({
             first_name: req.body.nombre,
             last_name: req.body.apellido,

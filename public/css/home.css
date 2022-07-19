@@ -120,12 +120,28 @@ main{
 .item-img-seccion div {
   height: 100%;
 }
+.container-img-nintedo{
+  width: 100%;
+  height: none;
+}
 
 .item-img-seccion img {
   display: block;
   height: 100%;
 }
 
+.item-img-seccion {
+  display: block;
+  height: 100%;
+}
+
+.img-nintendo{
+  background: url(../img/ImgHome/Nintendo-Switch.png);
+  background-size: cover;
+  background-position: center;
+  width: 240px;
+  height: 100%;
+}
 /* Texto consolaPorSeccion */
 
 .item-text-seccion {
@@ -209,7 +225,7 @@ main{
   position: relative;
   margin-bottom: 140px;
   margin-top: 120px;
-  background-image: url('/img/Img home/group-of-teenage-friends-playing-video-games-together-at-home.jpg');
+  background-image: url('/img/ImgHome/group-of-teenage-friends-playing-video-games-together-at-home.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -230,11 +246,13 @@ main{
   width: 80%;
   top: 30px;
   color: var(--blanco);
+  text-shadow: 1px -1px 2px black;
 }
 
 
 
 @media (min-width:768px) {
+
   #imgPrincipal img {
     display: block;
 
@@ -260,6 +278,11 @@ main{
 
   .item-img-final {
     max-height: 600px;
+  }
+
+  .img-nintendo{
+    width: 458px;
+    max-height: 250px;
   }
 }
 
@@ -306,7 +329,6 @@ main{
   .item-img-seccion div {
     position: absolute;
     right: 40px;
-    height: 100%;
   }
 
 
@@ -354,6 +376,12 @@ main{
     height: 100%;
     max-height: 700px;
   }
+
+  .img-nintendo{
+    width: 460px;
+    max-height: 360px;
+    top: 128px
+  }
 }
 
 @media(min-width:1920px) {
@@ -367,5 +395,8 @@ main{
 
   #imgFinal{
     max-height: 780px;
+  }
+  .img-nintendo{
+    width: 650px;
   }
 }
