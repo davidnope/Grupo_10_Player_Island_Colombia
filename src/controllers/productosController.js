@@ -39,15 +39,11 @@ const formValidatorEdicion = (req, res, id) => {
         result.valid = false;
         productos.findByPk(req.query.p, { include: [{ association: 'imgProducts' }] })
             .then(producto => {
-                let colores = []
-                for (let i = 0; i < producto.colors.length; i++) {
-                    colores.push(producto.colors[i].dataValues.color)
-
-                }
+                let colores = producto.colores ? producto.colores.split(',') : [];
                 let descuento = producto.price * (producto.discount / 100)
                 let precioReal = producto.price - descuento
                 let tipo = req.session.usuarioLogueado ? req.session.usuarioLogueado.type_user : null;
-                let idUser = req.query.u
+                let idUser = req.query.u 
 
                 /* res.json(producto) */
                 res.render(path.resolve(__dirname, '../views/editar-producto.ejs'), { producto, toThousand, precioReal, tipo, errores: errorsValidation.mapped(), old: req.body, idUser, colores })
@@ -299,7 +295,7 @@ const controller = {
                     //creamos promesa donde se guarda uno por uno el filename de cada imagen
                     let promesa = imgProductos.create({
                         name: req.files[i].filename,
-                        product_id: req.query.u,
+                        product_id: req.query.p,
                         deleted: 0
                     })
 

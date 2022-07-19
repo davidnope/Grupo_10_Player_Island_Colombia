@@ -85,7 +85,7 @@ window.onload = () => {
                  </div>
             </div>
             `
-            
+            debugger
             imgEmergentes.innerHTML += img
             
         }

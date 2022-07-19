@@ -1,0 +1,19 @@
+.container-not-found{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: red;
+}
+
+.container-info-error{
+    background-color: white;
+    width: 60%;
+}
+.imgError{
+    background: url(../img/error.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+

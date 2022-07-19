@@ -14,9 +14,8 @@ app.use((req, res, next) => {
     next();
 });
 
-
-
 const port = process.env.PORT || 3030;
+
 
 app.listen(port, () => console.log(`|| SERVIDOR FUNCIONANDO PUERTO: ${port} ||`))
 
@@ -68,4 +67,8 @@ app.use('/', homeRouter)
 app.use('/carrito-compras', carritoRouter)
 app.use('/user' , registerRouter)
 app.use('/productos' , productosRouter)
+
+app.use((req, res, next)=>{
+    res.status(404).render(path.join(__dirname, './views/not-found.ejs'));
+})
 

@@ -125,6 +125,7 @@ display: none;
 }
 #descripcion-producto p{
     color: white;
+    word-wrap: break-word;
 }
 /* compra producto */
 

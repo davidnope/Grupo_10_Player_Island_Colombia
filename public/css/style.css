@@ -67,28 +67,40 @@ footer{
     flex-direction: column;
     background-color: var(--morado-intermedio);
     box-shadow: 0 10px 20px var(--gris);
+    align-items: center;
 }
 #footer{
+    width: 90%;
     display: flex;
+    align-items: center;
     flex-direction: column;
 
 }
 footer section{
     width: 80%;
-    margin: auto;
+    height: 90%;
     display: flex;
     flex-direction: column;
     color: white;
-    
+    justify-content: space-between;
 }
 footer p{
     margin-top: 0;
 }
 footer ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     list-style: none;
     margin-top: 5px;
 }
-
+.divFooter ul li{
+    padding: 10px;
+}
+footer ul li a:hover{
+    color: var(--naranja);
+}
 
 footer a{
     width: 200px;
@@ -111,6 +123,9 @@ footer form textarea{
     align-items: center;
     padding: 8px;
     resize: none;
+}
+footer a.linksProductos{
+   padding: 20px;
 }
 
 .contendor-logo{
@@ -418,12 +433,15 @@ footer form textarea{
     #footer{
     display: flex;
     flex-direction: row;
+    align-items: normal;
+    justify-content: space-between;
     width: 90%;
     margin: auto;
     }
     
     #divFooter{
         width: 30%;
+
     }
     .divFooter{
         width: 30%;
